@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revly - Review collection on autopilot. Monitor and respond, effortlessly.</title>
+  <meta name="description" content="Revly helps SaaS companies collect more reviews with one smart link, AI enhancement, and automatic routing. Monitor reviews across all platforms in one dashboard.">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://revly.io">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Revly - Review collection on autopilot">
+  <meta property="og:description" content="One smart link. AI-enhanced reviews. Complete visibility across every platform.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://revly.io">
+  <meta property="og:site_name" content="Revly">
+  <meta property="og:image" content="https://revly.io/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Revly - Review collection on autopilot">
+  <meta name="twitter:description" content="One smart link. AI-enhanced reviews. Complete visibility across every platform.">
+  <meta name="twitter:image" content="https://revly.io/og-image.png">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              200: '#c7d2fe',
+              300: '#a5b4fc',
+              400: '#818cf8',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              800: '#3730a3',
+              900: '#312e81',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    html { scroll-behavior: smooth; }
+    .gradient-text {
+      background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-gradient {
+      background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+    }
+  </style>
+</head>
+
+<body class="font-sans text-slate-700 antialiased">
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#" class="text-2xl font-bold text-slate-900">
+        Revly
+      </a>
+      <a href="#waitlist" class="bg-primary-600 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-primary-700 transition-colors">
+        Join Waitlist
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-gradient pt-32 pb-20 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 bg-primary-100 text-primary-700 px-4 py-1.5 rounded-full text-sm font-medium mb-8">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
+        </span>
+        Coming Soon
+      </div>
+
+      <!-- Headline -->
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-6">
+        Review collection on autopilot.<br>
+        <span class="gradient-text">Monitor and respond, effortlessly.</span>
+      </h1>
+
+      <!-- Subheadline -->
+      <p class="text-xl text-slate-600 max-w-2xl mx-auto mb-10">
+        One smart link collects feedback, AI enhances it into ready-to-post reviews, and guides your customers to the right platforms. Meanwhile, track every review across every app store.
+      </p>
+
+      <!-- CTA -->
+      <a
+        href="mailto:hello@revly.io?subject=Interested%20in%20Revly&body=Hi%2C%20I'd%20like%20to%20learn%20more%20about%20Revly%20and%20get%20early%20access."
+        class="inline-block bg-primary-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary-700 transition-colors text-lg"
+      >
+        Get Early Access
+      </a>
+      <p class="text-sm text-slate-500 mt-4">Drop us a line at <a href="mailto:hello@revly.io" class="text-primary-600 hover:underline">hello@revly.io</a></p>
+    </div>
+  </section>
+
+  <!-- Platform Logos -->
+  <section class="py-12 px-6 border-b border-slate-200 bg-white">
+    <div class="max-w-5xl mx-auto">
+      <p class="text-center text-slate-500 text-sm font-medium mb-8">Works with the platforms you already use</p>
+      <div class="flex flex-wrap justify-center items-center gap-10 md:gap-14">
+        <img src="logos/shopify_full.svg" alt="Shopify" class="h-9 hover:scale-110 transition-transform duration-200">
+        <img src="logos/g2.svg" alt="G2" class="h-10 hover:scale-110 transition-transform duration-200">
+        <img src="logos/quickbooks.png" alt="QuickBooks" class="h-12 hover:scale-110 transition-transform duration-200">
+        <img src="logos/wordpress.png" alt="WordPress" class="h-10 hover:scale-110 transition-transform duration-200">
+        <img src="logos/xero.svg" alt="Xero" class="h-7 hover:scale-110 transition-transform duration-200">
+        <img src="logos/woo.svg" alt="WooCommerce" class="h-6 hover:scale-110 transition-transform duration-200">
+        <span class="text-slate-400 font-medium text-sm">+ more coming</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem Section -->
+  <section class="py-20 px-6 bg-white">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
+        Most companies are leaving reviews on the table.
+      </h2>
+      <p class="text-lg text-slate-600 leading-relaxed">
+        Your customers <em>want</em> to share feedback, but they hit friction—too many steps, unfamiliar platforms, not enough time. And even when reviews do come in, they're scattered across a dozen different sites.
+      </p>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-20 px-6 bg-slate-50">
+    <div class="max-w-6xl mx-auto">
+
+      <!-- Feature 1: Collection -->
+      <div class="grid md:grid-cols-2 gap-12 items-center mb-24">
+        <div>
+          <div class="inline-flex items-center gap-2 bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium mb-4">
+            Collect
+          </div>
+          <h3 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
+            One smart link does the heavy lifting
+          </h3>
+          <p class="text-lg text-slate-600 mb-6">
+            Share a single link with your customers. They rate your product, share a quick thought, and our AI transforms it into a polished, authentic review—ready to post.
+          </p>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-slate-700">AI enhances short feedback into full reviews</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-slate-700">Smart routing guides customers to the right platforms</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-slate-700">Negative feedback routes privately to your team</span>
+            </li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-2xl shadow-lg border border-slate-200 p-8">
+          <!-- Placeholder for screenshot/illustration -->
+          <div class="aspect-video bg-slate-100 rounded-lg flex items-center justify-center">
+            <div class="text-center">
+              <div class="text-5xl mb-3">✨</div>
+              <p class="text-slate-500 text-sm">AI-powered review collection</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 2: Monitor -->
+      <div class="grid md:grid-cols-2 gap-12 items-center mb-24">
+        <div class="order-2 md:order-1 bg-white rounded-2xl shadow-lg border border-slate-200 p-8">
+          <!-- Placeholder for screenshot/illustration -->
+          <div class="aspect-video bg-slate-100 rounded-lg flex items-center justify-center">
+            <div class="text-center">
+              <div class="text-5xl mb-3">📊</div>
+              <p class="text-slate-500 text-sm">Unified review dashboard</p>
+            </div>
+          </div>
+        </div>
+        <div class="order-1 md:order-2">
+          <div class="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium mb-4">
+            Monitor
+          </div>
+          <h3 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
+            Every review, every platform, one dashboard
+          </h3>
+          <p class="text-lg text-slate-600 mb-6">
+            Stop checking a dozen tabs. Revly automatically syncs reviews from all your app stores and keeps them organized by product.
+          </p>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-slate-700">Track rating trends and sentiment over time</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-slate-700">Get notified when new reviews come in</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-slate-700">Detect when reviews are archived or removed</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Feature 3: Respond -->
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-medium mb-4">
+            Respond
+          </div>
+          <h3 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
+            Stay on top of every conversation
+          </h3>
+          <p class="text-lg text-slate-600 mb-6">
+            Never miss a review that needs a response. Revly helps you manage replies across all platforms from one place.
+          </p>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-purple-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-slate-700">See which reviews need attention</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-purple-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-slate-700">AI-assisted reply suggestions</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-purple-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-slate-700">Track response rates and timing</span>
+            </li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-2xl shadow-lg border border-slate-200 p-8">
+          <!-- Placeholder for screenshot/illustration -->
+          <div class="aspect-video bg-slate-100 rounded-lg flex items-center justify-center">
+            <div class="text-center">
+              <div class="text-5xl mb-3">💬</div>
+              <p class="text-slate-500 text-sm">Respond from one place</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Simple for customers, effortless for you -->
+  <section class="py-20 px-6 bg-white">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
+        Simple for your customers.<br>
+        <span class="gradient-text">Effortless for your team.</span>
+      </h2>
+      <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+        Your customers get a frictionless experience. Your team gets complete visibility without the manual work. Everyone wins.
+      </p>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section id="waitlist" class="py-20 px-6 bg-primary-600">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+        Get early access
+      </h2>
+      <p class="text-primary-100 text-lg mb-8">
+        Join the waitlist and be the first to know when Revly launches.
+      </p>
+
+      <a
+        href="mailto:hello@revly.io?subject=Interested%20in%20Revly&body=Hi%2C%20I'd%20like%20to%20learn%20more%20about%20Revly%20and%20get%20early%20access."
+        class="inline-block bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold hover:bg-primary-50 transition-colors text-lg"
+      >
+        Get Early Access
+      </a>
+      <p class="text-primary-200 text-sm mt-4">Or email us directly at <a href="mailto:hello@revly.io" class="text-white hover:underline">hello@revly.io</a></p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 px-6 bg-slate-900">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="text-slate-400 text-sm">
+        &copy; 2026 Revly. All rights reserved.
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="mailto:hello@revly.io" class="text-slate-400 hover:text-white transition-colors text-sm">
+          hello@revly.io
+        </a>
+        <!-- Add social links here if needed -->
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
