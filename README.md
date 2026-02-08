@@ -1,197 +1,82 @@
-# Revly
+# Revly Marketing Website
 
-**Review collection on autopilot. Monitor and respond, effortlessly.**
+Marketing site for [Revly](https://revly.io) — the AI-powered review management platform.
 
-Most SaaS companies are leaving reviews on the table. Customers *want* to share feedback, but they hit friction—too many steps, too many platforms, not enough time.
+**Live at:** https://revly.io
 
-Revly fixes this with one smart link that handles everything. Customers share quick feedback, AI enhances it into a ready-to-post review, and we smartly guide them to post wherever it matters most. Negative feedback routes privately to your team, protecting your public ratings.
+## Pages
 
-Meanwhile, Revly monitors all your app store reviews automatically—giving you complete visibility across Shopify, G2, QuickBooks, and beyond.
-
-*Simple for your customers. Effortless for your team.*
-
----
-
-## Features
-
-### Review Monitoring (MVP - In Progress)
-- Aggregate reviews from multiple platforms into a single dashboard
-- Track rating trends and sentiment over time
-- Get notified of new reviews
-- **Review lifecycle tracking** - Detect when reviews are archived or removed
-- **Verified status tracking** - Know which reviews are from verified purchasers
-- **Engagement metrics** - Track helpful votes where available
-
-### Review Collection (Planned)
-- Smart review funnel that routes feedback appropriately
-- Positive feedback → Public review platforms
-- Negative feedback → Private support channels
-
-## Supported Platforms
-
-| Platform | Status | Method | Cost |
-|----------|--------|--------|------|
-| WordPress.org | ✅ Complete | RSS + HTML scraping | Free |
-| Shopify App Store | ✅ Complete | HTML scraping | 1 credit/page |
-| WooCommerce Marketplace | ✅ Complete | REST API | Free |
-| Xero App Store | ✅ Complete | SSR JSON extraction | Free |
-| G2 | ✅ Complete | Turbo frame endpoint | 1 credit/page |
-| QuickBooks App Store | ✅ Complete | GraphQL API | 10 credits (one-time) |
-| Capterra | ❌ Blocked | Requires premium proxy | N/A |
-
-> **Note:** Capterra is blocked by aggressive anti-bot protection. Will revisit post-MVP.
+| Page | Path | Description |
+|------|------|-------------|
+| Homepage | `/` | Hero, how it works, feature highlights, stats, CTA |
+| Features | `/features.html` | Detailed feature breakdown (Collect, Monitor, Respond, Track) |
+| Pricing | `/pricing.html` | Free early access + planned tiers with FAQ |
+| SaaS | `/use-cases/saas.html` | SaaS app store review management |
+| E-commerce | `/use-cases/ecommerce.html` | Online store review collection |
+| Agencies | `/use-cases/agencies.html` | Multi-client review management |
+| Local Business | `/use-cases/local-business.html` | Reputation management for local businesses |
+| Privacy Policy | `/privacy.html` | Privacy policy |
+| Terms of Service | `/terms.html` | Terms of service |
 
 ## Tech Stack
 
-- **Frontend:** Next.js 14 (App Router), TypeScript, Tailwind CSS, shadcn/ui
-- **Backend:** Next.js API Routes
-- **Database:** MySQL 8.0 (AWS RDS)
-- **Scraping:** ScraperAPI
-- **Auth:** AWS Cognito (planned)
-- **Hosting:** AWS Amplify
+- **HTML** — Plain static HTML, no build step
+- **Tailwind CSS** — Via CDN (`cdn.tailwindcss.com`)
+- **Inter** — Google Fonts
+- **Hosting** — GitHub Pages with custom domain (`revly.io`)
 
-## Getting Started
+## SEO
 
-### Prerequisites
+- `sitemap.xml` — All 9 pages with priorities
+- `robots.txt` — Points to sitemap
+- JSON-LD structured data (Organization, WebSite, SoftwareApplication on homepage; FAQPage on pricing)
+- Open Graph + Twitter Card meta tags on all pages
+- Canonical URLs on all pages
 
-- Node.js 18+
-- MySQL database (local or RDS)
-- ScraperAPI account (for platform scraping)
-
-### Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/revly.git
-cd revly
-
-# Install dependencies
-npm install
-
-# Copy environment template
-cp .env.example .env.local
-
-# Configure your environment variables
-# Edit .env.local with your database and API credentials
-
-# Run database migrations
-npm run db:migrate
-
-# Seed test data (optional)
-npm run db:seed
-
-# Start development server
-npm run dev
-```
-
-The app will be available at `http://localhost:3002`
-
-### Environment Variables
-
-```env
-# Database
-DATABASE_URL=mysql://user:password@host:3306/revly
-
-# Scraping
-SCRAPER_API_KEY=your_scraper_api_key
-
-# AWS (for production)
-AWS_REGION=us-east-2
-```
-
-## Project Structure
+## File Structure
 
 ```
-/revly
-├── src/
-│   ├── app/                    # Next.js App Router pages
-│   │   ├── api/                # API routes
-│   │   │   ├── channels/       # Review channel endpoints
-│   │   │   ├── reviews/        # Reviews endpoints
-│   │   │   ├── companies/      # Company endpoints
-│   │   │   └── products/       # Product endpoints
-│   │   └── (dashboard)/        # Dashboard pages
-│   ├── components/             # React components
-│   │   └── ui/                 # shadcn/ui components
-│   ├── lib/
-│   │   ├── db/                 # Database client & schema
-│   │   └── scrapers/           # Platform-specific scrapers
-│   │       ├── logger.ts       # Structured logging utility
-│   │       ├── scraper-api.ts  # ScraperAPI wrapper
-│   │       ├── wordpress.ts    # WordPress.org scraper
-│   │       ├── shopify.ts      # Shopify App Store scraper
-│   │       ├── woocommerce.ts  # WooCommerce scraper
-│   │       ├── xero.ts         # Xero App Store scraper
-│   │       ├── g2.ts           # G2 scraper
-│   │       └── quickbooks.ts   # QuickBooks scraper
-│   └── types/                  # TypeScript types
-├── scripts/                    # Database scripts
-└── public/                     # Static assets
+revly-website/
+├── index.html              # Homepage
+├── features.html           # Features page
+├── pricing.html            # Pricing page
+├── privacy.html            # Privacy policy
+├── terms.html              # Terms of service
+├── use-cases/
+│   ├── saas.html           # SaaS use case
+│   ├── ecommerce.html      # E-commerce use case
+│   ├── agencies.html       # Agencies use case
+│   └── local-business.html # Local business use case
+├── logos/                  # Platform logo assets
+├── sitemap.xml             # XML sitemap
+├── robots.txt              # Robots file
+├── CNAME                   # Custom domain config
+└── claude.md               # AI assistant context
 ```
 
-## API Endpoints
+## Design System
 
-### Channels
-
-- `GET /api/channels` - List all review channels
-- `POST /api/channels` - Create a new channel
-- `POST /api/channels/[id]/sync` - Trigger review sync
-
-### Reviews
-
-- `GET /api/reviews` - List reviews (with filters)
-- `GET /api/reviews?channelId=xxx` - Filter by channel
-- `GET /api/reviews?productId=xxx` - Filter by product
-
-### Companies & Products
-
-- `GET /api/companies` - List companies
-- `GET /api/products` - List products
+- **Primary color:** Indigo-600 (`#4f46e5`)
+- **Font:** Inter
+- **Headings:** `text-slate-900`, `font-bold`
+- **Body text:** `text-slate-600`
+- **Cards:** White bg, `border-slate-200`, `rounded-2xl`, `shadow-lg`
+- **Alt sections:** `bg-slate-50`
+- **Footer:** `bg-slate-900`
+- **Badges:** Green (Collect), Blue (Monitor), Purple (Respond), Amber (Track)
 
 ## Development
 
+No build step needed. Open any HTML file directly in a browser, or use a local server:
+
 ```bash
-# Run development server
-npm run dev
+# Python
+python3 -m http.server 8000
 
-# Run database migrations
-npm run db:migrate
-
-# Seed test data
-npm run db:seed
-
-# Build for production
-npm run build
+# Node
+npx serve .
 ```
 
-## Review Data Model
+## Deployment
 
-Each scraped review includes:
-
-| Field | Description |
-|-------|-------------|
-| `external_id` | Platform-specific unique ID |
-| `rating` | 1-5 star rating |
-| `review_text` | Full review content |
-| `reviewer_name` | Author name |
-| `review_date` | When the review was posted |
-| `status` | `active`, `archived`, or `removed` |
-| `last_seen_at` | Last time review was found in a scrape |
-| `is_verified` | Verified purchaser/user flag |
-| `helpful_count` | Upvotes/helpful votes |
-| `reply_text` | Vendor's response (if any) |
-| `metadata` | Platform-specific extra data (JSON) |
-
-The `status` and `last_seen_at` fields enable detecting when reviews are removed or archived by platforms.
-
-## Architecture Decisions
-
-- **Multi-tenant from day 1** - Avoid architectural rework later
-- **Raw SQL over ORM** - Direct control, no abstraction overhead
-- **ScraperAPI for scraping** - Best balance of features/cost for MVP
-- **Server-side scraping** - More reliable than client-side approaches
-- **Structured scraper logging** - Consistent, timestamped logs across all scrapers
-
-## License
-
-Private - All rights reserved
+Push to `main` → GitHub Pages auto-deploys to `revly.io`.
