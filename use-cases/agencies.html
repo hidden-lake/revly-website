@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revly for Agencies - Manage Client Reviews at Scale</title>
+  <meta name="description" content="One dashboard to monitor and collect reviews for all your agency clients across every platform.">
+  <link rel="canonical" href="https://revly.io/use-cases/agencies.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta property="og:title" content="Revly for Agencies - Manage Client Reviews at Scale">
+  <meta property="og:description" content="One dashboard to monitor and collect reviews for all your agency clients across every platform.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://revly.io/use-cases/agencies.html">
+  <meta property="og:site_name" content="Revly">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { 50:'#eef2ff',100:'#e0e7ff',200:'#c7d2fe',300:'#a5b4fc',400:'#818cf8',500:'#6366f1',600:'#4f46e5',700:'#4338ca',800:'#3730a3',900:'#312e81' }
+          },
+          fontFamily: { sans: ['Inter','system-ui','sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    html{scroll-behavior:smooth}
+    .gradient-text{background:linear-gradient(135deg,#4f46e5 0%,#7c3aed 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero-gradient{background:linear-gradient(180deg,#f8fafc 0%,#eef2ff 100%)}
+  </style>
+</head>
+<body class="font-sans text-slate-900 antialiased">
+
+  <!-- Nav -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="text-2xl font-bold text-slate-900">Revly</a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/features.html" class="text-slate-600 hover:text-slate-900 font-medium transition-colors">Features</a>
+        <a href="/pricing.html" class="text-slate-600 hover:text-slate-900 font-medium transition-colors">Pricing</a>
+        <div class="relative group">
+          <button class="text-slate-600 hover:text-slate-900 font-medium transition-colors flex items-center gap-1">Use Cases <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+          <div class="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-200 absolute top-full left-0 mt-2 bg-white rounded-lg shadow-lg border border-slate-200 py-2 w-48">
+            <a href="/use-cases/saas.html" class="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-slate-900">SaaS App Stores</a>
+            <a href="/use-cases/ecommerce.html" class="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-slate-900">E-commerce</a>
+            <a href="/use-cases/agencies.html" class="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-slate-900">Agencies</a>
+            <a href="/use-cases/local-business.html" class="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-slate-900">Local Business</a>
+          </div>
+        </div>
+      </div>
+      <div class="hidden md:flex items-center gap-4">
+        <a href="https://app.revly.io/login" class="text-slate-600 hover:text-slate-900 font-medium transition-colors">Sign in</a>
+        <a href="https://app.revly.io/signup" class="bg-primary-600 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-primary-700 transition-colors">Get started</a>
+      </div>
+      <button id="mobile-menu-btn" class="md:hidden p-2 -mr-2"><svg class="w-6 h-6 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white px-6 py-4">
+      <a href="/features.html" class="block py-2 text-slate-600 font-medium">Features</a>
+      <a href="/pricing.html" class="block py-2 text-slate-600 font-medium">Pricing</a>
+      <div class="py-2 text-slate-400 text-xs font-semibold uppercase tracking-wider">Use Cases</div>
+      <a href="/use-cases/saas.html" class="block py-2 pl-3 text-slate-600">SaaS App Stores</a>
+      <a href="/use-cases/ecommerce.html" class="block py-2 pl-3 text-slate-600">E-commerce</a>
+      <a href="/use-cases/agencies.html" class="block py-2 pl-3 text-slate-600">Agencies</a>
+      <a href="/use-cases/local-business.html" class="block py-2 pl-3 text-slate-600">Local Business</a>
+      <div class="border-t border-slate-200 mt-3 pt-3 flex items-center gap-4">
+        <a href="https://app.revly.io/login" class="text-slate-600 font-medium">Sign in</a>
+        <a href="https://app.revly.io/signup" class="bg-primary-600 text-white px-4 py-2 rounded-lg font-medium">Get started</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero-gradient pt-32 pb-16 px-6 text-center">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Manage reviews for every client, <span class="gradient-text">from one place</span></h1>
+      <p class="text-xl text-slate-600 max-w-2xl mx-auto mb-8">One dashboard to monitor, collect, and report on reviews for all your clients across every platform.</p>
+      <a href="https://app.revly.io/signup" class="inline-block bg-primary-600 text-white px-8 py-3.5 rounded-lg font-medium hover:bg-primary-700 transition-colors text-lg">Get started free</a>
+    </div>
+  </section>
+
+  <!-- Problem -->
+  <section class="py-20 px-6 bg-white">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-8">Client review management doesn't scale</h2>
+      <div class="space-y-4 text-lg text-slate-600 leading-relaxed">
+        <p>Agencies juggle dozens of clients across hundreds of review platforms. Manually checking each client's reviews is a time sink. When a bad review drops, you find out days later.</p>
+        <p>And when it's time to report results, you're taking screenshots and building spreadsheets. There's no single source of truth for how your clients' reputations are performing.</p>
+        <p>Revly gives you a centralized dashboard where every client's reviews are organized, monitored, and actionable.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="py-20 px-6 bg-slate-50">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-12 text-center">How Revly helps</h2>
+      <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <!-- Card 1 -->
+        <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
+          <div class="w-10 h-10 rounded-lg bg-primary-50 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-900 mb-2">Multi-Client Dashboard</h3>
+          <p class="text-slate-600">Every client's reviews in one place. Switch between clients instantly and see aggregate performance at a glance.</p>
+        </div>
+        <!-- Card 2 -->
+        <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
+          <div class="w-10 h-10 rounded-lg bg-primary-50 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-900 mb-2">Automated Collection</h3>
+          <p class="text-slate-600">Set up review collection links for each client. AI handles the heavy lifting—turning customer feedback into polished reviews automatically.</p>
+        </div>
+        <!-- Card 3 -->
+        <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm md:col-span-2 md:max-w-md md:mx-auto">
+          <div class="w-10 h-10 rounded-lg bg-primary-50 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-900 mb-2">Product-Centric Reporting</h3>
+          <p class="text-slate-600">Reviews organized by product and platform. Generate insights your clients actually care about, without the manual work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Platform Logos -->
+  <section class="py-12 px-6 bg-white border-y border-slate-200">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-center text-sm font-medium text-slate-500 mb-8 uppercase tracking-wider">Works with the platforms your clients rely on</p>
+      <div class="flex flex-wrap items-center justify-center gap-10 md:gap-16">
+        <img src="/logos/shopify_full.svg" alt="Shopify" class="h-8 opacity-70 hover:opacity-100 transition-opacity">
+        <img src="/logos/g2.svg" alt="G2" class="h-8 opacity-70 hover:opacity-100 transition-opacity">
+        <img src="/logos/quickbooks.png" alt="QuickBooks" class="h-8 opacity-70 hover:opacity-100 transition-opacity">
+        <img src="/logos/wordpress.png" alt="WordPress" class="h-8 opacity-70 hover:opacity-100 transition-opacity">
+        <img src="/logos/xero.svg" alt="Xero" class="h-8 opacity-70 hover:opacity-100 transition-opacity">
+        <img src="/logos/woo.svg" alt="WooCommerce" class="h-8 opacity-70 hover:opacity-100 transition-opacity">
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="py-20 px-6 bg-slate-50">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Ready to get started?</h2>
+      <p class="text-lg text-slate-600 mb-8">Start managing reviews for all your clients from one powerful dashboard.</p>
+      <a href="https://app.revly.io/signup" class="inline-block bg-primary-600 text-white px-8 py-3.5 rounded-lg font-medium hover:bg-primary-700 transition-colors text-lg">Get started free</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-16 px-6 bg-slate-900">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+        <div><h4 class="text-white font-semibold mb-4">Product</h4><a href="/features.html" class="block text-slate-400 hover:text-white text-sm mb-2 transition-colors">Features</a><a href="/pricing.html" class="block text-slate-400 hover:text-white text-sm mb-2 transition-colors">Pricing</a></div>
+        <div><h4 class="text-white font-semibold mb-4">Use Cases</h4><a href="/use-cases/saas.html" class="block text-slate-400 hover:text-white text-sm mb-2 transition-colors">SaaS App Stores</a><a href="/use-cases/ecommerce.html" class="block text-slate-400 hover:text-white text-sm mb-2 transition-colors">E-commerce</a><a href="/use-cases/agencies.html" class="block text-slate-400 hover:text-white text-sm mb-2 transition-colors">Agencies</a><a href="/use-cases/local-business.html" class="block text-slate-400 hover:text-white text-sm mb-2 transition-colors">Local Business</a></div>
+        <div><h4 class="text-white font-semibold mb-4">Platforms</h4><span class="block text-slate-400 text-sm mb-2">Shopify App Store</span><span class="block text-slate-400 text-sm mb-2">G2</span><span class="block text-slate-400 text-sm mb-2">QuickBooks</span><span class="block text-slate-400 text-sm mb-2">WordPress.org</span><span class="block text-slate-400 text-sm mb-2">Xero</span><span class="block text-slate-400 text-sm mb-2">WooCommerce</span></div>
+        <div><h4 class="text-white font-semibold mb-4">Company</h4><a href="mailto:hello@revly.io" class="block text-slate-400 hover:text-white text-sm mb-2 transition-colors">Contact</a></div>
+      </div>
+      <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="text-slate-500 text-sm">&copy; 2026 Revly. All rights reserved.</div>
+        <a href="mailto:hello@revly.io" class="text-slate-500 hover:text-white transition-colors text-sm">hello@revly.io</a>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById('mobile-menu-btn').addEventListener('click',function(){document.getElementById('mobile-menu').classList.toggle('hidden')});</script>
+
+</body>
+</html>

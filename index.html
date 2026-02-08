@@ -79,38 +79,70 @@
 
 <body class="font-sans text-slate-700 antialiased">
 
-  <!-- Navigation -->
+  <!-- ===== NAVIGATION START ===== -->
   <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="#" class="text-2xl font-bold text-slate-900">
-        Revly
-      </a>
-      <div class="flex items-center gap-4">
-        <a href="https://app.revly.io/login" class="text-slate-600 hover:text-slate-900 font-medium transition-colors">
-          Sign in
-        </a>
-        <a href="https://app.revly.io/signup" class="bg-primary-600 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-primary-700 transition-colors">
-          Get started
-        </a>
+      <a href="/" class="text-2xl font-bold text-slate-900">Revly</a>
+
+      <!-- Desktop nav -->
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/features.html" class="text-slate-600 hover:text-slate-900 font-medium transition-colors">Features</a>
+        <a href="/pricing.html" class="text-slate-600 hover:text-slate-900 font-medium transition-colors">Pricing</a>
+        <div class="relative group">
+          <button class="text-slate-600 hover:text-slate-900 font-medium transition-colors flex items-center gap-1">
+            Use Cases
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-200 absolute top-full left-0 mt-2 bg-white rounded-lg shadow-lg border border-slate-200 py-2 w-48">
+            <a href="/use-cases/saas.html" class="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-slate-900">SaaS App Stores</a>
+            <a href="/use-cases/ecommerce.html" class="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-slate-900">E-commerce</a>
+            <a href="/use-cases/agencies.html" class="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-slate-900">Agencies</a>
+            <a href="/use-cases/local-business.html" class="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-slate-900">Local Business</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Auth buttons (desktop) -->
+      <div class="hidden md:flex items-center gap-4">
+        <a href="https://app.revly.io/login" class="text-slate-600 hover:text-slate-900 font-medium transition-colors">Sign in</a>
+        <a href="https://app.revly.io/signup" class="bg-primary-600 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-primary-700 transition-colors">Get started</a>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button id="mobile-menu-btn" class="md:hidden p-2 -mr-2">
+        <svg class="w-6 h-6 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white px-6 py-4">
+      <a href="/features.html" class="block py-2 text-slate-600 font-medium">Features</a>
+      <a href="/pricing.html" class="block py-2 text-slate-600 font-medium">Pricing</a>
+      <div class="py-2 text-slate-400 text-xs font-semibold uppercase tracking-wider">Use Cases</div>
+      <a href="/use-cases/saas.html" class="block py-2 pl-3 text-slate-600">SaaS App Stores</a>
+      <a href="/use-cases/ecommerce.html" class="block py-2 pl-3 text-slate-600">E-commerce</a>
+      <a href="/use-cases/agencies.html" class="block py-2 pl-3 text-slate-600">Agencies</a>
+      <a href="/use-cases/local-business.html" class="block py-2 pl-3 text-slate-600">Local Business</a>
+      <div class="border-t border-slate-200 mt-3 pt-3 flex items-center gap-4">
+        <a href="https://app.revly.io/login" class="text-slate-600 font-medium">Sign in</a>
+        <a href="https://app.revly.io/signup" class="bg-primary-600 text-white px-4 py-2 rounded-lg font-medium">Get started</a>
       </div>
     </div>
   </nav>
+  <!-- ===== NAVIGATION END ===== -->
 
   <!-- Hero Section -->
   <section class="hero-gradient pt-32 pb-20 px-6">
     <div class="max-w-4xl mx-auto text-center">
-      <!-- Headline -->
       <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-6">
         Review collection on autopilot.<br>
         <span class="gradient-text">Monitor and respond, effortlessly.</span>
       </h1>
 
-      <!-- Subheadline -->
       <p class="text-xl text-slate-600 max-w-2xl mx-auto mb-10">
         One smart link collects feedback, AI enhances it into ready-to-post reviews, and guides your customers to the right platforms. Meanwhile, track every review across every app store.
       </p>
 
-      <!-- CTA -->
       <a
         href="https://app.revly.io/signup"
         class="inline-block bg-primary-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary-700 transition-colors text-lg"
@@ -143,13 +175,48 @@
         Most companies are leaving reviews on the table.
       </h2>
       <p class="text-lg text-slate-600 leading-relaxed">
-        Your customers <em>want</em> to share feedback, but they hit friction—too many steps, unfamiliar platforms, not enough time. And even when reviews do come in, they're scattered across a dozen different sites.
+        Your customers <em>want</em> to share feedback, but they hit friction&mdash;too many steps, unfamiliar platforms, not enough time. And even when reviews do come in, they're scattered across a dozen different sites.
       </p>
     </div>
   </section>
 
+  <!-- How It Works -->
+  <section class="py-20 px-6 bg-slate-50 border-y border-slate-200">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 text-center mb-4">
+        How it works
+      </h2>
+      <p class="text-lg text-slate-600 text-center max-w-2xl mx-auto mb-16">
+        Up and running in minutes. No complex setup, no code required.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-8 md:gap-12">
+        <!-- Step 1 -->
+        <div class="text-center">
+          <div class="w-14 h-14 bg-primary-100 text-primary-600 rounded-2xl flex items-center justify-center text-xl font-bold mx-auto mb-5">1</div>
+          <h3 class="text-lg font-semibold text-slate-900 mb-2">Connect your platforms</h3>
+          <p class="text-slate-600">Add your app store URLs and we start syncing reviews instantly. Shopify, G2, QuickBooks, WordPress, Xero, WooCommerce, and more.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="text-center">
+          <div class="w-14 h-14 bg-primary-100 text-primary-600 rounded-2xl flex items-center justify-center text-xl font-bold mx-auto mb-5">2</div>
+          <h3 class="text-lg font-semibold text-slate-900 mb-2">Share your review link</h3>
+          <p class="text-slate-600">One smart link per product. Customers rate, write a quick thought, and post a polished review in under 60 seconds.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="text-center">
+          <div class="w-14 h-14 bg-primary-100 text-primary-600 rounded-2xl flex items-center justify-center text-xl font-bold mx-auto mb-5">3</div>
+          <h3 class="text-lg font-semibold text-slate-900 mb-2">Watch reviews grow</h3>
+          <p class="text-slate-600">AI enhances feedback into authentic reviews, routes them to the right platforms, and tracks everything in one dashboard.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Features Section -->
-  <section class="py-20 px-6 bg-slate-50">
+  <section class="py-20 px-6 bg-white">
     <div class="max-w-6xl mx-auto">
 
       <!-- Feature 1: Collection -->
@@ -162,7 +229,7 @@
             One smart link does the heavy lifting
           </h3>
           <p class="text-lg text-slate-600 mb-6">
-            Share a single link with your customers. They rate your product, share a quick thought, and our AI transforms it into a polished, authentic review—ready to post.
+            Share a single link with your customers. They rate your product, share a quick thought, and our AI transforms it into a polished, authentic review&mdash;ready to post.
           </p>
           <ul class="space-y-3">
             <li class="flex items-start gap-3">
@@ -183,13 +250,18 @@
               </svg>
               <span class="text-slate-700">Negative feedback routes privately to your team</span>
             </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-slate-700">Incentivize with gift cards, charity donations, or plant a tree</span>
+            </li>
           </ul>
         </div>
         <div class="bg-white rounded-2xl shadow-lg border border-slate-200 p-8">
-          <!-- Placeholder for screenshot/illustration -->
           <div class="aspect-video bg-slate-100 rounded-lg flex items-center justify-center">
             <div class="text-center">
-              <div class="text-5xl mb-3">✨</div>
+              <div class="text-5xl mb-3">&#10024;</div>
               <p class="text-slate-500 text-sm">AI-powered review collection</p>
             </div>
           </div>
@@ -199,10 +271,9 @@
       <!-- Feature 2: Monitor -->
       <div class="grid md:grid-cols-2 gap-12 items-center mb-24">
         <div class="order-2 md:order-1 bg-white rounded-2xl shadow-lg border border-slate-200 p-8">
-          <!-- Placeholder for screenshot/illustration -->
           <div class="aspect-video bg-slate-100 rounded-lg flex items-center justify-center">
             <div class="text-center">
-              <div class="text-5xl mb-3">📊</div>
+              <div class="text-5xl mb-3">&#128202;</div>
               <p class="text-slate-500 text-sm">Unified review dashboard</p>
             </div>
           </div>
@@ -223,6 +294,12 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
               </svg>
               <span class="text-slate-700">Track rating trends and sentiment over time</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-slate-700">Auto-syncs every 5 minutes across all platforms</span>
             </li>
             <li class="flex items-start gap-3">
               <svg class="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -274,16 +351,35 @@
           </ul>
         </div>
         <div class="bg-white rounded-2xl shadow-lg border border-slate-200 p-8">
-          <!-- Placeholder for screenshot/illustration -->
           <div class="aspect-video bg-slate-100 rounded-lg flex items-center justify-center">
             <div class="text-center">
-              <div class="text-5xl mb-3">💬</div>
+              <div class="text-5xl mb-3">&#128172;</div>
               <p class="text-slate-500 text-sm">Respond from one place</p>
             </div>
           </div>
         </div>
       </div>
 
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <section class="py-16 px-6 bg-primary-600">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <div>
+          <div class="text-4xl font-bold text-white mb-1">700+</div>
+          <div class="text-primary-200">Reviews tracked</div>
+        </div>
+        <div>
+          <div class="text-4xl font-bold text-white mb-1">6+</div>
+          <div class="text-primary-200">Platforms supported</div>
+        </div>
+        <div>
+          <div class="text-4xl font-bold text-white mb-1">5 min</div>
+          <div class="text-primary-200">Sync intervals</div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -301,39 +397,68 @@
   </section>
 
   <!-- Final CTA -->
-  <section class="py-20 px-6 bg-primary-600">
+  <section class="py-20 px-6 bg-slate-50 border-t border-slate-200">
     <div class="max-w-2xl mx-auto text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
         Ready to take control of your reviews?
       </h2>
-      <p class="text-primary-100 text-lg mb-8">
+      <p class="text-slate-600 text-lg mb-8">
         Start collecting and monitoring reviews today. No credit card required.
       </p>
 
       <a
         href="https://app.revly.io/signup"
-        class="inline-block bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold hover:bg-primary-50 transition-colors text-lg"
+        class="inline-block bg-primary-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary-700 transition-colors text-lg"
       >
         Get started free
       </a>
-      <p class="text-primary-200 text-sm mt-4">Questions? Email us at <a href="mailto:hello@revly.io" class="text-white hover:underline">hello@revly.io</a></p>
+      <p class="text-slate-500 text-sm mt-4">Questions? Email us at <a href="mailto:hello@revly.io" class="text-primary-600 hover:underline">hello@revly.io</a></p>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="py-12 px-6 bg-slate-900">
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-      <div class="text-slate-400 text-sm">
-        &copy; 2026 Revly. All rights reserved.
+  <!-- ===== FOOTER START ===== -->
+  <footer class="py-16 px-6 bg-slate-900">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+        <div>
+          <h4 class="text-white font-semibold mb-4">Product</h4>
+          <a href="/features.html" class="block text-slate-400 hover:text-white text-sm mb-2 transition-colors">Features</a>
+          <a href="/pricing.html" class="block text-slate-400 hover:text-white text-sm mb-2 transition-colors">Pricing</a>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4">Use Cases</h4>
+          <a href="/use-cases/saas.html" class="block text-slate-400 hover:text-white text-sm mb-2 transition-colors">SaaS App Stores</a>
+          <a href="/use-cases/ecommerce.html" class="block text-slate-400 hover:text-white text-sm mb-2 transition-colors">E-commerce</a>
+          <a href="/use-cases/agencies.html" class="block text-slate-400 hover:text-white text-sm mb-2 transition-colors">Agencies</a>
+          <a href="/use-cases/local-business.html" class="block text-slate-400 hover:text-white text-sm mb-2 transition-colors">Local Business</a>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4">Platforms</h4>
+          <span class="block text-slate-400 text-sm mb-2">Shopify App Store</span>
+          <span class="block text-slate-400 text-sm mb-2">G2</span>
+          <span class="block text-slate-400 text-sm mb-2">QuickBooks</span>
+          <span class="block text-slate-400 text-sm mb-2">WordPress.org</span>
+          <span class="block text-slate-400 text-sm mb-2">Xero</span>
+          <span class="block text-slate-400 text-sm mb-2">WooCommerce</span>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4">Company</h4>
+          <a href="mailto:hello@revly.io" class="block text-slate-400 hover:text-white text-sm mb-2 transition-colors">Contact</a>
+        </div>
       </div>
-      <div class="flex items-center gap-6">
-        <a href="mailto:hello@revly.io" class="text-slate-400 hover:text-white transition-colors text-sm">
-          hello@revly.io
-        </a>
-        <!-- Add social links here if needed -->
+      <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="text-slate-500 text-sm">&copy; 2026 Revly. All rights reserved.</div>
+        <a href="mailto:hello@revly.io" class="text-slate-500 hover:text-white transition-colors text-sm">hello@revly.io</a>
       </div>
     </div>
   </footer>
+  <!-- ===== FOOTER END ===== -->
+
+  <script>
+    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+  </script>
 
 </body>
 </html>

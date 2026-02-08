@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing - Revly | Free During Early Access</title>
+  <meta name="description" content="Simple, transparent pricing for review management. Free during early access. Lock in special pricing when paid plans launch.">
+  <link rel="canonical" href="https://revly.io/pricing.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#eef2ff', 100: '#e0e7ff', 200: '#c7d2fe', 300: '#a5b4fc',
+              400: '#818cf8', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca',
+              800: '#3730a3', 900: '#312e81',
+            }
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .gradient-text { background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero-gradient { background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%); }
+  </style>
+</head>
+<body class="font-sans antialiased text-slate-900">
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="text-2xl font-bold text-slate-900">Revly</a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/features.html" class="text-slate-600 hover:text-slate-900 font-medium transition-colors">Features</a>
+        <a href="/pricing.html" class="text-slate-600 hover:text-slate-900 font-medium transition-colors">Pricing</a>
+        <div class="relative group">
+          <button class="text-slate-600 hover:text-slate-900 font-medium transition-colors flex items-center gap-1">
+            Use Cases
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-200 absolute top-full left-0 mt-2 bg-white rounded-lg shadow-lg border border-slate-200 py-2 w-48">
+            <a href="/use-cases/saas.html" class="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-slate-900">SaaS App Stores</a>
+            <a href="/use-cases/ecommerce.html" class="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-slate-900">E-commerce</a>
+            <a href="/use-cases/agencies.html" class="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-slate-900">Agencies</a>
+            <a href="/use-cases/local-business.html" class="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-slate-900">Local Business</a>
+          </div>
+        </div>
+      </div>
+      <div class="hidden md:flex items-center gap-4">
+        <a href="https://app.revly.io/login" class="text-slate-600 hover:text-slate-900 font-medium transition-colors">Sign in</a>
+        <a href="https://app.revly.io/signup" class="bg-primary-600 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-primary-700 transition-colors">Get started</a>
+      </div>
+      <button id="mobile-menu-btn" class="md:hidden p-2 -mr-2">
+        <svg class="w-6 h-6 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white px-6 py-4">
+      <a href="/features.html" class="block py-2 text-slate-600 font-medium">Features</a>
+      <a href="/pricing.html" class="block py-2 text-slate-600 font-medium">Pricing</a>
+      <div class="py-2 text-slate-400 text-xs font-semibold uppercase tracking-wider">Use Cases</div>
+      <a href="/use-cases/saas.html" class="block py-2 pl-3 text-slate-600">SaaS App Stores</a>
+      <a href="/use-cases/ecommerce.html" class="block py-2 pl-3 text-slate-600">E-commerce</a>
+      <a href="/use-cases/agencies.html" class="block py-2 pl-3 text-slate-600">Agencies</a>
+      <a href="/use-cases/local-business.html" class="block py-2 pl-3 text-slate-600">Local Business</a>
+      <div class="border-t border-slate-200 mt-3 pt-3 flex items-center gap-4">
+        <a href="https://app.revly.io/login" class="text-slate-600 font-medium">Sign in</a>
+        <a href="https://app.revly.io/signup" class="bg-primary-600 text-white px-4 py-2 rounded-lg font-medium">Get started</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero-gradient pt-32 pb-16 text-center">
+    <div class="max-w-3xl mx-auto px-6">
+      <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Simple, transparent pricing</h1>
+      <p class="text-xl text-slate-600">Revly is free during early access. Lock in your account now and get special pricing when we launch paid plans.</p>
+    </div>
+  </section>
+
+  <!-- Pricing Cards -->
+  <section class="bg-white py-16">
+    <div class="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <!-- Starter -->
+      <div class="bg-white rounded-2xl border border-slate-200 p-8 flex flex-col">
+        <h3 class="text-xl font-semibold text-slate-900 mb-4">Starter</h3>
+        <div class="mb-2">
+          <span class="text-4xl font-bold text-slate-900">$0</span>
+          <span class="text-slate-500 ml-1">/month</span>
+        </div>
+        <p class="text-slate-600 mb-6">Perfect for getting started</p>
+        <hr class="border-slate-200 mb-6">
+        <ul class="space-y-3 mb-8 flex-1">
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-slate-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            <span class="text-slate-700">1 product</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-slate-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            <span class="text-slate-700">1 review link</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-slate-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            <span class="text-slate-700">3 platforms</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-slate-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            <span class="text-slate-700">Daily sync</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-slate-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            <span class="text-slate-700">Basic AI enhancement</span>
+          </li>
+        </ul>
+        <a href="https://app.revly.io/signup" class="w-full block text-center bg-white border border-slate-200 text-slate-700 px-5 py-3 rounded-lg font-medium hover:bg-slate-50 transition-colors">Get started</a>
+      </div>
+
+      <!-- Growth (Highlighted) -->
+      <div class="bg-white rounded-2xl border-2 border-primary-600 p-8 relative shadow-lg flex flex-col">
+        <span class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary-600 text-white text-sm px-4 py-1 rounded-full">Most Popular</span>
+        <h3 class="text-xl font-semibold text-slate-900 mb-4">Growth</h3>
+        <div class="mb-1">
+          <span class="text-4xl font-bold text-slate-900">Free</span>
+          <span class="text-slate-400 line-through ml-2">$49/mo</span>
+        </div>
+        <p class="text-sm text-primary-600 mb-4">Free during early access</p>
+        <p class="text-slate-600 mb-6">For growing businesses</p>
+        <hr class="border-slate-200 mb-6">
+        <ul class="space-y-3 mb-8 flex-1">
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-primary-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            <span class="text-slate-700">Up to 5 products</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-primary-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            <span class="text-slate-700">Unlimited review links</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-primary-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            <span class="text-slate-700">All platforms</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-primary-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            <span class="text-slate-700">5-minute sync</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-primary-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            <span class="text-slate-700">Advanced AI enhancement</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-primary-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            <span class="text-slate-700">Review incentives</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-primary-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            <span class="text-slate-700">Priority support</span>
+          </li>
+        </ul>
+        <a href="https://app.revly.io/signup" class="w-full block text-center bg-primary-600 text-white px-5 py-3 rounded-lg font-medium hover:bg-primary-700 transition-colors">Get started free</a>
+      </div>
+
+      <!-- Scale -->
+      <div class="bg-white rounded-2xl border border-slate-200 p-8 flex flex-col">
+        <h3 class="text-xl font-semibold text-slate-900 mb-4">Scale</h3>
+        <div class="mb-1">
+          <span class="text-4xl font-bold text-slate-900">Free</span>
+          <span class="text-slate-400 line-through ml-2">$99/mo</span>
+        </div>
+        <p class="text-sm text-primary-600 mb-4">Free during early access</p>
+        <p class="text-slate-600 mb-6">For teams at scale</p>
+        <hr class="border-slate-200 mb-6">
+        <ul class="space-y-3 mb-8 flex-1">
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-slate-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            <span class="text-slate-700">Unlimited products</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-slate-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            <span class="text-slate-700">Unlimited review links</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-slate-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            <span class="text-slate-700">All platforms</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-slate-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            <span class="text-slate-700">5-minute sync</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-slate-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            <span class="text-slate-700">Advanced AI enhancement</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-slate-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            <span class="text-slate-700">Review incentives</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-slate-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            <span class="text-slate-700">Custom domains</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-slate-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            <span class="text-slate-700">Team management</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-slate-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            <span class="text-slate-700">Dedicated support</span>
+          </li>
+        </ul>
+        <a href="https://app.revly.io/signup" class="w-full block text-center bg-white border border-slate-200 text-slate-700 px-5 py-3 rounded-lg font-medium hover:bg-slate-50 transition-colors">Get started free</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="bg-slate-50 py-20">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-slate-900 text-center mb-12">Frequently asked questions</h2>
+      <div class="space-y-8">
+        <div>
+          <h3 class="text-lg font-semibold text-slate-900 mb-2">Is Revly really free right now?</h3>
+          <p class="text-slate-600">Yes! We're in early access and all features are completely free. Early access users will get special pricing when paid plans launch.</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold text-slate-900 mb-2">Will I be charged automatically?</h3>
+          <p class="text-slate-600">No. We don't collect payment information during early access. You'll be notified well in advance before any paid plans take effect.</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold text-slate-900 mb-2">What platforms do you support?</h3>
+          <p class="text-slate-600">We currently support Shopify App Store, G2, QuickBooks App Store, WordPress.org, Xero App Store, and WooCommerce Marketplace. More platforms are being added regularly.</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold text-slate-900 mb-2">How does the AI review enhancement work?</h3>
+          <p class="text-slate-600">Customers share a quick star rating and a few words of feedback. Our AI expands this into a complete, authentic review that matches their sentiment and tone—ready to copy and post on any platform.</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold text-slate-900 mb-2">Can I try it with my own product?</h3>
+          <p class="text-slate-600">Absolutely. Sign up, add your product's URLs, and you'll see your reviews in the dashboard within minutes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="bg-white py-20 border-t border-slate-200">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold text-slate-900 mb-4">Questions about pricing?</h2>
+      <p class="text-xl text-slate-600 mb-8">We're happy to chat about which plan is right for you.</p>
+      <a href="mailto:hello@revly.io" class="inline-block bg-white border border-slate-200 text-slate-700 px-6 py-3 rounded-lg font-medium hover:bg-slate-50 transition-colors">Email us at hello@revly.io</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-16 px-6 bg-slate-900">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+        <div>
+          <h4 class="text-white font-semibold mb-4">Product</h4>
+          <a href="/features.html" class="block text-slate-400 hover:text-white text-sm mb-2 transition-colors">Features</a>
+          <a href="/pricing.html" class="block text-slate-400 hover:text-white text-sm mb-2 transition-colors">Pricing</a>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4">Use Cases</h4>
+          <a href="/use-cases/saas.html" class="block text-slate-400 hover:text-white text-sm mb-2 transition-colors">SaaS App Stores</a>
+          <a href="/use-cases/ecommerce.html" class="block text-slate-400 hover:text-white text-sm mb-2 transition-colors">E-commerce</a>
+          <a href="/use-cases/agencies.html" class="block text-slate-400 hover:text-white text-sm mb-2 transition-colors">Agencies</a>
+          <a href="/use-cases/local-business.html" class="block text-slate-400 hover:text-white text-sm mb-2 transition-colors">Local Business</a>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4">Platforms</h4>
+          <span class="block text-slate-400 text-sm mb-2">Shopify App Store</span>
+          <span class="block text-slate-400 text-sm mb-2">G2</span>
+          <span class="block text-slate-400 text-sm mb-2">QuickBooks</span>
+          <span class="block text-slate-400 text-sm mb-2">WordPress.org</span>
+          <span class="block text-slate-400 text-sm mb-2">Xero</span>
+          <span class="block text-slate-400 text-sm mb-2">WooCommerce</span>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4">Company</h4>
+          <a href="mailto:hello@revly.io" class="block text-slate-400 hover:text-white text-sm mb-2 transition-colors">Contact</a>
+        </div>
+      </div>
+      <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="text-slate-500 text-sm">&copy; 2026 Revly. All rights reserved.</div>
+        <a href="mailto:hello@revly.io" class="text-slate-500 hover:text-white transition-colors text-sm">hello@revly.io</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+  </script>
+
+</body>
+</html>
