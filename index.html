@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Revly - Review collection on autopilot. Monitor and respond, effortlessly.</title>
+  <title>Revly - Review collection on autopilot. Monitor and respond with ease.</title>
   <meta name="description" content="Revly helps SaaS companies collect more reviews with one smart link, AI enhancement, and automatic routing. Monitor reviews across all platforms in one dashboard.">
 
   <!-- Canonical URL -->
@@ -37,31 +37,27 @@
       theme: {
         extend: {
           colors: {
-            primary: {
-              50: '#eef2ff',
-              100: '#e0e7ff',
-              200: '#c7d2fe',
-              300: '#a5b4fc',
-              400: '#818cf8',
-              500: '#6366f1',
-              600: '#4f46e5',
-              700: '#4338ca',
-              800: '#3730a3',
-              900: '#312e81',
-            }
+            magenta: { DEFAULT:'#F0047F', dark:'#C0005F', blush:'#FFE8F4', bg:'#FFF7FB' },
+            gold: { DEFAULT:'#F5C842', tint:'#FEF8DC', dark:'#5A3E00' },
+            dark: '#111111',
+            'mid-gray': '#555555',
+            'soft-gray': '#888888',
+            'off-white': '#F7F7F5',
+            border: '#E4E4E0',
           },
           fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['"Bricolage Grotesque"','system-ui','sans-serif'],
+            sans: ['"DM Sans"','system-ui','sans-serif'],
           }
         }
       }
     }
   </script>
 
-  <!-- Inter Font -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -71,7 +67,7 @@
     "name": "Revly",
     "url": "https://revly.io",
     "logo": "https://revly.io/og-image.png",
-    "description": "Review collection on autopilot. Monitor and respond, effortlessly.",
+    "description": "Review collection on autopilot. Monitor and respond with ease.",
     "contactPoint": {
       "@type": "ContactPoint",
       "email": "hello@revly.io",
@@ -98,10 +94,11 @@
     "url": "https://revly.io",
     "description": "AI-powered review management platform. Collect, monitor, and respond to reviews across all platforms.",
     "offers": {
-      "@type": "Offer",
-      "price": "0",
+      "@type": "AggregateOffer",
+      "lowPrice": "0",
+      "highPrice": "99",
       "priceCurrency": "USD",
-      "description": "Free during early access"
+      "offerCount": "4"
     }
   }
   </script>
@@ -109,66 +106,75 @@
   <style>
     html { scroll-behavior: smooth; }
     .gradient-text {
-      background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+      background: linear-gradient(135deg, #F0047F 0%, #C0005F 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
     .hero-gradient {
-      background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+      background: linear-gradient(180deg, #FFF7FB 0%, #FFE8F4 100%);
     }
+    @keyframes radar-ping {
+      0%, 100% { opacity: var(--base-o); }
+      50% { opacity: var(--peak-o); }
+    }
+    .radar-outer { --base-o: 0.18; --peak-o: 0.45; animation: radar-ping 3s ease-in-out infinite; }
+    .radar-mid { --base-o: 0.4; --peak-o: 0.7; animation: radar-ping 3s ease-in-out 0.4s infinite; }
   </style>
 </head>
 
-<body class="font-sans text-slate-700 antialiased">
+<body class="font-sans text-mid-gray antialiased">
 
   <!-- ===== NAVIGATION START ===== -->
-  <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-border">
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="/" class="text-2xl font-bold text-slate-900">Revly</a>
+      <a href="/" class="flex items-center gap-2">
+        <svg width="30" height="30" viewBox="0 0 30 30"><circle class="radar-outer" cx="15" cy="15" r="14" fill="#F0047F" opacity="0.1"/><circle class="radar-mid" cx="15" cy="15" r="9" fill="#F0047F" opacity="0.28"/><circle cx="15" cy="15" r="4" fill="#F0047F"/></svg>
+        <span class="text-2xl font-display font-extrabold text-dark" style="letter-spacing:-0.4px">revly</span>
+      </a>
 
       <!-- Desktop nav -->
       <div class="hidden md:flex items-center gap-8">
-        <a href="/features.html" class="text-slate-600 hover:text-slate-900 font-medium transition-colors">Features</a>
-        <a href="/pricing.html" class="text-slate-600 hover:text-slate-900 font-medium transition-colors">Pricing</a>
+        <a href="/features.html" class="text-mid-gray hover:text-dark font-medium transition-colors">Features</a>
+        <a href="/pricing.html" class="text-mid-gray hover:text-dark font-medium transition-colors">Pricing</a>
         <div class="relative group">
-          <button class="text-slate-600 hover:text-slate-900 font-medium transition-colors flex items-center gap-1">
+          <button class="text-mid-gray hover:text-dark font-medium transition-colors flex items-center gap-1">
             Use Cases
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </button>
-          <div class="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-200 absolute top-full left-0 mt-2 bg-white rounded-lg shadow-lg border border-slate-200 py-2 w-48">
-            <a href="/use-cases/saas.html" class="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-slate-900">SaaS App Stores</a>
-            <a href="/use-cases/ecommerce.html" class="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-slate-900">E-commerce</a>
-            <a href="/use-cases/agencies.html" class="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-slate-900">Agencies</a>
-            <a href="/use-cases/local-business.html" class="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-slate-900">Local Business</a>
+          <div class="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-200 absolute top-full left-0 mt-2 bg-white rounded-lg shadow-lg border border-border py-2 w-48">
+            <a href="/use-cases/saas.html" class="block px-4 py-2 text-sm text-mid-gray hover:bg-off-white hover:text-dark">SaaS App Stores</a>
+            <a href="/use-cases/ecommerce.html" class="block px-4 py-2 text-sm text-mid-gray hover:bg-off-white hover:text-dark">E-commerce</a>
+            <a href="/use-cases/agencies.html" class="block px-4 py-2 text-sm text-mid-gray hover:bg-off-white hover:text-dark">Agencies</a>
+            <a href="/use-cases/local-business.html" class="block px-4 py-2 text-sm text-mid-gray hover:bg-off-white hover:text-dark">Local Business</a>
           </div>
         </div>
       </div>
 
       <!-- Auth buttons (desktop) -->
       <div class="hidden md:flex items-center gap-4">
-        <a href="https://app.revly.io/login" class="text-slate-600 hover:text-slate-900 font-medium transition-colors">Sign in</a>
-        <a href="https://app.revly.io/signup" class="bg-primary-600 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-primary-700 transition-colors">Get started</a>
+        <a href="https://app.revly.io/login" class="text-mid-gray hover:text-dark font-medium transition-colors">Sign in</a>
+        <a href="https://app.revly.io/signup" class="bg-magenta text-white px-5 py-2.5 rounded-lg font-medium hover:bg-magenta-dark transition-colors">Get started</a>
       </div>
 
       <!-- Mobile hamburger -->
       <button id="mobile-menu-btn" class="md:hidden p-2 -mr-2">
-        <svg class="w-6 h-6 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        <svg class="w-6 h-6 text-mid-gray" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
       </button>
     </div>
 
     <!-- Mobile menu -->
-    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white px-6 py-4">
-      <a href="/features.html" class="block py-2 text-slate-600 font-medium">Features</a>
-      <a href="/pricing.html" class="block py-2 text-slate-600 font-medium">Pricing</a>
-      <div class="py-2 text-slate-400 text-xs font-semibold uppercase tracking-wider">Use Cases</div>
-      <a href="/use-cases/saas.html" class="block py-2 pl-3 text-slate-600">SaaS App Stores</a>
-      <a href="/use-cases/ecommerce.html" class="block py-2 pl-3 text-slate-600">E-commerce</a>
-      <a href="/use-cases/agencies.html" class="block py-2 pl-3 text-slate-600">Agencies</a>
-      <a href="/use-cases/local-business.html" class="block py-2 pl-3 text-slate-600">Local Business</a>
-      <div class="border-t border-slate-200 mt-3 pt-3 flex items-center gap-4">
-        <a href="https://app.revly.io/login" class="text-slate-600 font-medium">Sign in</a>
-        <a href="https://app.revly.io/signup" class="bg-primary-600 text-white px-4 py-2 rounded-lg font-medium">Get started</a>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-border bg-white px-6 py-4">
+      <a href="/features.html" class="block py-2 text-mid-gray font-medium">Features</a>
+      <a href="/pricing.html" class="block py-2 text-mid-gray font-medium">Pricing</a>
+      <div class="py-2 text-soft-gray text-xs font-semibold uppercase tracking-wider">Use Cases</div>
+      <a href="/use-cases/saas.html" class="block py-2 pl-3 text-mid-gray">SaaS App Stores</a>
+      <a href="/use-cases/ecommerce.html" class="block py-2 pl-3 text-mid-gray">E-commerce</a>
+      <a href="/use-cases/agencies.html" class="block py-2 pl-3 text-mid-gray">Agencies</a>
+      <a href="/use-cases/local-business.html" class="block py-2 pl-3 text-mid-gray">Local Business</a>
+      <div class="border-t border-border mt-3 pt-3 flex items-center gap-4">
+        <a href="https://app.revly.io/login" class="text-mid-gray font-medium">Sign in</a>
+        <a href="https://app.revly.io/signup" class="bg-magenta text-white px-4 py-2 rounded-lg font-medium">Get started</a>
       </div>
     </div>
   </nav>
@@ -177,18 +183,18 @@
   <!-- Hero Section -->
   <section class="hero-gradient pt-32 pb-20 px-6">
     <div class="max-w-4xl mx-auto text-center">
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-6">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-dark leading-tight mb-6">
         Review collection on autopilot.<br>
-        <span class="gradient-text">Monitor and respond, effortlessly.</span>
+        <span class="gradient-text">Monitor and respond</span> with ease.
       </h1>
 
-      <p class="text-xl text-slate-600 max-w-2xl mx-auto mb-10">
+      <p class="text-xl text-mid-gray max-w-2xl mx-auto mb-10">
         One smart link collects feedback, AI enhances it into ready-to-post reviews, and guides your customers to the right platforms. Meanwhile, track every review across every app store.
       </p>
 
       <a
         href="https://app.revly.io/signup"
-        class="inline-block bg-primary-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary-700 transition-colors text-lg"
+        class="inline-block bg-magenta text-white px-8 py-4 rounded-lg font-semibold hover:bg-magenta-dark transition-colors text-lg"
       >
         Get started free
       </a>
@@ -196,9 +202,9 @@
   </section>
 
   <!-- Platform Logos -->
-  <section class="py-12 px-6 border-b border-slate-200 bg-white">
+  <section class="py-12 px-6 border-b border-border bg-white">
     <div class="max-w-5xl mx-auto">
-      <p class="text-center text-slate-500 text-sm font-medium mb-8">Works with the platforms you already use</p>
+      <p class="text-center text-soft-gray text-sm font-medium mb-8">Works with the platforms you already use</p>
       <div class="flex flex-wrap justify-center items-center gap-10 md:gap-14">
         <img src="logos/shopify_full.svg" alt="Shopify" class="h-9 hover:scale-110 transition-transform duration-200">
         <img src="logos/g2.svg" alt="G2" class="h-10 hover:scale-110 transition-transform duration-200">
@@ -206,7 +212,7 @@
         <img src="logos/wordpress.png" alt="WordPress" class="h-10 hover:scale-110 transition-transform duration-200">
         <img src="logos/xero.svg" alt="Xero" class="h-7 hover:scale-110 transition-transform duration-200">
         <img src="logos/woo.svg" alt="WooCommerce" class="h-6 hover:scale-110 transition-transform duration-200">
-        <span class="text-slate-400 font-medium text-sm">+ more coming</span>
+        <span class="text-soft-gray font-medium text-sm">+ more coming</span>
       </div>
     </div>
   </section>
@@ -214,40 +220,40 @@
   <!-- Problem Section -->
   <section class="py-20 px-6 bg-white">
     <div class="max-w-3xl mx-auto text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
+      <h2 class="text-3xl md:text-4xl font-display font-bold text-dark mb-6">
         Most companies are leaving reviews on the table.
       </h2>
-      <p class="text-lg text-slate-600 leading-relaxed">
+      <p class="text-lg text-mid-gray leading-relaxed">
         Your customers <em>want</em> to share feedback, but they hit friction&mdash;too many steps, unfamiliar platforms, not enough time. And even when reviews do come in, they're scattered across a dozen different sites.
       </p>
     </div>
   </section>
 
   <!-- How It Works -->
-  <section class="py-20 px-6 bg-slate-50 border-y border-slate-200">
+  <section class="py-20 px-6 bg-off-white border-y border-border">
     <div class="max-w-5xl mx-auto">
-      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 text-center mb-4">
+      <h2 class="text-3xl md:text-4xl font-display font-bold text-dark text-center mb-4">
         How it works
       </h2>
-      <p class="text-lg text-slate-600 text-center max-w-2xl mx-auto mb-16">
+      <p class="text-lg text-mid-gray text-center max-w-2xl mx-auto mb-16">
         Up and running in minutes. No complex setup, no code required.
       </p>
 
       <div class="grid md:grid-cols-3 gap-8 md:gap-12">
         <div class="text-center">
-          <div class="w-14 h-14 bg-primary-100 text-primary-600 rounded-2xl flex items-center justify-center text-xl font-bold mx-auto mb-5">1</div>
-          <h3 class="text-lg font-semibold text-slate-900 mb-2">Connect your platforms</h3>
-          <p class="text-slate-600">Add your app store URLs and we start syncing reviews instantly. Shopify, G2, QuickBooks, WordPress, Xero, WooCommerce, and more.</p>
+          <div class="w-14 h-14 bg-magenta-blush text-magenta rounded-2xl flex items-center justify-center text-xl font-bold mx-auto mb-5">1</div>
+          <h3 class="text-lg font-display font-semibold text-dark mb-2">Connect your platforms</h3>
+          <p class="text-mid-gray">Add your app store URLs and we start syncing reviews instantly. Shopify, G2, QuickBooks, WordPress, Xero, WooCommerce, and more.</p>
         </div>
         <div class="text-center">
-          <div class="w-14 h-14 bg-primary-100 text-primary-600 rounded-2xl flex items-center justify-center text-xl font-bold mx-auto mb-5">2</div>
-          <h3 class="text-lg font-semibold text-slate-900 mb-2">Share your review link</h3>
-          <p class="text-slate-600">One smart link per product. Customers rate, write a quick thought, and post a polished review in under 60 seconds.</p>
+          <div class="w-14 h-14 bg-magenta-blush text-magenta rounded-2xl flex items-center justify-center text-xl font-bold mx-auto mb-5">2</div>
+          <h3 class="text-lg font-display font-semibold text-dark mb-2">Share your review link</h3>
+          <p class="text-mid-gray">One smart link per product. Customers rate, write a quick thought, and post a polished review in under 60 seconds.</p>
         </div>
         <div class="text-center">
-          <div class="w-14 h-14 bg-primary-100 text-primary-600 rounded-2xl flex items-center justify-center text-xl font-bold mx-auto mb-5">3</div>
-          <h3 class="text-lg font-semibold text-slate-900 mb-2">Watch reviews grow</h3>
-          <p class="text-slate-600">AI enhances feedback into authentic reviews, routes them to the right platforms, and tracks everything in one dashboard.</p>
+          <div class="w-14 h-14 bg-magenta-blush text-magenta rounded-2xl flex items-center justify-center text-xl font-bold mx-auto mb-5">3</div>
+          <h3 class="text-lg font-display font-semibold text-dark mb-2">Watch reviews grow</h3>
+          <p class="text-mid-gray">AI enhances feedback into authentic reviews, routes them to the right platforms, and tracks everything in one dashboard.</p>
         </div>
       </div>
     </div>
@@ -260,48 +266,48 @@
       <!-- Feature 1: Collection -->
       <div class="grid md:grid-cols-2 gap-12 items-center mb-24">
         <div>
-          <div class="inline-flex items-center gap-2 bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium mb-4">
+          <div class="inline-flex items-center gap-2 bg-magenta-blush text-magenta px-3 py-1 rounded-full text-sm font-medium mb-4">
             Collect
           </div>
-          <h3 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
+          <h3 class="text-2xl md:text-3xl font-display font-bold text-dark mb-4">
             One smart link does the heavy lifting
           </h3>
-          <p class="text-lg text-slate-600 mb-6">
+          <p class="text-lg text-mid-gray mb-6">
             Share a single link with your customers. They rate your product, share a quick thought, and our AI transforms it into a polished, authentic review&mdash;ready to post.
           </p>
           <ul class="space-y-3">
             <li class="flex items-start gap-3">
-              <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-6 h-6 text-magenta flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
               </svg>
-              <span class="text-slate-700">AI enhances short feedback into full reviews</span>
+              <span class="text-mid-gray">AI enhances short feedback into full reviews</span>
             </li>
             <li class="flex items-start gap-3">
-              <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-6 h-6 text-magenta flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
               </svg>
-              <span class="text-slate-700">Smart routing guides customers to the right platforms</span>
+              <span class="text-mid-gray">Smart routing guides customers to the right platforms</span>
             </li>
             <li class="flex items-start gap-3">
-              <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-6 h-6 text-magenta flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
               </svg>
-              <span class="text-slate-700">Negative feedback routes privately to your team</span>
+              <span class="text-mid-gray">Negative feedback routes privately to your team</span>
             </li>
             <li class="flex items-start gap-3">
-              <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-6 h-6 text-magenta flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
               </svg>
-              <span class="text-slate-700">Incentivize with gift cards, charity donations, or plant a tree</span>
+              <span class="text-mid-gray">Custom branding, incentives, and collection analytics</span>
             </li>
           </ul>
         </div>
-        <div class="bg-white rounded-2xl shadow-lg border border-slate-200 p-8">
+        <div class="bg-white rounded-2xl shadow-lg border border-border p-8">
           <!-- Placeholder for screenshot/illustration -->
-          <div class="aspect-video bg-slate-100 rounded-lg flex items-center justify-center">
+          <div class="aspect-video bg-off-white rounded-lg flex items-center justify-center">
             <div class="text-center">
               <div class="text-5xl mb-3">&#10024;</div>
-              <p class="text-slate-500 text-sm">AI-powered review collection</p>
+              <p class="text-soft-gray text-sm">AI-powered review collection</p>
             </div>
           </div>
         </div>
@@ -309,49 +315,49 @@
 
       <!-- Feature 2: Monitor -->
       <div class="grid md:grid-cols-2 gap-12 items-center mb-24">
-        <div class="order-2 md:order-1 bg-white rounded-2xl shadow-lg border border-slate-200 p-8">
+        <div class="order-2 md:order-1 bg-white rounded-2xl shadow-lg border border-border p-8">
           <!-- Placeholder for screenshot/illustration -->
-          <div class="aspect-video bg-slate-100 rounded-lg flex items-center justify-center">
+          <div class="aspect-video bg-off-white rounded-lg flex items-center justify-center">
             <div class="text-center">
               <div class="text-5xl mb-3">&#128202;</div>
-              <p class="text-slate-500 text-sm">Unified review dashboard</p>
+              <p class="text-soft-gray text-sm">Unified review dashboard</p>
             </div>
           </div>
         </div>
         <div class="order-1 md:order-2">
-          <div class="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium mb-4">
+          <div class="inline-flex items-center gap-2 bg-magenta-blush text-magenta px-3 py-1 rounded-full text-sm font-medium mb-4">
             Monitor
           </div>
-          <h3 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
+          <h3 class="text-2xl md:text-3xl font-display font-bold text-dark mb-4">
             Every review, every platform, one dashboard
           </h3>
-          <p class="text-lg text-slate-600 mb-6">
+          <p class="text-lg text-mid-gray mb-6">
             Stop checking a dozen tabs. Revly automatically syncs reviews from all your app stores and keeps them organized by product.
           </p>
           <ul class="space-y-3">
             <li class="flex items-start gap-3">
-              <svg class="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-6 h-6 text-magenta flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
               </svg>
-              <span class="text-slate-700">Auto-syncs every 5 minutes across all platforms</span>
+              <span class="text-mid-gray">Auto-syncs up to every 2 hours across all platforms</span>
             </li>
             <li class="flex items-start gap-3">
-              <svg class="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-6 h-6 text-magenta flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
               </svg>
-              <span class="text-slate-700">Track rating trends and sentiment over time</span>
+              <span class="text-mid-gray">Track rating trends and sentiment over time</span>
             </li>
             <li class="flex items-start gap-3">
-              <svg class="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-6 h-6 text-magenta flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
               </svg>
-              <span class="text-slate-700">Get notified when new reviews come in</span>
+              <span class="text-mid-gray">Get notified when new reviews come in</span>
             </li>
             <li class="flex items-start gap-3">
-              <svg class="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-6 h-6 text-magenta flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
               </svg>
-              <span class="text-slate-700">Detect when reviews are archived or removed</span>
+              <span class="text-mid-gray">AI-powered sentiment analysis and response suggestions</span>
             </li>
           </ul>
         </div>
@@ -360,42 +366,48 @@
       <!-- Feature 3: Respond -->
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <div>
-          <div class="inline-flex items-center gap-2 bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-medium mb-4">
+          <div class="inline-flex items-center gap-2 bg-magenta-blush text-magenta px-3 py-1 rounded-full text-sm font-medium mb-4">
             Respond
           </div>
-          <h3 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
+          <h3 class="text-2xl md:text-3xl font-display font-bold text-dark mb-4">
             Stay on top of every conversation
           </h3>
-          <p class="text-lg text-slate-600 mb-6">
+          <p class="text-lg text-mid-gray mb-6">
             Never miss a review that needs a response. Revly helps you manage replies across all platforms from one place.
           </p>
           <ul class="space-y-3">
             <li class="flex items-start gap-3">
-              <svg class="w-6 h-6 text-purple-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-6 h-6 text-magenta flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
               </svg>
-              <span class="text-slate-700">See which reviews need attention</span>
+              <span class="text-mid-gray">See which reviews need attention</span>
             </li>
             <li class="flex items-start gap-3">
-              <svg class="w-6 h-6 text-purple-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-6 h-6 text-magenta flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
               </svg>
-              <span class="text-slate-700">AI-assisted reply suggestions</span>
+              <span class="text-mid-gray">AI-assisted reply suggestions</span>
             </li>
             <li class="flex items-start gap-3">
-              <svg class="w-6 h-6 text-purple-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-6 h-6 text-magenta flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
               </svg>
-              <span class="text-slate-700">Track response rates and timing</span>
+              <span class="text-mid-gray">Track response rates and timing</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-magenta flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-mid-gray">Reports dashboard with scheduled reporting</span>
             </li>
           </ul>
         </div>
-        <div class="bg-white rounded-2xl shadow-lg border border-slate-200 p-8">
+        <div class="bg-white rounded-2xl shadow-lg border border-border p-8">
           <!-- Placeholder for screenshot/illustration -->
-          <div class="aspect-video bg-slate-100 rounded-lg flex items-center justify-center">
+          <div class="aspect-video bg-off-white rounded-lg flex items-center justify-center">
             <div class="text-center">
               <div class="text-5xl mb-3">&#128172;</div>
-              <p class="text-slate-500 text-sm">Respond from one place</p>
+              <p class="text-soft-gray text-sm">Respond from one place</p>
             </div>
           </div>
         </div>
@@ -405,96 +417,100 @@
   </section>
 
   <!-- Stats Bar -->
-  <section class="py-16 px-6 bg-primary-600">
+  <section class="py-16 px-6 bg-dark">
     <div class="max-w-5xl mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
         <div>
-          <div class="text-4xl font-bold text-white mb-1">700+</div>
-          <div class="text-primary-200">Reviews tracked</div>
+          <div class="text-4xl font-bold text-magenta mb-1">700+</div>
+          <div class="text-soft-gray">Reviews tracked</div>
         </div>
         <div>
-          <div class="text-4xl font-bold text-white mb-1">6+</div>
-          <div class="text-primary-200">Platforms supported</div>
+          <div class="text-4xl font-bold text-magenta mb-1">6+</div>
+          <div class="text-soft-gray">Platforms supported</div>
         </div>
         <div>
-          <div class="text-4xl font-bold text-white mb-1">5 min</div>
-          <div class="text-primary-200">Sync intervals</div>
+          <div class="text-4xl font-bold text-magenta mb-1">7</div>
+          <div class="text-soft-gray">Platforms monitored</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Simple for customers, effortless for you -->
+  <!-- Simple for customers, built for your team -->
   <section class="py-20 px-6 bg-white">
     <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
+      <h2 class="text-3xl md:text-4xl font-display font-bold text-dark mb-6">
         Simple for your customers.<br>
-        <span class="gradient-text">Effortless for your team.</span>
+        <span class="gradient-text">Built for your team.</span>
       </h2>
-      <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+      <p class="text-lg text-mid-gray max-w-2xl mx-auto">
         Your customers get a frictionless experience. Your team gets complete visibility without the manual work. Everyone wins.
       </p>
     </div>
   </section>
 
   <!-- Final CTA -->
-  <section class="py-20 px-6 bg-slate-50 border-t border-slate-200">
+  <section class="py-20 px-6 bg-off-white border-t border-border">
     <div class="max-w-2xl mx-auto text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+      <h2 class="text-3xl md:text-4xl font-display font-bold text-dark mb-4">
         Ready to take control of your reviews?
       </h2>
-      <p class="text-slate-600 text-lg mb-8">
+      <p class="text-mid-gray text-lg mb-8">
         Start collecting and monitoring reviews today. No credit card required.
       </p>
 
       <a
         href="https://app.revly.io/signup"
-        class="inline-block bg-primary-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary-700 transition-colors text-lg"
+        class="inline-block bg-magenta text-white px-8 py-4 rounded-lg font-semibold hover:bg-magenta-dark transition-colors text-lg"
       >
         Get started free
       </a>
-      <p class="text-slate-500 text-sm mt-4">Questions? Email us at <a href="mailto:hello@revly.io" class="text-primary-600 hover:underline">hello@revly.io</a></p>
+      <p class="text-soft-gray text-sm mt-4">Questions? Email us at <a href="mailto:hello@revly.io" class="text-magenta hover:underline">hello@revly.io</a></p>
     </div>
   </section>
 
   <!-- ===== FOOTER START ===== -->
-  <footer class="py-16 px-6 bg-slate-900">
+  <footer class="py-16 px-6 bg-dark">
     <div class="max-w-6xl mx-auto">
+      <a href="/" class="flex items-center gap-2 mb-8">
+        <svg width="30" height="30" viewBox="0 0 30 30"><circle class="radar-outer" cx="15" cy="15" r="14" fill="#F0047F" opacity="0.18"/><circle class="radar-mid" cx="15" cy="15" r="9" fill="#F0047F" opacity="0.4"/><circle cx="15" cy="15" r="4" fill="#F0047F"/></svg>
+        <span class="text-2xl font-display font-extrabold text-white" style="letter-spacing:-0.4px">revly</span>
+      </a>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
         <div>
-          <h4 class="text-white font-semibold mb-4">Product</h4>
-          <a href="/features.html" class="block text-slate-400 hover:text-white text-sm mb-2 transition-colors">Features</a>
-          <a href="/pricing.html" class="block text-slate-400 hover:text-white text-sm mb-2 transition-colors">Pricing</a>
+          <h4 class="text-white font-display font-semibold mb-4">Product</h4>
+          <a href="/features.html" class="block text-soft-gray hover:text-white text-sm mb-2 transition-colors">Features</a>
+          <a href="/pricing.html" class="block text-soft-gray hover:text-white text-sm mb-2 transition-colors">Pricing</a>
         </div>
         <div>
-          <h4 class="text-white font-semibold mb-4">Use Cases</h4>
-          <a href="/use-cases/saas.html" class="block text-slate-400 hover:text-white text-sm mb-2 transition-colors">SaaS App Stores</a>
-          <a href="/use-cases/ecommerce.html" class="block text-slate-400 hover:text-white text-sm mb-2 transition-colors">E-commerce</a>
-          <a href="/use-cases/agencies.html" class="block text-slate-400 hover:text-white text-sm mb-2 transition-colors">Agencies</a>
-          <a href="/use-cases/local-business.html" class="block text-slate-400 hover:text-white text-sm mb-2 transition-colors">Local Business</a>
+          <h4 class="text-white font-display font-semibold mb-4">Use Cases</h4>
+          <a href="/use-cases/saas.html" class="block text-soft-gray hover:text-white text-sm mb-2 transition-colors">SaaS App Stores</a>
+          <a href="/use-cases/ecommerce.html" class="block text-soft-gray hover:text-white text-sm mb-2 transition-colors">E-commerce</a>
+          <a href="/use-cases/agencies.html" class="block text-soft-gray hover:text-white text-sm mb-2 transition-colors">Agencies</a>
+          <a href="/use-cases/local-business.html" class="block text-soft-gray hover:text-white text-sm mb-2 transition-colors">Local Business</a>
         </div>
         <div>
-          <h4 class="text-white font-semibold mb-4">Platforms</h4>
-          <span class="block text-slate-400 text-sm mb-2">Shopify App Store</span>
-          <span class="block text-slate-400 text-sm mb-2">G2</span>
-          <span class="block text-slate-400 text-sm mb-2">QuickBooks</span>
-          <span class="block text-slate-400 text-sm mb-2">WordPress.org</span>
-          <span class="block text-slate-400 text-sm mb-2">Xero</span>
-          <span class="block text-slate-400 text-sm mb-2">WooCommerce</span>
+          <h4 class="text-white font-display font-semibold mb-4">Platforms</h4>
+          <span class="block text-soft-gray text-sm mb-2">Shopify App Store</span>
+          <span class="block text-soft-gray text-sm mb-2">G2</span>
+          <span class="block text-soft-gray text-sm mb-2">QuickBooks</span>
+          <span class="block text-soft-gray text-sm mb-2">WordPress.org</span>
+          <span class="block text-soft-gray text-sm mb-2">Xero</span>
+          <span class="block text-soft-gray text-sm mb-2">WooCommerce</span>
         </div>
         <div>
-          <h4 class="text-white font-semibold mb-4">Company</h4>
-          <a href="mailto:hello@revly.io" class="block text-slate-400 hover:text-white text-sm mb-2 transition-colors">Contact</a>
-          <a href="/privacy.html" class="block text-slate-400 hover:text-white text-sm mb-2 transition-colors">Privacy Policy</a>
-          <a href="/terms.html" class="block text-slate-400 hover:text-white text-sm mb-2 transition-colors">Terms of Service</a>
+          <h4 class="text-white font-display font-semibold mb-4">Company</h4>
+          <a href="mailto:hello@revly.io" class="block text-soft-gray hover:text-white text-sm mb-2 transition-colors">Contact</a>
+          <a href="/privacy.html" class="block text-soft-gray hover:text-white text-sm mb-2 transition-colors">Privacy Policy</a>
+          <a href="/terms.html" class="block text-soft-gray hover:text-white text-sm mb-2 transition-colors">Terms of Service</a>
         </div>
       </div>
-      <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-        <div class="text-slate-500 text-sm">&copy; 2026 Revly. All rights reserved.</div>
+      <div class="border-t border-[#2a2a2a] pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="text-soft-gray text-sm">&copy; 2026 Revly. All rights reserved.</div>
         <div class="flex items-center gap-6">
-          <a href="/privacy.html" class="text-slate-500 hover:text-white transition-colors text-sm">Privacy</a>
-          <a href="/terms.html" class="text-slate-500 hover:text-white transition-colors text-sm">Terms</a>
-          <a href="mailto:hello@revly.io" class="text-slate-500 hover:text-white transition-colors text-sm">hello@revly.io</a>
+          <a href="/privacy.html" class="text-soft-gray hover:text-white transition-colors text-sm">Privacy</a>
+          <a href="/terms.html" class="text-soft-gray hover:text-white transition-colors text-sm">Terms</a>
+          <a href="mailto:hello@revly.io" class="text-soft-gray hover:text-white transition-colors text-sm">hello@revly.io</a>
         </div>
       </div>
     </div>
