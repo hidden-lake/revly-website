@@ -1,0 +1,103 @@
+/* Use-case pages — signature sections (SaaS console scrolly, Agency client gallery, capability index) */
+
+/* reveal wrappers reused inside the console mock */
+.mon-reply { height: 0; opacity: 0; overflow: hidden; }
+.mon-trend.rev { height: 0; opacity: 0; overflow: hidden; }
+
+/* ===== Console scrolly — dashboard chrome tweaks ===== */
+.ucMock .mock-pad { padding: 1.2rem 1.3rem 1.4rem; }
+.ucMock .mon-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
+.ucMock .mon-title { font-family: "Bricolage Grotesque"; font-weight: 800; font-size: 1.02rem; }
+.ucMock .mon-live { font-size: 0.66rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: hsl(var(--primary)); display: inline-flex; align-items: center; gap: 0.35rem; }
+.ucMock .mon-live .pulse { width: 7px; height: 7px; border-radius: 999px; background: hsl(var(--primary)); box-shadow: 0 0 0 0 hsl(var(--primary)/0.5); animation: ucPulse 1.8s infinite; }
+@keyframes ucPulse { 0% { box-shadow: 0 0 0 0 hsl(var(--primary)/0.45); } 70% { box-shadow: 0 0 0 7px hsl(var(--primary)/0); } 100% { box-shadow: 0 0 0 0 hsl(var(--primary)/0); } }
+.ucMock .mon-row.flag { border-color: hsl(var(--primary)/0.45); box-shadow: 0 0 0 1px hsl(var(--primary)/0.25); }
+.ucMock .mon-row .nrf { margin-left: auto; font-size: 0.6rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; padding: 0.2rem 0.45rem; border-radius: 6px; background: hsl(var(--primary)/0.14); color: hsl(var(--primary)); flex: none; opacity: 0; transform: scale(0.7); transition: opacity .35s, transform .35s; }
+.ucMock .mon-row.flag .nrf { opacity: 1; transform: scale(1); }
+.ucMock .mon-row .pname { font-size: 0.82rem; font-weight: 600; color: hsl(var(--foreground)/0.8); }
+
+/* ===== Capability index (replaces the 6-card grid) ===== */
+.uc-cap { background: hsl(var(--card)); }
+.uc-cap .head { text-align: center; max-width: 760px; margin: 0 auto 3.5rem; }
+.uc-cap .eyebrow { display: inline-block; margin-bottom: 0.9rem; }
+.uc-cap-grid { display: grid; grid-template-columns: 1fr; column-gap: 4rem; max-width: 980px; margin: 0 auto; }
+@media (min-width: 760px) { .uc-cap-grid { grid-template-columns: 1fr 1fr; } }
+.uc-cap-item { display: flex; gap: 1.2rem; padding: 1.7rem 0; border-top: 1px solid hsl(var(--border)); }
+.uc-cap-item .nm { flex: none; font-family: "Bricolage Grotesque"; font-weight: 800; font-size: 0.85rem; color: hsl(var(--primary)); width: 2.1rem; padding-top: 0.15rem; font-variant-numeric: tabular-nums; }
+.uc-cap-item h3 { font-family: "Bricolage Grotesque"; font-weight: 800; font-size: 1.12rem; line-height: 1.25; margin: 0 0 0.45rem; letter-spacing: -0.01em; }
+.uc-cap-item p { margin: 0; font-size: 0.95rem; line-height: 1.62; color: hsl(var(--foreground)/0.62); }
+
+/* ===== Problem split (replaces text-block narrative) ===== */
+.uc-prob { overflow: hidden; }
+.uc-prob-grid { display: grid; grid-template-columns: 1fr; gap: 2.8rem; align-items: center; max-width: 1100px; margin: 0 auto; }
+@media (min-width: 900px) { .uc-prob-grid { grid-template-columns: 1.02fr 1fr; gap: clamp(3rem,6vw,5.5rem); } .uc-prob.flip .uc-prob-copy { order: 2; } }
+.uc-prob-copy .eyebrow { display: inline-block; margin-bottom: 1rem; }
+.uc-prob-copy h2 { margin: 0; }
+.uc-prob-copy .lead { margin-top: 1.3rem; max-width: 40ch; }
+.uc-prob-emph { font-family: "Bricolage Grotesque"; font-weight: 800; font-size: clamp(1.2rem,1.7vw,1.5rem); line-height: 1.32; margin: 1.4rem 0 0; letter-spacing: -0.01em; }
+
+/* — SaaS chaos: overflowing browser tabs — */
+.pv-win { background: #fff; border: 1px solid hsl(var(--border)); border-radius: 16px; box-shadow: 0 32px 70px -38px rgba(0,0,0,0.32); overflow: hidden; max-width: 460px; margin: 0 auto; position: relative; }
+.pv-tabbar { display: flex; gap: 5px; padding: 0.7rem 0.75rem 0; background: #ecebe8; }
+.pv-tab { flex: 0 0 auto; display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.72rem; font-weight: 700; color: hsl(var(--foreground)/0.55); padding: 0.45rem 0.6rem; border-radius: 9px 9px 0 0; background: #f7f6f4; white-space: nowrap; }
+.pv-tab.live { background: #fff; color: hsl(var(--foreground)); box-shadow: 0 -2px 0 hsl(var(--primary)) inset; }
+.pv-tab .rd { width: 7px; height: 7px; border-radius: 999px; background: hsl(var(--primary)); }
+.pv-winbody { padding: 1.15rem 1.2rem 1.4rem; }
+.pv-row { height: 11px; border-radius: 6px; background: hsl(var(--muted)); margin-bottom: 0.7rem; }
+.pv-row.w1 { width: 86%; } .pv-row.w2 { width: 64%; } .pv-row.w3 { width: 73%; }
+.pv-search { display: flex; align-items: center; gap: 0.5rem; margin-top: 1.1rem; padding: 0.7rem 0.85rem; border: 1px dashed hsl(var(--border)); border-radius: 10px; font-size: 0.85rem; color: hsl(var(--foreground)/0.5); font-style: italic; }
+.pv-badge { position: absolute; bottom: 4.6rem; right: 0.85rem; background: hsl(var(--primary)); color: #fff; font-size: 0.66rem; font-weight: 800; letter-spacing: 0.02em; padding: 0.34rem 0.6rem; border-radius: 999px; box-shadow: 0 10px 24px -8px hsl(var(--primary)); z-index: 2; }
+
+/* — Agency multiply grid — */
+.pv-mult { max-width: 430px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.1rem; }
+.pv-mult-row { display: flex; align-items: center; justify-content: center; gap: 0.6rem; }
+.pv-pill { display: inline-flex; align-items: center; gap: 0.45rem; font-weight: 700; font-size: 0.9rem; padding: 0.5rem 0.85rem; border-radius: 999px; background: hsl(var(--card)); border: 1px solid hsl(var(--border)); }
+.pv-pill .av { width: 20px; height: 20px; border-radius: 6px; display: grid; place-items: center; font-family: "Bricolage Grotesque"; font-weight: 800; font-size: 0.66rem; color: #fff; background: hsl(var(--primary)); }
+.pv-x { font-family: "Bricolage Grotesque"; font-weight: 800; color: hsl(var(--foreground)/0.45); font-size: 1.05rem; }
+.pv-grid { display: grid; grid-template-columns: repeat(10, 1fr); gap: 6px; }
+.pv-cell { aspect-ratio: 1; border-radius: 5px; background: hsl(var(--muted)); border: 1px solid hsl(var(--border)); }
+.pv-cell.on { background: hsl(var(--primary)/0.9); border-color: transparent; }
+.pv-cap { text-align: center; font-size: 0.86rem; color: hsl(var(--foreground)/0.6); }
+.pv-cap b { font-family: "Bricolage Grotesque"; color: hsl(var(--foreground)); font-variant-numeric: tabular-nums; }
+
+/* ===== Outcome band (replaces closing text-block) ===== */
+.uc-out { background: hsl(var(--foreground)); color: #fff; }
+.uc-out .head { text-align: center; max-width: 860px; margin: 0 auto; }
+.uc-out h2 { color: #fff; margin: 0; }
+.uc-out h2 .text-primary { color: hsl(var(--secondary)); }
+.uc-out .lead { color: rgba(255,255,255,0.72); margin: 1.3rem auto 0; max-width: 58ch; }
+.uc-out-tiles { display: grid; grid-template-columns: 1fr; gap: 1rem; max-width: 1000px; margin: 3.2rem auto 0; }
+@media (min-width: 760px) { .uc-out-tiles { grid-template-columns: repeat(3, 1fr); } }
+.uc-out-tile { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; padding: 1.7rem 1.5rem; }
+.uc-out-tile .ic { width: 2.7rem; height: 2.7rem; border-radius: 12px; background: rgba(255,255,255,0.08); color: hsl(var(--secondary)); display: grid; place-items: center; margin-bottom: 1.1rem; }
+.uc-out-tile h3 { font-family: "Bricolage Grotesque"; font-weight: 800; font-size: 1.08rem; margin: 0 0 0.45rem; letter-spacing: -0.01em; color: #fff; }
+.uc-out-tile p { margin: 0; color: rgba(255,255,255,0.6); font-size: 0.92rem; line-height: 1.55; }
+
+/* ===== Capability timeline (replaces bare 2-col index) ===== */
+.uc-tl { max-width: 760px; margin: 0 auto; position: relative; }
+.uc-tl-spine { position: absolute; left: 23px; top: 14px; bottom: 24px; width: 2px; background: hsl(var(--border)); transform-origin: top center; }
+.uc-tl-spine .fill { position: absolute; inset: 0; background: linear-gradient(hsl(var(--primary)), hsl(var(--primary)/0.25)); transform-origin: top center; }
+.uc-tl-item { display: flex; gap: 1.4rem; padding: 0.9rem 0 1.9rem; position: relative; }
+.uc-tl-item:last-child { padding-bottom: 0; }
+.uc-tl-node { flex: none; width: 48px; height: 48px; border-radius: 14px; background: hsl(var(--card)); border: 1px solid hsl(var(--border)); color: hsl(var(--primary)); display: grid; place-items: center; position: relative; z-index: 1; box-shadow: 0 6px 18px -10px rgba(0,0,0,0.25); }
+.uc-tl-body { padding-top: 0.3rem; }
+.uc-tl-num { font-family: "Bricolage Grotesque"; font-weight: 800; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: hsl(var(--primary)); margin-bottom: 0.3rem; }
+.uc-tl-body h3 { font-family: "Bricolage Grotesque"; font-weight: 800; font-size: 1.12rem; line-height: 1.25; margin: 0 0 0.4rem; letter-spacing: -0.01em; }
+.uc-tl-body p { margin: 0; font-size: 0.95rem; line-height: 1.62; color: hsl(var(--foreground)/0.62); }
+
+/* ===== Client gallery (agencies) — panel viz themed for clients ===== */
+.cl-switch { display: flex; flex-direction: column; gap: 0.55rem; }
+.cl-row { display: flex; align-items: center; gap: 0.7rem; padding: 0.65rem 0.8rem; border: 1px solid hsl(var(--border)); border-radius: 12px; background: hsl(var(--background)); transition: border-color .3s, background .3s; }
+.cl-row.active { border-color: hsl(var(--primary)/0.5); background: hsl(var(--muted)); }
+.cl-row .av { width: 30px; height: 30px; border-radius: 8px; flex: none; display: grid; place-items: center; font-family: "Bricolage Grotesque"; font-weight: 800; font-size: 0.82rem; color: #fff; }
+.cl-row .nm { font-weight: 700; font-size: 0.92rem; }
+.cl-row .rt { margin-left: auto; font-family: "Bricolage Grotesque"; font-weight: 800; font-size: 0.92rem; color: hsl(var(--foreground)); display: inline-flex; align-items: center; gap: 0.3rem; }
+.cl-row .rt .st { color: hsl(var(--secondary)); font-size: 0.74rem; }
+.cl-alert { display: flex; align-items: flex-start; gap: 0.7rem; padding: 0.85rem 0.95rem; border-radius: 12px; background: hsl(var(--background)); border: 1px solid hsl(var(--border)); }
+.cl-alert .ic { width: 30px; height: 30px; border-radius: 8px; flex: none; display: grid; place-items: center; background: #4A154B; color: #fff; }
+.cl-alert .ttl { font-weight: 700; font-size: 0.88rem; margin-bottom: 0.15rem; }
+.cl-alert .sub { font-size: 0.82rem; color: hsl(var(--foreground)/0.6); line-height: 1.45; }
+.cl-rollup { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+.cl-stat { border: 1px solid hsl(var(--border)); border-radius: 12px; padding: 0.85rem 0.9rem; background: hsl(var(--background)); }
+.cl-stat .v { font-family: "Bricolage Grotesque"; font-weight: 800; font-size: 1.45rem; letter-spacing: -0.02em; }
+.cl-stat .l { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; color: hsl(var(--foreground)/0.5); margin-top: 0.2rem; }
