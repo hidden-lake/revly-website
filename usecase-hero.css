@@ -1,0 +1,109 @@
+/* Revly — Who It's For animated hero (Without Revly → With Revly scene morph) */
+
+.wif-hero { background: hsl(var(--card)); overflow: hidden; }
+.wif-inner { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem 4.6rem; display: grid; grid-template-columns: 1.04fr 0.96fr; gap: 3.4rem; align-items: center; }
+.wif-copy { text-align: left; }
+.wif-chip { display:inline-flex; align-items:center; gap:.5rem; }
+.wif-chip::before { content:""; width:18px; height:3px; border-radius:2px; background: hsl(var(--secondary)); }
+.wif-hero h1 { margin: 1.1rem 0 0; font-size: clamp(2.2rem, 3.4vw, 3.1rem); line-height: 1.04; }
+.wif-hero .pay { color: hsl(var(--primary)); }
+.wif-hero .lead { margin: 1.3rem 0 0; max-width: 46ch; }
+.wif-cta { margin-top: 2rem; display:flex; gap:.75rem; flex-wrap:wrap; }
+
+/* scene card */
+.wif-scene { position: relative; min-height: 640px; }
+.wif-frame { position:relative; border:1px solid hsl(var(--border)); border-radius:18px; background:#fff; box-shadow:0 36px 70px -44px rgba(0,0,0,.34); min-height: 640px; overflow:hidden; }
+.wif-scene.tall, .wif-scene.tall .wif-frame { min-height: 660px; }
+.wif-state { position:absolute; inset:0; padding:1.5rem 1.6rem; }
+.wif-slab { display:inline-flex; align-items:center; gap:.45rem; white-space:nowrap; font-family:"Bricolage Grotesque"; font-weight:800; font-size:.66rem; letter-spacing:.07em; text-transform:uppercase; padding:.32rem .72rem; border-radius:999px; }
+.slab-weak { background: hsl(var(--muted)); color: hsl(var(--foreground)/.5); }
+.slab-strong { background: hsl(var(--primary)); color:#fff; }
+.wif-slab .met { font-weight:700; opacity:.8; }
+
+/* chaotic scatter */
+.scatter { position:absolute; left:1.6rem; right:1.6rem; top:4rem; bottom:1.4rem; }
+.dcard { position:absolute; background:#fff; border:1px solid hsl(var(--border)); border-radius:12px; padding:.62rem .72rem; box-shadow:0 16px 30px -16px rgba(0,0,0,.45); }
+.dcard .dh { display:flex; align-items:center; gap:.42rem; font-size:.82rem; font-weight:800; color:hsl(var(--foreground)/.9); }
+.dcard .dh .logo { width:15px; height:15px; flex:none; }
+.dcard .dh .src { margin-left:auto; font-size:.58rem; font-weight:800; letter-spacing:.05em; color:hsl(var(--foreground)/.4); text-transform:uppercase; }
+.dcard .db { font-size:.75rem; color:hsl(var(--foreground)/.62); margin-top:.34rem; line-height:1.34; }
+.dcard .stars { color:#e5a400; letter-spacing:1.5px; font-size:.76rem; }
+.dcard .warn { color:#c8313a; font-weight:800; }
+.dcard .em { font-size:.95rem; }
+.dcard.slackcard { width:256px; }
+
+/* unified panel */
+.uni { position:absolute; left:1.6rem; right:1.6rem; top:3.6rem; bottom:1.5rem; display:flex; flex-direction:column; gap:.55rem; }
+.urow { display:flex; align-items:center; gap:.7rem; font-size:.86rem; color:hsl(var(--foreground)/.82); background:hsl(var(--background)); border:1px solid hsl(var(--border)); border-radius:10px; padding:.62rem .7rem; }
+.urow .uk { font-size:.62rem; font-weight:800; padding:.18rem .5rem; border-radius:7px; background:hsl(var(--muted)); color:hsl(var(--primary)); min-width:80px; text-align:center; }
+.urow .umut { color:hsl(var(--foreground)/.5); font-size:.8rem; }
+.uact { margin-left:auto; font-size:.68rem; font-weight:800; letter-spacing:.01em; padding:.28rem .66rem; border-radius:999px; white-space:nowrap; display:inline-flex; align-items:center; gap:.34rem; }
+.uact.reply { background:hsl(var(--primary)); color:#fff; box-shadow:0 8px 18px -10px hsl(var(--primary)/.9); }
+.uact.reply .cnt { background:#fff; color:hsl(var(--primary)); min-width:15px; height:15px; border-radius:999px; font-size:.62rem; display:inline-flex; align-items:center; justify-content:center; padding:0 3px; }
+.uact.done { background:#e7f6ee; color:#1f8a5b; }
+.uact.done::before { content:"\2713"; }
+
+/* with-revly summary card: big stats overlaid on a chart, fills the card */
+.usum { position:relative; flex:1; min-height:128px; margin-top:.5rem; background:hsl(var(--background)); border:1px solid hsl(var(--border)); border-radius:13px; padding:1.05rem 1.2rem; overflow:hidden; }
+.usum-head { position:relative; z-index:2; display:flex; gap:1.7rem; align-items:flex-start; }
+.ustat { display:flex; flex-direction:column; gap:.32rem; }
+.ustat b { font-family:"Bricolage Grotesque"; font-weight:800; font-size:1.9rem; letter-spacing:-.02em; color:hsl(var(--foreground)); line-height:1; }
+.ustat b .stx { color:hsl(var(--secondary)); }
+.ustat span { font-size:.62rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase; color:hsl(var(--foreground)/.46); }
+.ustat.up b { color:#1f8a5b; }
+.uspark { position:absolute; left:0; right:0; bottom:0; width:100%; height:54%; display:block; }
+.uspark .area { stroke:none; }
+.uspark .line { fill:none; stroke: hsl(var(--primary)); stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; vector-effect:non-scaling-stroke; }
+
+/* with-revly — review dashboard mock (needs-reply list + charts, white) */
+.wif-state .dash { position:absolute; left:1.5rem; right:1.5rem; top:4.4rem; bottom:1.4rem; display:flex; flex-direction:column; gap:.65rem; }
+.dash-revs { display:flex; flex-direction:column; gap:.4rem; }
+.drev-head { display:flex; align-items:center; gap:.45rem; margin-bottom:.05rem; }
+.drh-t { font-family:"Bricolage Grotesque"; font-weight:800; font-size:.82rem; color:hsl(var(--foreground)); }
+.drh-c { font-size:.58rem; font-weight:800; color:#fff; background:hsl(var(--primary)); border-radius:999px; padding:.12rem .42rem; }
+.drev { display:flex; align-items:center; gap:.55rem; background:#fff; border:1px solid hsl(var(--border)); border-radius:11px; padding:.5rem .6rem; }
+.drev-av { width:28px; height:28px; border-radius:8px; flex:none; display:grid; place-items:center; font-family:"Bricolage Grotesque"; font-weight:800; font-size:.74rem; color:#fff; }
+.drev-mid { flex:1; min-width:0; }
+.drev-top { display:flex; align-items:center; gap:.4rem; }
+.drev-top b { font-size:.82rem; font-weight:700; color:hsl(var(--foreground)); }
+.drev-plat { font-size:.55rem; font-weight:800; letter-spacing:.04em; text-transform:uppercase; color:hsl(var(--foreground)/.45); }
+.drev-st { font-size:.72rem; letter-spacing:.5px; line-height:1; margin-top:.18rem; display:inline-block; }
+.drev-st .on { color:#f5b301; } .drev-st .off { color:hsl(var(--foreground)/.2); }
+.drev-flag { flex:none; font-size:.56rem; font-weight:800; color:#fff; background:hsl(var(--primary)); border-radius:999px; padding:.24rem .52rem; white-space:nowrap; }
+.dash-charts { display:flex; flex-direction:column; gap:.55rem; }
+.dchart { background:#fff; border:1px solid hsl(var(--border)); border-radius:12px; padding:.7rem .85rem .6rem; overflow:hidden; }
+.dchart.grow { }
+.dchart-t { font-family:"Bricolage Grotesque"; font-weight:800; font-size:.8rem; color:hsl(var(--foreground)); margin-bottom:.5rem; }
+.dspark-wrap { position:relative; height:64px; }
+.dspark { display:block; width:100%; height:100%; }
+.dspark .darea { stroke:none; }
+.dspark .dline { fill:none; stroke:hsl(var(--primary)); stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; vector-effect:non-scaling-stroke; }
+.dmonths { display:flex; justify-content:space-between; font-size:.55rem; color:hsl(var(--foreground)/.42); margin-top:.35rem; }
+.dbars { display:flex; flex-direction:column; gap:.3rem; }
+.dbar { display:flex; align-items:center; gap:.5rem; }
+.dbar .dbl { width:62px; flex:none; text-align:right; font-size:.6rem; color:hsl(var(--foreground)/.55); }
+.dbar .dbt { flex:1; height:9px; background:hsl(var(--muted)); border-radius:999px; overflow:hidden; }
+.dbar .dbt i { display:block; height:100%; border-radius:999px; }
+
+@media (max-width: 560px) {
+  .wif-state .dash { left:1.1rem; right:1.1rem; }
+}
+
+@media (max-width: 880px) {
+  .wif-inner { grid-template-columns: 1fr; gap: 2.4rem; }
+  .wif-scene { min-height: 560px; }
+}
+@media (max-width: 560px) {
+  .wif-inner { padding: 2.5rem 1.25rem 3rem; }
+  .wif-scene, .wif-frame, .wif-scene.tall, .wif-scene.tall .wif-frame { min-height: 600px; }
+  .wif-state { padding: 1.25rem 1.1rem; }
+  .uni, .scatter { left: 1.1rem; right: 1.1rem; }
+  .uni { top: 3.4rem; }
+  .usum { min-height: 116px; padding: .9rem 1rem; }
+  .usum-head { gap: 1.05rem; }
+  .ustat b { font-size: 1.5rem; }
+  .ustat span { font-size: .56rem; }
+  .dcard.slackcard { width: 210px; }
+  .urow { font-size: .8rem; gap: .5rem; }
+  .urow .uk { min-width: 64px; }
+}

@@ -1,0 +1,57 @@
+/* Revly — Direction C feature hero (kinetic headline + morph card) */
+.hero-c2 { background: hsl(var(--card)); overflow: hidden; }
+.hero-c2 .hc2-inner { max-width: 980px; margin: 0 auto; padding: 4.2rem 2rem 5rem; text-align: center; }
+.hero-c2 .chip { margin-bottom: 0; }
+.hero-c2 h1 { margin: 1.3rem 0 0; }
+.hero-c2 .lead { margin: 1.3rem auto 0; max-width: 52ch; }
+.hero-c2 .hc2-cta { margin-top: 2rem; display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; }
+.hero-c2 .kw { color: hsl(var(--foreground)/0.32); }
+.hero-c2 .pay { color: hsl(var(--primary)); }
+
+/* morph frame */
+.hero-c2 .hc2-morph { margin: 2.8rem auto 0; max-width: 560px; }
+.hero-c2 .frame { border: 1px solid hsl(var(--border)); border-radius: 16px; background: #fff; box-shadow: 0 30px 60px -40px rgba(0,0,0,0.3); padding: 1.5rem 1.6rem; text-align: left; position: relative; }
+.hero-c2 .hd-state { position: absolute; left: 1.6rem; right: 1.6rem; top: 1.5rem; }
+.hero-c2 .mlbl { display: inline-flex; align-items: center; gap: 0.4rem; white-space: nowrap; font-family: "Bricolage Grotesque"; font-weight: 800; font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.3rem 0.7rem; border-radius: 999px; margin-bottom: 0.85rem; }
+.hero-c2 .lbl-weak { background: hsl(var(--muted)); color: hsl(var(--foreground)/0.5); }
+.hero-c2 .lbl-strong { background: hsl(var(--primary)); color: #fff; }
+.hero-c2 .mlbl .met { font-weight: 700; opacity: 0.8; }
+
+.hero-c2 .hd-q-weak { font-family: "Bricolage Grotesque"; font-weight: 800; font-size: 1.5rem; color: hsl(var(--foreground)/0.4); margin: 0; }
+.hero-c2 .hd-q-strong { font-size: 1.0rem; line-height: 1.58; color: hsl(var(--foreground)); margin: 0; }
+.hero-c2 .st { color: hsl(var(--secondary)); font-size: 0.9rem; letter-spacing: 2px; margin: 0; }
+.hero-c2 .with-stars .hd-state { top: 3.1rem; }
+.hero-c2 .qh { font-family: "Bricolage Grotesque"; font-weight: 700; font-size: 0.92rem; color: hsl(var(--foreground)/0.7); margin: 0; }
+.hero-c2 .rate { margin: 0 0 0.55rem; font-size: 1.05rem; letter-spacing: 2px; }
+.hero-c2 .rate .on { color: hsl(var(--secondary)); }
+.hero-c2 .rate .off { color: #d9d9de; }
+.hero-c2 .lbl-care { background: hsl(var(--secondary)); color: #5a3a00; }
+
+/* monitor — messy tabs (without) */
+.hero-c2 .mess { position: relative; height: 150px; }
+.hero-c2 .mess .tab { position: absolute; display: inline-flex; align-items: center; gap: 0.4rem; background: #fff; border: 1px solid hsl(var(--border)); border-radius: 8px; padding: 0.4rem 0.6rem; font-size: 0.8rem; color: hsl(var(--foreground)/0.6); box-shadow: 0 8px 16px -9px rgba(0,0,0,0.4); white-space: nowrap; }
+.hero-c2 .mess .tab b { color: hsl(var(--foreground)/0.82); }
+.hero-c2 .mess .badge { background: #e5484d; color: #fff; font-style: normal; font-size: 0.64rem; font-weight: 800; min-width: 16px; height: 16px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; padding: 0 4px; }
+.hero-c2 .mess .t1 { top: 0; left: 0; transform: rotate(-6deg); }
+.hero-c2 .mess .t2 { top: 8px; left: 320px; transform: rotate(5deg); }
+.hero-c2 .mess .t3 { top: 66px; left: 150px; transform: rotate(-3deg); z-index: 3; }
+.hero-c2 .mess .t4 { top: 112px; left: 330px; transform: rotate(7deg); }
+.hero-c2 .mess .t5 { top: 116px; left: 18px; transform: rotate(-8deg); opacity: 0.9; }
+
+/* monitor — unified feed (with) */
+.hero-c2 .mlist { display: flex; flex-direction: column; gap: 0.5rem; }
+.hero-c2 .mrow { display: flex; align-items: center; gap: 0.55rem; font-size: 0.86rem; color: hsl(var(--foreground)/0.5); }
+.hero-c2 .mrow.on { color: hsl(var(--foreground)/0.82); }
+.hero-c2 .mrow .mp { font-size: 0.62rem; font-weight: 800; padding: 0.18rem 0.5rem; border-radius: 999px; background: hsl(var(--muted)); color: hsl(var(--primary)); min-width: 62px; text-align: center; }
+.hero-c2 .mrow .mst { color: hsl(var(--secondary)); letter-spacing: 1px; font-size: 0.74rem; }
+.hero-c2 .mrow .mtime { margin-left: auto; font-size: 0.72rem; color: hsl(var(--foreground)/0.4); }
+
+/* message bubbles (routing / manage) */
+.hero-c2 .bubble { border-radius: 12px; padding: 0.8rem 0.95rem; font-size: 0.92rem; line-height: 1.5; }
+.hero-c2 .bubble.weak { background: hsl(var(--background)); border: 1px dashed hsl(var(--border)); color: hsl(var(--foreground)/0.5); }
+.hero-c2 .bubble.strong { background: hsl(var(--muted)); border: 1px solid hsl(var(--primary)/0.18); color: hsl(var(--foreground)/0.82); }
+.hero-c2 .bubble .who { font-weight: 700; color: hsl(var(--primary)); }
+
+@media (max-width: 640px) {
+  .hero-c2 .mess .t2, .hero-c2 .mess .t4 { left: auto; right: 0; }
+}
