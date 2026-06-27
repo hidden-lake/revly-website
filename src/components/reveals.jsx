@@ -55,12 +55,13 @@ function useRevealProgress(ref) {
 
 function useIsSmall(maxWidth) {
   const mq = "(max-width: " + (maxWidth || 900) + "px)";
-  const [small, setSmall] = useState(
-    typeof window !== "undefined" && window.matchMedia ? window.matchMedia(mq).matches : false
-  );
+  // Start from a stable value matching the server render (false) to avoid a
+  // hydration mismatch, then sync to the real viewport in useEffect after mount.
+  const [small, setSmall] = useState(false);
   useEffect(() => {
     if (!window.matchMedia) return;
     const m = window.matchMedia(mq);
+    setSmall(m.matches);
     const fn = (e) => setSmall(e.matches);
     m.addEventListener ? m.addEventListener("change", fn) : m.addListener(fn);
     return () => { m.removeEventListener ? m.removeEventListener("change", fn) : m.removeListener(fn); };
