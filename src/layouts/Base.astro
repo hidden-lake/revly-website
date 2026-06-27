@@ -4,8 +4,9 @@ export interface Props {
   description: string;
   canonicalPath?: string;
 }
-const { title, description, canonicalPath = '/' } = Astro.props;
-const canonical = `https://revly.io${canonicalPath}`;
+const { title, description, canonicalPath } = Astro.props;
+const pathname = canonicalPath ?? Astro.url.pathname;
+const canonical = new URL(pathname, 'https://revly.io').toString();
 ---
 <!doctype html>
 <html lang="en">
