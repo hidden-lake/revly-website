@@ -17,7 +17,9 @@ const LEGACY_REDIRECTS = {
 };
 
 function currentPath() {
-  return window.location.pathname || "/";
+  const p = window.location.pathname || "/";
+  // Normalize trailing slashes so /pricing/ matches the /pricing route.
+  return p.length > 1 ? p.replace(/\/+$/, "") || "/" : p;
 }
 
 function navigate(to, replace) {
@@ -37,10 +39,11 @@ function BrowserRouter({ children }) {
       window.removeEventListener("spa:navigate", onChange);
     };
   }, []);
-  // Redirect any legacy .html path to its new route.
+  // Redirect any legacy .html path to its new route, keeping query + fragment
+  // so UTM attribution and anchors survive the redirect.
   React.useEffect(() => {
     const dest = LEGACY_REDIRECTS[pathname];
-    if (dest && dest !== pathname) navigate(dest, true);
+    if (dest && dest !== pathname) navigate(dest + window.location.search + window.location.hash, true);
   }, [pathname]);
   return <RouterCtx.Provider value={{ pathname, setPathname }}>{children}</RouterCtx.Provider>;
 }
@@ -83,10 +86,12 @@ function Routes({ children }) {
 
 function Route() { return null; }
 
-function Link({ to, children, ...rest }) {
+function Link({ to, children, onClick: userOnClick, ...rest }) {
   const external = typeof to === "string" && (/^https?:|^mailto:|^tel:/.test(to));
   const onClick = (e) => {
-    if (external) return;
+    // Run the caller's handler first (e.g. closing a dropdown), then navigate.
+    if (typeof userOnClick === "function") userOnClick(e);
+    if (external || e.defaultPrevented) return;
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;
     e.preventDefault();
     navigate(to);
