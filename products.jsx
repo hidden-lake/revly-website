@@ -137,8 +137,8 @@ function CollectBetterReviews() {
             <h2 className="h2">Your customers want to review you.<br /><span style={{ color: "#f1057a" }}>Make it easy for them.</span></h2>
             <p className="lead" style={{ color: "rgba(255,255,255,0.75)", margin: "1rem auto 0", maxWidth: "46ch" }}>One smart link, AI writing assistance that keeps their voice intact, and automatic routing to the platform that needs it most.</p>
             <div style={{ display: "flex", justifyContent: "center", gap: ".75rem", marginTop: "2rem", flexWrap: "wrap" }}>
-              <a className="btn btn-default btn-lg" href="#/pricing">Start collecting quality reviews</a>
-              <a className="btn btn-yellow btn-lg" href="#/pricing">Book a demo</a>
+              <Link className="btn btn-default btn-lg" to="/pricing">Start collecting quality reviews</Link>
+              <Link className="btn btn-yellow btn-lg" to="/pricing">Book a demo</Link>
             </div>
           </div>
         </div>
@@ -198,8 +198,8 @@ function MonitorPlatforms() {
             <h2 className="h2">Your entire review presence,<br /><span style={{ color: "#f1057a" }}>finally in one place.</span></h2>
             <p className="lead" style={{ color: "rgba(255,255,255,0.75)", margin: "1rem auto 0", maxWidth: "46ch" }}>One dashboard, every platform, updated every five minutes.</p>
             <div style={{ display: "flex", justifyContent: "center", gap: ".75rem", marginTop: "2rem", flexWrap: "wrap" }}>
-              <a className="btn btn-default btn-lg" href="#/pricing">Start monitoring your reviews</a>
-              <a className="btn btn-yellow btn-lg" href="#/pricing">Book a demo</a>
+              <Link className="btn btn-default btn-lg" to="/pricing">Start monitoring your reviews</Link>
+              <Link className="btn btn-yellow btn-lg" to="/pricing">Book a demo</Link>
             </div>
           </div>
         </div>
@@ -264,8 +264,8 @@ function SmartReviewRequests() {
             <h2 className="h2">Every customer has something to say.<br /><span style={{ color: "#f1057a" }}>Make sure it's heard.</span></h2>
             <p className="lead" style={{ color: "rgba(255,255,255,0.75)", margin: "1rem auto 0", maxWidth: "48ch" }}>One link, one feedback step. Those who are ready share their experience; those who need support reach your team.</p>
             <div style={{ display: "flex", justifyContent: "center", gap: ".75rem", marginTop: "2rem", flexWrap: "wrap" }}>
-              <a className="btn btn-default btn-lg" href="#/pricing">Send smarter review requests</a>
-              <a className="btn btn-yellow btn-lg" href="#/pricing">Book a demo</a>
+              <Link className="btn btn-default btn-lg" to="/pricing">Send smarter review requests</Link>
+              <Link className="btn btn-yellow btn-lg" to="/pricing">Book a demo</Link>
             </div>
           </div>
         </div>
@@ -328,8 +328,8 @@ function ManageReviewResponses() {
             <h2 className="h2">Your reviews are a conversation.<br /><span style={{ color: "#f1057a" }}>Start showing up to it.</span></h2>
             <p className="lead" style={{ color: "rgba(255,255,255,0.75)", margin: "1rem auto 0", maxWidth: "48ch" }}>One dashboard, every platform, AI-assisted replies matched to your brand voice — and one click to post.</p>
             <div style={{ display: "flex", justifyContent: "center", gap: ".75rem", marginTop: "2rem", flexWrap: "wrap" }}>
-              <a className="btn btn-default btn-lg" href="#/pricing">Start replying to all reviews</a>
-              <a className="btn btn-yellow btn-lg" href="#/pricing">Book a demo</a>
+              <Link className="btn btn-default btn-lg" to="/pricing">Start replying to all reviews</Link>
+              <Link className="btn btn-yellow btn-lg" to="/pricing">Book a demo</Link>
             </div>
           </div>
         </div>

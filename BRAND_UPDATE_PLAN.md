@@ -140,6 +140,13 @@ Border radius: 8px (rounded-lg). Font: Bricolage Grotesque 700.
 
 ## Website Implementation Plan
 
+> **Status: historical.** This section described the old static Tailwind HTML site
+> (`index.html`, `pricing.html`, `use-cases/*.html`, etc.). That site has been replaced
+> by the React SPA, and those `.html` pages were deleted. The brand identity above is
+> still the source of truth, but the Tailwind config, class-swap table, and per-file copy
+> changes below no longer map to the codebase. Site styling now lives in `styles.css` and
+> the per-feature CSS files. Kept for reference only.
+
 ### Tailwind Config (replace on all pages)
 
 ```js

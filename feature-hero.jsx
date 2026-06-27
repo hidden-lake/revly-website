@@ -99,28 +99,28 @@ const HERO_CONFIGS = {
     chip: "GET HIGH QUALITY REVIEWS", chipClass: "chip-amber",
     headline: <>Turn <span className="kw">"great tool"</span> into a<br />review that <span className="pay">converts.</span></>,
     lead: "Your customers know why they love you. Revly's AI writing assistance helps them say it — specific, detailed, and on the platform that needs it most.",
-    ctas: <a className="btn btn-yellow btn-lg" href="#/pricing">Start collecting quality reviews</a>
+    ctas: <Link className="btn btn-yellow btn-lg" to="/pricing">Start collecting quality reviews</Link>
   },
   monitor: {
     chip: "SEE EVERY REVIEW", chipClass: "chip-amber",
     headline: <>Turn <span className="kw">five open tabs</span><br />into <span className="pay">one dashboard.</span></>,
     lead: "Reviews land across G2, Capterra, the app stores and more. Revly pulls every one into a single live feed — so nothing slips past you again.",
-    ctas: <a className="btn btn-yellow btn-lg" href="#/pricing">See all your reviews in one place</a>
+    ctas: <Link className="btn btn-yellow btn-lg" to="/pricing">See all your reviews in one place</Link>
   },
   routing: {
     chip: "SMART FEEDBACK ROUTING", chipClass: "chip-pink",
     headline: <>Turn <span className="kw">one star rating</span><br />into <span className="pay">the right conversation.</span></>,
     lead: "Ask for a rating first. Customers who are thrilled get invited to post publicly; anyone who needs help reaches your team directly — so you can help them first and win them back.",
     ctas: <>
-      <a className="btn btn-default btn-lg" href="#/pricing">See how routing works</a>
-      <a className="btn btn-yellow btn-lg" href="#/pricing">Get started for free</a>
+      <Link className="btn btn-default btn-lg" to="/pricing">See how routing works</Link>
+      <Link className="btn btn-yellow btn-lg" to="/pricing">Get started for free</Link>
     </>
   },
   manage: {
     chip: "REPLY TO ALL REVIEWS", chipClass: "chip-amber",
     headline: <>Turn <span className="kw">a blank reply box</span> into an<br />on-brand response in <span className="pay">seconds.</span></>,
     lead: "Every review deserves a reply, but the blank box eats your day. Revly drafts a tailored, on-brand response you can review and send in one click.",
-    ctas: <a className="btn btn-yellow btn-lg" href="#/pricing">Reply to every review faster</a>
+    ctas: <Link className="btn btn-yellow btn-lg" to="/pricing">Reply to every review faster</Link>
   }
 };
 

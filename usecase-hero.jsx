@@ -44,7 +44,7 @@ function WifHero({ chip, headline, lead, cta, scene, tall }) {
           <h1 className="h1">{headline}</h1>
           <p className="lead">{lead}</p>
           <div className="wif-cta">
-            <a className="btn btn-default btn-lg" href="#/pricing">{cta}</a>
+            <Link className="btn btn-default btn-lg" to="/pricing">{cta}</Link>
           </div>
         </div>
         <div className={"wif-scene" + (tall ? " tall" : "")}>{scene}</div>

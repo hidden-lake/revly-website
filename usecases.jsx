@@ -51,7 +51,7 @@ function UseCaseHero({ chip, h1, sub, cta }) {
         <h1 className="h1">{h1}</h1>
         <p className="lead" style={{ marginTop: "1.5rem", maxWidth: "720px", marginLeft: "auto", marginRight: "auto" }}>{sub}</p>
         <div style={{ marginTop: "2rem", display: "flex", justifyContent: "center", gap: ".75rem", flexWrap: "wrap" }}>
-          <a className="btn btn-default btn-lg" href="#/pricing">{cta}</a>
+          <Link className="btn btn-default btn-lg" to="/pricing">{cta}</Link>
         </div>
       </div>
     </section>);
@@ -140,8 +140,8 @@ function UseCaseSaaS() {
             <h2 className="h2">Stop managing reviews<br /><span style={{ color: "#f1057a" }}>across a dozen tabs.</span></h2>
             <p className="lead" style={{ color: "rgba(255,255,255,0.75)", margin: "1rem auto 0", maxWidth: "46ch" }}>One tab for every platform, a clear reply queue, and a check-in before every request. Set up in under 30 minutes.</p>
             <div style={{ display: "flex", justifyContent: "center", gap: ".75rem", marginTop: "2rem", flexWrap: "wrap" }}>
-              <a className="btn btn-default btn-lg" href="#/pricing">Start free with Revly</a>
-              <a className="btn btn-yellow btn-lg" href="#/pricing">Book a demo</a>
+              <Link className="btn btn-default btn-lg" to="/pricing">Start free with Revly</Link>
+              <Link className="btn btn-yellow btn-lg" to="/pricing">Book a demo</Link>
             </div>
           </div>
         </div>
@@ -262,8 +262,8 @@ function UseCaseAgencies() {
             <h2 className="h2">Run every client's reviews<br /><span style={{ color: "#f1057a" }}>from one dashboard.</span></h2>
             <p className="lead" style={{ color: "rgba(255,255,255,0.75)", margin: "1rem auto 0", maxWidth: "48ch" }}>Every client, every platform, one login — with alerts the moment something needs a reply. Set up your first client in under 30 minutes.</p>
             <div style={{ display: "flex", justifyContent: "center", gap: ".75rem", marginTop: "2rem", flexWrap: "wrap" }}>
-              <a className="btn btn-default btn-lg" href="#/pricing">Start free with Revly</a>
-              <a className="btn btn-yellow btn-lg" href="#/pricing">Book a demo</a>
+              <Link className="btn btn-default btn-lg" to="/pricing">Start free with Revly</Link>
+              <Link className="btn btn-yellow btn-lg" to="/pricing">Book a demo</Link>
             </div>
           </div>
         </div>
