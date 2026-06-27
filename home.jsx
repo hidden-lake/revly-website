@@ -88,7 +88,7 @@ function Hero() {
           <h1 className="display" style={{ marginTop: "1.4rem" }}>Every software review.<br /><span className="mag">One place.</span></h1>
           <p className="lead" style={{ marginTop: "1.4rem", maxWidth: "30ch" }}>Revly is the review management platform built for software companies. Collect better reviews with one smart link, monitor every platform from a single dashboard, and respond where buyers are looking.</p>
           <div className="hero-cta">
-            <a className="btn btn-default btn-lg" href="#/pricing">Take control of your reviews</a>
+            <Link className="btn btn-default btn-lg" to="/pricing">Take control of your reviews</Link>
             <a className="btn btn-outline btn-lg" href="#how" onClick={(e) => scrollToId(e, "how")}>See how it works</a>
           </div>
           <p className="hero-note">
@@ -105,14 +105,14 @@ function Hero() {
 
 function TrustMarquee() {
   const logos = [
-    ["assets/logos/g2.svg", "G2"],
-    ["assets/logos/capterra.png", "Capterra"],
-    ["assets/logos/trustpilot.png", "Trustpilot"],
-    ["assets/logos/shopify.png", "Shopify", "lg"],
-    ["assets/logos/woo.png", "WooCommerce", "sm"],
-    ["assets/logos/wordpress.png", "WordPress"],
-    ["assets/logos/xero.png", "Xero"],
-    ["assets/logos/quickbooks.png", "QuickBooks"]];
+    ["/assets/logos/g2.svg", "G2"],
+    ["/assets/logos/capterra.png", "Capterra"],
+    ["/assets/logos/trustpilot.png", "Trustpilot"],
+    ["/assets/logos/shopify.png", "Shopify", "lg"],
+    ["/assets/logos/woo.png", "WooCommerce", "sm"],
+    ["/assets/logos/wordpress.png", "WordPress"],
+    ["/assets/logos/xero.png", "Xero"],
+    ["/assets/logos/quickbooks.png", "QuickBooks"]];
 
   const triple = [...logos, ...logos, ...logos];
   return (
@@ -395,8 +395,8 @@ function HomeClosingCTA() {
           <h2 className="h2">Your review chaos? <span className="mag">Solved.</span></h2>
           <p className="lead" style={{ color: "rgba(255,255,255,0.75)", margin: "1rem auto 0", maxWidth: "46ch" }}>One smart link. Every platform. Up and running in minutes.</p>
           <div style={{ display: "flex", justifyContent: "center", gap: "0.75rem", marginTop: "2rem", flexWrap: "wrap" }}>
-            <a className="btn btn-default btn-lg" href="#/pricing">Get started for free</a>
-            <a className="btn btn-yellow btn-lg" href="#/pricing">Book a demo</a>
+            <Link className="btn btn-default btn-lg" to="/pricing">Get started for free</Link>
+            <Link className="btn btn-yellow btn-lg" to="/pricing">Book a demo</Link>
           </div>
         </div>
       </div>

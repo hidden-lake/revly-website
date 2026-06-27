@@ -211,7 +211,7 @@ function NotFound() {
 
 function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <ScrollToTop/>
       <Routes>
         <Route path="/" element={<Index/>} />
@@ -227,7 +227,7 @@ function App() {
         <Route path="/terms" element={<Terms/>} />
         <Route path="*" element={<NotFound/>} />
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 

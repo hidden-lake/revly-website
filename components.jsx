@@ -1,6 +1,6 @@
 // Revly — Shared components
 const { useState, useEffect, useRef } = React;
-const { HashRouter, Routes, Route, Link, NavLink, useLocation } = ReactRouterDOM;
+const { BrowserRouter, HashRouter, Routes, Route, Link, NavLink, useLocation } = ReactRouterDOM;
 
 // ---------- Hooks ----------
 function useJsonLd(...schemas) {
@@ -19,6 +19,7 @@ function useJsonLd(...schemas) {
 }
 
 function usePageMeta(title, description) {
+  const { pathname } = useLocation();
   useEffect(() => {
     const prevTitle = document.title;
     document.title = title;
@@ -26,8 +27,17 @@ function usePageMeta(title, description) {
     const prev = m ? m.getAttribute("content") : "";
     if (!m) {m = document.createElement("meta");m.setAttribute("name", "description");document.head.appendChild(m);}
     m.setAttribute("content", description);
-    return () => {document.title = prevTitle;if (m) m.setAttribute("content", prev);};
-  }, [title, description]);
+
+    // Keep the canonical URL in sync with the current route so every page
+    // self-canonicalizes instead of all pointing at the homepage.
+    let c = document.querySelector('link[rel="canonical"]');
+    const prevHref = c ? c.getAttribute("href") : "https://revly.io/";
+    if (!c) {c = document.createElement("link");c.setAttribute("rel", "canonical");document.head.appendChild(c);}
+    const path = pathname === "/" ? "" : pathname.replace(/\/$/, "");
+    c.setAttribute("href", "https://revly.io" + (path || "/"));
+
+    return () => {document.title = prevTitle;if (m) m.setAttribute("content", prev);if (c) c.setAttribute("href", prevHref);};
+  }, [title, description, pathname]);
 }
 
 // ---------- ScrollToTop ----------
@@ -89,7 +99,7 @@ function Navbar() {
     <header className="nav">
       <div className="container-x" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: "100%" }}>
         <Link to="/" style={{ display: "flex", alignItems: "center" }}>
-          <img src="assets/revly-logo.png" alt="Revly" style={{ height: "2rem" }} />
+          <img src="/assets/revly-logo.png" alt="Revly" style={{ height: "2rem" }} />
         </Link>
         <nav style={{ display: "flex", alignItems: "center", gap: "0.25rem" }} className="hide-md">
           <div ref={ref} style={{ position: "relative" }}>
@@ -150,7 +160,7 @@ function Footer() {
       <div className="container-x">
         <div style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr 1fr 1fr 1fr", gap: "2.25rem" }} className="footer-grid">
           <div>
-            <img src="assets/revly-logo-icon-white.png" alt="Revly" style={{ height: "1.85rem" }} />
+            <img src="/assets/revly-logo-icon-white.png" alt="Revly" style={{ height: "1.85rem" }} />
             <p style={{ color: "rgba(255,255,255,0.6)", marginTop: ".75rem", fontSize: ".95rem", maxWidth: "24rem" }}>Review management for software companies.</p>
             <div style={{ display: "flex", gap: "0.9rem", alignItems: "center", marginTop: "1.25rem" }}>
               <a href="https://www.youtube.com/@revlyhq" target="_blank" rel="noopener" aria-label="Revly on YouTube" style={{ color: "#fff", display: "inline-flex" }}>
