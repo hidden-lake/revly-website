@@ -1,0 +1,41 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  canonicalPath?: string;
+}
+const { title, description, canonicalPath } = Astro.props;
+const pathname = canonicalPath ?? Astro.url.pathname;
+const canonical = new URL(pathname, 'https://revly.io').toString();
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>{title}</title>
+  <meta name="description" content={description}/>
+  <meta property="og:title" content={title}/>
+  <meta property="og:description" content={description}/>
+  <meta property="og:image" content="https://revly.io/og-image.png"/>
+  <meta property="og:url" content={canonical}/>
+  <meta property="og:type" content="website"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <link rel="canonical" href={canonical}/>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/styles.css"/>
+  <link rel="stylesheet" href="/feature-collect.css"/>
+  <link rel="stylesheet" href="/feature-hero.css"/>
+  <link rel="stylesheet" href="/usecase-hero.css"/>
+  <link rel="stylesheet" href="/usecase-sections.css"/>
+  <slot name="head"/>
+</head>
+<body>
+  <slot/>
+</body>
+</html>
