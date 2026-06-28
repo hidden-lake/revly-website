@@ -1,7 +1,14 @@
 ---
 import Base from '../layouts/Base.astro';
 import { ManageReviewResponses } from '../components/products.jsx';
+import { faqPageSchema } from '../lib/seo.js';
+import { RESPOND_FAQ } from '../lib/faqs.js';
 ---
-<Base title="Manage Review Responses — Revly" description="AI-drafted responses to every review across all platforms. Respond faster, sound more human.">
+<Base
+  title="Manage Review Responses — Revly"
+  description="AI-drafted responses to every review across all platforms. Respond faster, sound more human."
+  canonicalPath="/manage-review-responses"
+  jsonLd={[faqPageSchema(RESPOND_FAQ)]}
+>
   <ManageReviewResponses client:load />
 </Base>

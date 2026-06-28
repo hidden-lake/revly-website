@@ -1,7 +1,14 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { UseCaseSaaS } from '../../components/usecases.jsx';
+import { faqPageSchema } from '../../lib/seo.js';
+import { SAAS_FAQ } from '../../lib/faqs.js';
 ---
-<Base title="For SaaS Companies — Revly" description="Revly helps SaaS companies collect more reviews, monitor every platform, and respond to feedback—all in one place.">
+<Base
+  title="For SaaS Companies — Revly"
+  description="Revly helps SaaS companies collect more reviews, monitor every platform, and respond to feedback—all in one place."
+  canonicalPath="/use-cases/saas"
+  jsonLd={[faqPageSchema(SAAS_FAQ)]}
+>
   <UseCaseSaaS client:load />
 </Base>

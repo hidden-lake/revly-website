@@ -7,6 +7,7 @@ import { FeatureMotion, CQScrolly, CQSmartRouting, CQGallery } from './feature-c
 import { MonScrolly, MonGallery } from './feature-monitor.jsx';
 import { SmartScrolly, SmartGallery } from './feature-smart.jsx';
 import { RespScrolly, RespGallery } from './feature-respond.jsx';
+import { COLLECT_FAQ, MONITOR_FAQ, SMART_FAQ, RESPOND_FAQ } from '../lib/faqs.js';
 
 function ProductHero({ chip, chipClass, h1, sub, ctas, h1Black }) {
   return (
@@ -74,14 +75,7 @@ function NarrativeSection({ title, paragraphs = [], emphasized, bg = "card", var
 
 // ========== Collect Quality Reviews ==========
 export function CollectBetterReviews() {
-  const FAQS = [
-  { q: "How do you collect better reviews on G2, Capterra, and other software platforms?", a: "The most common barrier to useful reviews is friction — customers don't know what to write or which platform to use. Revly removes both by providing one smart link that handles platform routing automatically, and AI writing assistance that helps customers turn a brief thought into a detailed, specific review. The result is more reviews, on the right platforms, that actually reflect what customers think." },
-  { q: "Is the AI writing the review for the customer?", a: "No. The customer writes their review first, in their own words. If they want help expanding or structuring what they've written, Revly's AI offers suggestions — but the customer can edit, rewrite, or ignore the suggestions entirely. Nothing goes live without their explicit approval. The AI assists; it doesn't replace." },
-  { q: "What if the customer just wants to write their own review without AI help?", a: "That's completely fine. The AI assistance is optional. Customers who want to write their own review from scratch can do so — Revly just makes sure they end up on the right platform without having to choose between multiple links." },
-  { q: "How does the smart routing work?", a: "You set the routing priority in Revly. If you need more reviews on a specific platform — say G2 is strong but Capterra is thin — you can prioritise Capterra until it's balanced. Or you can let Revly distribute automatically based on your current review counts across platforms. Either way, customers get sent to one place with no confusion about where to go." },
-  { q: "Can customers leave a review on the platform they prefer?", a: "The smart link routes customers based on your priorities, but the goal is always to remove confusion rather than force a choice. If a customer has a strong preference for a specific platform, they can still post there directly — Revly just ensures the default is wherever you need reviews most." },
-  { q: "What kinds of reviews does this produce?", a: "Reviews that are more detailed and specific than what customers typically write without assistance. Instead of \"Great tool, easy to use\" — which tells a prospect nothing — customers are more likely to describe the specific problem it solved, the feature that made the difference, or how it compares to what they used before. That's the information that actually influences buying decisions." },
-  { q: "Does this work if we only have a small number of customers?", a: "Yes — in fact it matters more. With a small customer base, every review counts more. Revly makes sure each one lands on the right platform and says something useful. One well-written review on the right platform does more than five vague ones spread across platforms you're not actively trying to build." }];
+  const FAQS = COLLECT_FAQ;
 
   return <>
     <Navbar />
@@ -130,13 +124,7 @@ export function CollectBetterReviews() {
 
 // ========== Monitor Platforms ==========
 export function MonitorPlatforms() {
-  const FAQS = [
-  { q: "How do you monitor across G2, Capterra, and TrustRadius without logging into each?", a: "Revly connects to each platform once during setup and syncs every new review into one dashboard automatically. After connection, you never need to log into the individual platforms to check or read reviews — everything appears in your Revly feed within five minutes of being posted." },
-  { q: "Which platforms does Revly monitor?", a: "Revly currently monitors G2, Capterra, GetApp, Software Advice, Trustpilot, Apple App Store, Google Play Store, Shopify App Store, WooCommerce Marketplace, QuickBooks Marketplace, WordPress Plugin Marketplace, and Xero Marketplace. More platforms are added regularly — if a platform matters for software buying decisions, it's on the roadmap." },
-  { q: "How quickly does Revly pick up new reviews?", a: "New reviews appear in your Revly dashboard within five minutes of being posted on the source platform. You don't have to refresh, check, or log in anywhere to see them." },
-  { q: "Can I search for specific quotes or topics?", a: "Yes. Your entire review history is searchable from one place. Search by keyword, feature name, customer language, or topic to find the exact quote you need for a campaign, landing page, or sales conversation." },
-  { q: "Does Revly notify me when a new review comes in?", a: "Yes. You can configure notifications via email and Slack, so the right person on your team is alerted as soon as a new review is posted on any connected platform." },
-  { q: "How is this different from checking each platform manually?", a: "Manual checking is reactive — you remember to look, or you don't. Reviews go unread for days or weeks. Trends are invisible because you only see one platform at a time. Revly replaces that with a single feed updated every five minutes, so nothing slips through and patterns become visible across platforms." }];
+  const FAQS = MONITOR_FAQ;
 
   return <>
     <Navbar />
@@ -183,15 +171,7 @@ export function MonitorPlatforms() {
 
 // ========== Smart Review Requests ==========
 export function SmartReviewRequests() {
-  const FAQS = [
-  { q: "Why check in with customers before sending them to a review platform?", a: "Sending a public review request without knowing how a customer feels is a coin flip. Some land on a platform when they would have benefited from support first. A short feedback step turns one campaign into two distinct, useful workflows: customers who are ready share publicly, and customers who need help reach your team. Both outcomes are better than the alternative." },
-  { q: "What does the feedback step look like for the customer?", a: "It's a short check-in — usually a question or two — that takes seconds to complete. Customers don't see it as a survey or a barrier; it feels like part of the review flow. Their answers determine where they go next, automatically." },
-  { q: "What happens to customers who indicate they need support?", a: "They share more detail with your team via a short form, and your team gets notified. The customer never lands on a public review platform from this flow — instead, they get the chance to flag whatever's wrong and have you address it." },
-  { q: "Is this hiding negative reviews?", a: "No. Customers can still leave a public review independently if they choose. What Revly does is route the review request itself — so a customer who would benefit from support gets help instead of a request to post publicly at the wrong moment. The customer decides whether to post anywhere, always." },
-  { q: "How does the routing decide where to send a customer?", a: "You configure the rules in Revly. Based on what the customer shares in the feedback step, Revly routes them either to the review platform you want to prioritise, or to the private feedback path that reaches your team." },
-  { q: "Will customers know they're being filtered?", a: "No. The feedback step looks like a natural first part of the review flow — it asks how things are going. Customers who are happy proceed to a review platform; customers who flagged an issue proceed to a form for your team. Both paths feel coherent and intentional." },
-  { q: "How is this different from a Net Promoter Score survey?", a: "NPS is a measurement tool — it asks how likely you are to recommend, then tracks the score. Revly's feedback step is operational — it routes each customer based on their response, in real time, to the action that fits their experience. You're not just measuring sentiment; you're acting on it." },
-  { q: "Can I run this on customers I don't know personally?", a: "Yes — that's the most common use case. The feedback step is automated, so it works whether you have ten customers or ten thousand. Each customer gets the right next step based on their own response, regardless of how well your team knows them individually." }];
+  const FAQS = SMART_FAQ;
 
   return <>
     <Navbar />
@@ -241,15 +221,7 @@ export function SmartReviewRequests() {
 
 // ========== Manage Review Responses ==========
 export function ManageReviewResponses() {
-  const FAQS = [
-  { q: "How do you respond to reviews on G2, Capterra, and other software platforms from one place?", a: "Revly pulls every review from your connected platforms into one dashboard. You filter to unresponded reviews and draft a reply with AI in your brand voice. Then, Revly takes you directly to the review source platform to post it. No logging into each platform separately, no searching for the review again." },
-  { q: "Can the AI match my brand voice?", a: "Yes. You set up tone instructions in Revly's settings — formal vs casual, sign-off conventions, words to use or avoid. Revly's AI uses those instructions to draft replies that sound like your team from the first draft, not generic responses you have to rewrite." },
-  { q: "Why does it matter to respond to positive reviews too?", a: "Responding to positive reviews acknowledges the customers who took the time to advocate for you, and it signals to prospects browsing your profile that you actually engage. It also adds indexable content on review platforms that AI systems and search engines cite — your responses become part of how your product is described publicly." },
-  { q: "Will Revly post the response automatically?", a: "No. Revly drafts the response and takes you directly to the review on the platform, but you post it yourself. This keeps the response under your team's control and ensures every reply is a deliberate decision, not an automated one." },
-  { q: "How does responding to reviews help with AEO and SEO?", a: "Review platforms like G2 and Capterra are among the most cited domains in AI-generated answers for commercial queries. Responses that mirror the language of the review — feature names, outcomes, specific use cases — add indexable content on those high-authority domains and reinforce what your product does and who it's for." },
-  { q: "What happens if a critical review needs urgent attention?", a: "You can configure notifications via email or Slack so the right person on your team is alerted as soon as a low-rated review is posted. Filter your dashboard to unresponded critical reviews and address them while the customer is still listening." },
-  { q: "Can multiple team members manage responses?", a: "Yes, with all Revly paid plans. Multiple team members can be added, each with their own access. You can see who drafted or posted which response, and assign reviews to the right person on your team." },
-  { q: "How long does it take to draft a response in Revly?", a: "Drafting takes seconds — the AI generates a reply matched to your brand voice based on the review content. You edit if you want to, then click through to post on the platform. Most teams find responding goes from a chore they avoid to something they actually keep up with." }];
+  const FAQS = RESPOND_FAQ;
 
   return <>
     <Navbar />

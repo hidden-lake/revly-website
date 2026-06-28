@@ -3,6 +3,7 @@ import React from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Navbar, Footer, Icon, BeforeAfterSlider, FAQ } from './components.jsx';
+import { HOME_FAQ } from '../lib/faqs.js';
 gsap.registerPlugin(ScrollTrigger);
 
 const HOME_STAR = "M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z";
@@ -383,15 +384,6 @@ function WhoItsFor() {
       </div>
     </section>);
 }
-
-const HOME_FAQ = [
-{ q: "Is this just AI generating fake reviews?", a: "No. The customer writes their own review. They can use our AI to help draft it and add detail, but it doesn't replace what they said. The customer reads it, edits it if they want to, and posts it themselves. Their voice, their specific points, their approval." },
-{ q: "What platforms does Revly work with?", a: "Revly currently supports G2, Capterra, GetApp, Software Advice, Trustpilot, Apple App Store, Google PlayStore, Shopify App Store, WooCommerce Marketplace, QuickBooks Marketplace, WordPress Plugin Marketplace, Xero Marketplace. More platforms are being added — if a platform matters for software buying decisions, it's on the roadmap." },
-{ q: "How is this different from emailing customers and asking for a review?", a: "When you email customers manually, you're guessing who's happy, sending links to multiple platforms and hoping they pick the right one, and getting back whatever they feel like writing. Revly replaces all three steps: sentiment screening identifies who to ask for a public review and who to send to your support team; a smart link routes them to the right platform based on your goals; AI drafting turns their response into a review that's actually useful to someone evaluating your product." },
-{ q: "What if a customer doesn't want to post the AI-drafted review?", a: "They can edit it, rewrite it entirely, or decline. Nothing goes live without their explicit approval. If they don't post, nothing happens — no chasing, no pressure." },
-{ q: "How long does setup take?", a: "Under 30 minutes for most teams. Connect your review platforms, create your first smart review link, and send your first campaign. Most customers see their first reviews come in within a few days." },
-{ q: "Is Revly right for a company with only a handful of reviews?", a: "Yes — that's a common starting point. Companies with 10–50 reviews have enough customers to run meaningful campaigns, but not enough reviews to have social proof that converts. Getting from thin to credible is the first thing Revly helps with." }];
-
 
 function HomeClosingCTA() {
   return (

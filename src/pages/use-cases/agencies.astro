@@ -1,7 +1,14 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { UseCaseAgencies } from '../../components/usecases.jsx';
+import { faqPageSchema } from '../../lib/seo.js';
+import { AGENCY_FAQ } from '../../lib/faqs.js';
 ---
-<Base title="For Agencies — Revly" description="Revly helps agencies manage review programs for all their clients from one dashboard.">
+<Base
+  title="For Agencies — Revly"
+  description="Revly helps agencies manage review programs for all their clients from one dashboard."
+  canonicalPath="/use-cases/agencies"
+  jsonLd={[faqPageSchema(AGENCY_FAQ)]}
+>
   <UseCaseAgencies client:load />
 </Base>

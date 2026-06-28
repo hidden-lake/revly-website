@@ -1,6 +1,7 @@
 // Revly — Pricing page
 import React from 'react';
 import { Navbar, Footer, Icon, FAQ } from './components.jsx';
+import { PRICING_FAQ } from '../lib/faqs.js';
 
 const PLANS = [
   {
@@ -78,14 +79,7 @@ export function CmpCell({ value }) {
 }
 
 export function Pricing() {
-  const FAQS = [
-    { q:"What happens when I hit my review limit?", a:"Collected reviews reset each month. If you hit your limit, new collection links pause until next month. Monitoring continues uninterrupted." },
-    { q:"Can I add extra channels?", a:"Yes! Pro plans can add channels for $5/mo each, Business and Agency for $3/mo each." },
-    { q:"What platforms do you monitor?", a:"Shopify App Store, G2, QuickBooks App Store, WordPress.org, Xero App Store, WooCommerce Marketplace, and Capterra. More coming soon." },
-    { q:"How does AI review enhancement work?", a:"Customers share a quick star rating and a few words of feedback. Our AI expands this into a complete, authentic review that matches their sentiment and tone—ready to copy and post on any platform." },
-    { q:"Can I switch plans?", a:"Yes, upgrade or downgrade anytime. Changes take effect immediately, and we prorate the difference." },
-    { q:"Do you offer a free trial of paid plans?", a:"The Free plan lets you try core features. When you're ready, upgrade to Pro or Business—no trial needed, cancel anytime." },
-  ];
+  const FAQS = PRICING_FAQ;
 
   return (<>
     <Navbar/>
