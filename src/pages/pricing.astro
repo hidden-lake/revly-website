@@ -1,7 +1,21 @@
 ---
 import Base from '../layouts/Base.astro';
 import { Pricing } from '../components/Pricing.jsx';
+import { softwareApplicationSchema, faqPageSchema } from '../lib/seo.js';
+import { PRICING_FAQ } from '../lib/faqs.js';
+
+const offers = [
+  { '@type': 'Offer', name: 'Free', price: '0', priceCurrency: 'USD' },
+  { '@type': 'Offer', name: 'Pro', price: '41', priceCurrency: 'USD' },
+  { '@type': 'Offer', name: 'Business', price: '84', priceCurrency: 'USD' },
+];
+const jsonLd = [softwareApplicationSchema(offers), faqPageSchema(PRICING_FAQ)];
 ---
-<Base title="Pricing — Revly" description="Simple, transparent pricing. Start free and scale as you grow. No per-seat pricing, no hidden fees.">
+<Base
+  title="Pricing — Revly"
+  description="Simple, transparent pricing. Start free and scale as you grow. No per-seat pricing, no hidden fees."
+  canonicalPath="/pricing"
+  jsonLd={jsonLd}
+>
   <Pricing client:load />
 </Base>

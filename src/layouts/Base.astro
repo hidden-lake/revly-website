@@ -1,12 +1,25 @@
 ---
+import { organizationSchema, websiteSchema } from '../lib/seo.js';
+
 export interface Props {
   title: string;
   description: string;
   canonicalPath?: string;
+  jsonLd?: object[];
 }
-const { title, description, canonicalPath } = Astro.props;
+const { title, description, canonicalPath, jsonLd = [] } = Astro.props;
 const pathname = canonicalPath ?? Astro.url.pathname;
 const canonical = new URL(pathname, 'https://revly.io').toString();
+// Site-wide schemas on every page, plus any page-specific schemas passed in.
+const schemas = [organizationSchema, websiteSchema, ...jsonLd];
+// Escape sequences that could break out of the <script> element. Schema content
+// is currently all hardcoded, but this keeps the layout safe if any field ever
+// comes from CMS/user-authored content.
+const serializeJsonLd = (value) =>
+  JSON.stringify(value)
+    .replace(/</g, '\\u003c')
+    .replace(/\u2028/g, "\\u2028")
+    .replace(/\u2029/g, "\\u2029");
 ---
 <!doctype html>
 <html lang="en">
@@ -27,9 +40,15 @@ const canonical = new URL(pathname, 'https://revly.io').toString();
   <meta property="og:title" content={title}/>
   <meta property="og:description" content={description}/>
   <meta property="og:image" content="https://revly.io/og-image.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
   <meta property="og:url" content={canonical}/>
   <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="Revly"/>
   <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content={title}/>
+  <meta name="twitter:description" content={description}/>
+  <meta name="twitter:image" content="https://revly.io/og-image.png"/>
   <link rel="canonical" href={canonical}/>
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
@@ -42,6 +61,9 @@ const canonical = new URL(pathname, 'https://revly.io').toString();
   <link rel="stylesheet" href="/feature-hero.css"/>
   <link rel="stylesheet" href="/usecase-hero.css"/>
   <link rel="stylesheet" href="/usecase-sections.css"/>
+  {schemas.map((schema) => (
+    <script type="application/ld+json" set:html={serializeJsonLd(schema)} />
+  ))}
   <slot name="head"/>
 </head>
 <body>

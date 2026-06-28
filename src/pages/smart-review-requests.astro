@@ -1,7 +1,14 @@
 ---
 import Base from '../layouts/Base.astro';
 import { SmartReviewRequests } from '../components/products.jsx';
+import { faqPageSchema } from '../lib/seo.js';
+import { SMART_FAQ } from '../lib/faqs.js';
 ---
-<Base title="Smart Review Requests — Revly" description="Send review requests at the right time to the right customers, with sentiment screening to protect your public ratings.">
+<Base
+  title="Smart Review Requests — Revly"
+  description="Send review requests at the right time to the right customers, with sentiment screening to protect your public ratings."
+  canonicalPath="/smart-review-requests"
+  jsonLd={[faqPageSchema(SMART_FAQ)]}
+>
   <SmartReviewRequests client:load />
 </Base>

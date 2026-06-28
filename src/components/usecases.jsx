@@ -4,6 +4,7 @@ import { Navbar, Footer, Icon, FAQ, CrossLinks } from './components.jsx';
 import { FeatureMotion } from './feature-collect.jsx';
 import { WifHero, wifSaasScene, wifAgencyScene } from './usecase-hero.jsx';
 import { UCConsoleScrolly, UCClientGallery, UCCapabilityIndex, UCProblemSplit, UCOutcome } from './usecase-sections.jsx';
+import { SAAS_FAQ, AGENCY_FAQ } from '../lib/faqs.js';
 
 // ---------- Shared use-case building blocks ----------
 function UseCaseHero({ chip, h1, sub, cta }) {
@@ -43,11 +44,7 @@ function FeatureGrid({ heading, items, bg = "f6" }) {
 
 // ========== SaaS Teams ==========
 export function UseCaseSaaS() {
-  const FAQS = [
-  { q: "Does Revly post reviews on my behalf?", a: "No. Revly helps customers write better reviews, but the customer always approves the final text before posting it themselves. You are never posting on someone else's behalf." },
-  { q: "Why does Revly check in with customers before a review request?", a: "Revly runs a short check-in before directing any customer to a public review platform. Their response determines the next step: a guided path to the right platform, or a private form that reaches your team. Customers who get help when they need it are far more likely to become genuine advocates." },
-  { q: "Which platforms does Revly support?", a: "Revly currently supports G2, Capterra, Shopify App Store, QuickBooks App Store, Xero App Store, WooCommerce, and WordPress.org, with more platforms being added." },
-  { q: "Is this suitable for a solo marketer with no review operations process in place?", a: "Yes. Revly is built for exactly this situation. Setup takes under 30 minutes and the system handles the operational side so you do not need a dedicated process to get started." }];
+  const FAQS = SAAS_FAQ;
 
   return <>
     <Navbar />
@@ -116,11 +113,7 @@ export function UseCaseSaaS() {
 
 // ========== Agencies ==========
 export function UseCaseAgencies() {
-  const FAQS = [
-  { q: "Can I manage multiple clients from a single Revly account?", a: "Yes. Revly's dashboard is designed to handle multiple products and client accounts from one login. You can switch between clients instantly and see aggregate performance across all of them." },
-  { q: "Does Revly offer white-label options for agencies?", a: "White-label functionality is on the Revly roadmap. Get in touch to discuss options and early access." },
-  { q: "Which review platforms does Revly support?", a: "Revly currently supports G2, Capterra, Shopify App Store, QuickBooks App Store, Xero App Store, WooCommerce, and WordPress.org, with more platforms being added." },
-  { q: "How does the check-in work for client campaigns?", a: "Every Revly collection campaign includes a built-in check-in. Each customer's response determines where they go next: the platform where a review is needed most, or a private form that reaches your client's team. That early signal gives your client the chance to step in, help, and turn the experience around." }];
+  const FAQS = AGENCY_FAQ;
 
   return <>
     <Navbar />
