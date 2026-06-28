@@ -12,6 +12,14 @@ const pathname = canonicalPath ?? Astro.url.pathname;
 const canonical = new URL(pathname, 'https://revly.io').toString();
 // Site-wide schemas on every page, plus any page-specific schemas passed in.
 const schemas = [organizationSchema, websiteSchema, ...jsonLd];
+// Escape sequences that could break out of the <script> element. Schema content
+// is currently all hardcoded, but this keeps the layout safe if any field ever
+// comes from CMS/user-authored content.
+const serializeJsonLd = (value) =>
+  JSON.stringify(value)
+    .replace(/</g, '\\u003c')
+    .replace(/\u2028/g, "\\u2028")
+    .replace(/\u2029/g, "\\u2029");
 ---
 <!doctype html>
 <html lang="en">
@@ -54,7 +62,7 @@ const schemas = [organizationSchema, websiteSchema, ...jsonLd];
   <link rel="stylesheet" href="/usecase-hero.css"/>
   <link rel="stylesheet" href="/usecase-sections.css"/>
   {schemas.map((schema) => (
-    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    <script type="application/ld+json" set:html={serializeJsonLd(schema)} />
   ))}
   <slot name="head"/>
 </head>
