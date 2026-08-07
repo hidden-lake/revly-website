@@ -355,7 +355,7 @@ function HowItWorks() {
 }
 
 function WhoItsFor() {
-  const items = ["A marketing manager at a growing SaaS company", "Managing reviews across 2+ platforms with no unified view", "Losing deals to better-reviewed competitors", "Worried about negative reviews landing before you can help"];
+  const items = ["A marketing manager at a growing SaaS company", "Managing reviews across 2+ platforms with no unified view", "Losing deals to better-reviewed competitors", "Asking for reviews without knowing who needs support first"];
   return (
     <section className="section fitA">
       <div className="container-x fitA-grid">
