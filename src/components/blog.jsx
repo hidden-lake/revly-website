@@ -18,7 +18,7 @@ export const BLOG_POSTS = [
 {
   slug: "ai-drafted-reviews-honest-or-not",
   title: "Are AI-drafted reviews honest? A look behind the curtain",
-  excerpt: "The phrase \"AI-generated reviews\" makes most marketers flinch — for good reason. But there's a meaningful difference between AI writing a review from thin air and AI helping a real customer articulate one. We dig in.",
+  excerpt: "The phrase \"AI-generated reviews\" makes most marketers flinch, for good reason. But there's a meaningful difference between AI writing a review from thin air and AI helping a real customer articulate one. We dig in.",
   author: "Elena Marinova",
   role: "Revly Co-founder",
   date: "May 7, 2026",
@@ -28,7 +28,7 @@ export const BLOG_POSTS = [
 {
   slug: "g2-vs-capterra-vs-trustpilot",
   title: "G2 vs Capterra vs Trustpilot: where should you focus first?",
-  excerpt: "Spreading review collection across three platforms equally is usually a mistake. Here's how to figure out which platform actually moves the needle for your category — and why the answer is rarely the one everyone assumes.",
+  excerpt: "Spreading review collection across three platforms equally is usually a mistake. Here's how to figure out which platform actually moves the needle for your category, and why the answer is rarely the one everyone assumes.",
   author: "Elena Marinova",
   role: "Revly Co-founder",
   date: "April 28, 2026",
@@ -244,15 +244,15 @@ and the mechanics behind both.</p>
 const ARTICLE_BODIES = {
   "why-most-software-companies-fail-at-reviews": [
   { type: "lead", text: "If you're reading this with under fifty reviews on G2, a half-finished Capterra page, and a vague plan to \"do something about reviews next quarter,\" this piece is for you." },
-  { type: "p", text: "Reviews are one of the most leveraged pieces of social proof a software company can build. They show up in every buying journey — usually before your sales team gets a chance to. And yet most B2B software companies treat reviews like a tax: something to file quarterly, in the cheapest way possible, with no system behind it." },
+  { type: "p", text: "Reviews are one of the most leveraged pieces of social proof a software company can build. They show up in every buying journey, usually before your sales team gets a chance to. And yet most B2B software companies treat reviews like a tax: something to file quarterly, in the cheapest way possible, with no system behind it." },
   { type: "p", text: "I've spent the last eighteen months talking to marketing leaders at growth-stage SaaS companies about this. The mistakes are remarkably consistent. Here are the three I see most often." },
   { type: "h2", text: "Mistake 1: Treating reviews as a campaign, not a system" },
-  { type: "p", text: "The classic move: someone notices the G2 page is thin, sends a mass email to active users asking for reviews, gets twelve back over two weeks, and considers the box checked. Six months later the page looks identical — the new reviews have been buried by competitors who kept going." },
+  { type: "p", text: "The classic move: someone notices the G2 page is thin, sends a mass email to active users asking for reviews, gets twelve back over two weeks, and considers the box checked. Six months later the page looks identical. The new reviews have been buried by competitors who kept going." },
   { type: "p", text: "Reviews behave like content: they decay. A platform that ranks reviews chronologically gives more weight to a fresh five-star than to a two-year-old five-star. A program that runs once a year produces a profile that looks neglected nine months out of twelve." },
   { type: "pull", text: "Reviews behave like content: they decay. A program that runs once a year produces a profile that looks neglected nine months out of twelve." },
   { type: "h2", text: "Mistake 2: Sending review requests without sentiment screening" },
   { type: "p", text: "This is the one I see do the most damage." },
-  { type: "p", text: "When you blast a review request to everyone in your active customer list, you're rolling the dice on every single person you ask. Some of them are quietly unhappy and you don't know it. A review request landing in their inbox at the wrong moment is what tips them into posting publicly — and once it's there, it's there." },
+  { type: "p", text: "When you blast a review request to everyone in your active customer list, you're rolling the dice on every single person you ask. Some of them are quietly unhappy and you don't know it. A review request landing in their inbox at the wrong moment is what tips them into posting publicly, and once it's there, it's there." },
   { type: "p", text: "A short feedback step before the public ask changes the math entirely. Customers who flag a problem reach your team, not a review platform. You hear from the quietly unhappy before they post; the team gets a chance to actually help; the customers who are ready go on to leave their public review with no friction." },
   { type: "h2", text: "Mistake 3: Asking for reviews without making them easier to write" },
   { type: "p", text: "Every marketer reading this has heard some version of: \"I keep meaning to leave you a review, I just haven't gotten around to it.\" That's not a willingness problem. That's a friction problem." },
@@ -266,7 +266,7 @@ const ARTICLE_BODIES = {
 const DEFAULT_ARTICLE_BODY = [
 { type: "lead", text: "This article is part of an ongoing series we're publishing about reviews, social proof, and the unsexy mechanics behind both. New posts go out monthly." },
 { type: "p", text: "If you'd like the full piece in your inbox when it's published, drop your email at the bottom of the page. No spam, no roundup posts, no \"10 ways to\" lists. Just the things we're actually thinking about while we build Revly." },
-{ type: "p", text: "In the meantime, the featured post above (\"Why most software companies fail at reviews\") covers the foundations — most of what we'll publish here builds on it." }];
+{ type: "p", text: "In the meantime, the featured post above (\"Why most software companies fail at reviews\") covers the foundations. Most of what we'll publish here builds on it." }];
 
 
 export function BlogArticle({ slug }) {
@@ -337,7 +337,7 @@ export function BlogArticle({ slug }) {
           <div className="card" style={{ padding: "2rem", marginTop: "3rem", display: "flex", flexDirection: "column", gap: ".5rem", background: "hsl(var(--accent))", border: "0" }}>
             <div className="chip chip-pink" style={{ alignSelf: "flex-start" }}>From Revly</div>
             <h3 style={{ fontFamily: "Bricolage Grotesque", fontWeight: 800, fontSize: "1.45rem", marginTop: ".25rem" }}>Stop winging your review program.</h3>
-            <p style={{ color: "hsl(var(--foreground)/0.7)", fontSize: ".98rem", lineHeight: 1.6 }}>If the playbook above resonates, Revly is what we built to make it work in practice. Sentiment screening, smart routing, AI-assisted drafting — all in one place.</p>
+            <p style={{ color: "hsl(var(--foreground)/0.7)", fontSize: ".98rem", lineHeight: 1.6 }}>If the playbook above resonates, Revly is what we built to make it work in practice. Sentiment screening, smart routing, AI-assisted drafting, all in one place.</p>
             <div style={{ marginTop: ".75rem", display: "flex", gap: ".5rem", flexWrap: "wrap" }}>
               <a href="/pricing" className="btn btn-default">See pricing →</a>
               <a href="/" className="btn btn-outline">How it works</a>

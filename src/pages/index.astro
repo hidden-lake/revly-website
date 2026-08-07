@@ -1,14 +1,14 @@
 ---
 import Base from '../layouts/Base.astro';
 import { Index } from '../components/home.jsx';
-import { softwareApplicationSchema, faqPageSchema } from '../lib/seo.js';
+import { softwareApplicationSchema, faqPageSchema, SITE_DESCRIPTION } from '../lib/seo.js';
 import { HOME_FAQ } from '../lib/faqs.js';
 
 const jsonLd = [softwareApplicationSchema(), faqPageSchema(HOME_FAQ)];
 ---
 <Base
-  title="Revly — Review management for software companies"
-  description="Revly is the review management platform built for software companies. Collect better reviews with one smart link, monitor every platform from a single dashboard, and catch unhappy customers before they post publicly."
+  title="Revly | Review management for software companies"
+  description={SITE_DESCRIPTION}
   jsonLd={jsonLd}
 >
   <Index client:load />

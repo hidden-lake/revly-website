@@ -2,14 +2,18 @@
 import React from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Mock, useMounted } from './decorative.jsx';
 gsap.registerPlugin(ScrollTrigger);
 const SMART_STAR = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.784 1.401 8.169L12 18.896l-7.335 3.857 1.401-8.169L.132 9.21l8.2-1.192z"/></svg>';
 
 // ============ Check-in scrollytelling ============
 export function SmartScrolly() {
   const rootRef = React.useRef(null);
+  // The mock's innards only exist after mount, so the timeline waits for them.
+  const mounted = useMounted();
   React.useEffect(() => {
     const root = rootRef.current;
+    if (!root || !mounted) return;
     const ctx = gsap.context(() => {
       const starHost = root.querySelector('[data-stars]');starHost.innerHTML = '';
       const stars = [];
@@ -46,7 +50,7 @@ export function SmartScrolly() {
     const rt = setTimeout(refresh, 600);
     window.addEventListener('load', refresh);
     return () => {clearTimeout(rt);window.removeEventListener('load', refresh);ctx.revert();};
-  }, []);
+  }, [mounted]);
 
   return (
     <section className="scrollyA" ref={rootRef}>
@@ -57,7 +61,7 @@ export function SmartScrolly() {
         </div>
         <div className="scrollyA-grid">
           <div className="mediaA">
-            <div className="mock">
+            <Mock className="mock" minHeight="19rem">
               <div className="mock-bar"><i></i><i></i><i></i><span className="lbl">revly.link/acme</span></div>
               <div className="mock-pad">
                 <div className="ci-q">How are you finding Acme overall?</div>
@@ -71,18 +75,18 @@ export function SmartScrolly() {
                 <div className="ci-outcome ci-hide" data-outcome>
                   <div className="ocard">
                     <div className="ostars"><span dangerouslySetInnerHTML={{ __html: SMART_STAR.repeat(5) }}></span></div>
-                    <p>"Your team sorted it out fast — now I actually recommend Acme."</p>
+                    <p>"Your team sorted it out fast, now I actually recommend Acme."</p>
                   </div>
                 </div>
               </div>
-            </div>
+            </Mock>
             <div className="progress"><span><b data-prog="0"></b></span><span><b data-prog="1"></b></span><span><b data-prog="2"></b></span><span><b data-prog="3"></b></span></div>
           </div>
           <div className="stepsA">
             <div className="stepA" data-step="0"><span className="n">1</span><h3>Everyone gets the same link</h3><p>Every customer gets one link and one question: how are they finding the product overall?</p></div>
-            <div className="stepA" data-step="1"><span className="n">2</span><h3>They give a star rating</h3><p>That rating determines where each customer goes next — and anyone who needs a hand reaches your support team automatically.</p></div>
-            <div className="stepA" data-step="2"><span className="n">3</span><h3>Unhappy? You hear it first</h3><p>Your team gets the chance to respond, understand what happened, and turn the experience around — while it still matters.</p></div>
-            <div className="stepA" data-step="3"><span className="n">4</span><h3>Turn it around, earn an advocate</h3><p>A customer you helped becomes a champion — the kind who tells other people about you.</p></div>
+            <div className="stepA" data-step="1"><span className="n">2</span><h3>They give a star rating</h3><p>That rating determines where each customer goes next, and anyone who needs a hand reaches your support team automatically.</p></div>
+            <div className="stepA" data-step="2"><span className="n">3</span><h3>Unhappy? You hear it first</h3><p>Your team gets the chance to respond, understand what happened, and turn the experience around, while it still matters.</p></div>
+            <div className="stepA" data-step="3"><span className="n">4</span><h3>Turn it around, earn an advocate</h3><p>A customer you helped becomes a champion, the kind who tells other people about you.</p></div>
           </div>
         </div>
       </div>
@@ -92,8 +96,11 @@ export function SmartScrolly() {
 // ============ Payoff gallery ============
 export function SmartGallery() {
   const rootRef = React.useRef(null);
+  // The star strip lives in a Mock, so it isn't there until after mount.
+  const mounted = useMounted();
   React.useEffect(() => {
     const root = rootRef.current;
+    if (!root || !mounted) return;
     const ctx = gsap.context(() => {
       const track = root.querySelector('[data-track]');
       const rail = root.querySelector('[data-rail]');
@@ -116,7 +123,7 @@ export function SmartGallery() {
       }
     }, rootRef);
     return () => ctx.revert();
-  }, []);
+  }, [mounted]);
 
   return (
     <section className="galC" ref={rootRef}>
@@ -135,9 +142,9 @@ export function SmartGallery() {
             <div className="num">01</div>
             <div className="lbl">You hear the quiet ones</div>
             <h3>Customers who need help reach you.</h3>
-            <p>You get the signal — and the chance to act on it — before it ever becomes a bigger problem.</p>
+            <p>You get the signal (and the chance to act on it) before it ever becomes a bigger problem.</p>
           </div>
-          <div className="vizC"><div className="link">Needs a hand <span className="pill">→ Your team</span></div></div>
+          <Mock className="vizC"><div className="link">Needs a hand <span className="pill">→ Your team</span></div></Mock>
         </article>
         <article className="panelC">
           <div>
@@ -146,7 +153,7 @@ export function SmartGallery() {
             <h3>A resolution makes an advocate.</h3>
             <p>A customer you helped is far more likely to champion you than one whose concerns went unheard.</p>
           </div>
-          <div className="vizC"><div className="stars" data-vstars></div><div className="field">"You turned my week around — happy to recommend."</div></div>
+          <Mock className="vizC"><div className="stars" data-vstars></div><div className="field">"You turned my week around, happy to recommend."</div></Mock>
         </article>
         <article className="panelC">
           <div>
@@ -155,7 +162,7 @@ export function SmartGallery() {
             <h3>Fewer surprises in public.</h3>
             <p>The reviews that surface publicly come from customers who were genuinely ready to share.</p>
           </div>
-          <div className="vizC"><div className="chips"><span className="chip2 sel">Ready ✓</span><span className="chip2">Public review</span></div></div>
+          <Mock className="vizC"><div className="chips"><span className="chip2 sel">Ready ✓</span><span className="chip2">Public review</span></div></Mock>
         </article>
       </div>
     </section>);

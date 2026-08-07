@@ -3,6 +3,7 @@ import React from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Navbar, Footer, Icon, BeforeAfterSlider, FAQ } from './components.jsx';
+import { Mock, useMounted } from './decorative.jsx';
 import { HOME_FAQ } from '../lib/faqs.js';
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10,11 +11,13 @@ const HOME_STAR = "M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L
 function Stars({ n = 5, className = "rev-stars" }) {
   return <span className={className} aria-hidden="true">{Array.from({ length: n }).map((_, i) => <svg key={i} viewBox="0 0 24 24" fill="currentColor"><path d={HOME_STAR} /></svg>)}</span>;
 }
+// Sample data for the dashboard mockup. These are reviews of Acme, the fictional
+// product a Revly customer sells — never reviews of Revly itself.
 const HOME_INBOX = [
-{ n: "Maria O.", av: "hsl(var(--primary))", plat: "G2", pc: "hsl(var(--muted))", pt: "hsl(var(--primary))", t: "“Finally one place for everything. Saved us hours every week.”", time: "2m" },
-{ n: "Devon R.", av: "hsl(var(--secondary))", plat: "Capterra", pc: "#fdf0c8", pt: "#7a4f05", t: "“Setup took ten minutes and the AI drafts are genuinely good.”", time: "18m" },
-{ n: "Priya S.", av: "hsl(var(--foreground))", plat: "TrustRadius", pc: "#eaeaea", pt: "#444", t: "“We caught two unhappy customers before they posted publicly.”", time: "1h" },
-{ n: "Alex T.", av: "hsl(var(--primary))", plat: "App Store", pc: "hsl(var(--muted))", pt: "hsl(var(--primary))", t: "“Competitor monitoring alone is worth the price.”", time: "3h" }];
+{ n: "Maria O.", av: "hsl(var(--primary))", plat: "G2", pc: "hsl(var(--muted))", pt: "hsl(var(--primary))", t: "“Acme's sync hasn't dropped an order since we switched.”", time: "2m" },
+{ n: "Devon R.", av: "hsl(var(--secondary))", plat: "Capterra", pc: "#fdf0c8", pt: "#7a4f05", t: "“Setup took ten minutes and support replied the same day.”", time: "18m" },
+{ n: "Priya S.", av: "hsl(var(--foreground))", plat: "TrustRadius", pc: "#eaeaea", pt: "#444", t: "“The reporting saves our finance team about a day a month.”", time: "1h" },
+{ n: "Alex T.", av: "hsl(var(--primary))", plat: "App Store", pc: "hsl(var(--muted))", pt: "hsl(var(--primary))", t: "“Acme handles our multi-currency orders without any fuss.”", time: "3h" }];
 
 function ReviewRow({ r }) {
   return (
@@ -51,19 +54,26 @@ function HeroNeedRow({ r, showDraft }) {
     </div>);
 }
 function HeroInbox() {
+  const mounted = useMounted();
   const [phase, setPhase] = React.useState(0);
+  const [cycled, setCycled] = React.useState(false);
   React.useEffect(() => {
-    const dur = phase === 0 ? 1600 : phase === 1 ? 900 : 1800;
-    const t = setTimeout(() => setPhase((p) => (p + 1) % 3), dur);
+    // Hold the cycle until the inbox is actually on screen. The first pass through
+    // the review list gets a longer dwell, because the list used to be in the HTML
+    // and sat there through page load before the first switch. Loop timings after
+    // that are unchanged.
+    if (!mounted) return;
+    const dur = phase === 0 ? (cycled ? 1600 : 3600) : phase === 1 ? 900 : 1800;
+    const t = setTimeout(() => { setCycled(true); setPhase((p) => (p + 1) % 3); }, dur);
     return () => clearTimeout(t);
-  }, [phase]);
+  }, [phase, cycled, mounted]);
   const needs = [
-    { n: "Devon R.", av: "hsl(var(--secondary))", plat: "Capterra", pc: "#fdf0c8", pt: "#7a4f05", t: "“Solid tool, but onboarding felt rushed and I missed a few features.”", time: "4m", stars: 3, draft: "“Thanks for the honest feedback — we’ve reworked onboarding with a guided setup.”" },
-    { n: "Priya S.", av: "hsl(var(--primary))", plat: "G2", pc: "hsl(var(--muted))", pt: "hsl(var(--primary))", t: "“Wanted more integrations on the starter plan.”", time: "1h", stars: 2 }];
+    { n: "Devon R.", av: "hsl(var(--secondary))", plat: "Capterra", pc: "#fdf0c8", pt: "#7a4f05", t: "“Acme works well, but onboarding felt rushed and I missed a few features.”", time: "4m", stars: 3, draft: "“Thanks for the honest feedback. We've reworked onboarding with a guided setup.”" },
+    { n: "Priya S.", av: "hsl(var(--primary))", plat: "G2", pc: "hsl(var(--muted))", pt: "hsl(var(--primary))", t: "“Wanted more integrations on Acme's starter plan.”", time: "1h", stars: 2 }];
 
   const onAll = phase === 0;
   return (
-    <div className="inbox" aria-label="Unified review inbox preview">
+    <Mock className="inbox" minHeight="33rem">
       <div className="inbox-top"><span className="ttl">All reviews</span><span className="inbox-live"><span className="pulse"></span> Live sync</span></div>
       <div className="inbox-filters">
         <span className={"inbox-pill" + (onAll ? " on" : "")} style={{ cursor: "pointer" }} onClick={() => setPhase(0)}>All platforms</span>
@@ -76,7 +86,7 @@ function HeroInbox() {
           HOME_INBOX.map((r, i) => <ReviewRow key={i} r={r} />) :
           needs.map((r, i) => <HeroNeedRow key={i} r={r} showDraft={phase === 2} />)}
       </div>
-    </div>);
+    </Mock>);
 }
 function Hero() {
   return (
@@ -156,7 +166,7 @@ function BeforeAfter() {
 
 function CollectMock() {
   return (
-    <div className="mock">
+    <Mock className="mock" minHeight="24rem">
       <div className="mock-bar"><i></i><i></i><i></i><span className="lbl">collect.revly.io/acme</span></div>
       <div className="mock-pad">
         <p style={{ fontWeight: 700, textAlign: "center", fontFamily: "Bricolage Grotesque", fontSize: "1.1rem" }}>How was Acme for you?</p>
@@ -164,10 +174,10 @@ function CollectMock() {
         <div className="collect-input">"Cut our reporting time in half…"</div>
         <div className="collect-ai">
           <div className="tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.6 5.2L19 9l-5.4 1.8L12 16l-1.6-5.2L5 9l5.4-1.8z" /></svg> AI-polished draft</div>
-          <p>"Revly cut our weekly reporting time in half. Setup took ten minutes and the unified dashboard means I finally stopped checking five tabs every morning."</p>
+          <p>"Acme cut our weekly reporting time in half. Setup took ten minutes and the unified dashboard means I finally stopped checking five tabs every morning."</p>
         </div>
       </div>
-    </div>);
+    </Mock>);
 }
 function StarRow({ filled, total = 5, size = 16 }) {
   return (
@@ -208,7 +218,7 @@ function DashMock() {
   const cardBox = { background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: "12px", padding: "0.9rem 1rem" };
   const cardTitle = { fontFamily: "Bricolage Grotesque", fontWeight: 700, fontSize: "0.85rem", marginBottom: "0.7rem" };
   return (
-    <div className="mock">
+    <Mock className="mock" minHeight="26rem">
       <div className="mock-bar"><i></i><i></i><i></i><span className="lbl">Revly · Dashboard</span></div>
       <div className="mock-pad">
         <div className="mock-stats" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: "0.55rem", marginBottom: "0.85rem" }}>
@@ -249,13 +259,13 @@ function DashMock() {
           </div>
         </div>
       </div>
-    </div>);
+    </Mock>);
 }
 function RouteMock() {
   const col = { display: "flex", flexDirection: "column", alignItems: "center", gap: "1.1rem", padding: "1.8rem 0.75rem", textAlign: "center" };
   const pillBase = { display: "inline-flex", alignItems: "center", fontFamily: "DM Sans", fontWeight: 700, fontSize: "0.9rem", padding: "0.55rem 1.1rem", borderRadius: "999px" };
   return (
-    <div className="mock">
+    <Mock className="mock" minHeight="16rem">
       <div className="mock-bar"><i></i><i></i><i></i><span className="lbl">Smart routing</span></div>
       <div className="mock-pad">
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.1rem" }}>
@@ -271,28 +281,28 @@ function RouteMock() {
           </div>
         </div>
       </div>
-    </div>);
+    </Mock>);
 }
 function RespMock() {
   return (
-    <div className="mock">
+    <Mock className="mock" minHeight="17rem">
       <div className="mock-bar"><i></i><i></i><i></i><span className="lbl">Response composer</span></div>
       <div className="mock-pad">
-        <div className="resp-orig">★★★☆☆ "Solid tool but the onboarding felt rushed and I missed a few features early on." — G2</div>
+        <div className="resp-orig">★★★☆☆ "Acme works well but the onboarding felt rushed and I missed a few features early on." · G2</div>
         <div className="resp-reply">
           <div className="tag">Suggested reply · your voice</div>
-          <p>"Thanks for the honest feedback! We've just reworked onboarding with a guided setup — I'd love to walk you through the features you missed. Reaching out now."</p>
+          <p>"Thanks for the honest feedback. We've just reworked onboarding with a guided setup, and I'd love to walk you through the features you missed. Reaching out now."</p>
         </div>
       </div>
-    </div>);
+    </Mock>);
 }
 
 function Features() {
   const rows = [
-  { chip: "Collect", chipClass: "chip-amber", heading: "Collect better reviews", body: "Share a single link. Customers share a quick thought, and Revly's AI turns it into a polished, authentic review — in their words, approved by them — ready to post on the right platform.", to: "/collect-quality-reviews", Mock: CollectMock, flip: false },
+  { chip: "Collect", chipClass: "chip-amber", heading: "Collect better reviews", body: "Share a single link. Customers share a quick thought, and Revly's AI turns it into a polished, authentic review in their words, approved by them, ready to post on the right platform.", to: "/collect-quality-reviews", Mock: CollectMock, flip: false },
   { chip: "Monitor", chipClass: "chip-magenta", heading: "Every platform, one dashboard", body: "Stop checking a dozen tabs. Revly syncs reviews from all your listings, organised by product. Track rating trends, surface quotes for campaigns, and manage the entire review process in a single dashboard.", to: "/monitor-platforms", Mock: DashMock, flip: true },
   { chip: "Smart requests", chipClass: "chip-amber", heading: "Send smart review requests", body: "Revly checks in with customers before sending them anywhere. Those who need support reach your team first. Those who are ready get guided to the right review platform.", to: "/smart-review-requests", Mock: RouteMock, flip: false },
-  { chip: "Respond", chipClass: "chip-magenta", heading: "Stay on top of every reply", body: "Almost no software company responds to its reviews — and savvy buyers sort by lowest rating first to see if you showed up. Revly flags what needs a response and helps you write one in your voice, across every platform.", to: "/manage-review-responses", Mock: RespMock, flip: true }];
+  { chip: "Respond", chipClass: "chip-magenta", heading: "Stay on top of every reply", body: "Leaving reviews unanswered is a missed opportunity: savvy buyers sort by lowest rating first to see if you showed up. Revly flags what needs a response and helps you write one in your voice, across every platform.", to: "/manage-review-responses", Mock: RespMock, flip: true }];
 
   return (
     <section className="section" style={{ background: "hsl(var(--card))" }}>
@@ -325,7 +335,7 @@ function HowItWorks() {
   const steps = [
   { t: "Connect your platforms", b: "Add your G2, Capterra, TrustRadius and app-store listings. Revly starts syncing reviews instantly." },
   { t: "Share your smart link", b: "One link per product checks in with customers, routes those who need help to your team, and guides the rest to the right platform." },
-  { t: "Watch reviews improve", b: "AI turns brief feedback into detailed, authentic reviews — approved by customers, tracked in one dashboard." }];
+  { t: "Watch reviews improve", b: "AI turns brief feedback into detailed, authentic reviews, approved by customers and tracked in one dashboard." }];
 
   return (
     <section className="section how-dark" id="how" style={{ background: "hsl(var(--foreground))" }}>
@@ -351,29 +361,15 @@ function HowItWorks() {
     </section>);
 }
 
-function StatsBanner() {
-  const stats = [["500+", "Reviews tracked"], ["6+", "Platforms supported"], ["5 min", "Sync interval"]];
-  return (
-    <section className="section">
-      <div className="container-x">
-        <div className="statsA">
-          <div className="statsA-grid">
-            {stats.map((s, i) => <div key={i}><div className="num">{s[0]}</div><div className="l">{s[1]}</div></div>)}
-          </div>
-        </div>
-      </div>
-    </section>);
-}
-
 function WhoItsFor() {
-  const items = ["A marketing manager at a growing SaaS company", "Managing reviews across 2+ platforms with no unified view", "Losing deals to better-reviewed competitors", "Worried about negative reviews landing before you can help"];
+  const items = ["A marketing manager at a growing SaaS company", "Managing reviews across 2+ platforms with no unified view", "Losing deals to better-reviewed competitors", "Asking for reviews without knowing who needs support first"];
   return (
     <section className="section fitA">
       <div className="container-x fitA-grid">
         <div>
           <span className="eyebrow">Who it's for</span>
           <h2 className="h2" style={{ margin: "0.9rem 0 1rem" }}>Built for software companies.<br /><span className="mag">Not everyone else.</span></h2>
-          <p className="lead">Most review tools were built for local businesses. Revly is built for G2, Capterra and TrustRadius — the platforms that decide software purchases.</p>
+          <p className="lead">Most review tools were built for local businesses. Revly is built for G2, Capterra and TrustRadius, the platforms that decide software purchases.</p>
         </div>
         <div className="fit-card">
           <span className="chip chip-magenta">Revly is a good fit if you're</span>

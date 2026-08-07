@@ -87,7 +87,7 @@ export function Pricing() {
       <section style={{background:"hsl(var(--muted))", padding:"5rem 0 3rem"}}>
         <div className="container-x" style={{textAlign:"center", maxWidth:"720px"}}>
           <h1 className="h1">Simple, transparent pricing</h1>
-          <p className="lead" style={{marginTop:"1.25rem"}}>Start free and scale as you grow. No per-seat pricing, no hidden fees.</p>
+          <p className="lead" style={{marginTop:"1.25rem"}}>Start free. No per-seat pricing, no hidden fees.</p>
         </div>
       </section>
 

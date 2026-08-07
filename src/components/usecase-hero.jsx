@@ -1,6 +1,7 @@
 // Revly — Who It's For animated hero.
 import React from 'react';
 import gsap from 'gsap';
+import { Mock, useMounted } from './decorative.jsx';
 
 export const SlackLogo = () => (
   <svg className="logo" viewBox="0 0 122.8 122.8" aria-hidden="true">
@@ -11,13 +12,23 @@ export const SlackLogo = () => (
   </svg>
 );
 
-function useWifSceneLoop(ref) {
+function useWifSceneLoop(ref, mounted) {
+  // Headline and copy are real content, so this runs straight away.
   React.useEffect(() => {
     const root = ref.current;
     if (!root || !gsap) return;
-    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     const ctx = gsap.context(() => {
       gsap.from('.wif-copy > *', { opacity: 0, y: 24, duration: .8, stagger: .1, ease: 'power3.out', delay: .1 });
+    }, root);
+    return () => ctx.revert();
+  }, []);
+
+  // The scene lives inside a Mock, so it doesn't exist until after mount.
+  React.useEffect(() => {
+    const root = ref.current;
+    if (!root || !gsap || !mounted) return;
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const ctx = gsap.context(() => {
       const weak = root.querySelector('.ws-weak'), strong = root.querySelector('.ws-strong');
       if (!weak || !strong) return;
       if (reduce) { gsap.set(weak, { opacity: 0 }); gsap.set(strong, { opacity: 1 }); return; }
@@ -31,12 +42,13 @@ function useWifSceneLoop(ref) {
         .to(weak, { opacity: 1, y: 0, duration: .65, ease: 'power3.out' }, '<0.12');
     }, root);
     return () => ctx.revert();
-  }, []);
+  }, [mounted]);
 }
 
 export function WifHero({ chip, headline, lead, cta, scene, tall }) {
   const ref = React.useRef(null);
-  useWifSceneLoop(ref);
+  const mounted = useMounted();
+  useWifSceneLoop(ref, mounted);
   return (
     <section className="wif-hero" ref={ref}>
       <div className="wif-inner">
@@ -48,7 +60,7 @@ export function WifHero({ chip, headline, lead, cta, scene, tall }) {
             <a className="btn btn-default btn-lg" href="/pricing">{cta}</a>
           </div>
         </div>
-        <div className={"wif-scene" + (tall ? " tall" : "")}>{scene}</div>
+        <Mock className={"wif-scene" + (tall ? " tall" : "")} minHeight={tall ? "34rem" : "30rem"}>{scene}</Mock>
       </div>
     </section>
   );
@@ -117,11 +129,11 @@ export const wifSaasScene = (
         </span>
         <span className="dcard" style={{ top: '236px', left: '8px', transform: 'rotate(-9deg)', zIndex: 2, width: '178px' }}>
           <span className="dh"><span className="stars">★☆☆☆☆</span> <span className="src">Trustpilot</span></span>
-          <span className="db"><span className="warn">Public 1★</span> — no response yet 🫠</span>
+          <span className="db"><span className="warn">Public 1★</span>, no response yet 🫠</span>
         </span>
         <span className="dcard" style={{ top: '292px', left: '150px', transform: 'rotate(4deg)', zIndex: 4, width: '186px' }}>
           <span className="dh"><span className="stars">★★☆☆☆</span> <span className="src">Capterra</span></span>
-          <span className="db">5 months old — <span className="warn">never replied</span> 🫠</span>
+          <span className="db">5 months old, <span className="warn">never replied</span> 🫠</span>
         </span>
         <span className="dcard" style={{ top: '420px', left: '92px', transform: 'rotate(6deg)', zIndex: 1, width: '208px' }}>
           <span className="dh">Inbox <span className="src">Email</span></span>
@@ -156,15 +168,15 @@ export const wifAgencyScene = (
         </span>
         <span className="dcard" style={{ top: '150px', left: '22px', transform: 'rotate(7deg)', zIndex: 2, width: '182px' }}>
           <span className="dh">Vertex <span className="src">Trustpilot</span></span>
-          <span className="db">2 public 1★ — <span className="warn">no reply</span> 😬</span>
+          <span className="db">2 public 1★, <span className="warn">no reply</span> 😬</span>
         </span>
         <span className="dcard" style={{ top: '244px', left: '0', transform: 'rotate(3deg)', zIndex: 4, width: '198px' }}>
           <span className="dh">Nimbus <span className="src">App Store</span></span>
-          <span className="db">5 new reviews — <span className="warn">nobody saw them</span> 😬</span>
+          <span className="db">5 new reviews, <span className="warn">nobody saw them</span> 😬</span>
         </span>
         <span className="dcard" style={{ top: '342px', left: '166px', transform: 'rotate(-5deg)', zIndex: 3, width: '176px' }}>
           <span className="dh">Orbit <span className="src">Report day</span></span>
-          <span className="db">Client wants numbers — <span className="warn">data's a week stale</span></span>
+          <span className="db">Client wants numbers, <span className="warn">data's a week stale</span></span>
         </span>
         <span className="dcard" style={{ top: '452px', left: '40px', transform: 'rotate(-7deg)', zIndex: 1, width: '196px' }}>
           <span className="dh">Lumen <span className="src">Google Play</span></span>

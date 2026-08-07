@@ -9,18 +9,6 @@ import { SmartScrolly, SmartGallery } from './feature-smart.jsx';
 import { RespScrolly, RespGallery } from './feature-respond.jsx';
 import { COLLECT_FAQ, MONITOR_FAQ, SMART_FAQ, RESPOND_FAQ } from '../lib/faqs.js';
 
-function ProductHero({ chip, chipClass, h1, sub, ctas, h1Black }) {
-  return (
-    <section style={{ background: "hsl(var(--card))", padding: "4rem 0 5rem" }}>
-      <div className="container-x" style={{ maxWidth: "880px", textAlign: "center" }}>
-        <div className={"chip " + chipClass} style={{ marginBottom: "1.5rem" }}>{chip}</div>
-        <h1 className="h1" style={h1Black ? { color: "hsl(var(--foreground))" } : undefined}>{h1}</h1>
-        <p className="lead" style={{ marginTop: "1.5rem", maxWidth: "720px", marginLeft: "auto", marginRight: "auto" }}>{sub}</p>
-        <div style={{ marginTop: "2rem", display: "flex", justifyContent: "center", gap: ".75rem", flexWrap: "wrap" }}>{ctas}</div>
-      </div>
-    </section>);
-}
-
 function ProductBeforeAfter({ heading, rows }) {
   return (
     <section className="section" style={{ background: "hsl(var(--primary-foreground))" }}>
@@ -115,7 +103,7 @@ export function CollectBetterReviews() {
       <CrossLinks items={[
       { chip: "Smart Requests", title: "Send Smart Review Requests", body: "Revly checks in with customers before sending them anywhere. Those who need support reach your team. Those who are ready get guided to the right review platform.", to: "/smart-review-requests" },
       { chip: "Monitor", title: "Monitor Multiple Review Platforms", body: "All your reviews from every platform in a single dashboard, updated every five minutes.", to: "/monitor-platforms" },
-      { chip: "Respond", title: "Manage Review Responses", body: "Surface every review that needs a reply and draft one in your voice — across every platform.", to: "/manage-review-responses" }]
+      { chip: "Respond", title: "Manage Review Responses", body: "Surface every review that needs a reply and draft one in your voice, across every platform.", to: "/manage-review-responses" }]
       } />
     </main>
     <Footer />
@@ -162,7 +150,7 @@ export function MonitorPlatforms() {
       <CrossLinks items={[
       { chip: "Collect", title: "Collect Quality Reviews", body: "One smart link plus AI writing assistance turns willing customers into detailed, specific reviews on the platforms that matter.", to: "/collect-quality-reviews" },
       { chip: "Smart Requests", title: "Send Smart Review Requests", body: "Revly checks in with customers before sending them anywhere. Those who need support reach your team. Those who are ready get guided to the right review platform.", to: "/smart-review-requests" },
-      { chip: "Respond", title: "Manage Review Responses", body: "Surface every review that needs a reply and draft one in your voice — across every platform from one place.", to: "/manage-review-responses" }]
+      { chip: "Respond", title: "Manage Review Responses", body: "Surface every review that needs a reply and draft one in your voice, across every platform from one place.", to: "/manage-review-responses" }]
       } />
     </main>
     <Footer />
@@ -212,7 +200,7 @@ export function SmartReviewRequests() {
       <CrossLinks items={[
       { chip: "Collect", title: "Collect Quality Reviews", body: "One smart link plus AI writing assistance turns willing customers into detailed reviews on the platforms that matter.", to: "/collect-quality-reviews" },
       { chip: "Monitor", title: "Monitor Multiple Review Platforms", body: "All your reviews from every platform in a single dashboard, synced every five minutes.", to: "/monitor-platforms" },
-      { chip: "Respond", title: "Manage Review Responses", body: "Surface every review that needs a reply and draft a response in your voice — across every platform.", to: "/manage-review-responses" }]
+      { chip: "Respond", title: "Manage Review Responses", body: "Surface every review that needs a reply and draft a response in your voice, across every platform.", to: "/manage-review-responses" }]
       } />
     </main>
     <Footer />
@@ -248,7 +236,7 @@ export function ManageReviewResponses() {
         <div className="container-x">
           <div className="ctaA">
             <h2 className="h2">Your reviews are a conversation.<br /><span style={{ color: "#f1057a" }}>Start showing up to it.</span></h2>
-            <p className="lead" style={{ color: "rgba(255,255,255,0.75)", margin: "1rem auto 0", maxWidth: "48ch" }}>One dashboard, every platform, AI-assisted replies matched to your brand voice — and one click to post.</p>
+            <p className="lead" style={{ color: "rgba(255,255,255,0.75)", margin: "1rem auto 0", maxWidth: "48ch" }}>One dashboard, every platform, AI-assisted replies matched to your brand voice, and one click to post.</p>
             <div style={{ display: "flex", justifyContent: "center", gap: ".75rem", marginTop: "2rem", flexWrap: "wrap" }}>
               <a className="btn btn-default btn-lg" href="/pricing">Start replying to all reviews</a>
               <a className="btn btn-yellow btn-lg" href="/pricing">Book a demo</a>

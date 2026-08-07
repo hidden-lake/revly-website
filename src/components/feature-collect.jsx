@@ -2,16 +2,20 @@
 import React from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Mock, useMounted } from './decorative.jsx';
 gsap.registerPlugin(ScrollTrigger);
 
 const FC_STAR = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.784 1.401 8.169L12 18.896l-7.335 3.857 1.401-8.169L.132 9.21l8.2-1.192z"/></svg>';
-const FC_TYPED = "Saved us hours every week.";
+const FC_TYPED = "Acme saved us hours every week.";
 
 // ============ Scrollytelling "How it works" ============
 export function CQScrolly() {
   const rootRef = React.useRef(null);
+  // The mock's innards only exist after mount, so the timeline waits for them.
+  const mounted = useMounted();
   React.useEffect(() => {
     const root = rootRef.current;
+    if (!root || !mounted) return;
     const ctx = gsap.context(() => {
       const mock = root.querySelector('#cqMock');
       const host = mock.querySelector('[data-stars]');host.innerHTML = '';
@@ -62,7 +66,7 @@ export function CQScrolly() {
     const rt = setTimeout(refresh, 600);
     window.addEventListener('load', refresh);
     return () => {clearTimeout(rt);window.removeEventListener('load', refresh);ctx.revert();};
-  }, []);
+  }, [mounted]);
 
   return (
     <section className="scrollyA" ref={rootRef}>
@@ -73,7 +77,7 @@ export function CQScrolly() {
         </div>
         <div className="scrollyA-grid">
           <div className="mediaA">
-            <div className="cmp mock" id="cqMock">
+            <Mock className="cmp mock" id="cqMock" minHeight="21rem">
               <div className="mock-bar"><i></i><i></i><i></i><span className="lbl">revly.link/acme</span></div>
               <div className="mock-pad cmp-body">
                 <div className="cmp-q">How was Acme?</div>
@@ -99,13 +103,13 @@ export function CQScrolly() {
                 </div>
                 <div className="cmp-cta" data-cta>Post review →</div>
               </div>
-            </div>
+            </Mock>
             <div className="progress"><span><b data-prog="0"></b></span><span><b data-prog="1"></b></span><span><b data-prog="2"></b></span><span><b data-prog="3"></b></span></div>
           </div>
           <div className="stepsA">
             <div className="stepA" data-step="0"><span className="n">1</span><h3>Share one smart link</h3><p>No list of platforms, no login instructions. One link per product that handles everything from here.</p></div>
-            <div className="stepA" data-step="1"><span className="n">2</span><h3>The customer rates and writes</h3><p>They share their experience in their own words — however much or little they want. No blank-page pressure.</p></div>
-            <div className="stepA" data-step="2"><span className="n">3</span><h3>AI helps them say more</h3><p>If they want help, Revly expands their note into something specific — structure and detail added, their voice kept. They can edit it, ignore it, or post as-is.</p></div>
+            <div className="stepA" data-step="1"><span className="n">2</span><h3>The customer rates and writes</h3><p>They share their experience in their own words, however much or little they want. No blank-page pressure.</p></div>
+            <div className="stepA" data-step="2"><span className="n">3</span><h3>AI helps them say more</h3><p>If they want help, Revly expands their note into something specific: structure and detail added, their voice kept. They can edit it, ignore it, or post as-is.</p></div>
             <div className="stepA" data-step="3"><span className="n">4</span><h3>Routed to the right platform</h3><p>Based on where you need reviews most, Revly sends each customer to the one place their review will do the most good.</p></div>
           </div>
         </div>
@@ -116,8 +120,11 @@ export function CQScrolly() {
 // ============ Smart routing (auto, scroll-coupled connectors) ============
 export function CQSmartRouting() {
   const rootRef = React.useRef(null);
+  // The routing diagram only exists after mount, so the timeline waits for it.
+  const mounted = useMounted();
   React.useEffect(() => {
     const root = rootRef.current;
+    if (!root || !mounted) return;
     let timer = null;
     const onResize = () => layoutPathsRef.fn && layoutPathsRef.fn();
     const layoutPathsRef = {};
@@ -140,8 +147,8 @@ export function CQSmartRouting() {
       const dot = root.querySelector('#srDot');
 
       const PHASES = [
-      { stars: 2, quote: 'Honestly, a few things tripped me up early on.', nm: 'Devon R.', av: '#f5c542', avInk: '#5a3a00', dest: 'support', flow: supFlow },
-      { stars: 5, quote: 'Saved us hours every single week.', nm: 'Maria O.', av: '#f0047f', avInk: '#fff', dest: 'public', flow: pubFlow }];
+      { stars: 2, quote: 'A few things in Acme tripped me up early on.', nm: 'Devon R.', av: '#f5c542', avInk: '#5a3a00', dest: 'support', flow: supFlow },
+      { stars: 5, quote: 'Acme saves us hours every single week.', nm: 'Maria O.', av: '#f0047f', avInk: '#fff', dest: 'public', flow: pubFlow }];
 
       let pubLen = 1,supLen = 1;
 
@@ -210,7 +217,7 @@ export function CQSmartRouting() {
         onEnterBack: startLoop, onLeave: stopLoop, onLeaveBack: stopLoop });
     }, rootRef);
     return () => {if (timer) clearInterval(timer);window.removeEventListener('resize', onResize);ctx.revert();};
-  }, []);
+  }, [mounted]);
 
   return (
     <section className="sr" ref={rootRef}>
@@ -218,14 +225,14 @@ export function CQSmartRouting() {
         <div className="head">
           <span className="eyebrow">Smart routing</span>
           <h2 className="h2">One review. The right destination.</h2>
-          <p>Better reviews start with better relationships. When a customer needs help, Revly makes sure they reach your team first — so you get the chance to understand the issue and turn their experience around.</p>
+          <p>Better reviews start with better relationships. When a customer needs help, Revly makes sure they reach your team first, so you get the chance to understand the issue and turn their experience around.</p>
         </div>
-        <div className="sr-grid">
+        <Mock className="sr-grid" minHeight="17rem">
           <div className="sr-card sr-review" id="srReview">
             <span className="badge" id="srBadge">Incoming</span>
             <div className="who"><div className="av" id="srAv" style={{ background: "#f5c542", color: "#5a3a00" }}>D</div><div><div className="nm" id="srNm">Devon R.</div><div className="src">via revly.link/acme</div></div></div>
             <div className="stars" id="srStars"></div>
-            <p className="quote" id="srQuote">Honestly, a few things tripped me up early on.</p>
+            <p className="quote" id="srQuote">A few things in Acme tripped me up early on.</p>
           </div>
           <div className="sr-mid">
             <svg id="srSvg" preserveAspectRatio="none">
@@ -247,7 +254,7 @@ export function CQSmartRouting() {
               <div><div className="lbl">Needs a hand</div><div className="big">Your support team</div><div className="sm">Routed privately</div></div>
             </div>
           </div>
-        </div>
+        </Mock>
       </div>
     </section>);
 }
@@ -255,8 +262,11 @@ export function CQSmartRouting() {
 // ============ Payoff — pinned horizontal gallery ============
 export function CQGallery() {
   const rootRef = React.useRef(null);
+  // The star strip lives in a Mock, so it isn't there until after mount.
+  const mounted = useMounted();
   React.useEffect(() => {
     const root = rootRef.current;
+    if (!root || !mounted) return;
     const ctx = gsap.context(() => {
       const track = root.querySelector('#payTrack');
       const rail = root.querySelector('[data-rail]');
@@ -280,7 +290,7 @@ export function CQGallery() {
       }
     }, rootRef);
     return () => ctx.revert();
-  }, []);
+  }, [mounted]);
 
   return (
     <section className="galC" id="galPay" ref={rootRef}>
@@ -298,10 +308,10 @@ export function CQGallery() {
           <div>
             <div className="num">01</div>
             <div className="lbl">Higher follow-through</div>
-            <h3>Customers who almost reviewed you — do.</h3>
+            <h3>Customers who almost reviewed you now do.</h3>
             <p>Remove the platform confusion and the blank page, and the people who were willing finally get there.</p>
           </div>
-          <div className="vizC"><div className="link">Completed reviews <span className="pill">+218%</span></div></div>
+          <Mock className="vizC"><div className="link">Completed reviews <span className="pill">+218%</span></div></Mock>
         </article>
         <article className="panelC">
           <div>
@@ -310,7 +320,7 @@ export function CQGallery() {
             <h3>Reviews that capture the full story.</h3>
             <p>AI assistance turns two-word summaries into specific experiences that read like a real person wrote them.</p>
           </div>
-          <div className="vizC"><div className="stars" data-vstars></div><div className="field">Acme cut our weekly reporting from half a day to twenty minutes.</div></div>
+          <Mock className="vizC"><div className="stars" data-vstars></div><div className="field">Acme cut our weekly reporting from half a day to twenty minutes.</div></Mock>
         </article>
         <article className="panelC">
           <div>
@@ -319,7 +329,7 @@ export function CQGallery() {
             <h3>They land where you need them.</h3>
             <p>Set the routing priority, or let Revly balance across platforms automatically. Either way, you stay in control.</p>
           </div>
-          <div className="vizC"><div className="chips"><span className="chip2 sel">G2 ✓</span><span className="chip2">Capterra</span><span className="chip2">TrustRadius</span></div></div>
+          <Mock className="vizC"><div className="chips"><span className="chip2 sel">G2 ✓</span><span className="chip2">Capterra</span><span className="chip2">TrustRadius</span></div></Mock>
         </article>
       </div>
     </section>);
