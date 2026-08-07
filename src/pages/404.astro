@@ -3,5 +3,6 @@ import Base from '../layouts/Base.astro';
 import { NotFound } from '../components/NotFound.jsx';
 ---
 <Base title="Page Not Found — Revly" description="This page doesn't exist.">
+  <meta slot="head" name="robots" content="noindex, follow"/>
   <NotFound client:load />
 </Base>

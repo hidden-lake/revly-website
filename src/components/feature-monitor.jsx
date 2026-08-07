@@ -2,13 +2,17 @@
 import React from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Mock, useMounted } from './decorative.jsx';
 gsap.registerPlugin(ScrollTrigger);
 
 // ============ Monitor scrollytelling: unified dashboard ============
 export function MonScrolly() {
   const rootRef = React.useRef(null);
+  // The mock's innards only exist after mount, so the timeline waits for them.
+  const mounted = useMounted();
   React.useEffect(() => {
     const root = rootRef.current;
+    if (!root || !mounted) return;
     const ctx = gsap.context(() => {
       const plats = [...root.querySelectorAll('[data-plat]')];
       const feed = root.querySelector('[data-feed]');
@@ -54,7 +58,7 @@ export function MonScrolly() {
     const rt = setTimeout(refresh, 600);
     window.addEventListener('load', refresh);
     return () => { clearTimeout(rt); window.removeEventListener('load', refresh); ctx.revert(); };
-  }, []);
+  }, [mounted]);
 
   const Row = (badge, avg, pct) => (
     <div className="mon-row"><span className="badge2">{badge}</span><span className="rate">{avg}</span><span className="stars5"><span className="bg">★★★★★</span><span className="fg" style={{ width: pct }}>★★★★★</span></span></div>
@@ -69,7 +73,7 @@ export function MonScrolly() {
         </div>
         <div className="scrollyA-grid">
           <div className="mediaA">
-            <div className="mock">
+            <Mock className="mock" minHeight="21rem">
               <div className="mock-bar"><i></i><i></i><i></i><span className="lbl">Revly · All reviews</span></div>
               <div className="mock-pad">
                 <div className="mon-plat">
@@ -106,7 +110,7 @@ export function MonScrolly() {
                   <div className="bar"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg>"onboarding" — 12 matches across 4 platforms</div>
                 </div>
               </div>
-            </div>
+            </Mock>
             <div className="progress"><span><b data-prog="0"></b></span><span><b data-prog="1"></b></span><span><b data-prog="2"></b></span><span><b data-prog="3"></b></span></div>
           </div>
           <div className="stepsA">
@@ -167,7 +171,7 @@ export function MonGallery() {
             <h3>Every review, one feed.</h3>
             <p>Filter by platform, rating, or response status. Nothing requires a separate login to find.</p>
           </div>
-          <div className="vizC"><div className="link">Every platform <span className="pill">1 feed</span></div></div>
+          <Mock className="vizC"><div className="link">Every platform <span className="pill">1 feed</span></div></Mock>
         </article>
         <article className="panelC">
           <div>
@@ -176,7 +180,7 @@ export function MonGallery() {
             <h3>The full picture, in aggregate.</h3>
             <p>Rating shifts and sentiment patterns across platforms — not a snapshot that misses the trend.</p>
           </div>
-          <div className="vizC"><div className="field">Avg rating ▲ 4.3 → 4.6 this quarter</div></div>
+          <Mock className="vizC"><div className="field">Avg rating ▲ 4.3 → 4.6 this quarter</div></Mock>
         </article>
         <article className="panelC">
           <div>
@@ -185,7 +189,7 @@ export function MonGallery() {
             <h3>The right quote, instantly.</h3>
             <p>Find the exact review that names the feature or describes the outcome — without digging through tabs.</p>
           </div>
-          <div className="vizC"><div className="field">🔍 "onboarding" — 12 matches</div></div>
+          <Mock className="vizC"><div className="field">🔍 "onboarding" — 12 matches</div></Mock>
         </article>
       </div>
     </section>);

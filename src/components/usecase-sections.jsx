@@ -3,13 +3,17 @@ import React from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Icon } from './components.jsx';
+import { Mock, useMounted } from './decorative.jsx';
 gsap.registerPlugin(ScrollTrigger);
 
 // ============ SaaS — "One console" pinned scrollytelling ============
 export function UCConsoleScrolly() {
   const rootRef = React.useRef(null);
+  // The mock's innards only exist after mount, so the timeline waits for them.
+  const mounted = useMounted();
   React.useEffect(() => {
     const root = rootRef.current;
+    if (!root || !mounted) return;
     const ctx = gsap.context(() => {
       const mock = root.querySelector('#ucMock');
       const chips = [...mock.querySelectorAll('[data-chip]')];
@@ -52,7 +56,7 @@ export function UCConsoleScrolly() {
     const rt = setTimeout(refresh, 600);
     window.addEventListener('load', refresh);
     return () => {clearTimeout(rt);window.removeEventListener('load', refresh);ctx.revert();};
-  }, []);
+  }, [mounted]);
 
   const PLATS = ["G2", "Capterra", "Shopify", "Xero", "QuickBooks"];
   const ROWS = [
@@ -69,7 +73,7 @@ export function UCConsoleScrolly() {
         </div>
         <div className="scrollyA-grid">
           <div className="mediaA">
-            <div className="cmp mock ucMock" id="ucMock">
+            <Mock className="cmp mock ucMock" id="ucMock" minHeight="22rem">
               <div className="mock-bar"><i></i><i></i><i></i><span className="lbl">app.revly.io</span></div>
               <div className="mock-pad">
                 <div className="mon-head">
@@ -102,7 +106,7 @@ export function UCConsoleScrolly() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Mock>
             <div className="progress"><span><b data-prog="0"></b></span><span><b data-prog="1"></b></span><span><b data-prog="2"></b></span><span><b data-prog="3"></b></span></div>
           </div>
           <div className="stepsA">
@@ -167,11 +171,11 @@ export function UCClientGallery() {
             <h3>All your clients, one login.</h3>
             <p>Switch between accounts instantly and see which clients need attention before they have to tell you.</p>
           </div>
-          <div className="vizC"><div className="cl-switch">
+          <Mock className="vizC"><div className="cl-switch">
             <div className="cl-row active"><span className="av" style={{ background: "#f0047f" }}>A</span><span className="nm">Acme</span><span className="rt"><span className="st">★</span>4.6</span></div>
             <div className="cl-row"><span className="av" style={{ background: "#f5c542", color: "#5a3a00" }}>O</span><span className="nm">Orbit</span><span className="rt"><span className="st">★</span>4.8</span></div>
             <div className="cl-row"><span className="av" style={{ background: "#2bb673" }}>N</span><span className="nm">Nimbus</span><span className="rt"><span className="st">★</span>4.2</span></div>
-          </div></div>
+          </div></Mock>
         </article>
         <article className="panelC">
           <div>
@@ -180,10 +184,10 @@ export function UCClientGallery() {
             <h3>Reply before the client notices.</h3>
             <p>Real-time Slack notifications the moment a review lands, across every client account, so nothing sits unseen for days.</p>
           </div>
-          <div className="vizC"><div className="cl-alert">
+          <Mock className="vizC"><div className="cl-alert">
             <div className="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6 15a2 2 0 1 1 0-4h2v2a2 2 0 0 1-2 2zm3 0a2 2 0 0 1 4 0v5a2 2 0 0 1-4 0zm6-9a2 2 0 1 1 4 0 2 2 0 0 1-2 2h-2zm0 3a2 2 0 0 1 0 4h-5a2 2 0 0 1 0-4zM9 6a2 2 0 0 1 0-4 2 2 0 0 1 2 2v2zm0 3a2 2 0 0 1 0 4H4a2 2 0 0 1 0-4z" /></svg></div>
             <div><div className="ttl">New review · Nimbus</div><div className="sub">2★ on Capterra just landed — needs a reply</div></div>
-          </div></div>
+          </div></Mock>
         </article>
         <article className="panelC">
           <div>
@@ -192,12 +196,12 @@ export function UCClientGallery() {
             <h3>Numbers that are never stale.</h3>
             <p>Live performance across every client, always current — no more screenshots and spreadsheets that were out of date before you sent them.</p>
           </div>
-          <div className="vizC"><div className="cl-rollup">
+          <Mock className="vizC"><div className="cl-rollup">
             <div className="cl-stat"><div className="v">+218%</div><div className="l">Reviews collected</div></div>
             <div className="cl-stat"><div className="v">4.6★</div><div className="l">Portfolio avg</div></div>
             <div className="cl-stat"><div className="v">12</div><div className="l">Active clients</div></div>
             <div className="cl-stat"><div className="v">🙂</div><div className="l">Avg sentiment</div></div>
-          </div></div>
+          </div></Mock>
         </article>
       </div>
     </section>);

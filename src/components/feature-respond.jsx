@@ -2,14 +2,18 @@
 import React from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Mock, useMounted } from './decorative.jsx';
 gsap.registerPlugin(ScrollTrigger);
-const RESP_REPLY = "Thanks for the honest feedback! We've just reworked onboarding with a guided setup — I'd love to walk you through the features you missed.";
+const RESP_REPLY = "Thanks for the honest feedback. We've just reworked onboarding with a guided setup, and I'd love to walk you through the features you missed.";
 
 // ============ Response scrollytelling ============
 export function RespScrolly() {
   const rootRef = React.useRef(null);
+  // The mock's innards only exist after mount, so the timeline waits for them.
+  const mounted = useMounted();
   React.useEffect(() => {
     const root = rootRef.current;
+    if (!root || !mounted) return;
     const ctx = gsap.context(() => {
       const needsChip = root.querySelector('[data-needs]');
       const review = root.querySelector('[data-review]');
@@ -56,7 +60,7 @@ export function RespScrolly() {
     const rt = setTimeout(refresh, 600);
     window.addEventListener('load', refresh);
     return () => { clearTimeout(rt); window.removeEventListener('load', refresh); ctx.revert(); };
-  }, []);
+  }, [mounted]);
 
   return (
     <section className="scrollyA" ref={rootRef}>
@@ -67,7 +71,7 @@ export function RespScrolly() {
         </div>
         <div className="scrollyA-grid">
           <div className="mediaA">
-            <div className="mock">
+            <Mock className="mock" minHeight="20rem">
               <div className="mock-bar"><i></i><i></i><i></i><span className="lbl">Revly · Responses</span></div>
               <div className="mock-pad">
                 <div className="rr-top">
@@ -81,7 +85,7 @@ export function RespScrolly() {
                 </div>
                 <div className="rr-review ci-hide" data-review>
                   <div className="rr-head"><span className="rr-plat">G2</span><span className="rr-stars sm">★★★☆☆</span><span className="rr-status" data-status>Needs reply</span></div>
-                  <p className="rr-text">"Solid tool, but onboarding felt rushed and I missed a few features early on."</p>
+                  <p className="rr-text">"Acme works well, but onboarding felt rushed and I missed a few features early on."</p>
                 </div>
                 <div className="rr-reply ci-hide" data-reply>
                   <div className="rr-reply-inner">
@@ -91,7 +95,7 @@ export function RespScrolly() {
                 </div>
                 <div className="rr-post" data-post>Post on G2 →</div>
               </div>
-            </div>
+            </Mock>
             <div className="progress"><span><b data-prog="0"></b></span><span><b data-prog="1"></b></span><span><b data-prog="2"></b></span><span><b data-prog="3"></b></span></div>
           </div>
           <div className="stepsA">
@@ -152,7 +156,7 @@ export function RespGallery() {
             <h3>Every platform, one feed.</h3>
             <p>Filter to unresponded reviews in a click and see exactly what's waiting — across every platform.</p>
           </div>
-          <div className="vizC"><div className="link">Needs response <span className="pill">5</span></div></div>
+          <Mock className="vizC"><div className="link">Needs response <span className="pill">5</span></div></Mock>
         </article>
         <article className="panelC">
           <div>
@@ -161,7 +165,7 @@ export function RespGallery() {
             <h3>Replies that sound like you.</h3>
             <p>AI drafts matched to your brand voice from the first line — not generic responses you rewrite.</p>
           </div>
-          <div className="vizC"><div className="field">✦ "Thanks for the honest feedback — we've reworked onboarding…"</div></div>
+          <Mock className="vizC"><div className="field">✦ "Thanks for the honest feedback — we've reworked onboarding…"</div></Mock>
         </article>
         <article className="panelC">
           <div>
@@ -170,7 +174,7 @@ export function RespGallery() {
             <h3>The advantage most miss.</h3>
             <p>Your responses are indexable content on the high-authority domains AI answers actually cite.</p>
           </div>
-          <div className="vizC"><div className="field"><span className="spk" style={{ fontSize: "1rem", marginRight: "0.4rem", verticalAlign: "-2px" }}>🔍</span>Cited in AI answers for "best review tool"</div></div>
+          <Mock className="vizC"><div className="field"><span className="spk" style={{ fontSize: "1rem", marginRight: "0.4rem", verticalAlign: "-2px" }}>🔍</span>Cited in AI answers for "best review tool"</div></Mock>
         </article>
       </div>
     </section>);

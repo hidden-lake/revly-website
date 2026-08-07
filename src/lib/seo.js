@@ -3,8 +3,10 @@
 
 export const SITE_URL = 'https://revly.io';
 export const SITE_NAME = 'Revly';
+// Also feeds the Organization and SoftwareApplication schemas, so keep it factual
+// and keep it matching how the site itself describes the routing step.
 export const SITE_DESCRIPTION =
-  'Revly is the review management platform built for software companies. Collect better reviews with one smart link, monitor every platform from a single dashboard, and catch unhappy customers before they post publicly.';
+  'Revly is the review management platform for software companies. Collect reviews with one smart link, monitor every platform, and respond where buyers look.';
 
 // Site-wide schemas — emitted on every page via Base.astro.
 export const organizationSchema = {

@@ -1,6 +1,7 @@
 // Revly — Who It's For animated hero.
 import React from 'react';
 import gsap from 'gsap';
+import { Mock, useMounted } from './decorative.jsx';
 
 export const SlackLogo = () => (
   <svg className="logo" viewBox="0 0 122.8 122.8" aria-hidden="true">
@@ -11,13 +12,23 @@ export const SlackLogo = () => (
   </svg>
 );
 
-function useWifSceneLoop(ref) {
+function useWifSceneLoop(ref, mounted) {
+  // Headline and copy are real content, so this runs straight away.
   React.useEffect(() => {
     const root = ref.current;
     if (!root || !gsap) return;
-    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     const ctx = gsap.context(() => {
       gsap.from('.wif-copy > *', { opacity: 0, y: 24, duration: .8, stagger: .1, ease: 'power3.out', delay: .1 });
+    }, root);
+    return () => ctx.revert();
+  }, []);
+
+  // The scene lives inside a Mock, so it doesn't exist until after mount.
+  React.useEffect(() => {
+    const root = ref.current;
+    if (!root || !gsap || !mounted) return;
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const ctx = gsap.context(() => {
       const weak = root.querySelector('.ws-weak'), strong = root.querySelector('.ws-strong');
       if (!weak || !strong) return;
       if (reduce) { gsap.set(weak, { opacity: 0 }); gsap.set(strong, { opacity: 1 }); return; }
@@ -31,12 +42,13 @@ function useWifSceneLoop(ref) {
         .to(weak, { opacity: 1, y: 0, duration: .65, ease: 'power3.out' }, '<0.12');
     }, root);
     return () => ctx.revert();
-  }, []);
+  }, [mounted]);
 }
 
 export function WifHero({ chip, headline, lead, cta, scene, tall }) {
   const ref = React.useRef(null);
-  useWifSceneLoop(ref);
+  const mounted = useMounted();
+  useWifSceneLoop(ref, mounted);
   return (
     <section className="wif-hero" ref={ref}>
       <div className="wif-inner">
@@ -48,7 +60,7 @@ export function WifHero({ chip, headline, lead, cta, scene, tall }) {
             <a className="btn btn-default btn-lg" href="/pricing">{cta}</a>
           </div>
         </div>
-        <div className={"wif-scene" + (tall ? " tall" : "")}>{scene}</div>
+        <Mock className={"wif-scene" + (tall ? " tall" : "")} minHeight={tall ? "34rem" : "30rem"}>{scene}</Mock>
       </div>
     </section>
   );

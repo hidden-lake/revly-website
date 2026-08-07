@@ -1,14 +1,25 @@
 // Revly — Direction C feature hero: kinetic headline + looping "before → with Revly" morph card.
 import React from 'react';
 import gsap from 'gsap';
+import { Mock, useMounted } from './decorative.jsx';
 
-function useHeroMorphLoop(rootRef) {
+function useHeroMorphLoop(rootRef, mounted) {
+  // Headline and copy are real content, so this runs straight away.
   React.useEffect(() => {
     const root = rootRef.current;
     if (!root || !gsap) return;
-    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const ctx = gsap.context(() => {
       gsap.from('.hc2-copy > *', { opacity: 0, y: 24, duration: 0.8, stagger: 0.1, ease: 'power3.out', delay: 0.1 });
+    }, root);
+    return () => ctx.revert();
+  }, []);
+
+  // The morph card lives inside a Mock, so it doesn't exist until after mount.
+  React.useEffect(() => {
+    const root = rootRef.current;
+    if (!root || !gsap || !mounted) return;
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const ctx = gsap.context(() => {
       const weak = root.querySelector('.hd-weak');
       const strong = root.querySelector('.hd-strong');
       if (!weak || !strong) return;
@@ -24,21 +35,21 @@ function useHeroMorphLoop(rootRef) {
         .to(weak, { opacity: 1, y: 0, duration: 0.65, ease: 'power3.out' }, '<0.12');
     }, root);
     return () => ctx.revert();
-  }, []);
+  }, [mounted]);
 }
 
 const HERO_MORPHS = {
   collect: (
-    <div className="hc2-morph">
+    <Mock className="hc2-morph" minHeight="240px">
       <div className="frame with-stars" style={{ minHeight: "200px" }}>
         <div className="st">★★★★★</div>
         <div className="hd-state hd-weak"><span className="mlbl lbl-weak">Without Revly</span><p className="hd-q-weak">"Great tool."</p></div>
         <div className="hd-state hd-strong"><span className="mlbl lbl-strong">With Revly</span><p className="hd-q-strong">"Acme cut our weekly reporting from half a day to twenty minutes. The unified dashboard means I stopped checking five tabs every morning — and onboarding took ten."</p></div>
       </div>
-    </div>
+    </Mock>
   ),
   monitor: (
-    <div className="hc2-morph">
+    <Mock className="hc2-morph" minHeight="240px">
       <div className="frame" style={{ minHeight: "224px" }}>
         <div className="hd-state hd-weak">
           <span className="mlbl lbl-weak">Without Revly <span className="met">· 5 tabs open</span></span>
@@ -59,10 +70,10 @@ const HERO_MORPHS = {
           </div>
         </div>
       </div>
-    </div>
+    </Mock>
   ),
   routing: (
-    <div className="hc2-morph">
+    <Mock className="hc2-morph" minHeight="240px">
       <div className="frame with-stars" style={{ minHeight: "212px" }}>
         <div className="qh">How was your experience with Acme?</div>
         <div className="hd-state hd-weak">
@@ -76,10 +87,10 @@ const HERO_MORPHS = {
           <div className="bubble strong"><span className="who">Love that!</span> Invited to share on G2 — one happy customer becomes one public advocate.</div>
         </div>
       </div>
-    </div>
+    </Mock>
   ),
   manage: (
-    <div className="hc2-morph">
+    <Mock className="hc2-morph" minHeight="240px">
       <div className="frame" style={{ minHeight: "200px" }}>
         <div className="hd-state hd-weak">
           <span className="mlbl lbl-weak">Blank box <span className="met">· ~5 min each</span></span>
@@ -90,7 +101,7 @@ const HERO_MORPHS = {
           <div className="bubble strong">Thanks Devon — you're right that onboarding felt rushed, and we've since added a guided setup. I'd love to walk you through the parts you missed; I'll follow up directly.</div>
         </div>
       </div>
-    </div>
+    </Mock>
   )
 };
 
@@ -127,7 +138,8 @@ const HERO_CONFIGS = {
 export function FeatureHeroC({ variant }) {
   const cfg = HERO_CONFIGS[variant];
   const ref = React.useRef(null);
-  useHeroMorphLoop(ref);
+  const mounted = useMounted();
+  useHeroMorphLoop(ref, mounted);
   if (!cfg) return null;
   return (
     <section className="hero-c2" ref={ref}>
