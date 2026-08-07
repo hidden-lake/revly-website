@@ -86,7 +86,7 @@ export function UseCaseAgencies() {
       <WifHero
         chip="For Agencies"
         headline={<>Every client. Every platform. <span className="pay">One dashboard.</span></>}
-        lead="Each client's software is reviewed in five different places: dozens of inboxes, and a 1★ review you'll hear about too late. Revly brings every client's reviews into one dashboard, and flags exactly what needs a reply today."
+        lead="Each client's software is reviewed in five different places. Dozens of inboxes, and a 1★ review you'll hear about too late. Revly brings every client's reviews into one dashboard, and flags exactly what needs a reply today."
         cta="Start free with Revly"
         scene={wifAgencyScene}
         tall />
