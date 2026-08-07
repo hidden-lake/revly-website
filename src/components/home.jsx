@@ -3,7 +3,7 @@ import React from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Navbar, Footer, Icon, BeforeAfterSlider, FAQ } from './components.jsx';
-import { Mock } from './decorative.jsx';
+import { Mock, useMounted } from './decorative.jsx';
 import { HOME_FAQ } from '../lib/faqs.js';
 gsap.registerPlugin(ScrollTrigger);
 
@@ -54,12 +54,19 @@ function HeroNeedRow({ r, showDraft }) {
     </div>);
 }
 function HeroInbox() {
+  const mounted = useMounted();
   const [phase, setPhase] = React.useState(0);
+  const [cycled, setCycled] = React.useState(false);
   React.useEffect(() => {
-    const dur = phase === 0 ? 1600 : phase === 1 ? 900 : 1800;
-    const t = setTimeout(() => setPhase((p) => (p + 1) % 3), dur);
+    // Hold the cycle until the inbox is actually on screen. The first pass through
+    // the review list gets a longer dwell, because the list used to be in the HTML
+    // and sat there through page load before the first switch. Loop timings after
+    // that are unchanged.
+    if (!mounted) return;
+    const dur = phase === 0 ? (cycled ? 1600 : 3600) : phase === 1 ? 900 : 1800;
+    const t = setTimeout(() => { setCycled(true); setPhase((p) => (p + 1) % 3); }, dur);
     return () => clearTimeout(t);
-  }, [phase]);
+  }, [phase, cycled, mounted]);
   const needs = [
     { n: "Devon R.", av: "hsl(var(--secondary))", plat: "Capterra", pc: "#fdf0c8", pt: "#7a4f05", t: "“Acme works well, but onboarding felt rushed and I missed a few features.”", time: "4m", stars: 3, draft: "“Thanks for the honest feedback. We've reworked onboarding with a guided setup.”" },
     { n: "Priya S.", av: "hsl(var(--primary))", plat: "G2", pc: "hsl(var(--muted))", pt: "hsl(var(--primary))", t: "“Wanted more integrations on Acme's starter plan.”", time: "1h", stars: 2 }];
