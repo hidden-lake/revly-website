@@ -84,9 +84,9 @@ export function SmartScrolly() {
           </div>
           <div className="stepsA">
             <div className="stepA" data-step="0"><span className="n">1</span><h3>Everyone gets the same link</h3><p>Every customer gets one link and one question: how are they finding the product overall?</p></div>
-            <div className="stepA" data-step="1"><span className="n">2</span><h3>They give a star rating</h3><p>That rating determines where each customer goes next — and anyone who needs a hand reaches your support team automatically.</p></div>
-            <div className="stepA" data-step="2"><span className="n">3</span><h3>Unhappy? You hear it first</h3><p>Your team gets the chance to respond, understand what happened, and turn the experience around — while it still matters.</p></div>
-            <div className="stepA" data-step="3"><span className="n">4</span><h3>Turn it around, earn an advocate</h3><p>A customer you helped becomes a champion — the kind who tells other people about you.</p></div>
+            <div className="stepA" data-step="1"><span className="n">2</span><h3>They give a star rating</h3><p>That rating determines where each customer goes next, and anyone who needs a hand reaches your support team automatically.</p></div>
+            <div className="stepA" data-step="2"><span className="n">3</span><h3>Unhappy? You hear it first</h3><p>Your team gets the chance to respond, understand what happened, and turn the experience around, while it still matters.</p></div>
+            <div className="stepA" data-step="3"><span className="n">4</span><h3>Turn it around, earn an advocate</h3><p>A customer you helped becomes a champion, the kind who tells other people about you.</p></div>
           </div>
         </div>
       </div>
@@ -142,7 +142,7 @@ export function SmartGallery() {
             <div className="num">01</div>
             <div className="lbl">You hear the quiet ones</div>
             <h3>Customers who need help reach you.</h3>
-            <p>You get the signal — and the chance to act on it — before it ever becomes a bigger problem.</p>
+            <p>You get the signal (and the chance to act on it) before it ever becomes a bigger problem.</p>
           </div>
           <Mock className="vizC"><div className="link">Needs a hand <span className="pill">→ Your team</span></div></Mock>
         </article>
@@ -153,7 +153,7 @@ export function SmartGallery() {
             <h3>A resolution makes an advocate.</h3>
             <p>A customer you helped is far more likely to champion you than one whose concerns went unheard.</p>
           </div>
-          <Mock className="vizC"><div className="stars" data-vstars></div><div className="field">"You turned my week around — happy to recommend."</div></Mock>
+          <Mock className="vizC"><div className="stars" data-vstars></div><div className="field">"You turned my week around, happy to recommend."</div></Mock>
         </article>
         <article className="panelC">
           <div>

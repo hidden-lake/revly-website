@@ -96,13 +96,13 @@ export function UCConsoleScrolly() {
                 <div className="mon-reply" data-reply>
                   <div className="rr-reply-inner">
                     <div className="rr-reply-tag">✦ AI-drafted reply</div>
-                    <p className="rr-reply-text">Thanks for the honest note — we'd love to make this right. I've sent you a direct line to our team so we can sort it quickly.</p>
+                    <p className="rr-reply-text">Thanks for the honest note. We'd love to make this right. I've sent you a direct line to our team so we can sort it quickly.</p>
                   </div>
                 </div>
                 <div className="mon-search" data-search>
                   <div className="bar">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><circle cx="11" cy="11" r="7" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
-                    "cut our reporting time" — 14 reviews
+                    "cut our reporting time": 14 reviews
                   </div>
                 </div>
               </div>
@@ -112,7 +112,7 @@ export function UCConsoleScrolly() {
           <div className="stepsA">
             <div className="stepA" data-step="0"><span className="n">1</span><h3>Every platform, one dashboard</h3><p>G2, Capterra, and the app stores sync into a single view automatically. No more checking five logins to know where you stand.</p></div>
             <div className="stepA" data-step="1"><span className="n">2</span><h3>See exactly what needs a reply</h3><p>Each new review lands with a clear flag, so a 2★ never sits unseen while you're in a meeting. Spot sentiment trends across platforms at a glance.</p></div>
-            <div className="stepA" data-step="2"><span className="n">3</span><h3>Revly drafts the response</h3><p>When a review needs a reply, Revly writes one for you. Copy it, adjust if needed, and post — one less thing to think about.</p></div>
+            <div className="stepA" data-step="2"><span className="n">3</span><h3>Revly drafts the response</h3><p>When a review needs a reply, Revly writes one for you. Copy it, adjust if needed, and post. One less thing to think about.</p></div>
             <div className="stepA" data-step="3"><span className="n">4</span><h3>Find any quote in seconds</h3><p>Search every review from one place to pull the exact line you need for a campaign, a landing page, or a sales deck.</p></div>
           </div>
         </div>
@@ -186,7 +186,7 @@ export function UCClientGallery() {
           </div>
           <Mock className="vizC"><div className="cl-alert">
             <div className="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6 15a2 2 0 1 1 0-4h2v2a2 2 0 0 1-2 2zm3 0a2 2 0 0 1 4 0v5a2 2 0 0 1-4 0zm6-9a2 2 0 1 1 4 0 2 2 0 0 1-2 2h-2zm0 3a2 2 0 0 1 0 4h-5a2 2 0 0 1 0-4zM9 6a2 2 0 0 1 0-4 2 2 0 0 1 2 2v2zm0 3a2 2 0 0 1 0 4H4a2 2 0 0 1 0-4z" /></svg></div>
-            <div><div className="ttl">New review · Nimbus</div><div className="sub">2★ on Capterra just landed — needs a reply</div></div>
+            <div><div className="ttl">New review · Nimbus</div><div className="sub">2★ on Capterra just landed, needs a reply</div></div>
           </div></Mock>
         </article>
         <article className="panelC">
@@ -194,7 +194,7 @@ export function UCClientGallery() {
             <div className="num">03</div>
             <div className="lbl">Live reporting</div>
             <h3>Numbers that are never stale.</h3>
-            <p>Live performance across every client, always current — no more screenshots and spreadsheets that were out of date before you sent them.</p>
+            <p>Live performance across every client, always current. No more screenshots and spreadsheets that were out of date before you sent them.</p>
           </div>
           <Mock className="vizC"><div className="cl-rollup">
             <div className="cl-stat"><div className="v">+218%</div><div className="l">Reviews collected</div></div>

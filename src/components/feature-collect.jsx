@@ -108,8 +108,8 @@ export function CQScrolly() {
           </div>
           <div className="stepsA">
             <div className="stepA" data-step="0"><span className="n">1</span><h3>Share one smart link</h3><p>No list of platforms, no login instructions. One link per product that handles everything from here.</p></div>
-            <div className="stepA" data-step="1"><span className="n">2</span><h3>The customer rates and writes</h3><p>They share their experience in their own words — however much or little they want. No blank-page pressure.</p></div>
-            <div className="stepA" data-step="2"><span className="n">3</span><h3>AI helps them say more</h3><p>If they want help, Revly expands their note into something specific — structure and detail added, their voice kept. They can edit it, ignore it, or post as-is.</p></div>
+            <div className="stepA" data-step="1"><span className="n">2</span><h3>The customer rates and writes</h3><p>They share their experience in their own words, however much or little they want. No blank-page pressure.</p></div>
+            <div className="stepA" data-step="2"><span className="n">3</span><h3>AI helps them say more</h3><p>If they want help, Revly expands their note into something specific: structure and detail added, their voice kept. They can edit it, ignore it, or post as-is.</p></div>
             <div className="stepA" data-step="3"><span className="n">4</span><h3>Routed to the right platform</h3><p>Based on where you need reviews most, Revly sends each customer to the one place their review will do the most good.</p></div>
           </div>
         </div>
@@ -225,7 +225,7 @@ export function CQSmartRouting() {
         <div className="head">
           <span className="eyebrow">Smart routing</span>
           <h2 className="h2">One review. The right destination.</h2>
-          <p>Better reviews start with better relationships. When a customer needs help, Revly makes sure they reach your team first — so you get the chance to understand the issue and turn their experience around.</p>
+          <p>Better reviews start with better relationships. When a customer needs help, Revly makes sure they reach your team first, so you get the chance to understand the issue and turn their experience around.</p>
         </div>
         <Mock className="sr-grid" minHeight="17rem">
           <div className="sr-card sr-review" id="srReview">
@@ -308,7 +308,7 @@ export function CQGallery() {
           <div>
             <div className="num">01</div>
             <div className="lbl">Higher follow-through</div>
-            <h3>Customers who almost reviewed you — do.</h3>
+            <h3>Customers who almost reviewed you now do.</h3>
             <p>Remove the platform confusion and the blank page, and the people who were willing finally get there.</p>
           </div>
           <Mock className="vizC"><div className="link">Completed reviews <span className="pill">+218%</span></div></Mock>

@@ -292,10 +292,10 @@ function RespMock() {
 
 function Features() {
   const rows = [
-  { chip: "Collect", chipClass: "chip-amber", heading: "Collect better reviews", body: "Share a single link. Customers share a quick thought, and Revly's AI turns it into a polished, authentic review — in their words, approved by them — ready to post on the right platform.", to: "/collect-quality-reviews", Mock: CollectMock, flip: false },
+  { chip: "Collect", chipClass: "chip-amber", heading: "Collect better reviews", body: "Share a single link. Customers share a quick thought, and Revly's AI turns it into a polished, authentic review in their words, approved by them, ready to post on the right platform.", to: "/collect-quality-reviews", Mock: CollectMock, flip: false },
   { chip: "Monitor", chipClass: "chip-magenta", heading: "Every platform, one dashboard", body: "Stop checking a dozen tabs. Revly syncs reviews from all your listings, organised by product. Track rating trends, surface quotes for campaigns, and manage the entire review process in a single dashboard.", to: "/monitor-platforms", Mock: DashMock, flip: true },
   { chip: "Smart requests", chipClass: "chip-amber", heading: "Send smart review requests", body: "Revly checks in with customers before sending them anywhere. Those who need support reach your team first. Those who are ready get guided to the right review platform.", to: "/smart-review-requests", Mock: RouteMock, flip: false },
-  { chip: "Respond", chipClass: "chip-magenta", heading: "Stay on top of every reply", body: "Almost no software company responds to its reviews — and savvy buyers sort by lowest rating first to see if you showed up. Revly flags what needs a response and helps you write one in your voice, across every platform.", to: "/manage-review-responses", Mock: RespMock, flip: true }];
+  { chip: "Respond", chipClass: "chip-magenta", heading: "Stay on top of every reply", body: "Almost no software company responds to its reviews, and savvy buyers sort by lowest rating first to see if you showed up. Revly flags what needs a response and helps you write one in your voice, across every platform.", to: "/manage-review-responses", Mock: RespMock, flip: true }];
 
   return (
     <section className="section" style={{ background: "hsl(var(--card))" }}>
@@ -328,7 +328,7 @@ function HowItWorks() {
   const steps = [
   { t: "Connect your platforms", b: "Add your G2, Capterra, TrustRadius and app-store listings. Revly starts syncing reviews instantly." },
   { t: "Share your smart link", b: "One link per product checks in with customers, routes those who need help to your team, and guides the rest to the right platform." },
-  { t: "Watch reviews improve", b: "AI turns brief feedback into detailed, authentic reviews — approved by customers, tracked in one dashboard." }];
+  { t: "Watch reviews improve", b: "AI turns brief feedback into detailed, authentic reviews, approved by customers and tracked in one dashboard." }];
 
   return (
     <section className="section how-dark" id="how" style={{ background: "hsl(var(--foreground))" }}>
@@ -354,20 +354,6 @@ function HowItWorks() {
     </section>);
 }
 
-function StatsBanner() {
-  const stats = [["500+", "Reviews tracked"], ["6+", "Platforms supported"], ["5 min", "Sync interval"]];
-  return (
-    <section className="section">
-      <div className="container-x">
-        <div className="statsA">
-          <div className="statsA-grid">
-            {stats.map((s, i) => <div key={i}><div className="num">{s[0]}</div><div className="l">{s[1]}</div></div>)}
-          </div>
-        </div>
-      </div>
-    </section>);
-}
-
 function WhoItsFor() {
   const items = ["A marketing manager at a growing SaaS company", "Managing reviews across 2+ platforms with no unified view", "Losing deals to better-reviewed competitors", "Worried about negative reviews landing before you can help"];
   return (
@@ -376,7 +362,7 @@ function WhoItsFor() {
         <div>
           <span className="eyebrow">Who it's for</span>
           <h2 className="h2" style={{ margin: "0.9rem 0 1rem" }}>Built for software companies.<br /><span className="mag">Not everyone else.</span></h2>
-          <p className="lead">Most review tools were built for local businesses. Revly is built for G2, Capterra and TrustRadius — the platforms that decide software purchases.</p>
+          <p className="lead">Most review tools were built for local businesses. Revly is built for G2, Capterra and TrustRadius, the platforms that decide software purchases.</p>
         </div>
         <div className="fit-card">
           <span className="chip chip-magenta">Revly is a good fit if you're</span>

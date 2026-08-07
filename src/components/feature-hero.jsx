@@ -44,7 +44,7 @@ const HERO_MORPHS = {
       <div className="frame with-stars" style={{ minHeight: "200px" }}>
         <div className="st">★★★★★</div>
         <div className="hd-state hd-weak"><span className="mlbl lbl-weak">Without Revly</span><p className="hd-q-weak">"Great tool."</p></div>
-        <div className="hd-state hd-strong"><span className="mlbl lbl-strong">With Revly</span><p className="hd-q-strong">"Acme cut our weekly reporting from half a day to twenty minutes. The unified dashboard means I stopped checking five tabs every morning — and onboarding took ten."</p></div>
+        <div className="hd-state hd-strong"><span className="mlbl lbl-strong">With Revly</span><p className="hd-q-strong">"Acme cut our weekly reporting from half a day to twenty minutes. The unified dashboard means I stopped checking five tabs every morning, and onboarding took ten."</p></div>
       </div>
     </Mock>
   ),
@@ -79,12 +79,12 @@ const HERO_MORPHS = {
         <div className="hd-state hd-weak">
           <span className="mlbl lbl-care">Need help → your team</span>
           <p className="rate"><span className="on">★★</span><span className="off">★★★</span></p>
-          <div className="bubble strong"><span className="who">We're on it.</span> Routed privately to support — "Hi Maria, let's get that import issue sorted today."</div>
+          <div className="bubble strong"><span className="who">We're on it.</span> Routed privately to support: "Hi Maria, let's get that import issue sorted today."</div>
         </div>
         <div className="hd-state hd-strong">
           <span className="mlbl lbl-strong">Delighted → public review</span>
           <p className="rate"><span className="on">★★★★★</span></p>
-          <div className="bubble strong"><span className="who">Love that!</span> Invited to share on G2 — one happy customer becomes one public advocate.</div>
+          <div className="bubble strong"><span className="who">Love that!</span> Invited to share on G2. One happy customer becomes one public advocate.</div>
         </div>
       </div>
     </Mock>
@@ -98,7 +98,7 @@ const HERO_MORPHS = {
         </div>
         <div className="hd-state hd-strong">
           <span className="mlbl lbl-strong">AI-drafted <span className="met">· ~20 sec each</span></span>
-          <div className="bubble strong">Thanks Devon — you're right that onboarding felt rushed, and we've since added a guided setup. I'd love to walk you through the parts you missed; I'll follow up directly.</div>
+          <div className="bubble strong">Thanks Devon, you're right that onboarding felt rushed, and we've since added a guided setup. I'd love to walk you through the parts you missed; I'll follow up directly.</div>
         </div>
       </div>
     </Mock>
@@ -109,19 +109,19 @@ const HERO_CONFIGS = {
   collect: {
     chip: "GET HIGH QUALITY REVIEWS", chipClass: "chip-amber",
     headline: <>Turn <span className="kw">"great tool"</span> into a<br />review that <span className="pay">converts.</span></>,
-    lead: "Your customers know why they love you. Revly's AI writing assistance helps them say it — specific, detailed, and on the platform that needs it most.",
+    lead: "Your customers know why they love you. Revly's AI writing assistance helps them say it: specific, detailed, and on the platform that needs it most.",
     ctas: <a className="btn btn-yellow btn-lg" href="/pricing">Start collecting quality reviews</a>
   },
   monitor: {
     chip: "SEE EVERY REVIEW", chipClass: "chip-amber",
     headline: <>Turn <span className="kw">five open tabs</span><br />into <span className="pay">one dashboard.</span></>,
-    lead: "Reviews land across G2, Capterra, the app stores and more. Revly pulls every one into a single live feed — so nothing slips past you again.",
+    lead: "Reviews land across G2, Capterra, the app stores and more. Revly pulls every one into a single live feed, so nothing slips past you again.",
     ctas: <a className="btn btn-yellow btn-lg" href="/pricing">See all your reviews in one place</a>
   },
   routing: {
     chip: "SMART FEEDBACK ROUTING", chipClass: "chip-pink",
     headline: <>Turn <span className="kw">one star rating</span><br />into <span className="pay">the right conversation.</span></>,
-    lead: "Ask for a rating first. Customers who are thrilled get invited to post publicly; anyone who needs help reaches your team directly — so you can help them first and win them back.",
+    lead: "Ask for a rating first. Customers who are thrilled get invited to post publicly; anyone who needs help reaches your team directly, so you can help them first and win them back.",
     ctas: <>
       <a className="btn btn-default btn-lg" href="/pricing">See how routing works</a>
       <a className="btn btn-yellow btn-lg" href="/pricing">Get started for free</a>

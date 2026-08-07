@@ -129,11 +129,11 @@ export const wifSaasScene = (
         </span>
         <span className="dcard" style={{ top: '236px', left: '8px', transform: 'rotate(-9deg)', zIndex: 2, width: '178px' }}>
           <span className="dh"><span className="stars">★☆☆☆☆</span> <span className="src">Trustpilot</span></span>
-          <span className="db"><span className="warn">Public 1★</span> — no response yet 🫠</span>
+          <span className="db"><span className="warn">Public 1★</span>, no response yet 🫠</span>
         </span>
         <span className="dcard" style={{ top: '292px', left: '150px', transform: 'rotate(4deg)', zIndex: 4, width: '186px' }}>
           <span className="dh"><span className="stars">★★☆☆☆</span> <span className="src">Capterra</span></span>
-          <span className="db">5 months old — <span className="warn">never replied</span> 🫠</span>
+          <span className="db">5 months old, <span className="warn">never replied</span> 🫠</span>
         </span>
         <span className="dcard" style={{ top: '420px', left: '92px', transform: 'rotate(6deg)', zIndex: 1, width: '208px' }}>
           <span className="dh">Inbox <span className="src">Email</span></span>
@@ -168,15 +168,15 @@ export const wifAgencyScene = (
         </span>
         <span className="dcard" style={{ top: '150px', left: '22px', transform: 'rotate(7deg)', zIndex: 2, width: '182px' }}>
           <span className="dh">Vertex <span className="src">Trustpilot</span></span>
-          <span className="db">2 public 1★ — <span className="warn">no reply</span> 😬</span>
+          <span className="db">2 public 1★, <span className="warn">no reply</span> 😬</span>
         </span>
         <span className="dcard" style={{ top: '244px', left: '0', transform: 'rotate(3deg)', zIndex: 4, width: '198px' }}>
           <span className="dh">Nimbus <span className="src">App Store</span></span>
-          <span className="db">5 new reviews — <span className="warn">nobody saw them</span> 😬</span>
+          <span className="db">5 new reviews, <span className="warn">nobody saw them</span> 😬</span>
         </span>
         <span className="dcard" style={{ top: '342px', left: '166px', transform: 'rotate(-5deg)', zIndex: 3, width: '176px' }}>
           <span className="dh">Orbit <span className="src">Report day</span></span>
-          <span className="db">Client wants numbers — <span className="warn">data's a week stale</span></span>
+          <span className="db">Client wants numbers, <span className="warn">data's a week stale</span></span>
         </span>
         <span className="dcard" style={{ top: '452px', left: '40px', transform: 'rotate(-7deg)', zIndex: 1, width: '196px' }}>
           <span className="dh">Lumen <span className="src">Google Play</span></span>

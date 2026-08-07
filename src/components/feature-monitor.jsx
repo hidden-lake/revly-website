@@ -107,7 +107,7 @@ export function MonScrolly() {
                   </div>
                 </div>
                 <div className="mon-search" data-search>
-                  <div className="bar"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg>"onboarding" — 12 matches across 4 platforms</div>
+                  <div className="bar"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg>"onboarding": 12 matches across 4 platforms</div>
                 </div>
               </div>
             </Mock>
@@ -115,9 +115,9 @@ export function MonScrolly() {
           </div>
           <div className="stepsA">
             <div className="stepA" data-step="0"><span className="n">1</span><h3>Connect your platforms</h3><p>Add your G2, Capterra, TrustRadius and app-store listings. Revly starts syncing reviews instantly.</p></div>
-            <div className="stepA" data-step="1"><span className="n">2</span><h3>Every review in one feed</h3><p>New reviews surface within five minutes of being posted — across every connected platform, in one place.</p></div>
+            <div className="stepA" data-step="1"><span className="n">2</span><h3>Every review in one feed</h3><p>New reviews surface within five minutes of being posted, across every connected platform, in one place.</p></div>
             <div className="stepA" data-step="2"><span className="n">3</span><h3>Track what's changing</h3><p>Rating trends and sentiment shifts are tracked over time, so you spot patterns before they become problems.</p></div>
-            <div className="stepA" data-step="3"><span className="n">4</span><h3>Find anything instantly</h3><p>Search your entire review library for the exact quote, feature, or theme — no digging through five tabs.</p></div>
+            <div className="stepA" data-step="3"><span className="n">4</span><h3>Find anything instantly</h3><p>Search your entire review library for the exact quote, feature, or theme. No digging through five tabs.</p></div>
           </div>
         </div>
       </div>
@@ -178,7 +178,7 @@ export function MonGallery() {
             <div className="num">02</div>
             <div className="lbl">Trends you can act on</div>
             <h3>The full picture, in aggregate.</h3>
-            <p>Rating shifts and sentiment patterns across platforms — not a snapshot that misses the trend.</p>
+            <p>Rating shifts and sentiment patterns across platforms, not a snapshot that misses the trend.</p>
           </div>
           <Mock className="vizC"><div className="field">Avg rating ▲ 4.3 → 4.6 this quarter</div></Mock>
         </article>
@@ -187,9 +187,9 @@ export function MonGallery() {
             <div className="num">03</div>
             <div className="lbl">Searchable library</div>
             <h3>The right quote, instantly.</h3>
-            <p>Find the exact review that names the feature or describes the outcome — without digging through tabs.</p>
+            <p>Find the exact review that names the feature or describes the outcome, without digging through tabs.</p>
           </div>
-          <Mock className="vizC"><div className="field">🔍 "onboarding" — 12 matches</div></Mock>
+          <Mock className="vizC"><div className="field">🔍 "onboarding": 12 matches</div></Mock>
         </article>
       </div>
     </section>);

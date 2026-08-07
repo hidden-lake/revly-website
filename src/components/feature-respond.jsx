@@ -100,7 +100,7 @@ export function RespScrolly() {
           </div>
           <div className="stepsA">
             <div className="stepA" data-step="0"><span className="n">1</span><h3>Every review in one place</h3><p>Revly pulls reviews from G2, Capterra, TrustRadius and more into one dashboard, synced every five minutes.</p></div>
-            <div className="stepA" data-step="1"><span className="n">2</span><h3>Filter to what needs a reply</h3><p>See exactly what's waiting — no manual triage, no platform you forgot to check.</p></div>
+            <div className="stepA" data-step="1"><span className="n">2</span><h3>Filter to what needs a reply</h3><p>See exactly what's waiting. No manual triage, no platform you forgot to check.</p></div>
             <div className="stepA" data-step="2"><span className="n">3</span><h3>Draft with AI, in your voice</h3><p>Revly suggests a reply matched to your brand voice from the first line. Edit it, or send it as-is.</p></div>
             <div className="stepA" data-step="3"><span className="n">4</span><h3>Go straight there to post</h3><p>One click takes you to the review on the platform. No searching, no extra logins.</p></div>
           </div>
@@ -154,7 +154,7 @@ export function RespGallery() {
             <div className="num">01</div>
             <div className="lbl">Nothing slips through</div>
             <h3>Every platform, one feed.</h3>
-            <p>Filter to unresponded reviews in a click and see exactly what's waiting — across every platform.</p>
+            <p>Filter to unresponded reviews in a click and see exactly what's waiting, across every platform.</p>
           </div>
           <Mock className="vizC"><div className="link">Needs response <span className="pill">5</span></div></Mock>
         </article>
@@ -163,9 +163,9 @@ export function RespGallery() {
             <div className="num">02</div>
             <div className="lbl">In your voice</div>
             <h3>Replies that sound like you.</h3>
-            <p>AI drafts matched to your brand voice from the first line — not generic responses you rewrite.</p>
+            <p>AI drafts matched to your brand voice from the first line, not generic responses you rewrite.</p>
           </div>
-          <Mock className="vizC"><div className="field">✦ "Thanks for the honest feedback — we've reworked onboarding…"</div></Mock>
+          <Mock className="vizC"><div className="field">✦ "Thanks for the honest feedback. We've reworked onboarding…"</div></Mock>
         </article>
         <article className="panelC">
           <div>

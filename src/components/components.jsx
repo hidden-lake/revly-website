@@ -1,6 +1,5 @@
 // Revly — Shared components
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from './link.jsx';
 
 // ---------- Icons (lucide-style, lightweight inline SVG) ----------
 export const Icon = ({ name, size = 24, className = "" }) => {
@@ -179,21 +178,6 @@ export function FooterCol({ title, links, items }) {
 
 }
 
-// ---------- PlatformBar ----------
-export function PlatformBar() {
-  const logos = ["G2", "Capterra", "TrustRadius", "GetApp", "Software Advice", "Trustpilot", "App Store", "Google Play", "Shopify"];
-  const triple = [...logos, ...logos, ...logos];
-  return (
-    <div style={{ background: "hsl(var(--primary))", padding: "2.5rem 0", borderTop: "1px solid rgba(255,255,255,0.1)", borderBottom: "1px solid rgba(255,255,255,0.1)", overflow: "hidden" }}>
-      <div className="animate-scroll" style={{ display: "flex", gap: "6rem", whiteSpace: "nowrap", width: "max-content" }}>
-        {triple.map((l, i) =>
-        <span key={i} style={{ color: "rgba(255,255,255,0.7)", fontFamily: "Bricolage Grotesque", fontWeight: 800, fontSize: "1.5rem", letterSpacing: "-0.01em" }}>{l}</span>
-        )}
-      </div>
-    </div>);
-
-}
-
 // ---------- BeforeAfterSlider — static before/after comparison table ----------
 export function BeforeAfterSlider({ rows }) {
   return (
@@ -211,115 +195,6 @@ export function BeforeAfterSlider({ rows }) {
             <div className="ba2-cell with" style={{ gridColumn: 2, gridRow: i + 2 }}><span>{r.with}</span></div>
           </React.Fragment>
         )}
-      </div>
-    </div>);
-
-}
-
-// ---------- ScrollRevealSection — sticky scroll-driven crossfade ----------
-export function ScrollRevealSection({ title, bgClassName = "", keepTitle = false, children }) {
-  const wrapperRef = useRef(null);
-  const [progress, setProgress] = useState(0);
-  const rafRef = useRef(0);
-  const tickingRef = useRef(false);
-
-  useEffect(() => {
-    const compute = () => {
-      tickingRef.current = false;
-      const el = wrapperRef.current;if (!el) return;
-      const rect = el.getBoundingClientRect();
-      const vh = window.innerHeight;
-      const wrapperHeight = el.offsetHeight;
-      const denom = Math.max(1, wrapperHeight - vh);
-      const p = Math.max(0, Math.min(1, -rect.top / denom));
-      setProgress(p);
-    };
-    const onScroll = () => {
-      if (tickingRef.current) return;
-      tickingRef.current = true;
-      rafRef.current = requestAnimationFrame(compute);
-    };
-    compute();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-      cancelAnimationFrame(rafRef.current);
-    };
-  }, []);
-
-  const bg = bgClassName === "card" ? "hsl(var(--card))" :
-  bgClassName === "f6" ? "#f6f6f4" :
-  bgClassName === "accent" ? "hsl(var(--accent))" :
-  bgClassName === "muted" ? "hsl(var(--muted))" : "transparent";
-
-  const lerp = (a, b, t) => a + (b - a) * t;
-  const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
-  // Smooth ease-in-out so progress doesn't feel linear/clunky
-  const ease = (t) => t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
-
-  // Detect small viewports: skip the sticky-runway treatment to keep mobile usable
-  const isSmall = typeof window !== "undefined" && window.matchMedia && window.matchMedia("(max-width: 880px)").matches;
-
-  if (isSmall) {
-    return (
-      <section className="section" style={{ background: bg }}>
-        <div className="container-x" style={{ maxWidth: "820px" }}>
-          <h2 className="h2" style={{ marginBottom: "2rem", textAlign: "center" }}>{title}</h2>
-          <div>{children}</div>
-        </div>
-      </section>);
-
-  }
-
-  if (keepTitle) {
-    // Title persists; body has a faint baseline and ramps up smoothly
-    const tRaw = clamp((progress - 0.05) / (0.45 - 0.05), 0, 1);
-    const t = ease(tRaw);
-    const bodyOpacity = lerp(0.18, 1, t);
-    const bodyY = lerp(24, 0, t);
-    return (
-      <div ref={wrapperRef} style={{ height: "130vh", background: bg, position: "relative" }}>
-        <div style={{ position: "sticky", top: 0, height: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "4rem 1.5rem" }}>
-          <div className="container-x" style={{ textAlign: "center", maxWidth: "900px" }}>
-            <h2 className="h2" style={{ marginBottom: "2.5rem" }}>{title}</h2>
-            <div style={{ opacity: bodyOpacity, transform: `translateY(${bodyY}px)`, willChange: "opacity, transform" }}>
-              {children}
-            </div>
-          </div>
-        </div>
-      </div>);
-
-  }
-
-  // Default: title and body share the screen; title fades out, body fades up
-  let titleOp, titleY, bodyOp, bodyY;
-  if (progress < 0.2) {
-    titleOp = 1;titleY = 0;
-    const t = ease(clamp(progress / 0.2, 0, 1));
-    bodyOp = lerp(0.15, 0.22, t);
-    bodyY = lerp(18, 10, t);
-  } else if (progress <= 0.6) {
-    const t = ease((progress - 0.2) / (0.6 - 0.2));
-    titleOp = lerp(1, 0, t);
-    titleY = lerp(0, -32, t);
-    bodyOp = lerp(0.22, 1, t);
-    bodyY = lerp(10, 0, t);
-  } else {
-    titleOp = 0;titleY = -32;bodyOp = 1;bodyY = 0;
-  }
-  const titlePE = titleOp < 0.1 ? "none" : "auto";
-  const bodyPE = bodyOp < 0.4 ? "none" : "auto";
-  return (
-    <div ref={wrapperRef} style={{ height: "140vh", background: bg, position: "relative" }}>
-      <div style={{ position: "sticky", top: 0, height: "100vh", overflow: "hidden", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "3rem 1.5rem" }}>
-        <div className="container-x" style={{ textAlign: "center", maxWidth: "900px", marginBottom: "2rem", opacity: titleOp, transform: `translateY(${titleY}px)`, pointerEvents: titlePE, willChange: "opacity, transform", position: titleOp < 0.05 ? "absolute" : "relative" }}>
-          <h2 className="h2">{title}</h2>
-        </div>
-        <div className="container-x" style={{ maxWidth: "820px", opacity: bodyOp, transform: `translateY(${bodyY}px)`, pointerEvents: bodyPE, willChange: "opacity, transform", transition: "opacity 80ms linear" }}>
-          {children}
-        </div>
       </div>
     </div>);
 
@@ -344,22 +219,6 @@ export function FAQ({ items, title = "Common questions" }) {
               </div>
             </div>
           )}
-        </div>
-      </div>
-    </section>);
-
-}
-
-// ---------- ClosingCTA ----------
-export function ClosingCTA({ heading, sub, buttons, bg = "muted" }) {
-  const bgStyle = bg === "primary" ? { background: "hsl(var(--primary))", color: "white" } : { background: "hsl(var(--muted))" };
-  return (
-    <section className="section" style={bgStyle}>
-      <div className="container-x" style={{ textAlign: "center", maxWidth: "760px" }}>
-        <h2 className="h2" style={{ color: bg === "primary" ? "white" : undefined }}>{heading}</h2>
-        <p className="lead" style={{ marginTop: "1rem", color: bg === "primary" ? "rgba(255,255,255,0.85)" : undefined }}>{sub}</p>
-        <div style={{ display: "flex", justifyContent: "center", gap: ".75rem", marginTop: "2rem", flexWrap: "wrap" }}>
-          {buttons}
         </div>
       </div>
     </section>);
