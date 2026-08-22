@@ -1,14 +1,24 @@
 ---
 import Base from '../layouts/Base.astro';
 import { CollectBetterReviews } from '../components/products.jsx';
-import { faqPageSchema } from '../lib/seo.js';
+import { faqPageSchema, webPageSchema, softwareApplicationSchema } from '../lib/seo.js';
 import { COLLECT_FAQ } from '../lib/faqs.js';
+const jsonLd = [
+  softwareApplicationSchema(undefined, "Revly collects reviews with one smart link that routes each customer to the right platform, with AI writing assistance that helps them turn a quick thought into a detailed review."),
+  webPageSchema({
+    name: "Collect Quality Reviews",
+    description: "One smart link sends customers to the platform you need, and AI writing help turns a quick thought into a review a buyer can actually use.",
+    path: '/collect-quality-reviews',
+    breadcrumbName: "Collect Quality Reviews",
+  }),
+  faqPageSchema(COLLECT_FAQ),
+];
 ---
 <Base
   title="Collect Quality Reviews | Revly"
   description="One smart link sends customers to the platform you need, and AI writing help turns a quick thought into a review a buyer can actually use."
   canonicalPath="/collect-quality-reviews"
-  jsonLd={[faqPageSchema(COLLECT_FAQ)]}
+  jsonLd={jsonLd}
 >
   <CollectBetterReviews client:load />
 </Base>

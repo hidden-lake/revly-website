@@ -1,14 +1,24 @@
 ---
 import Base from '../layouts/Base.astro';
 import { ManageReviewResponses } from '../components/products.jsx';
-import { faqPageSchema } from '../lib/seo.js';
+import { faqPageSchema, webPageSchema, softwareApplicationSchema } from '../lib/seo.js';
 import { RESPOND_FAQ } from '../lib/faqs.js';
+const jsonLd = [
+  softwareApplicationSchema(undefined, "Revly surfaces every review awaiting a reply and drafts an on-brand response for each one, across every connected review platform."),
+  webPageSchema({
+    name: "Manage Review Responses",
+    description: "Every review waiting on a reply, in one queue. Revly drafts a response in your brand voice, then takes you to the platform to post it.",
+    path: '/manage-review-responses',
+    breadcrumbName: "Manage Review Responses",
+  }),
+  faqPageSchema(RESPOND_FAQ),
+];
 ---
 <Base
   title="Manage Review Responses | Revly"
   description="Every review waiting on a reply, in one queue. Revly drafts a response in your brand voice, then takes you to the platform to post it."
   canonicalPath="/manage-review-responses"
-  jsonLd={[faqPageSchema(RESPOND_FAQ)]}
+  jsonLd={jsonLd}
 >
   <ManageReviewResponses client:load />
 </Base>

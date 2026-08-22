@@ -1,14 +1,23 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { UseCaseAgencies } from '../../components/usecases.jsx';
-import { faqPageSchema } from '../../lib/seo.js';
+import { faqPageSchema, webPageSchema } from '../../lib/seo.js';
 import { AGENCY_FAQ } from '../../lib/faqs.js';
+const jsonLd = [
+  webPageSchema({
+    name: "For Agencies",
+    description: "Run every client's review programme from one dashboard. Switch accounts instantly, catch new reviews as they land, and report on current numbers.",
+    path: '/use-cases/agencies',
+    breadcrumbName: "For agencies",
+  }),
+  faqPageSchema(AGENCY_FAQ),
+];
 ---
 <Base
   title="For Agencies | Revly"
   description="Run every client's review programme from one dashboard. Switch accounts instantly, catch new reviews as they land, and report on current numbers."
   canonicalPath="/use-cases/agencies"
-  jsonLd={[faqPageSchema(AGENCY_FAQ)]}
+  jsonLd={jsonLd}
 >
   <UseCaseAgencies client:load />
 </Base>

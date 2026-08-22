@@ -6,6 +6,6 @@ export default defineConfig({
   integrations: [react(), sitemap()],
   site: 'https://revly.io',
   redirects: {
-    '/collect-better-reviews': '/collect-quality-reviews',
+    '/collect-better-reviews': '/collect-quality-reviews/',
   },
 })

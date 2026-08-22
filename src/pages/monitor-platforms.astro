@@ -1,14 +1,24 @@
 ---
 import Base from '../layouts/Base.astro';
 import { MonitorPlatforms } from '../components/products.jsx';
-import { faqPageSchema } from '../lib/seo.js';
+import { faqPageSchema, webPageSchema, softwareApplicationSchema } from '../lib/seo.js';
 import { MONITOR_FAQ } from '../lib/faqs.js';
+const jsonLd = [
+  softwareApplicationSchema(undefined, "Revly syncs reviews from G2, Capterra, Trustpilot and the app stores into one dashboard, updated within minutes of a review being posted."),
+  webPageSchema({
+    name: "Monitor Review Platforms",
+    description: "Track every review from G2, Capterra, Trustpilot, and the app stores in one dashboard, synced within five minutes of being posted.",
+    path: '/monitor-platforms',
+    breadcrumbName: "Monitor Multiple Review Platforms",
+  }),
+  faqPageSchema(MONITOR_FAQ),
+];
 ---
 <Base
   title="Monitor Review Platforms | Revly"
   description="Track every review from G2, Capterra, Trustpilot, and the app stores in one dashboard, synced within five minutes of being posted."
   canonicalPath="/monitor-platforms"
-  jsonLd={[faqPageSchema(MONITOR_FAQ)]}
+  jsonLd={jsonLd}
 >
   <MonitorPlatforms client:load />
 </Base>

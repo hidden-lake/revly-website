@@ -9,12 +9,12 @@ export const HOME_FAQ = [
 { q: "Is Revly right for a company with only a handful of reviews?", a: "Yes, that's a common starting point. Companies with 10–50 reviews have enough customers to run meaningful campaigns, but not enough reviews to have social proof that converts. Getting from thin to credible is the first thing Revly helps with." }];
 
 export const PRICING_FAQ = [
-  { q:"What happens when I hit my review limit?", a:"Collected reviews reset each month. If you hit your limit, new collection links pause until next month. Monitoring continues uninterrupted." },
-  { q:"Can I add extra channels?", a:"Yes! Pro plans can add channels for $5/mo each, Business and Agency for $3/mo each." },
-  { q:"What platforms do you monitor?", a:"Shopify App Store, G2, QuickBooks App Store, WordPress.org, Xero App Store, WooCommerce Marketplace, and Capterra. More coming soon." },
-  { q:"How does AI review enhancement work?", a:"Customers share a quick star rating and a few words of feedback. Our AI expands this into a complete, authentic review that matches their sentiment and tone, ready to copy and post on any platform." },
-  { q:"Can I switch plans?", a:"Yes, upgrade or downgrade anytime. Changes take effect immediately, and we prorate the difference." },
-  { q:"Do you offer a free trial of paid plans?", a:"The Free plan lets you try core features. When you're ready, upgrade to Pro or Business. No trial needed, cancel anytime." },
+  { q:"What happens when I hit my monthly review limit?", a:"Collected reviews reset each month. If you reach your plan's limit before the reset, your collection links pause and stop accepting new reviews until the new month starts. Review monitoring is unaffected and keeps running, so you still see every new review as it's posted." },
+  { q:"Can I add extra channels beyond my plan's limit?", a:"Yes. Extra monitored channels are $5/month each on Pro, and $3/month each on Business and Agency. Plans include 2 channels on Free, 5 on Pro, 15 on Business, and 5 per client on Agency, so you only pay for the ones you add on top." },
+  { q:"Which review platforms does Revly monitor?", a:"Revly monitors G2, Capterra, GetApp, Software Advice, Trustpilot, the Apple App Store, Google Play Store, Shopify App Store, WooCommerce Marketplace, QuickBooks Marketplace, WordPress Plugin Marketplace, and Xero Marketplace. More are being added, and any platform that matters for software buying decisions is on the roadmap." },
+  { q:"How does AI review enhancement work?", a:"The customer gives a star rating and a few words of feedback. Revly's AI expands that into a complete review that keeps their sentiment, tone, and specific points. They read it, edit anything they want to change, and post it themselves. Revly never posts on their behalf." },
+  { q:"Can I switch plans later?", a:"Yes. Upgrade or downgrade at any time. The change takes effect immediately rather than at your next billing date, and the difference is prorated, so you only pay for what you actually used on each plan." },
+  { q:"Do you offer a free trial of the paid plans?", a:"There's no separate time-limited trial. The Free plan is the trial: it stays free, with 2 monitored channels, 1 collection link, 10 collected reviews a month, and daily review monitoring. Upgrade to Pro or Business when you need higher limits or the AI features." },
 ];
 
 export const COLLECT_FAQ = [

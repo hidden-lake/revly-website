@@ -1,14 +1,24 @@
 ---
 import Base from '../layouts/Base.astro';
 import { SmartReviewRequests } from '../components/products.jsx';
-import { faqPageSchema } from '../lib/seo.js';
+import { faqPageSchema, webPageSchema, softwareApplicationSchema } from '../lib/seo.js';
 import { SMART_FAQ } from '../lib/faqs.js';
+const jsonLd = [
+  softwareApplicationSchema(undefined, "Revly checks in with customers before asking for a public review, routing anyone who needs support to your team and anyone who is happy to the right review platform."),
+  webPageSchema({
+    name: "Smart Review Requests",
+    description: "Check in with customers before you ask for a review. Anyone who needs a hand reaches your team first, and anyone who's ready goes to the right platform.",
+    path: '/smart-review-requests',
+    breadcrumbName: "Send Smart Review Requests",
+  }),
+  faqPageSchema(SMART_FAQ),
+];
 ---
 <Base
   title="Smart Review Requests | Revly"
   description="Check in with customers before you ask for a review. Anyone who needs a hand reaches your team first, and anyone who's ready goes to the right platform."
   canonicalPath="/smart-review-requests"
-  jsonLd={[faqPageSchema(SMART_FAQ)]}
+  jsonLd={jsonLd}
 >
   <SmartReviewRequests client:load />
 </Base>
