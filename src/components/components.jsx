@@ -44,7 +44,9 @@ export function Navbar() {
   { to: "/collect-quality-reviews", label: "Collect Quality Reviews" },
   { to: "/monitor-platforms", label: "Monitor Multiple Review Platforms" },
   { to: "/smart-review-requests", label: "Send Smart Review Requests" },
-  { to: "/manage-review-responses", label: "Manage Review Responses" }];
+  { to: "/manage-review-responses", label: "Manage Review Responses" },
+  { to: "/review-widgets", label: "Display Reviews On Your Site" },
+  { to: "/claude-mcp", label: "Query Your Review Data with AI" }];
   const useCasesLinks = [
   { to: "/use-cases/saas", label: "SaaS teams" },
   { to: "/use-cases/agencies", label: "Agencies" }];
@@ -132,7 +134,9 @@ export function Footer() {
           ["Collect Quality Reviews", "/collect-quality-reviews"],
           ["Monitor Multiple Review Platforms", "/monitor-platforms"],
           ["Send Smart Review Requests", "/smart-review-requests"],
-          ["Manage Review Responses", "/manage-review-responses"]]
+          ["Manage Review Responses", "/manage-review-responses"],
+          ["Display Reviews On Your Site", "/review-widgets"],
+          ["Query Your Review Data with AI", "/claude-mcp"]]
           } />
           <FooterCol title="Platforms" items={[
           "G2",

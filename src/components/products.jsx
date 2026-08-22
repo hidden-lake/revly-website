@@ -9,7 +9,7 @@ import { SmartScrolly, SmartGallery } from './feature-smart.jsx';
 import { RespScrolly, RespGallery } from './feature-respond.jsx';
 import { COLLECT_FAQ, MONITOR_FAQ, SMART_FAQ, RESPOND_FAQ } from '../lib/faqs.js';
 
-function ProductBeforeAfter({ heading, rows }) {
+export function ProductBeforeAfter({ heading, rows }) {
   return (
     <section className="section" style={{ background: "hsl(var(--primary-foreground))" }}>
       <div className="container-x">
@@ -103,7 +103,7 @@ export function CollectBetterReviews() {
       <CrossLinks items={[
       { chip: "Smart Requests", title: "Send Smart Review Requests", body: "Revly checks in with customers before sending them anywhere. Those who need support reach your team. Those who are ready get guided to the right review platform.", to: "/smart-review-requests" },
       { chip: "Monitor", title: "Monitor Multiple Review Platforms", body: "All your reviews from every platform in a single dashboard, updated every five minutes.", to: "/monitor-platforms" },
-      { chip: "Respond", title: "Manage Review Responses", body: "Surface every review that needs a reply and draft one in your voice, across every platform.", to: "/manage-review-responses" }]
+      { chip: "Display", title: "Display Reviews On Your Site", body: "Turn your reviews into styled, self-updating widgets you can drop onto any page.", to: "/review-widgets" }]
       } />
     </main>
     <Footer />
@@ -150,7 +150,7 @@ export function MonitorPlatforms() {
       <CrossLinks items={[
       { chip: "Collect", title: "Collect Quality Reviews", body: "One smart link plus AI writing assistance turns willing customers into detailed, specific reviews on the platforms that matter.", to: "/collect-quality-reviews" },
       { chip: "Smart Requests", title: "Send Smart Review Requests", body: "Revly checks in with customers before sending them anywhere. Those who need support reach your team. Those who are ready get guided to the right review platform.", to: "/smart-review-requests" },
-      { chip: "Respond", title: "Manage Review Responses", body: "Surface every review that needs a reply and draft one in your voice, across every platform from one place.", to: "/manage-review-responses" }]
+      { chip: "Claude connector", title: "Query your review data with AI", body: "Connect Revly to Claude or ChatGPT and ask questions about your review data in plain language.", to: "/claude-mcp" }]
       } />
     </main>
     <Footer />
@@ -199,8 +199,8 @@ export function SmartReviewRequests() {
 
       <CrossLinks items={[
       { chip: "Collect", title: "Collect Quality Reviews", body: "One smart link plus AI writing assistance turns willing customers into detailed reviews on the platforms that matter.", to: "/collect-quality-reviews" },
-      { chip: "Monitor", title: "Monitor Multiple Review Platforms", body: "All your reviews from every platform in a single dashboard, synced every five minutes.", to: "/monitor-platforms" },
-      { chip: "Respond", title: "Manage Review Responses", body: "Surface every review that needs a reply and draft a response in your voice, across every platform.", to: "/manage-review-responses" }]
+      { chip: "Display", title: "Display Reviews On Your Site", body: "Turn your reviews into styled, self-updating widgets you can drop onto any page.", to: "/review-widgets" },
+      { chip: "Claude connector", title: "Query your review data with AI", body: "Connect Revly to Claude or ChatGPT and ask questions about your review data in plain language.", to: "/claude-mcp" }]
       } />
     </main>
     <Footer />
@@ -247,8 +247,8 @@ export function ManageReviewResponses() {
 
       <CrossLinks items={[
       { chip: "Collect", title: "Collect Quality Reviews", body: "One smart link plus AI writing assistance turns willing customers into detailed reviews on the platforms that matter.", to: "/collect-quality-reviews" },
-      { chip: "Smart Requests", title: "Send Smart Review Requests", body: "Revly checks in with customers before sending them anywhere. Those who need support reach your team. Those who are ready get guided to the right review platform.", to: "/smart-review-requests" },
-      { chip: "Monitor", title: "Monitor Multiple Review Platforms", body: "All your reviews from every platform in one dashboard, synced every five minutes.", to: "/monitor-platforms" }]
+      { chip: "Display", title: "Display Reviews On Your Site", body: "Turn your reviews into styled, self-updating widgets you can drop onto any page.", to: "/review-widgets" },
+      { chip: "Claude connector", title: "Query your review data with AI", body: "Connect Revly to Claude or ChatGPT and ask questions about your review data in plain language.", to: "/claude-mcp" }]
       } />
     </main>
     <Footer />

@@ -1,0 +1,25 @@
+---
+import Base from '../layouts/Base.astro';
+import { ReviewEmbeds } from '../components/products-extra.jsx';
+import { softwareApplicationSchema, faqPageSchema, webPageSchema } from '../lib/seo.js';
+import { EMBED_FAQ } from '../lib/faqs.js';
+
+const jsonLd = [
+  softwareApplicationSchema(undefined, "Revly turns reviews from G2, Capterra, and other platforms into customisable widgets you can embed on your own website, styled to match your brand and updating automatically."),
+  webPageSchema({
+    name: "Display Your Reviews On Your Website with Revly",
+    description: "Turn reviews from G2, Capterra, and other platforms into grid, carousel, or wall widgets you style to match your site, updating themselves as new reviews arrive.",
+    path: '/review-widgets',
+    breadcrumbName: "Display Reviews On Your Site",
+  }),
+  faqPageSchema(EMBED_FAQ),
+];
+---
+<Base
+  title="Display Your Reviews On Your Website with Revly"
+  description="Your best reviews sit on platforms your visitors never open. Revly turns them into embeddable widgets you style to match your site (as many as you need), updating themselves as new reviews arrive."
+  canonicalPath="/review-widgets"
+  jsonLd={jsonLd}
+>
+  <ReviewEmbeds client:load />
+</Base>

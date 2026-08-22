@@ -21,19 +21,22 @@ export const organizationSchema = {
 export const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
+  '@id': SITE_URL,
   name: SITE_NAME,
   url: SITE_URL,
 };
 
 // The product itself — use on home and pricing. Optional offers array for pricing tiers.
-export function softwareApplicationSchema(offers) {
+// Pass `description` to describe the specific capability a feature page covers;
+// omit it and the schema falls back to the site-wide description.
+export function softwareApplicationSchema(offers, description) {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
     name: SITE_NAME,
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'Web',
-    description: SITE_DESCRIPTION,
+    description: description ?? SITE_DESCRIPTION,
     url: SITE_URL,
   };
   schema.offers = offers ?? { '@type': 'Offer', price: '0', priceCurrency: 'USD' };
@@ -50,5 +53,34 @@ export function faqPageSchema(faqs) {
       name: it.q,
       acceptedAnswer: { '@type': 'Answer', text: it.a },
     })),
+  };
+}
+
+// WebPage plus its BreadcrumbList, as one @graph so the two can reference each other.
+// The trail is Home > this page: there is no intermediate /product listing page on the
+// site, and pointing a breadcrumb at a URL that 404s is worse than a shorter trail.
+export function webPageSchema({ name, description, path, breadcrumbName }) {
+  const url = `${SITE_URL}${path}`;
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebPage',
+        '@id': url,
+        url,
+        name,
+        description,
+        isPartOf: { '@id': SITE_URL },
+        breadcrumb: { '@id': `${url}#breadcrumb` },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${url}#breadcrumb`,
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+          { '@type': 'ListItem', position: 2, name: breadcrumbName ?? name, item: url },
+        ],
+      },
+    ],
   };
 }
