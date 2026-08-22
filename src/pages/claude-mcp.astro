@@ -1,0 +1,25 @@
+---
+import Base from '../layouts/Base.astro';
+import { ClaudeMCP } from '../components/products-extra.jsx';
+import { softwareApplicationSchema, faqPageSchema, webPageSchema } from '../lib/seo.js';
+import { MCP_FAQ } from '../lib/faqs.js';
+
+const jsonLd = [
+  softwareApplicationSchema(undefined, "Revly's MCP server connects your review and collection data to Claude and ChatGPT, so you can query reviews in plain language, pull sourced customer quotes, and diagnose collection performance."),
+  webPageSchema({
+    name: "Query Your Review Data in Claude with the Revly MCP",
+    description: "Connect Revly to Claude or ChatGPT with MCP and ask questions about your review and collection data in plain language.",
+    path: '/claude-mcp',
+    breadcrumbName: "Query Your Review Data with AI",
+  }),
+  faqPageSchema(MCP_FAQ),
+];
+---
+<Base
+  title="Query Your Review Data in Claude with the Revly MCP"
+  description="Connect Revly to Claude and ask questions about your reviews in plain language: pull the quote you need, find where collection breaks down, and hear how customers describe your product in their own words."
+  canonicalPath="/claude-mcp"
+  jsonLd={jsonLd}
+>
+  <ClaudeMCP client:load />
+</Base>

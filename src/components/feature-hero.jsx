@@ -122,10 +122,19 @@ const HERO_CONFIGS = {
     chip: "SMART FEEDBACK ROUTING", chipClass: "chip-pink",
     headline: <>Turn <span className="kw">one star rating</span><br />into <span className="pay">the right conversation.</span></>,
     lead: "Ask for a rating first. Customers who are thrilled get invited to post publicly; anyone who needs help reaches your team directly, so you can help them first and win them back.",
-    ctas: <>
-      <a className="btn btn-default btn-lg" href="/pricing">See how routing works</a>
-      <a className="btn btn-yellow btn-lg" href="/pricing">Get started for free</a>
-    </>
+    ctas: <a className="btn btn-yellow btn-lg" href="/pricing">Get started for free</a>
+  },
+  embed: {
+    chip: "SHOW YOUR REVIEWS OFF", chipClass: "chip-amber",
+    headline: <>Turn <span className="kw" style={{ color: "#12121252" }}>review quotes</span><br />into <span className="pay">proof on your site.</span></>,
+    lead: "Your best feedback lives on external platforms. Revly turns it into automatically updated widgets that match your brand.",
+    ctas: <a className="btn btn-yellow btn-lg" href="/pricing">Start showing your reviews</a>
+  },
+  mcp: {
+    chip: "REVLY MCP FOR CLAUDE AND CHATGPT", chipClass: "chip-pink",
+    headline: <>Turn <span className="kw">your review data</span><br />into <span className="pay">answers in Claude.</span></>,
+    lead: "Connect Revly to Claude or ChatGPT and ask about your reviews in plain language. Instantly find the perfect quote for a campaign, find out where collection breaks down, surface how customers describe your product in their own words.",
+    ctas: <a className="btn btn-yellow btn-lg" href="/pricing">Get your review data in Claude</a>
   },
   manage: {
     chip: "REPLY TO ALL REVIEWS", chipClass: "chip-amber",

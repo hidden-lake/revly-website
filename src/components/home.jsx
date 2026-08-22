@@ -297,12 +297,48 @@ function RespMock() {
     </Mock>);
 }
 
+function EmbedHomeMock() {
+  return (
+    <Mock className="mock" minHeight="16rem">
+      <div className="mock-bar"><i></i><i></i><i></i><span className="lbl">Revly · Widget builder</span></div>
+      <div className="mock-pad">
+        <div className="eb-tabs"><span className="eb-tab on">Grid</span><span className="eb-tab">Carousel</span><span className="eb-tab">Wall</span></div>
+        <div className="eb-wall">
+          <div className="eb-rev"><span className="st">★★★★★</span><p>"Acme cut our weekly reporting from half a day to twenty minutes."</p><span className="who">Maria O. · G2</span></div>
+          <div className="eb-rev"><span className="st">★★★★★</span><p>"Setup took ten minutes. Support replied in five."</p><span className="who">Jonas P. · Capterra</span></div>
+        </div>
+        <div className="eb-code-inner"><span className="tg">&lt;script</span> <span className="at">src</span>="https://cdn.revly.io/w.js" <span className="at">data-widget</span>="grid"<span className="tg">&gt;&lt;/script&gt;</span></div>
+      </div>
+    </Mock>);
+}
+
+function McpHomeMock() {
+  return (
+    <Mock className="mock" minHeight="17rem">
+      <div className="mock-bar"><i></i><i></i><i></i><span className="lbl">Claude · Revly connector</span></div>
+      <div className="mock-pad">
+        <div className="mcp-conn">
+          <span className="mcp-logo"><img src="/assets/claude-icon.png" alt="Claude" style={{ height: "34px", borderRadius: "9px" }} /><img src="/assets/chatgpt-icon.png" alt="ChatGPT" style={{ height: "34px", marginLeft: ".45rem" }} /></span>
+          <span className="mcp-wire"><b style={{ width: "100%" }}></b></span>
+          <span className="mcp-logo"><img src="/assets/revly-wordmark.png" alt="Revly" style={{ height: "26px" }} /></span>
+        </div>
+        <div className="mc-chat">
+          <div className="mc-you">Which features do five-star reviewers mention most this quarter?</div>
+          <div className="mc-tool">✦ revly · search_reviews</div>
+          <div className="mc-claude">Onboarding speed (31), the unified dashboard (24), Slack alerts (11).</div>
+        </div>
+      </div>
+    </Mock>);
+}
+
 function Features() {
   const rows = [
   { chip: "Collect", chipClass: "chip-amber", heading: "Collect better reviews", body: "Share a single link. Customers share a quick thought, and Revly's AI turns it into a polished, authentic review in their words, approved by them, ready to post on the right platform.", to: "/collect-quality-reviews", Mock: CollectMock, flip: false },
   { chip: "Monitor", chipClass: "chip-magenta", heading: "Every platform, one dashboard", body: "Stop checking a dozen tabs. Revly syncs reviews from all your listings, organised by product. Track rating trends, surface quotes for campaigns, and manage the entire review process in a single dashboard.", to: "/monitor-platforms", Mock: DashMock, flip: true },
   { chip: "Smart requests", chipClass: "chip-amber", heading: "Send smart review requests", body: "Revly checks in with customers before sending them anywhere. Those who need support reach your team first. Those who are ready get guided to the right review platform.", to: "/smart-review-requests", Mock: RouteMock, flip: false },
-  { chip: "Respond", chipClass: "chip-magenta", heading: "Stay on top of every reply", body: "Leaving reviews unanswered is a missed opportunity: savvy buyers sort by lowest rating first to see if you showed up. Revly flags what needs a response and helps you write one in your voice, across every platform.", to: "/manage-review-responses", Mock: RespMock, flip: true }];
+  { chip: "Respond", chipClass: "chip-magenta", heading: "Stay on top of every reply", body: "Leaving reviews unanswered is a missed opportunity: savvy buyers sort by lowest rating first to see if you showed up. Revly flags what needs a response and helps you write one in your voice, across every platform.", to: "/manage-review-responses", Mock: RespMock, flip: true },
+  { chip: "Display", chipClass: "chip-amber", heading: "Put your reviews on your own site", body: "Your best feedback lives on platforms your visitors never open. Turn it into grid, carousel, or wall widgets that match your brand, paste one line of code, and they keep themselves current as new reviews land.", to: "/review-widgets", Mock: EmbedHomeMock, flip: false },
+  { chip: "Claude connector", chipClass: "chip-magenta", heading: "Ask your review data anything", body: "Connect Revly to Claude or ChatGPT and query your reviews in plain language: the quote you need for a campaign, where collection breaks down, how customers describe your product in their own words.", to: "/claude-mcp", Mock: McpHomeMock, flip: true }];
 
   return (
     <section className="section" style={{ background: "hsl(var(--card))" }}>
