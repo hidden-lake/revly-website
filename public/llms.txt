@@ -1,0 +1,54 @@
+# Revly
+
+> Review management software for software companies. Revly collects reviews with one
+> smart link, monitors every review platform in a single dashboard, drafts on-brand
+> responses, embeds review widgets on your own site, and connects your review data to
+> Claude and ChatGPT over MCP.
+
+Revly is built for SaaS and software companies whose products get reviewed on G2,
+Capterra, the app stores and marketplace listings. It is used by marketing teams
+running review programs, and by agencies managing reviews for multiple clients.
+
+What makes it different from sending review request emails by hand: Revly screens for
+sentiment before asking, so unhappy customers reach support instead of a public review
+form; it routes each happy customer to the platform you need reviews on; and its AI
+helps the customer expand a short comment into a detailed review in their own words,
+which they read, edit and post themselves. Revly never writes reviews on a customer's
+behalf or posts without their approval.
+
+## Product
+
+- [Collect quality reviews](https://revly.io/collect-quality-reviews/): one smart link plus AI writing assistance
+- [Monitor review platforms](https://revly.io/monitor-platforms/): every platform in one dashboard
+- [Send smart review requests](https://revly.io/smart-review-requests/): sentiment screening and routing
+- [Manage review responses](https://revly.io/manage-review-responses/): AI-drafted replies in your voice
+- [Display reviews on your site](https://revly.io/review-widgets/): embeddable, self-updating review widgets
+- [Query your review data with AI](https://revly.io/claude-mcp/): Revly MCP server for Claude and ChatGPT
+
+## Pricing
+
+- [Pricing page](https://revly.io/pricing/)
+- [Machine-readable pricing](https://revly.io/pricing.md): plans, limits and prices as structured text
+
+Free plan $0/month. Pro from $41/month. Business from $84/month. Agency is custom
+priced. No card required to start.
+
+## Who it is for
+
+- [SaaS teams](https://revly.io/use-cases/saas/)
+- [Agencies](https://revly.io/use-cases/agencies/)
+
+## Monitored platforms
+
+G2, Capterra, GetApp, Software Advice, Trustpilot, Apple App Store, Google Play Store,
+Shopify App Store, WooCommerce Marketplace, QuickBooks Marketplace, WordPress Plugin
+Marketplace, Xero Marketplace.
+
+## Company
+
+- Contact: hello@revly.io
+- App: https://app.revly.io
+- LinkedIn: https://www.linkedin.com/company/revlyhq/
+- YouTube: https://www.youtube.com/@revlyhq
+- [Privacy](https://revly.io/privacy/)
+- [Terms](https://revly.io/terms/)

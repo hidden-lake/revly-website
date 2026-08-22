@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { Pricing } from '../components/Pricing.jsx';
-import { softwareApplicationSchema, faqPageSchema } from '../lib/seo.js';
+import { softwareApplicationSchema, faqPageSchema, webPageSchema } from '../lib/seo.js';
 import { PRICING_FAQ } from '../lib/faqs.js';
 
 const offers = [
@@ -9,7 +9,16 @@ const offers = [
   { '@type': 'Offer', name: 'Pro', price: '41', priceCurrency: 'USD' },
   { '@type': 'Offer', name: 'Business', price: '84', priceCurrency: 'USD' },
 ];
-const jsonLd = [softwareApplicationSchema(offers), faqPageSchema(PRICING_FAQ)];
+const jsonLd = [
+  softwareApplicationSchema(offers),
+  webPageSchema({
+    name: "Pricing",
+    description: "Start free, no card required. Plans scale by review channels, collection links, and reviews collected each month, with no hidden fees.",
+    path: '/pricing',
+    breadcrumbName: "Pricing",
+  }),
+  faqPageSchema(PRICING_FAQ),
+];
 ---
 <Base
   title="Pricing | Revly"

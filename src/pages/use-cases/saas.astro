@@ -1,14 +1,23 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { UseCaseSaaS } from '../../components/usecases.jsx';
-import { faqPageSchema } from '../../lib/seo.js';
+import { faqPageSchema, webPageSchema } from '../../lib/seo.js';
 import { SAAS_FAQ } from '../../lib/faqs.js';
+const jsonLd = [
+  webPageSchema({
+    name: "For SaaS Companies",
+    description: "Your software gets reviewed on G2, Capterra and the app stores. Revly brings all of it into one dashboard, so nothing sits unseen for weeks.",
+    path: '/use-cases/saas',
+    breadcrumbName: "For SaaS teams",
+  }),
+  faqPageSchema(SAAS_FAQ),
+];
 ---
 <Base
   title="For SaaS Companies | Revly"
   description="Your software gets reviewed on G2, Capterra and the app stores. Revly brings all of it into one dashboard, so nothing sits unseen for weeks."
   canonicalPath="/use-cases/saas"
-  jsonLd={[faqPageSchema(SAAS_FAQ)]}
+  jsonLd={jsonLd}
 >
   <UseCaseSaaS client:load />
 </Base>

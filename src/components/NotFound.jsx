@@ -18,7 +18,7 @@ export function NotFound() {
           </p>
           <div style={{ display: "flex", gap: ".75rem", justifyContent: "center", flexWrap: "wrap" }}>
             <a href="/" className="btn btn-default">Go home</a>
-            <a href="/blog" className="btn btn-outline">Read the blog</a>
+            <a href="/pricing" className="btn btn-outline">See pricing</a>
           </div>
         </div>
       </main>

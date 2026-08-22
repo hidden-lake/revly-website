@@ -1,5 +1,5 @@
 ---
-import { organizationSchema, websiteSchema } from '../lib/seo.js';
+import { organizationSchema, websiteSchema, canonicalUrl } from '../lib/seo.js';
 
 export interface Props {
   title: string;
@@ -9,7 +9,8 @@ export interface Props {
 }
 const { title, description, canonicalPath, jsonLd = [] } = Astro.props;
 const pathname = canonicalPath ?? Astro.url.pathname;
-const canonical = new URL(pathname, 'https://revly.io').toString();
+// Always the trailing-slash form, which is the URL that actually serves a 200.
+const canonical = canonicalUrl(pathname);
 // Site-wide schemas on every page, plus any page-specific schemas passed in.
 const schemas = [organizationSchema, websiteSchema, ...jsonLd];
 // Escape sequences that could break out of the script element. Schema content
