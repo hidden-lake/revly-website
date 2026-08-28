@@ -39,9 +39,9 @@ export const meta = {
     { '@type': 'CreativeWork', name: 'Gartner FY2025 Form 10-K', url: 'https://www.sec.gov/Archives/edgar/data/749251/000074925126000112/it-20251231.htm' },
   ],
   cta: {
-    // Two-line heading, magenta second line, matching the feature-page CTA bands.
-    headingTop: 'Four profiles, two rulebooks.',
-    headingAccent: 'See every review in one place.',
+    // One line; headingAccent is the closing phrase, rendered in magenta.
+    headingTop: 'See every review',
+    headingAccent: 'in one place.',
     body: 'Revly brings reviews from G2, Capterra and the app stores into a single dashboard, drafts your replies, and turns your best reviews into widgets for your own site.',
     primary: { label: 'Start free', href: '/pricing/' },
     secondary: { label: 'See how monitoring works', href: '/monitor-platforms/' },
