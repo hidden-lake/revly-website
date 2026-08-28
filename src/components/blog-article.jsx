@@ -168,8 +168,9 @@ export function BlogArticle({ post, next, url }) {
         <section className="section">
           <div className="container-x">
             <div className="ctaA">
+              {/* One line, with the closing phrase in magenta. */}
               <h2 className="h2">
-                {cta.headingTop}<br /><span style={{ color: '#f1057a' }}>{cta.headingAccent}</span>
+                {cta.headingTop} <span style={{ color: '#f1057a' }}>{cta.headingAccent}</span>
               </h2>
               <p className="lead" style={{ color: 'rgba(255,255,255,0.75)', margin: '1rem auto 0', maxWidth: '46ch' }}>{cta.body}</p>
               <div style={{ display: 'flex', justifyContent: 'center', gap: '.75rem', marginTop: '2rem', flexWrap: 'wrap' }}>

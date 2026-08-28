@@ -71,7 +71,7 @@ export function BlogIndex({ posts }) {
         <section className="section">
           <div className="container-x">
             <div className="ctaA">
-              <h2 className="h2">Reviews on four platforms,<br /><span style={{ color: '#f1057a' }}>one place to work.</span></h2>
+              <h2 className="h2">All your software reviews <span style={{ color: '#f1057a' }}>in one place</span></h2>
               <p className="lead" style={{ color: 'rgba(255,255,255,0.75)', margin: '1rem auto 0', maxWidth: '46ch' }}>
                 Revly collects reviews with one smart link, monitors every platform in a single
                 dashboard, and drafts your replies so nothing sits unanswered.

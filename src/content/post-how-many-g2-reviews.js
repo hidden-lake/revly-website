@@ -31,8 +31,8 @@ export const meta = {
     { '@type': 'CreativeWork', name: 'G2 Community Guidelines', url: 'https://legal.g2.com/community-guidelines' },
   ],
   cta: {
-    headingTop: 'Stop counting reviews',
-    headingAccent: 'by hand.',
+    headingTop: 'Stop managing reviews',
+    headingAccent: 'manually.',
     body: 'Revly shows your review counts across G2, Capterra and the app stores in one dashboard, sends customers to the right platform with a single link, and drafts your replies so reviews stop sitting unanswered.',
     primary: { label: 'Start free', href: '/pricing/' },
     secondary: { label: 'See how collection works', href: '/collect-quality-reviews/' },
