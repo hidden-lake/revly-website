@@ -38,6 +38,15 @@ priced. No card required to start.
 - [SaaS teams](https://revly.io/use-cases/saas/)
 - [Agencies](https://revly.io/use-cases/agencies/)
 
+## Blog
+
+Research on how the review platforms actually work, checked against their own
+documentation and primary sources.
+
+- [Blog index](https://revly.io/blog/)
+- [G2 acquired Capterra. What it changes for your review programme.](https://revly.io/blog/g2-capterra-acquisition-review-management/): G2 now owns Capterra, Software Advice and GetApp. Capterra reviews still do not syndicate to G2, incentive rules still differ, and collection is still two separate campaigns.
+- [How many G2 reviews do you actually need?](https://revly.io/blog/how-many-g2-reviews-do-you-need/): 10 reviews in a category for a Grid Report, 20 at a 4.0 average for Users Love Us, plus how G2's review decay curve works.
+
 ## Monitored platforms
 
 G2, Capterra, GetApp, Software Advice, Trustpilot, Apple App Store, Google Play Store,

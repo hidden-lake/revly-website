@@ -77,8 +77,15 @@ export function faqPageSchema(faqs) {
 // WebPage plus its BreadcrumbList, as one @graph so the two can reference each other.
 // The trail is Home > this page: there is no intermediate /product listing page on the
 // site, and pointing a breadcrumb at a URL that 404s is worse than a shorter trail.
-export function webPageSchema({ name, description, path, breadcrumbName }) {
+// Blog posts are the exception, so `parent` inserts one real intermediate crumb
+// ({ name, path }). Only pass a page that exists and returns 200.
+export function webPageSchema({ name, description, path, breadcrumbName, parent }) {
   const url = canonicalUrl(path);
+  const trail = [{ '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` }];
+  if (parent) {
+    trail.push({ '@type': 'ListItem', position: 2, name: parent.name, item: canonicalUrl(parent.path) });
+  }
+  trail.push({ '@type': 'ListItem', position: trail.length + 1, name: breadcrumbName ?? name, item: url });
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -94,11 +101,59 @@ export function webPageSchema({ name, description, path, breadcrumbName }) {
       {
         '@type': 'BreadcrumbList',
         '@id': `${url}#breadcrumb`,
-        itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
-          { '@type': 'ListItem', position: 2, name: breadcrumbName ?? name, item: url },
-        ],
+        itemListElement: trail,
       },
     ],
+  };
+}
+
+// BlogPosting for an article, built from the post module so headline, dates and
+// description always match what the page actually renders. Author is the Organization:
+// posts are written by the team, and claiming a Person who does not exist is worse
+// than claiming nobody.
+export function blogPostingSchema(post) {
+  const url = canonicalUrl(`/blog/${post.slug}`);
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.description,
+    image: `${SITE_URL}/og-image.png`,
+    datePublished: post.datePublished,
+    dateModified: post.dateModified,
+    author: { '@type': 'Organization', name: post.author, url: `${SITE_URL}/` },
+    publisher: {
+      '@type': 'Organization',
+      '@id': `${SITE_URL}#organization`,
+      name: SITE_NAME,
+      logo: { '@type': 'ImageObject', url: `${SITE_URL}/assets/revly-logo.png` },
+    },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+    isPartOf: { '@id': `${SITE_URL}/` },
+    inLanguage: 'en',
+    articleSection: post.category,
+    keywords: post.keywords,
+    ...(post.about ? { about: post.about } : {}),
+    ...(post.citation ? { citation: post.citation } : {}),
+  };
+}
+
+// Blog index — the CollectionPage listing the posts that exist right now.
+export function blogIndexSchema(posts) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    '@id': `${canonicalUrl('/blog')}#blog`,
+    name: `${SITE_NAME} blog`,
+    url: canonicalUrl('/blog'),
+    publisher: { '@id': `${SITE_URL}#organization` },
+    blogPost: posts.map((post) => ({
+      '@type': 'BlogPosting',
+      headline: post.title,
+      description: post.description,
+      datePublished: post.datePublished,
+      dateModified: post.dateModified,
+      url: canonicalUrl(`/blog/${post.slug}`),
+    })),
   };
 }

@@ -83,6 +83,7 @@ export function Navbar() {
             }
           </div>
           <a className="nav-link" href="/pricing">pricing</a>
+          <a className="nav-link" href="/blog/">blog</a>
           <a className="btn btn-ghost btn-sm" href="https://app.revly.io/login" style={{ marginLeft: ".5rem", color: "hsl(var(--foreground) / 0.45)" }}>Sign in</a>
           <a className="btn btn-default btn-sm" href="https://app.revly.io/signup">Start for free</a>
         </nav>
@@ -97,6 +98,7 @@ export function Navbar() {
             <div style={{ height: "1px", background: "hsl(var(--border))", margin: ".4rem 0" }} />
             {useCasesLinks.map((l) => <a key={l.to} href={l.to} onClick={() => setMobileOpen(false)} style={{ padding: ".5rem 0" }}>{l.label}</a>)}
             <a href="/pricing" onClick={() => setMobileOpen(false)} style={{ padding: ".5rem 0" }}>Pricing</a>
+            <a href="/blog/" onClick={() => setMobileOpen(false)} style={{ padding: ".5rem 0" }}>Blog</a>
             <a className="btn btn-default" href="https://app.revly.io/signup" style={{ marginTop: ".5rem" }}>Start for free</a>
           </div>
         </div>
@@ -152,7 +154,7 @@ export function Footer() {
           ["SaaS teams", "/use-cases/saas"],
           ["Agencies", "/use-cases/agencies"]]
           } />
-          <FooterCol title="Company" links={[["Contact", "mailto:hello@revly.io"], ["Privacy", "/privacy"], ["Terms", "/terms"]]} />
+          <FooterCol title="Company" links={[["Blog", "/blog/"], ["Contact", "mailto:hello@revly.io"], ["Privacy", "/privacy"], ["Terms", "/terms"]]} />
         </div>
         <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", marginTop: "3rem", paddingTop: "1.5rem", color: "rgba(255,255,255,0.4)", fontSize: ".85rem" }}>
           © 2026 Revly. Built for software companies.

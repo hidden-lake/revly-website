@@ -1,0 +1,321 @@
+/* ============================================================
+   Revly blog — index, article typography, and article figures.
+   Tokens only (see styles.css). No new colours are introduced here.
+   ============================================================ */
+
+/* ---------- Blog index ---------- */
+.bl-hero { background: hsl(var(--card)); padding: 3.5rem 0 4rem; }
+.bl-hero-grid { display: grid; grid-template-columns: 1fr; gap: 1.75rem; align-items: stretch; }
+@media (min-width: 900px) { .bl-hero-grid { grid-template-columns: 0.9fr 1.1fr; gap: 2.25rem; } }
+
+.bl-hero-card {
+  background: hsl(var(--primary)); color: #fff; border-radius: 1.5rem; padding: 2.75rem 2.5rem;
+  display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden;
+}
+.bl-hero-card h1 { color: #fff; font-size: clamp(3rem, 7vw, 4.75rem); line-height: 1; letter-spacing: -0.035em; }
+.bl-hero-card p { margin-top: 1rem; color: rgba(255,255,255,0.88); font-size: 1.05rem; line-height: 1.55; max-width: 26rem; }
+.bl-hero-card .bl-mark {
+  position: absolute; right: -3.5rem; top: -5rem; font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 800; font-size: 22rem; line-height: 1; color: rgba(255,255,255,0.11);
+  letter-spacing: -0.05em; user-select: none; pointer-events: none;
+}
+
+/* Post cards */
+.bl-grid { display: grid; grid-template-columns: 1fr; gap: 1.75rem; }
+@media (min-width: 760px) { .bl-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+
+.bl-card { padding: 1rem; display: flex; flex-direction: column; gap: 1.15rem; height: 100%; }
+.bl-card-body { padding: 0 .65rem .65rem; display: flex; flex-direction: column; flex: 1; }
+.bl-card h2, .bl-card h3 {
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; line-height: 1.18;
+  letter-spacing: -0.015em; margin-bottom: .7rem;
+}
+.bl-card h2 { font-size: clamp(1.35rem, 2.1vw, 1.7rem); }
+.bl-card h3 { font-size: 1.25rem; }
+.bl-card p { color: hsl(var(--foreground)/0.65); font-size: .96rem; line-height: 1.6; margin-bottom: 1.25rem; flex: 1; }
+.bl-meta { font-size: .82rem; color: hsl(var(--foreground)/0.55); margin-top: auto; display: flex; flex-wrap: wrap; gap: .4rem; }
+.bl-meta span::after { content: "·"; margin-left: .4rem; color: hsl(var(--foreground)/0.28); }
+.bl-meta span:last-child::after { content: ""; }
+
+/* Card cover: hand-drawn featured image on a brand colour */
+.bl-cover {
+  position: relative; aspect-ratio: 16/9; border-radius: 1rem; overflow: hidden;
+  display: flex; align-items: flex-end; padding: 1rem;
+}
+.bl-cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.bl-cover .bl-cover-cat {
+  position: relative; background: #fff; color: hsl(var(--foreground)); border-radius: 999px;
+  padding: .38rem .8rem; font-family: "DM Sans", sans-serif; font-weight: 700; font-size: .68rem;
+  letter-spacing: 0.12em; text-transform: uppercase; box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+}
+
+/* ---------- Article shell ---------- */
+.bl-article { background: hsl(var(--card)); }
+.bl-head { max-width: 760px; margin: 0 auto; padding: 3.5rem 1.5rem 0; }
+.bl-crumbs { display: flex; align-items: center; gap: .6rem; font-size: .86rem; color: hsl(var(--foreground)/0.55); margin-bottom: 1.35rem; flex-wrap: wrap; }
+.bl-crumbs a:hover { color: hsl(var(--primary)); }
+.bl-crumbs .sep { color: hsl(var(--foreground)/0.28); }
+.bl-crumbs .cat { font-weight: 700; color: hsl(var(--primary)); text-transform: uppercase; font-size: .72rem; letter-spacing: 0.12em; }
+.bl-head h1 { font-size: clamp(2.1rem, 4.6vw, 3.3rem); letter-spacing: -0.025em; line-height: 1.06; margin-bottom: 1.35rem; }
+.bl-head .bl-standfirst { font-size: 1.15rem; line-height: 1.65; color: hsl(var(--foreground)/0.68); }
+.bl-byline {
+  display: flex; align-items: center; gap: .85rem; margin-top: 2rem; padding: 1.25rem 0;
+  border-top: 1px solid hsl(var(--border)); border-bottom: 1px solid hsl(var(--border));
+  font-size: .88rem; color: hsl(var(--foreground)/0.6);
+}
+.bl-byline .bl-avatar {
+  width: 40px; height: 40px; border-radius: 999px; flex: none; display: grid; place-items: center;
+  background: hsl(var(--muted));
+}
+.bl-byline .bl-avatar img { width: 22px; height: auto; display: block; }
+.bl-byline strong { color: hsl(var(--foreground)); font-weight: 700; display: block; font-size: .95rem; }
+
+/* Share row — same pill-and-border language as the nav and the rating chip */
+.bl-share { display: flex; align-items: center; gap: .5rem; margin-left: auto; }
+.bl-share-label {
+  font-family: "DM Sans", sans-serif; font-weight: 700; font-size: .7rem; letter-spacing: .12em;
+  text-transform: uppercase; color: hsl(var(--foreground)/0.4); margin-right: .15rem;
+}
+.bl-share-btn {
+  width: 2.25rem; height: 2.25rem; border-radius: 999px; flex: none;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: hsl(var(--card)); border: 1px solid hsl(var(--border));
+  color: hsl(var(--foreground)/0.62); padding: 0; cursor: pointer;
+  transition: color .18s ease, border-color .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+.bl-share-btn:hover {
+  color: hsl(var(--primary)); border-color: hsl(var(--primary)/0.45);
+  transform: translateY(-2px); box-shadow: 0 10px 20px -12px hsl(var(--primary)/0.65);
+}
+.bl-share-btn:focus-visible { outline: 2px solid hsl(var(--primary)); outline-offset: 2px; }
+.bl-share-btn svg { display: block; }
+/* Announced to screen readers; the icon swap carries it visually */
+.bl-share-status {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+}
+@media (max-width: 640px) {
+  .bl-byline { flex-wrap: wrap; }
+  .bl-share { margin-left: 0; width: 100%; padding-top: 1rem; }
+}
+
+/* Body typography */
+.bl-body { max-width: 760px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+.bl-body p { font-size: 1.075rem; line-height: 1.75; color: hsl(var(--foreground)/0.85); margin-bottom: 1.35rem; }
+.bl-body p.bl-lead { font-size: 1.24rem; line-height: 1.6; color: hsl(var(--foreground)); font-weight: 500; margin-bottom: 1.6rem; }
+.bl-body h2 {
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: clamp(1.5rem, 2.6vw, 1.85rem);
+  letter-spacing: -0.018em; line-height: 1.2; margin: 3rem 0 1.1rem;
+}
+/* Prose links only. Scoped so it can never reach a button or a figure's own links. */
+.bl-body p a, .bl-body li a { color: hsl(var(--primary)); font-weight: 600; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+.bl-body p a:hover, .bl-body li a:hover { text-decoration-thickness: 2px; }
+.bl-body strong { font-weight: 700; color: hsl(var(--foreground)); }
+
+/* Quoted platform documentation */
+.bl-quote {
+  margin: 2rem 0; padding: 1.5rem 1.6rem; background: hsl(var(--muted)/0.55);
+  border-left: 3px solid hsl(var(--primary)); border-radius: 0 1rem 1rem 0;
+}
+.bl-quote p {
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 600; font-size: 1.12rem; line-height: 1.5;
+  color: hsl(var(--foreground)); letter-spacing: -0.008em; margin: 0;
+}
+.bl-quote .bl-cite { display: block; margin-top: .85rem; font-family: "DM Sans", sans-serif; font-weight: 700; font-size: .76rem; letter-spacing: .1em; text-transform: uppercase; color: hsl(var(--primary)); }
+.bl-quote .bl-cite a { color: inherit; text-decoration: none; }
+.bl-quote .bl-cite a:hover { text-decoration: underline; }
+
+/* ---------- Figures ---------- */
+.fig { margin: 2.5rem 0; }
+.fig-cap { margin-top: .85rem; font-size: .85rem; line-height: 1.5; color: hsl(var(--foreground)/0.5); text-align: center; }
+.fig-cap a { color: hsl(var(--foreground)/0.6); font-weight: 600; text-decoration: underline; }
+.fig-cap a:hover { color: hsl(var(--primary)); }
+
+/* Figures may run wider than the 760px text column on large screens */
+@media (min-width: 1080px) {
+  .fig-wide { width: calc(100% + 9rem); margin-left: -4.5rem; }
+}
+
+.fig-card { background: hsl(var(--card)); border: 1px solid hsl(var(--border)); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 22px 50px -38px rgba(19,19,19,0.4); }
+.fig-title {
+  font-family: "DM Sans", sans-serif; font-weight: 700; font-size: .74rem; letter-spacing: .12em;
+  text-transform: uppercase; color: hsl(var(--foreground)/0.45);
+}
+
+/* Change table + thresholds table */
+.fig-table { width: 100%; border-collapse: collapse; }
+.fig-table th, .fig-table td { padding: .9rem 1.15rem; text-align: left; font-size: .94rem; vertical-align: middle; }
+.fig-table thead th {
+  font-family: "DM Sans", sans-serif; font-weight: 700; font-size: .72rem; letter-spacing: .12em;
+  text-transform: uppercase; color: hsl(var(--foreground)/0.45); background: hsl(var(--background));
+  border-bottom: 1px solid hsl(var(--border));
+}
+.fig-table tbody tr { border-bottom: 1px solid hsl(var(--border)); }
+.fig-table tbody tr:last-child { border-bottom: 0; }
+.fig-table td:first-child { font-weight: 500; color: hsl(var(--foreground)); }
+.fig-table td.val { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; color: hsl(var(--foreground)/0.6); }
+.fig-table tr.changed { background: hsl(var(--muted)/0.6); }
+.fig-table tr.changed td { color: hsl(var(--foreground)); }
+.fig-table tr.changed td.val:last-child { color: hsl(var(--primary)); }
+.fig-flag {
+  display: inline-flex; align-items: center; gap: .35rem; margin-left: .5rem; padding: .2rem .55rem;
+  border-radius: 999px; background: hsl(var(--primary)); color: #fff; font-family: "DM Sans", sans-serif;
+  font-weight: 700; font-size: .62rem; letter-spacing: .09em; text-transform: uppercase; vertical-align: middle;
+}
+.fig-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+@media (max-width: 640px) { .fig-table { min-width: 520px; } .fig-table th, .fig-table td { padding: .7rem .8rem; font-size: .86rem; } }
+
+/* Two-column figure split */
+.fig-split { display: grid; grid-template-columns: 1fr; }
+@media (min-width: 720px) { .fig-split { grid-template-columns: 1fr 1fr; } }
+.fig-col { padding: 1.6rem 1.6rem 1.75rem; }
+@media (min-width: 720px) { .fig-col + .fig-col { border-left: 1px solid hsl(var(--border)); } }
+@media (max-width: 719px) { .fig-col + .fig-col { border-top: 1px solid hsl(var(--border)); } }
+.fig-col h4 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 1.15rem; margin: 0 0 .25rem; }
+.fig-col .fig-sub { font-size: .82rem; color: hsl(var(--foreground)/0.5); margin-bottom: 1.1rem; }
+.fig-col p { font-size: .93rem; line-height: 1.6; color: hsl(var(--foreground)/0.78); margin: 0 0 .9rem; }
+
+/* Big figure number */
+.fig-num { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; line-height: 1; letter-spacing: -0.03em; }
+.fig-num.lg { font-size: clamp(2.5rem, 6vw, 3.4rem); }
+.fig-num.md { font-size: 2rem; }
+.fig-numline { display: flex; align-items: baseline; gap: .6rem; margin-bottom: .85rem; flex-wrap: wrap; }
+.fig-numline .lbl { font-size: .85rem; font-weight: 600; color: hsl(var(--foreground)/0.55); line-height: 1.35; }
+
+/* Rule list inside figures */
+.fig-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .7rem; }
+.fig-list li { display: flex; gap: .7rem; font-size: .92rem; line-height: 1.55; color: hsl(var(--foreground)/0.8); }
+.fig-list li::before {
+  content: ""; flex: none; width: 7px; height: 7px; margin-top: .55rem; border-radius: 999px;
+  background: hsl(var(--primary));
+}
+.fig-list.dim li::before { background: hsl(var(--foreground)/0.25); }
+.fig-list.warn li::before { background: hsl(var(--secondary)); }
+
+/* Syndication + flow diagrams */
+.fig-flow { padding: 1.9rem 1.5rem; }
+.fig-flow-pair { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+@media (min-width: 720px) { .fig-flow-pair { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+.fig-branch { text-align: center; }
+.fig-source {
+  display: inline-flex; align-items: center; gap: .5rem; padding: .7rem 1.15rem; border-radius: 999px;
+  background: hsl(var(--foreground)); color: #fff; font-weight: 700; font-size: .92rem;
+}
+.fig-stem { width: 2px; height: 24px; background: hsl(var(--border)); margin: 0 auto; }
+.fig-fan { display: flex; justify-content: center; gap: .6rem; flex-wrap: wrap; }
+.fig-dest {
+  padding: .65rem 1rem; border-radius: .75rem; font-weight: 600; font-size: .88rem;
+  background: hsl(var(--muted)); color: hsl(var(--primary)); border: 1px solid hsl(var(--primary)/0.18);
+}
+.fig-dest.solo { background: hsl(var(--accent)); color: #92400e; border-color: hsl(var(--secondary)/0.45); }
+.fig-count {
+  margin-top: 1rem; font-family: "DM Sans", sans-serif; font-weight: 700; font-size: .74rem;
+  letter-spacing: .11em; text-transform: uppercase; color: hsl(var(--foreground)/0.45);
+}
+.fig-divider-note {
+  margin-top: 1.6rem; padding-top: 1.3rem; border-top: 1px dashed hsl(var(--border));
+  text-align: center; font-size: .92rem; font-weight: 600; color: hsl(var(--foreground)/0.7);
+}
+
+/* Grid of small property tiles */
+.fig-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: .85rem; }
+@media (min-width: 640px) { .fig-tiles { grid-template-columns: repeat(4, 1fr); } }
+.fig-tile { background: hsl(var(--background)); border: 1px solid hsl(var(--border)); border-radius: .85rem; padding: 1rem .9rem; text-align: center; }
+.fig-tile .n { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 1rem; margin-bottom: .3rem; }
+.fig-tile .s { font-size: .78rem; color: hsl(var(--foreground)/0.5); line-height: 1.4; }
+
+/* Crossed-out outcome bar */
+.fig-blocked {
+  margin-top: 1.4rem; display: flex; align-items: center; justify-content: center; gap: .7rem;
+  padding: .95rem 1.2rem; border-radius: .85rem; border: 1.5px dashed hsl(var(--foreground)/0.22);
+  color: hsl(var(--foreground)/0.55); font-weight: 600; font-size: .92rem; text-align: center;
+}
+.fig-blocked .x { color: hsl(var(--primary)); font-weight: 800; font-size: 1.05rem; line-height: 1; }
+
+/* Converging chips (markup conflict) */
+.fig-conv { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; }
+.fig-chip {
+  padding: .6rem 1rem; border-radius: 999px; background: hsl(var(--background));
+  border: 1px solid hsl(var(--border)); font-size: .86rem; font-weight: 600; color: hsl(var(--foreground)/0.75);
+}
+.fig-serp {
+  margin: 1.4rem auto 0; max-width: 30rem; background: #fff; border: 1px solid hsl(var(--border));
+  border-radius: .85rem; padding: 1rem 1.15rem;
+}
+.fig-serp .u { font-size: .76rem; color: hsl(var(--foreground)/0.45); margin-bottom: .3rem; }
+.fig-serp .t { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 1rem; color: #1a0dab; margin-bottom: .45rem; }
+.fig-serp .stars { display: inline-flex; align-items: center; gap: .5rem; position: relative; color: hsl(var(--foreground)/0.25); font-size: .95rem; letter-spacing: .1em; }
+.fig-serp .stars::after { content: ""; position: absolute; left: -2px; right: -2px; top: 50%; height: 2px; background: hsl(var(--primary)); }
+.fig-serp .miss { margin-left: .6rem; font-size: .8rem; font-weight: 700; color: hsl(var(--primary)); letter-spacing: 0; }
+
+/* Numbered action card */
+.fig-steps { list-style: none; margin: 0; padding: 0; }
+.fig-steps li { display: flex; gap: 1.1rem; padding: 1.35rem 1.6rem; border-bottom: 1px solid hsl(var(--border)); }
+.fig-steps li:last-child { border-bottom: 0; }
+.fig-steps .n {
+  flex: none; width: 2rem; height: 2rem; border-radius: 999px; background: hsl(var(--primary)); color: #fff;
+  display: grid; place-items: center; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: .95rem;
+}
+.fig-steps p { margin: 0; font-size: .97rem; line-height: 1.6; color: hsl(var(--foreground)/0.82); }
+
+/* Ink stat band */
+.fig-stats { background: hsl(var(--foreground)); border-radius: 1.25rem; padding: 2.5rem 1.5rem; }
+.fig-stats-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; text-align: center; }
+@media (min-width: 680px) { .fig-stats-grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; } }
+.fig-stats .n { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; color: #fff; font-size: clamp(2.2rem, 5vw, 3rem); line-height: 1; letter-spacing: -0.03em; }
+.fig-stats .l { color: rgba(255,255,255,0.62); margin-top: .7rem; font-size: .86rem; line-height: 1.45; }
+
+/* Category bucket comparison */
+.fig-buckets { display: grid; grid-template-columns: 1fr; }
+@media (min-width: 720px) { .fig-buckets { grid-template-columns: 1fr 1fr; } }
+.fig-bucket-col { padding: 1.6rem 1.5rem; }
+@media (min-width: 720px) { .fig-bucket-col + .fig-bucket-col { border-left: 1px solid hsl(var(--border)); } }
+@media (max-width: 719px) { .fig-bucket-col + .fig-bucket-col { border-top: 1px solid hsl(var(--border)); } }
+/* The bar track is a fixed height so the column percentages have something definite
+   to resolve against, and so the threshold line lands exactly on the 10 mark. */
+.fig-bars { position: relative; display: flex; align-items: flex-end; justify-content: center; gap: 1.1rem; margin: 2.2rem 0 .4rem; }
+.fig-bar { width: 46px; display: flex; flex-direction: column; align-items: center; }
+.fig-bar .track { width: 100%; height: 110px; display: flex; align-items: flex-end; }
+.fig-bar .col { width: 100%; border-radius: .4rem .4rem 0 0; background: hsl(var(--foreground)/0.16); }
+.fig-bar.hit .col { background: linear-gradient(hsl(330 100% 64%), hsl(var(--primary))); }
+.fig-bar .v { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: .92rem; margin-bottom: .3rem; color: hsl(var(--foreground)/0.6); }
+.fig-bar.hit .v { color: hsl(var(--primary)); }
+.fig-bar .k { height: 2.2rem; padding-top: .5rem; font-size: .72rem; color: hsl(var(--foreground)/0.45); text-align: center; line-height: 1.3; }
+.fig-threshold { position: absolute; left: 0; right: 0; bottom: calc(2.2rem + 110px); border-top: 2px dashed hsl(var(--primary)/0.4); }
+.fig-threshold span {
+  position: absolute; right: 0; top: -1.35rem; font-size: .68rem; font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase; color: hsl(var(--primary)/0.75);
+}
+.fig-verdict { text-align: center; font-weight: 700; font-size: .93rem; padding-top: 1.15rem; }
+.fig-verdict.no { color: hsl(var(--foreground)/0.45); }
+.fig-verdict.yes { color: hsl(var(--primary)); }
+
+/* Decay curve */
+.fig-curve { padding: 1.75rem 1.5rem 1.25rem; }
+.fig-curve svg { display: block; width: 100%; height: auto; }
+.fig-phases { border-top: 1px solid hsl(var(--border)); }
+.fig-phases li { display: flex; align-items: baseline; gap: 1rem; padding: .85rem 1.6rem; border-bottom: 1px solid hsl(var(--border)); font-size: .93rem; }
+.fig-phases li:last-child { border-bottom: 0; }
+.fig-phases .age { flex: none; width: 11rem; font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; color: hsl(var(--foreground)); }
+.fig-phases .w { color: hsl(var(--foreground)/0.65); }
+@media (max-width: 560px) { .fig-phases li { flex-direction: column; gap: .15rem; } .fig-phases .age { width: auto; } }
+.fig-reset {
+  margin: 0 1.6rem 1.5rem; padding: .95rem 1.15rem; border-radius: .85rem; background: hsl(var(--accent));
+  color: #7a4f05; font-size: .92rem; font-weight: 600; line-height: 1.5;
+}
+
+/* Steady vs burst */
+.fig-mini-bars { display: flex; align-items: flex-end; gap: 4px; height: 92px; margin: 1.35rem 0 .85rem; }
+.fig-mini-bars i { flex: 1; display: block; border-radius: 3px 3px 0 0; background: hsl(var(--foreground)/0.16); }
+.fig-mini-bars.on i { background: linear-gradient(hsl(330 100% 64%), hsl(var(--primary))); }
+.fig-axis { display: flex; justify-content: space-between; font-size: .72rem; color: hsl(var(--foreground)/0.42); border-top: 1px solid hsl(var(--border)); padding-top: .5rem; }
+
+/* The closing CTA is the shared .ctaA band in its own full-width section, exactly as
+   the feature pages use it, so it needs no blog-specific styling. */
+
+/* Article FAQ */
+.bl-faq { background: #f6f6f4; }
+.bl-faq-inner { max-width: 760px; }
+
+/* Keep reading */
+.bl-next { background: hsl(var(--card)); }

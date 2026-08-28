@@ -1,0 +1,22 @@
+---
+import Base from '../../layouts/Base.astro';
+import { BlogIndex } from '../../components/blog-index.jsx';
+import { POSTS_BY_DATE, postCard } from '../../lib/blog.js';
+import { webPageSchema, blogIndexSchema } from '../../lib/seo.js';
+
+const title = 'Blog: How the Review Platforms Actually Work | Revly';
+const description =
+  'What we find in the review platforms’ own documentation on G2, Capterra and the app stores, checked against the source and written down.';
+
+// Cards need metadata only. Passing the full posts would ship both article bodies to
+// the browser for a page that never renders them.
+const cards = POSTS_BY_DATE.map((post) => ({ ...postCard(post), author: post.author }));
+
+const jsonLd = [
+  webPageSchema({ name: 'Blog', description, path: '/blog' }),
+  blogIndexSchema(POSTS_BY_DATE),
+];
+---
+<Base title={title} description={description} canonicalPath="/blog/" jsonLd={jsonLd}>
+  <BlogIndex posts={cards} client:load />
+</Base>

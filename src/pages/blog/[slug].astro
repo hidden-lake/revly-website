@@ -1,0 +1,36 @@
+---
+import Base from '../../layouts/Base.astro';
+import { BlogArticle } from '../../components/blog-article.jsx';
+import { POSTS, POSTS_BY_DATE, postCard } from '../../lib/blog.js';
+import { webPageSchema, blogPostingSchema, faqPageSchema, canonicalUrl } from '../../lib/seo.js';
+
+// Only the posts in the registry get built. The seven-post blog removed in August 2026
+// is gone deliberately: those slugs stay 404 rather than coming back as thin pages.
+export async function getStaticPaths() {
+  return POSTS.map((post) => ({
+    params: { slug: post.slug },
+    props: {
+      post,
+      next: POSTS_BY_DATE.filter((p) => p.slug !== post.slug).map((p) => ({ ...postCard(p), author: p.author }))[0] ?? null,
+    },
+  }));
+}
+
+const { post, next } = Astro.props;
+const path = `/blog/${post.slug}/`;
+
+const jsonLd = [
+  webPageSchema({
+    name: post.title,
+    description: post.description,
+    path,
+    parent: { name: 'Blog', path: '/blog' },
+  }),
+  blogPostingSchema(post),
+  // Built from the same array the page renders, so the answers always match.
+  faqPageSchema(post.faqs),
+];
+---
+<Base title={post.metaTitle} description={post.metaDescription} canonicalPath={path} jsonLd={jsonLd}>
+  <BlogArticle post={post} next={next} url={canonicalUrl(path)} client:load />
+</Base>
