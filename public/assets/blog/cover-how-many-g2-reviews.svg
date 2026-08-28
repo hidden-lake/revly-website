@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-label="Hand-drawn illustration of a star above ten tally marks.">
+  <rect width="640" height="360" fill="#f4c243"/>
+  <g fill="none" stroke="#131313" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- The badge -->
+    <g transform="translate(320 130) rotate(-3)">
+      <path d="M0 -68 C7 -43 14 -24 20 -22 C28 -19 48 -18 68 -20 C52 -6 39 7 38 15 C36 23 42 43 49 63 C31 50 13 39 5 40 C-4 41 -22 52 -40 65 C-34 44 -30 24 -32 16 C-35 8 -50 -6 -67 -20 C-46 -18 -26 -18 -19 -21 C-12 -24 -6 -43 0 -68 Z"/>
+    </g>
+
+    <!-- Ten, counted -->
+    <g stroke-width="4.2">
+      <path d="M228 236 C226 258 227 280 229 300"/>
+      <path d="M252 234 C250 257 251 279 252 299"/>
+      <path d="M276 236 C275 258 274 280 276 301"/>
+      <path d="M300 235 C298 257 299 279 301 300"/>
+      <path d="M219 304 C243 283 273 258 306 231"/>
+
+      <path d="M340 235 C338 258 339 280 341 300"/>
+      <path d="M364 234 C362 257 363 279 364 299"/>
+      <path d="M388 236 C387 258 386 280 388 301"/>
+      <path d="M412 235 C410 257 411 279 413 300"/>
+      <path d="M331 304 C355 283 385 258 418 231"/>
+    </g>
+  </g>
+</svg>
