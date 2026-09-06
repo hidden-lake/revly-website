@@ -1,0 +1,26 @@
+---
+import Base from '../layouts/Base.astro';
+import { SlackApp } from '../components/slack-app.jsx';
+import { softwareApplicationSchema, faqPageSchema, webPageSchema } from '../lib/seo.js';
+import { SLACK_FAQ } from '../lib/faqs.js';
+
+const description = "Revly's Slack app posts every new, edited or removed review from G2, Capterra, Trustpilot, the Shopify App Store, WordPress.org, WooCommerce, Xero and QuickBooks to the Slack channel you choose, with a one-click path to respond.";
+const jsonLd = [
+  softwareApplicationSchema(undefined, description),
+  webPageSchema({
+    name: "Revly for Slack: Review Notifications in Slack",
+    description,
+    path: '/slack',
+    breadcrumbName: "Slack Notifications",
+  }),
+  faqPageSchema(SLACK_FAQ),
+];
+---
+<Base
+  title="Revly for Slack: Review Notifications in Slack | Revly"
+  description={description}
+  canonicalPath="/slack"
+  jsonLd={jsonLd}
+>
+  <SlackApp client:load />
+</Base>

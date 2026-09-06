@@ -1,0 +1,132 @@
+/* Revly — Slack app landing page (/slack) and the Slack message mocks.
+   The .sk-* classes draw a Slack message the way Slack renders Revly's Block Kit
+   payloads. They are shared by the landing page hero and by the standalone HTML
+   pages that render the Slack Marketplace listing images (1600x1000), so a
+   change here changes both. Page-only styles are prefixed .sl-*. */
+
+/* ---- Slack window frame (listing images only) ---- */
+.sk-frame{width:1600px;height:1000px;display:grid;grid-template-columns:70px 260px 1fr;grid-template-rows:44px 1fr;background:#fff;font-family:Lato,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;color:#1d1c1d;overflow:hidden;font-size:15px;line-height:1.46;-webkit-font-smoothing:antialiased}
+.sk-top{grid-column:1/-1;background:#350d36;display:flex;align-items:center;justify-content:center;position:relative}
+.sk-top .sk-search{width:640px;height:26px;border-radius:6px;background:rgba(255,255,255,.18);color:rgba(255,255,255,.85);font-size:13px;display:flex;align-items:center;justify-content:center;gap:6px}
+.sk-top .sk-dots{position:absolute;left:14px;top:16px;display:flex;gap:8px}
+.sk-top .sk-dots i{width:12px;height:12px;border-radius:50%;background:#ff5f57;display:block}
+.sk-top .sk-dots i:nth-child(2){background:#febc2e}
+.sk-top .sk-dots i:nth-child(3){background:#28c840}
+.sk-rail{background:#2b0a2c;display:flex;flex-direction:column;align-items:center;padding-top:14px;gap:16px}
+.sk-rail .sk-ws{width:38px;height:38px;border-radius:9px;background:#fff;color:#350d36;font-weight:900;font-size:19px;display:flex;align-items:center;justify-content:center;margin-bottom:6px}
+.sk-rail .sk-ri{width:48px;display:flex;flex-direction:column;align-items:center;gap:4px;color:rgba(255,255,255,.7);font-size:10.5px;font-weight:700}
+.sk-rail .sk-ri b{width:36px;height:36px;border-radius:9px;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:17px}
+.sk-rail .sk-ri.on{color:#fff}
+.sk-rail .sk-ri.on b{background:rgba(255,255,255,.28)}
+.sk-side{background:#3f0e40;color:rgba(255,255,255,.75);display:flex;flex-direction:column}
+.sk-side .sk-wsname{height:50px;display:flex;align-items:center;padding:0 16px;color:#fff;font-weight:900;font-size:17px;border-bottom:1px solid rgba(255,255,255,.12)}
+.sk-side .sk-grp{padding:16px 12px 4px 16px;font-size:14px;font-weight:700}
+.sk-side .sk-ch{padding:4px 10px;font-size:15px;display:flex;align-items:center;gap:8px;border-radius:6px;margin:0 8px;white-space:nowrap}
+.sk-side .sk-ch.on{background:#1164a3;color:#fff}
+.sk-side .sk-ch.unread{color:#fff;font-weight:700}
+.sk-side .sk-ch .sk-badge{margin-left:auto;background:#cd2553;color:#fff;font-size:11px;font-weight:700;border-radius:999px;padding:0 7px;line-height:18px}
+.sk-side .sk-ch .sk-dm{width:20px;height:20px;border-radius:4px;background:rgba(255,255,255,.2);display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:900;color:#fff}
+.sk-side .sk-ch .sk-appdot{width:20px;height:20px;border-radius:4px;background:#fff;display:inline-flex;align-items:center;justify-content:center}
+.sk-side .sk-ch .sk-appdot svg{width:16px;height:16px}
+.sk-main{display:flex;flex-direction:column;min-width:0}
+.sk-chanhead{height:50px;border-bottom:1px solid #ddd;display:flex;align-items:center;padding:0 20px;gap:14px;flex:none}
+.sk-chanhead b{font-size:18px;font-weight:900}
+.sk-chanhead span{font-size:13px;color:#616061}
+.sk-msgs{flex:1;padding:8px 0 0;display:flex;flex-direction:column;justify-content:flex-end;min-height:0}
+.sk-day{display:flex;align-items:center;margin:12px 20px}
+.sk-day:before,.sk-day:after{content:"";flex:1;border-top:1px solid #ddd}
+.sk-day span{font-size:13px;font-weight:700;border:1px solid #ddd;border-radius:999px;padding:4px 12px;margin:0 8px}
+.sk-composer{margin:12px 20px 20px;border:1px solid #8d8d8d;border-radius:8px;height:88px;padding:10px 12px;color:#616061;font-size:15px;flex:none}
+
+/* ---- One Slack message (frame + landing page hero) ---- */
+.sk-msg{display:grid;grid-template-columns:36px 1fr;gap:10px;padding:8px 20px;align-items:start}
+.sk-av{width:36px;height:36px;border-radius:8px;border:1px solid #e5e5e5;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.sk-av svg{width:30px;height:30px;display:block}
+.sk-av.human{border:0;color:#fff;font-weight:900;font-size:15px;background:#4a154b}
+.sk-av.human.b{background:#0b6e4f}
+.sk-meta{display:flex;align-items:baseline;gap:6px;line-height:1.3}
+.sk-meta b{font-weight:900;font-size:15px}
+.sk-meta .sk-app{font-size:10px;font-weight:700;background:#e8e8e8;color:#616061;border-radius:3px;padding:1px 4px;text-transform:uppercase;line-height:14px}
+.sk-meta time{font-size:12px;color:#616061}
+.sk-body{display:flex;flex-direction:column;gap:8px;margin-top:2px;max-width:840px}
+.sk-body>p{margin:0}
+.sk-h{font-size:22px;font-weight:900;line-height:1.3;letter-spacing:-.01em}
+.sk-s{font-size:15px}
+.sk-s b,.sk-fields b{font-weight:700}
+.sk-s code{font-family:Monaco,Menlo,Consolas,monospace;font-size:12px;color:#e01e5a;background:#f8f8f8;border:1px solid #ddd;border-radius:3px;padding:1px 3px}
+.sk-s a,.sk-ctx a{color:#1264a3;text-decoration:none}
+.sk-fields{display:grid;grid-template-columns:1fr 1fr;gap:8px 16px;max-width:560px}
+.sk-fields div{font-size:15px}
+.sk-btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:2px}
+.sk-btn{display:inline-flex;align-items:center;height:36px;padding:0 12px;border-radius:4px;border:1px solid rgba(29,28,29,.3);background:#fff;font-weight:700;font-size:15px;color:#1d1c1d;box-shadow:0 1px 3px rgba(0,0,0,.08);white-space:nowrap}
+.sk-btn.pri{background:#007a5a;border-color:#007a5a;color:#fff}
+.sk-ctx{font-size:12px;color:#616061}
+.sk-div{border-top:1px solid #ddd;margin:4px 0}
+.sk-react{display:inline-flex;gap:6px;margin-top:2px}
+.sk-react span{border:1px solid #ddd;border-radius:999px;padding:2px 8px;font-size:12px;background:#f8f8f8}
+.sk-react span.me{border-color:#1264a3;background:#e8f5fa}
+
+/* ---- Landing page ---- */
+.sl-hero{background:hsl(var(--card));padding:4.5rem 0 4.5rem;overflow:hidden;border-bottom:1px solid hsl(var(--border))}
+.sl-hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:3.5rem;align-items:center}
+.sl-cta{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:2rem;align-items:center}
+.btn-slack{background:#fff;color:#1d1c1d;box-shadow:inset 0 0 0 1.5px #ddd;height:3.2rem;padding:0 1.4rem;font-size:1rem;border-radius:8px;font-weight:700;gap:.6rem}
+.btn-slack:hover{box-shadow:inset 0 0 0 1.5px #1d1c1d;transform:translateY(-1px)}
+.btn-slack .logo{width:22px;height:22px}
+.sl-note{margin-top:1rem;font-size:.9rem;color:hsl(var(--foreground)/.6)}
+.sl-note a{color:hsl(var(--primary));font-weight:600}
+.sl-msgcard{background:#fff;border:1px solid hsl(var(--border));border-radius:16px;padding:.6rem .35rem;box-shadow:0 30px 60px -30px rgba(19,19,19,.3);font-family:Lato,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;color:#1d1c1d;font-size:15px;line-height:1.46}
+.sl-msgcard .sk-h{font-size:19px}
+.sl-msgcard .sk-msg{padding:8px 14px}
+.sl-msgcard .sk-day{margin:4px 14px 8px}
+.sl-section-head{max-width:720px;margin:0 auto 3rem;text-align:center}
+.sl-section-head .lead{margin-top:1rem}
+.sl-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.sl-card{background:#fff;border:1px solid hsl(var(--border));border-radius:1rem;padding:1.6rem}
+.sl-card h3{font-size:1.15rem;margin:.6rem 0 .45rem}
+.sl-card p{margin:0;color:hsl(var(--foreground)/.7);font-size:.95rem}
+.sl-card .ico{width:2.4rem;height:2.4rem;border-radius:.7rem;background:hsl(var(--muted));color:hsl(var(--primary));display:inline-flex;align-items:center;justify-content:center}
+.sl-msgtypes{display:flex;flex-direction:column;gap:3.5rem}
+.sl-msgtype img{width:100%;border-radius:12px;border:1px solid hsl(var(--border));display:block;box-shadow:0 24px 48px -30px rgba(19,19,19,.4)}
+.sl-msgtype .cap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);gap:1rem 2.5rem;align-items:start;margin-bottom:1.25rem}
+.sl-msgtype h3{font-size:1.45rem;margin:.5rem 0 0;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;letter-spacing:-.01em}
+.sl-msgtype p{margin:0;color:hsl(var(--foreground)/.72);font-size:1rem;line-height:1.65}
+.sl-msgtype .when{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:hsl(var(--primary));background:hsl(var(--muted));border-radius:999px;padding:.25rem .65rem}
+.sl-msgtype.no-img .cap{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center}
+.sl-steps{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;counter-reset:step}
+.sl-step{background:#fff;border:1px solid hsl(var(--border));border-radius:1rem;padding:1.5rem}
+.sl-step .n{display:inline-flex;width:2rem;height:2rem;border-radius:999px;background:hsl(var(--primary));color:#fff;font-weight:800;align-items:center;justify-content:center;font-family:"Bricolage Grotesque",sans-serif;margin-bottom:.9rem}
+.sl-step h3{font-size:1.12rem;margin:0 0 .45rem}
+.sl-step p{margin:0;color:hsl(var(--foreground)/.72);font-size:.95rem}
+.sl-step p+p{margin-top:.6rem}
+.sl-step code,.sl-kv code,.sl-scopes code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.84em;background:hsl(var(--foreground)/.06);border-radius:4px;padding:.1em .35em}
+.sl-step .path{font-weight:700;color:hsl(var(--foreground))}
+.sl-settings{background:#fff;border:1px solid hsl(var(--border));border-radius:14px;padding:1.25rem 1.35rem;max-width:560px;margin:0 auto;box-shadow:0 24px 48px -32px rgba(19,19,19,.35)}
+.sl-settings .t{display:flex;align-items:center;gap:.6rem;font-weight:800;font-family:"Bricolage Grotesque",sans-serif;font-size:1.05rem}
+.sl-settings .t .logo{width:18px;height:18px}
+.sl-settings .d{font-size:.9rem;color:hsl(var(--foreground)/.6);margin:.5rem 0 1rem}
+.sl-settings .b{display:inline-flex;align-items:center;gap:.5rem;border:1px solid #cfcfcf;border-radius:8px;padding:.45rem .8rem;font-size:.88rem;font-weight:600;color:#1d1c1d;background:#fff}
+.sl-settings .b .logo{width:16px;height:16px}
+.sl-settings .crumb{font-size:.78rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:hsl(var(--foreground)/.45);margin-bottom:.9rem}
+.sl-kv{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem 2.5rem}
+.sl-kv div{padding:1.1rem 0;border-top:1px solid hsl(var(--border))}
+.sl-kv h3{font-size:1.02rem;margin:0 0 .35rem}
+.sl-kv p{margin:0;font-size:.93rem;color:hsl(var(--foreground)/.7)}
+.sl-scopes{width:100%;border-collapse:collapse;font-size:.93rem;background:#fff;border:1px solid hsl(var(--border));border-radius:12px;overflow:hidden}
+.sl-scopes th,.sl-scopes td{text-align:left;padding:.8rem 1rem;border-bottom:1px solid hsl(var(--border));vertical-align:top}
+.sl-scopes th{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;background:hsl(var(--background))}
+.sl-scopes tr:last-child td{border-bottom:0}
+.sl-plans{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.sl-plan{background:#fff;border:1px solid hsl(var(--border));border-radius:1rem;padding:1.3rem 1.4rem}
+.sl-plan .nm{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:1.1rem}
+.sl-plan .pr{font-size:1.6rem;font-weight:800;font-family:"Bricolage Grotesque",sans-serif;margin:.25rem 0}
+.sl-plan .pr small{font-size:.85rem;font-weight:600;color:hsl(var(--foreground)/.55)}
+.sl-plan p{margin:.4rem 0 0;font-size:.9rem;color:hsl(var(--foreground)/.7)}
+.sl-wrap{overflow-x:auto}
+@media (max-width:880px){
+  .sl-hero-grid,.sl-steps,.sl-kv{grid-template-columns:1fr}
+  .sl-msgtype .cap,.sl-msgtype.no-img .cap{grid-template-columns:1fr;gap:.75rem}
+  .sl-msgtypes{gap:2.5rem}
+  .sl-grid-3,.sl-plans{grid-template-columns:1fr}
+  .sl-msgcard .sk-h{font-size:17px}
+}

@@ -44,7 +44,7 @@ export function Terms() {
   { n: 3, h: "Account Registration", body: ["To use our services, you must create an account. You agree to:", ["Provide accurate and complete registration information", "Maintain the security of your account credentials", "Notify us immediately of any unauthorized access", "Accept responsibility for all activity under your account"]] },
   { n: 4, h: "Acceptable Use", body: ["You agree not to use Revly to:", ["Generate fake, misleading, or fraudulent reviews", "Violate the terms of service of any third-party review platform", "Harass, abuse, or harm other users or reviewers", "Attempt to manipulate or game review platform algorithms", "Collect personal data of reviewers for unauthorized purposes", "Use the service for any unlawful purpose"]] },
   { n: 5, h: "AI-Generated Content", body: ["Revly uses artificial intelligence to enhance customer feedback into review drafts. These AI-generated drafts are suggestions only. Customers always have the opportunity to review, edit, and approve content before posting. You acknowledge that AI-generated content may not always be perfectly accurate and that final review content is the responsibility of the person who posts it."] },
-  { n: 6, h: "Third-Party Platforms", body: ["Revly integrates with third-party review platforms (including Shopify, G2, QuickBooks, WordPress, Xero, and WooCommerce). Your use of these platforms is subject to their respective terms of service. We are not responsible for the availability, accuracy, or policies of third-party platforms."] },
+  { n: 6, h: "Third-Party Platforms", body: ["Revly integrates with third-party review platforms (including Shopify, G2, QuickBooks, WordPress, Xero, and WooCommerce) and with third-party services you choose to connect, such as Slack. Your use of these platforms and services is subject to their respective terms of service. We are not responsible for the availability, accuracy, or policies of third-party platforms."] },
   { n: 7, h: "Pricing & Payment", body: ["Revly offers both free and paid subscription plans. Pricing details are available on our pricing page. Paid plans are billed monthly or annually through Stripe. We reserve the right to modify pricing with at least 30 days' notice to existing subscribers."] },
   { n: 8, h: "Intellectual Property", body: ["The Revly platform, including its design, code, features, and documentation, is owned by Revly and protected by intellectual property laws. You retain ownership of the data you upload to Revly. By using our services, you grant us a limited license to process your data as needed to provide our services."] },
   { n: 9, h: "Data & Privacy", body: ["Your use of Revly is also governed by our Privacy Policy, which describes how we collect, use, and protect your data."] },
@@ -53,7 +53,7 @@ export function Terms() {
   { n: 12, h: "Changes to Terms", body: ["We may update these Terms of Service from time to time. We will notify users of material changes by email or through the platform. Continued use of Revly after changes take effect constitutes acceptance of the updated terms."] },
   { n: 13, h: "Contact Us", body: ["If you have questions about these Terms of Service, please contact us at hello@revly.io."] }];
 
-  return <LegalPage title="Terms of Service" updated="February 7, 2026" sections={sections} />;
+  return <LegalPage title="Terms of Service" updated="September 6, 2026" sections={sections} />;
 }
 
 export function Privacy() {
@@ -63,16 +63,29 @@ export function Privacy() {
   "Account Information: When you create an account, we collect your name, email address, and password.",
   "Product & Review Data: We collect information about the products you add to Revly and the reviews we monitor or collect on your behalf, including review content, ratings, reviewer names, and platform metadata.",
   "Usage Data: We automatically collect information about how you interact with our services, including pages visited, features used, and device/browser information.",
-  "Cookies: We use essential cookies to keep you logged in and functional cookies to remember your preferences. We do not use third-party advertising cookies."] },
+  "Cookies: We use essential cookies to keep you logged in and functional cookies to remember your preferences. We do not use third-party advertising cookies.",
+  "Integration Data: If you connect Slack, we store your Slack workspace ID and name, the bot access token Slack issues to Revly (encrypted at rest), the ID and name of the channel you select for notifications, and which Revly user made the connection. See \"Slack Integration\" below."] },
   { n: 3, h: "How We Use Your Information", body: ["We use the information we collect to:", ["Provide, maintain, and improve our services", "Monitor and aggregate reviews from third-party platforms on your behalf", "Generate AI-enhanced review drafts from customer feedback", "Send you notifications about new reviews and platform activity", "Respond to your support requests", "Protect against fraud and abuse"]] },
-  { n: 4, h: "How We Share Your Information", body: ["We do not sell your personal information. We may share information with:", ["Service Providers: Third-party services that help us operate our platform (e.g., hosting, AI processing, email delivery)", "Legal Requirements: When required by law, subpoena, or legal process", "Business Transfers: In connection with a merger, acquisition, or sale of assets"]] },
+  { n: 4, h: "How We Share Your Information", body: ["We do not sell your personal information. We may share information with:", ["Service Providers: Third-party services that help us operate our platform (e.g., hosting, AI processing, email delivery)", "Slack: If you connect the Revly Slack app, we send review notifications (rating, review title and text, reviewer name, and links to the review and to your Revly dashboard) to the Slack channel you choose. Nothing is sent to Slack until you connect it, and nothing else is sent.", "Legal Requirements: When required by law, subpoena, or legal process", "Business Transfers: In connection with a merger, acquisition, or sale of assets"]] },
   { n: 5, h: "Data Security", body: ["We implement industry-standard security measures to protect your data, including encryption in transit (TLS), secure cloud infrastructure (AWS), and access controls. However, no method of electronic storage is 100% secure, and we cannot guarantee absolute security."] },
   { n: 6, h: "Data Retention", body: ["We retain your account information and review data for as long as your account is active. If you delete your account, we will delete your personal data within 30 days, except where we are required to retain it for legal purposes."] },
   { n: 7, h: "Your Rights", body: ["Depending on your location, you may have the right to:", ["Access the personal data we hold about you", "Request correction of inaccurate data", "Request deletion of your data", "Export your data in a portable format", "Opt out of marketing communications"], "To exercise these rights, contact us at hello@revly.io."] },
   { n: 8, h: "Third-Party Platforms", body: ["Our service interacts with third-party review platforms (Shopify, G2, QuickBooks, WordPress, Xero, WooCommerce, and others). Review data collected from these platforms is subject to their respective terms of service and privacy policies. We access only publicly available review information."] },
-  { n: 9, h: "Children's Privacy", body: ["Our services are not directed to individuals under 18. We do not knowingly collect personal information from children."] },
-  { n: 10, h: "Changes to This Policy", body: ["We may update this Privacy Policy from time to time. We will notify you of material changes by posting the updated policy on this page and updating the \"Last updated\" date."] },
-  { n: 11, h: "Contact Us", body: ["If you have questions about this Privacy Policy, please contact us at hello@revly.io."] }];
+  { n: 9, h: "Slack Integration", body: [
+  "You can connect Revly to Slack from Settings → Integrations so that review notifications are posted to a Slack channel you choose. This section explains how we collect, use, store, and delete Slack data.",
+  { lead: "What we collect from Slack" },
+  "When you authorize the Revly Slack app, Slack gives us your workspace ID and name and a bot access token. When you pick a channel, we store that channel's ID and name. We also record which Revly user made the connection. We request three permissions: chat:write (post messages to the channel you choose), channels:read (list your public channels so you can pick one), and groups:read (list the private channels Revly has been invited to, for the same purpose).",
+  { lead: "How we use it" },
+  "We use the bot token only to list your channels in the channel picker and to post review notifications to the one channel you select. We never read messages, member profiles, files, or any other content from your Slack workspace, and we do not send direct messages to your members.",
+  { lead: "How we store it" },
+  "The bot token is encrypted at rest (AES-256-GCM) on our AWS infrastructure and is never displayed in the Revly interface or returned by our API.",
+  { lead: "How long we keep it" },
+  "We keep the connection for as long as it is active. When you press Disconnect in Revly, we revoke the token with Slack and delete the stored workspace, token, and channel details immediately. Deleting your Revly account does the same. If you remove the app from Slack's side instead, Slack invalidates the token; you can then delete the remaining record via Disconnect in Settings or by emailing hello@revly.io.",
+  { lead: "Your choices" },
+  "You can change the channel, pause notifications, or disconnect Slack at any time from Settings → Integrations. To request a copy of, or the deletion of, any Slack-related data we hold, email hello@revly.io."] },
+  { n: 10, h: "Children's Privacy", body: ["Our services are not directed to individuals under 18. We do not knowingly collect personal information from children."] },
+  { n: 11, h: "Changes to This Policy", body: ["We may update this Privacy Policy from time to time. We will notify you of material changes by posting the updated policy on this page and updating the \"Last updated\" date."] },
+  { n: 12, h: "Contact Us", body: ["If you have questions about this Privacy Policy, please contact us at hello@revly.io."] }];
 
-  return <LegalPage title="Privacy Policy" updated="February 7, 2026" sections={sections} />;
+  return <LegalPage title="Privacy Policy" updated="September 6, 2026" sections={sections} />;
 }
