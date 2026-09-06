@@ -154,7 +154,7 @@ export function SlackApp() {
           <div className="sl-section-head">
             <span className="eyebrow">What Revly posts, and when</span>
             <h2 className="h2" style={{ marginTop: '.75rem' }}>Five kinds of message. <span className="mag">Nothing else.</span></h2>
-            <p className="lead">Every message comes from a sync: Revly re-reads each connected listing on a schedule (every 6 hours on Pro, every 2 hours on Business and Agency) or when you press Sync Now, and posts what changed. Revly only ever posts. It does not read messages, answer mentions or slash commands, or send direct messages.</p>
+            <p className="lead">Every message comes from a sync: Revly re-reads each connected listing on a schedule set by your plan, or when you press Sync Now, and posts what changed. Revly only ever posts. It does not read messages, answer mentions or slash commands, or send direct messages.</p>
           </div>
           <div className="sl-msgtypes">
             {MESSAGE_TYPES.map((m) =>
@@ -223,7 +223,7 @@ export function SlackApp() {
             <div><h3>Who can manage it</h3><p>Owners and admins of the Revly workspace. Members see a note asking them to contact an admin.</p></div>
             <div><h3>One channel per workspace</h3><p>Each Revly workspace connects to one Slack workspace and one channel. Agencies connect each client workspace separately from the company switcher.</p></div>
             <div><h3>What counts as new</h3><p>A review is announced when Revly first sees it and it was posted within the last 30 days. Older reviews picked up on a first sync or a historical sweep are stored quietly as backfill.</p></div>
-            <div><h3>How often Revly checks</h3><p>Every 6 hours on Pro and every 2 hours on Business and Agency. Some platforms enforce a longer minimum (Capterra is checked every 72 hours). Sync Now in the dashboard runs a check immediately.</p></div>
+            <div><h3>How often Revly checks</h3><p>Every 6 hours on Pro and every 2 hours on Business and Agency, for most platforms. A few are deliberately slower because each check is expensive to run: G2 and Trustpilot once a day, Capterra every three days. Sync Now in the dashboard checks immediately, on any plan.</p></div>
             <div><h3>If messages stop</h3><p>Usually one of three things: Revly is no longer a member of the channel (re-invite it), the app was removed from Slack (reconnect from Settings), or the plan no longer includes Slack.</p></div>
           </div>
         </div>
