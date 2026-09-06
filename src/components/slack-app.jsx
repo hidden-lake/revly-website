@@ -14,6 +14,8 @@ import { SLACK_FAQ } from '../lib/faqs.js';
 
 const APP_SETTINGS = 'https://app.revly.io/settings';
 
+// The Revly app avatar as Slack draws it beside a bot message. Inline rather
+// than an <img> so it stays crisp at 36px and needs no extra request.
 const RevlyIcon = () => (
   <svg viewBox="0 0 32 32" aria-hidden="true">
     <circle cx="16" cy="16" r="15" fill="#F0047F" opacity="0.1" />
@@ -22,6 +24,10 @@ const RevlyIcon = () => (
   </svg>
 );
 
+// Points at the dashboard, not at Slack's OAuth URL: the install is per-Revly-
+// workspace and only an owner or admin can make it, so the real button lives in
+// Settings. Slack's guidelines allow this as long as the page says so and gives
+// the steps, which the hero note and the "How to install" section do.
 function AddToSlack({ large }) {
   return (
     <a className={'btn btn-slack' + (large ? ' btn-lg' : '')} href={APP_SETTINGS}>
@@ -153,7 +159,7 @@ export function SlackApp() {
         <div className="container-x">
           <div className="sl-section-head">
             <span className="eyebrow">What Revly posts, and when</span>
-            <h2 className="h2" style={{ marginTop: '.75rem' }}>Five kinds of message. <span className="mag">Nothing else.</span></h2>
+            <h2 className="h2" style={{ marginTop: '.75rem' }}>Everything Revly posts. <span className="mag">Nothing else.</span></h2>
             <p className="lead">Every message comes from a sync: Revly re-reads each connected listing on a schedule set by your plan, or when you press Sync Now, and posts what changed. Revly only ever posts. It does not read messages, answer mentions or slash commands, or send direct messages.</p>
           </div>
           <div className="sl-msgtypes">
