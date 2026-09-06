@@ -11,5 +11,21 @@ const jsonLd = [softwareApplicationSchema(), faqPageSchema(HOME_FAQ)];
   description={SITE_DESCRIPTION}
   jsonLd={jsonLd}
 >
+  <Fragment slot="head">
+    <!-- Revly's own Intercom Messenger (workspace nihx4xym — same one the
+         app boots for signed-in users). source_site is a custom visitor
+         attribute: filter or route on "source_site is marketing" in Intercom
+         to treat homepage conversations differently from in-app ones.
+         Conversations also carry the started-from page URL automatically. -->
+    <script is:inline>
+      window.intercomSettings = {
+        app_id: 'nihx4xym',
+        source_site: 'marketing',
+      };
+    </script>
+    <script is:inline>
+      (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/nihx4xym';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(d.readyState==='complete'){l();}else if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
+    </script>
+  </Fragment>
   <Index client:load />
 </Base>
