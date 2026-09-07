@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { BlogArticle } from '../../components/blog-article.jsx';
-import { POSTS, POSTS_BY_DATE, postCard } from '../../lib/blog.js';
+import { POSTS, postCard, relatedPosts } from '../../lib/blog.js';
 import { webPageSchema, blogPostingSchema, faqPageSchema, canonicalUrl } from '../../lib/seo.js';
 
 // Only the posts in the registry get built. The seven-post blog removed in August 2026
@@ -11,12 +11,12 @@ export async function getStaticPaths() {
     params: { slug: post.slug },
     props: {
       post,
-      next: POSTS_BY_DATE.filter((p) => p.slug !== post.slug).map((p) => ({ ...postCard(p), author: p.author }))[0] ?? null,
+      related: relatedPosts(post).map((p) => ({ ...postCard(p), author: p.author })),
     },
   }));
 }
 
-const { post, next } = Astro.props;
+const { post, related } = Astro.props;
 const path = `/blog/${post.slug}/`;
 
 const jsonLd = [
@@ -32,5 +32,5 @@ const jsonLd = [
 ];
 ---
 <Base title={post.metaTitle} description={post.metaDescription} canonicalPath={path} jsonLd={jsonLd}>
-  <BlogArticle post={post} next={next} url={canonicalUrl(path)} client:load />
+  <BlogArticle post={post} related={related} url={canonicalUrl(path)} client:load />
 </Base>

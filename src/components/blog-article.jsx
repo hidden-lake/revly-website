@@ -138,7 +138,7 @@ function ArticleFaq({ items }) {
   );
 }
 
-export function BlogArticle({ post, next, url }) {
+export function BlogArticle({ post, related = [], url }) {
   const { title, excerpt, category, author, dateDisplay, readTime, blocks, faqs, cta } = post;
   return (
     <>
@@ -181,14 +181,17 @@ export function BlogArticle({ post, next, url }) {
           </div>
         </section>
 
-        {next && (
+        {related.length > 0 && (
           <section className="section bl-next" style={{ padding: '4.5rem 0', background: '#f6f6f4' }}>
             <div className="container-x" style={{ maxWidth: '760px' }}>
               <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: '1rem', marginBottom: '1.75rem', flexWrap: 'wrap' }}>
-                <h2 className="h2" style={{ fontSize: '1.7rem' }}>Keep reading</h2>
+                <h2 className="h2" style={{ fontSize: '1.7rem' }}>Keep learning</h2>
                 <a href="/blog/" style={{ color: 'hsl(var(--primary))', fontWeight: 700, fontSize: '.95rem' }}>All articles &rarr;</a>
               </div>
-              <PostCard post={next} />
+              {/* Two cards side by side, stacking below 760px on the same breakpoint the index uses. */}
+              <div className="bl-grid">
+                {related.map((p) => <PostCard key={p.slug} post={p} />)}
+              </div>
             </div>
           </section>
         )}
