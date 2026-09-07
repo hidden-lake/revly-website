@@ -3,21 +3,26 @@ import Base from '../layouts/Base.astro';
 import { MonitorPlatforms } from '../components/products.jsx';
 import { faqPageSchema, webPageSchema, softwareApplicationSchema } from '../lib/seo.js';
 import { MONITOR_FAQ } from '../lib/faqs.js';
+
+const path = '/monitor-platforms';
+const description =
+  'Every review from G2, Capterra and the app stores in one dashboard, with a Slack alert for each new review so nothing sits unread.';
+
 const jsonLd = [
-  softwareApplicationSchema(undefined, "Revly syncs reviews from G2, Capterra, Trustpilot and the app stores into one dashboard, updated within minutes of a review being posted."),
+  softwareApplicationSchema(undefined, "Revly syncs reviews from G2, Capterra, Trustpilot and the app stores into one dashboard, and posts every new review to the Slack channel you choose."),
   webPageSchema({
-    name: "Monitor Review Platforms",
-    description: "Track every review from G2, Capterra, Trustpilot, and the app stores in one dashboard, synced within five minutes of being posted.",
-    path: '/monitor-platforms',
-    breadcrumbName: "Monitor Multiple Review Platforms",
+    name: 'Turn five open tabs into one dashboard.',
+    description,
+    path,
+    breadcrumbName: 'Monitor review platforms',
   }),
-  faqPageSchema(MONITOR_FAQ),
+  faqPageSchema(MONITOR_FAQ, path),
 ];
 ---
 <Base
-  title="Monitor Review Platforms | Revly"
-  description="Track every review from G2, Capterra, Trustpilot, and the app stores in one dashboard, synced within five minutes of being posted."
-  canonicalPath="/monitor-platforms"
+  title="Monitor Every Review Platform, Get Slack Alerts | Revly"
+  description={description}
+  canonicalPath={path}
   jsonLd={jsonLd}
 >
   <MonitorPlatforms client:load />

@@ -66,9 +66,9 @@ export function UseCaseSaaS() {
       </section>
 
       <CrossLinks items={[
-      { chip: "Collect", title: "Collect Quality Reviews", body: "One smart link plus AI writing assistance turns willing customers into detailed reviews on the platforms that matter.", to: "/collect-quality-reviews" },
-      { chip: "Smart Requests", title: "Send Smart Review Requests", body: "Revly checks in with customers before sending them anywhere. Those who need support reach your team. Those who are ready get guided to the right platform.", to: "/smart-review-requests" },
-      { chip: "Monitor", title: "Monitor Multiple Review Platforms", body: "All your reviews from every platform in one dashboard, synced every five minutes.", to: "/monitor-platforms" }]
+      { chip: "Collect", title: "Collect reviews worth reading", body: "One link checks in with the customer, routes anyone who needs help to your team, and helps everyone else write something detailed.", to: "/collect-quality-reviews" },
+      { chip: "Monitor", title: "Monitor multiple review platforms", body: "Every review from every platform in one dashboard, with Slack alerts for new reviews.", to: "/monitor-platforms" },
+      { chip: "Respond", title: "Manage review responses", body: "Revly flags what needs a reply and drafts one in your voice.", to: "/manage-review-responses" }]
       } />
     </main>
     <Footer />
@@ -137,7 +137,7 @@ export function UseCaseAgencies() {
 
       <CrossLinks items={[
       { chip: "For SaaS Teams", title: "Review Management for SaaS Teams", body: "One place to collect, monitor, and respond to reviews across every platform, with a check-in before every request.", to: "/use-cases/saas" },
-      { chip: "Monitor", title: "Monitor Multiple Review Platforms", body: "All your reviews from every platform in one dashboard, synced every five minutes.", to: "/monitor-platforms" },
+      { chip: "Monitor", title: "Monitor multiple review platforms", body: "Every review from every platform in one dashboard, with Slack alerts for new reviews.", to: "/monitor-platforms" },
       { chip: "Respond", title: "Manage Review Responses", body: "Surface every review that needs a reply and draft a response in your voice, across every platform.", to: "/manage-review-responses" }]
       } />
     </main>

@@ -117,7 +117,7 @@ export const blocks = [
   },
   {
     type: 'p',
-    text: 'This is the specific problem [Revly\'s monitoring](/monitor-platforms/) exists for. Every review from G2, Capterra and the app stores lands in one feed within about five minutes of being posted, so you find out when it happens rather than when you next remember to look.',
+    text: 'This is the specific problem [Revly\'s monitoring](/monitor-platforms/) exists for. Every review from G2, Capterra and the app stores lands in one feed, and in the Slack channel you choose, so you find out when it happens rather than when you next remember to look.',
   },
 
   { type: 'h2', text: 'Responding still means four logins' },

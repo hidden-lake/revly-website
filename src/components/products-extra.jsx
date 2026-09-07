@@ -47,7 +47,7 @@ export function ReviewEmbeds() {
 
       <CrossLinks items={[
       { chip: "Collect", title: "Collect Quality Reviews", body: "One smart link plus AI writing assistance turns willing customers into detailed reviews on the platforms that matter.", to: "/collect-quality-reviews" },
-      { chip: "Monitor", title: "Monitor Multiple Review Platforms", body: "All your reviews from every platform in one dashboard, synced every five minutes.", to: "/monitor-platforms" },
+      { chip: "Monitor", title: "Monitor multiple review platforms", body: "Every review from every platform in one dashboard, with Slack alerts for new reviews.", to: "/monitor-platforms" },
       { chip: "Claude MCP", title: "Query your review data with AI", body: "Connect Revly to Claude or ChatGPT and ask questions about your review data in plain language.", to: "/claude-mcp" }]
       } />
     </main>
@@ -94,7 +94,7 @@ export function ClaudeMCP() {
       </section>
 
       <CrossLinks items={[
-      { chip: "Monitor", title: "Monitor Multiple Review Platforms", body: "All your reviews from every platform in one dashboard, synced every five minutes.", to: "/monitor-platforms" },
+      { chip: "Monitor", title: "Monitor multiple review platforms", body: "Every review from every platform in one dashboard, with Slack alerts for new reviews.", to: "/monitor-platforms" },
       { chip: "Embeds", title: "Display Reviews On Your Site", body: "Turn your reviews into styled, self-updating widgets you can drop onto any page.", to: "/review-widgets" },
       { chip: "Respond", title: "Manage Review Responses", body: "Surface every review that needs a reply and draft one in your voice, across every platform.", to: "/manage-review-responses" }]
       } />

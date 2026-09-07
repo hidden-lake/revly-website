@@ -18,6 +18,7 @@ export function MonScrolly() {
       const feed = root.querySelector('[data-feed]');
       const trend = root.querySelector('[data-trend]');
       const search = root.querySelector('[data-search]');
+      const slack = root.querySelector('[data-slack]');
       const progs = [...root.querySelectorAll('[data-prog]')];
       let lastStep = -1;
 
@@ -41,9 +42,10 @@ export function MonScrolly() {
       function goToStep(i) {
         if (i === lastStep) return; lastStep = i;
         lightPlats(i >= 0);
-        reveal(feed, i >= 1);
-        reveal(trend, i >= 2);
-        reveal(search, i >= 3);
+        reveal(slack, i === 1);
+        reveal(feed, i >= 2);
+        reveal(trend, i >= 3);
+        reveal(search, i >= 4);
         progs.forEach((p, pi) => { p.style.width = pi <= i ? '100%' : '0'; });
       }
       const stepEls = [...root.querySelectorAll('.stepA')];
@@ -69,7 +71,7 @@ export function MonScrolly() {
       <div className="container-x">
         <div className="head">
           <span className="eyebrow">How it works</span>
-          <h2 className="h2">Every platform.<br /><span className="mag">One feed.</span></h2>
+          <h2 className="h2">Every platform, one feed,<br /><span className="mag">one Slack channel.</span></h2>
         </div>
         <div className="scrollyA-grid">
           <div className="mediaA">
@@ -79,13 +81,20 @@ export function MonScrolly() {
                 <div className="mon-plat">
                   <span className="mon-chip" data-plat><span className="d"></span>G2</span>
                   <span className="mon-chip" data-plat><span className="d"></span>Capterra</span>
-                  <span className="mon-chip" data-plat><span className="d"></span>TrustRadius</span>
+                  <span className="mon-chip" data-plat><span className="d"></span>Trustpilot</span>
                   <span className="mon-chip" data-plat><span className="d"></span>App Store</span>
+                </div>
+                <div className="mon-slack" data-slack>
+                  <div className="mon-slack-inner">
+                    <div className="mon-slack-head"><span className="hash">#</span>reviews</div>
+                    <div className="mon-slack-row"><span className="mon-slack-plat">Capterra</span><span className="mon-slack-rating">★★★★★</span></div>
+                    <p className="mon-slack-text">Every new review posts here, with buttons to respond.</p>
+                  </div>
                 </div>
                 <div className="mon-feed" data-feed>
                   {Row("G2", "5.0", "100%")}
                   {Row("Capterra", "4.0", "80%")}
-                  {Row("TrustRadius", "4.5", "90%")}
+                  {Row("Trustpilot", "4.5", "90%")}
                 </div>
                 <div className="mon-trend" data-trend>
                   <div className="mon-stats">
@@ -111,13 +120,14 @@ export function MonScrolly() {
                 </div>
               </div>
             </Mock>
-            <div className="progress"><span><b data-prog="0"></b></span><span><b data-prog="1"></b></span><span><b data-prog="2"></b></span><span><b data-prog="3"></b></span></div>
+            <div className="progress"><span><b data-prog="0"></b></span><span><b data-prog="1"></b></span><span><b data-prog="2"></b></span><span><b data-prog="3"></b></span><span><b data-prog="4"></b></span></div>
           </div>
           <div className="stepsA">
-            <div className="stepA" data-step="0"><span className="n">1</span><h3>Connect your platforms</h3><p>Add your G2, Capterra, TrustRadius and app-store listings. Revly starts syncing reviews instantly.</p></div>
-            <div className="stepA" data-step="1"><span className="n">2</span><h3>Every review in one feed</h3><p>New reviews surface within five minutes of being posted, across every connected platform, in one place.</p></div>
-            <div className="stepA" data-step="2"><span className="n">3</span><h3>Track what's changing</h3><p>Rating trends and sentiment shifts are tracked over time, so you spot patterns before they become problems.</p></div>
-            <div className="stepA" data-step="3"><span className="n">4</span><h3>Find anything instantly</h3><p>Search your entire review library for the exact quote, feature, or theme. No digging through five tabs.</p></div>
+            <div className="stepA" data-step="0"><span className="n">1</span><h3>Connect your platforms</h3><p>Add your G2, Capterra and app store listings. Revly starts syncing.</p></div>
+            <div className="stepA" data-step="1"><span className="n">2</span><h3>Connect Slack</h3><p>Pick the channel. Every new review posts there, with the rating, the platform and the review itself.</p></div>
+            <div className="stepA" data-step="2"><span className="n">3</span><h3>Everything in one feed</h3><p>New reviews land in your dashboard daily, across every connected platform. On several platforms, more often.</p></div>
+            <div className="stepA" data-step="3"><span className="n">4</span><h3>Track what is changing</h3><p>Rating trends and sentiment shifts over time, so you see the pattern before it turns into a quarter.</p></div>
+            <div className="stepA" data-step="4"><span className="n">5</span><h3>Find anything</h3><p>Search your whole review library by keyword, feature or phrase. The quote you need for the deck is one search away.</p></div>
           </div>
         </div>
       </div>

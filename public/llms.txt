@@ -18,12 +18,12 @@ behalf or posts without their approval.
 
 ## Product
 
-- [Collect quality reviews](https://revly.io/collect-quality-reviews/): one smart link plus AI writing assistance
-- [Monitor review platforms](https://revly.io/monitor-platforms/): every platform in one dashboard
-- [Send smart review requests](https://revly.io/smart-review-requests/): sentiment screening and routing
+- [Collect quality reviews](https://revly.io/collect-quality-reviews/): one link that checks in with the customer, routes anyone who needs help to your team, and helps everyone else write a detailed review on the right platform
+- [Monitor review platforms](https://revly.io/monitor-platforms/): every platform in one dashboard, with every new review posted to Slack
 - [Manage review responses](https://revly.io/manage-review-responses/): AI-drafted replies in your voice
 - [Display reviews on your site](https://revly.io/review-widgets/): embeddable, self-updating review widgets
 - [Query your review data with AI](https://revly.io/claude-mcp/): Revly MCP server for Claude and ChatGPT
+- [Slack notifications](https://revly.io/slack/): the Revly Slack app, what it posts and the permissions it asks for
 
 ## Pricing
 
@@ -51,9 +51,9 @@ documentation and primary sources.
 
 ## Monitored platforms
 
-G2, Capterra, GetApp, Software Advice, TrustRadius, Trustpilot, Apple App Store, Google
-Play Store, Shopify App Store, WooCommerce Marketplace, QuickBooks Marketplace, WordPress
-Plugin Marketplace, Xero Marketplace.
+G2, Capterra, GetApp, Software Advice, Trustpilot, Apple App Store, Google Play Store,
+Shopify App Store, WooCommerce Marketplace, QuickBooks Marketplace, WordPress Plugin
+Marketplace, Xero Marketplace.
 
 ## Company
 

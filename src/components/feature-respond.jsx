@@ -99,7 +99,7 @@ export function RespScrolly() {
             <div className="progress"><span><b data-prog="0"></b></span><span><b data-prog="1"></b></span><span><b data-prog="2"></b></span><span><b data-prog="3"></b></span></div>
           </div>
           <div className="stepsA">
-            <div className="stepA" data-step="0"><span className="n">1</span><h3>Every review in one place</h3><p>Revly pulls reviews from G2, Capterra, TrustRadius and more into one dashboard, synced every five minutes.</p></div>
+            <div className="stepA" data-step="0"><span className="n">1</span><h3>Every review in one place</h3><p>Revly pulls reviews from G2, Capterra, Trustpilot and the app stores into one dashboard, and posts each new one to Slack.</p></div>
             <div className="stepA" data-step="1"><span className="n">2</span><h3>Filter to what needs a reply</h3><p>See exactly what's waiting. No manual triage, no platform you forgot to check.</p></div>
             <div className="stepA" data-step="2"><span className="n">3</span><h3>Draft with AI, in your voice</h3><p>Revly suggests a reply matched to your brand voice from the first line. Edit it, or send it as-is.</p></div>
             <div className="stepA" data-step="3"><span className="n">4</span><h3>Go straight there to post</h3><p>One click takes you to the review on the platform. No searching, no extra logins.</p></div>

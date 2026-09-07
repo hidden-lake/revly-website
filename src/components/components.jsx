@@ -43,7 +43,6 @@ export function Navbar() {
   const productLinks = [
   { to: "/collect-quality-reviews", label: "Collect Quality Reviews" },
   { to: "/monitor-platforms", label: "Monitor Multiple Review Platforms" },
-  { to: "/smart-review-requests", label: "Send Smart Review Requests" },
   { to: "/manage-review-responses", label: "Manage Review Responses" },
   { to: "/review-widgets", label: "Display Reviews On Your Site" },
   { to: "/claude-mcp", label: "Query Your Review Data with AI" },
@@ -136,7 +135,6 @@ export function Footer() {
           <FooterCol title="Product" links={[
           ["Collect Quality Reviews", "/collect-quality-reviews"],
           ["Monitor Multiple Review Platforms", "/monitor-platforms"],
-          ["Send Smart Review Requests", "/smart-review-requests"],
           ["Manage Review Responses", "/manage-review-responses"],
           ["Display Reviews On Your Site", "/review-widgets"],
           ["Query Your Review Data with AI", "/claude-mcp"],
@@ -186,24 +184,42 @@ export function FooterCol({ title, links, items }) {
 
 }
 
-// ---------- BeforeAfterSlider — static before/after comparison table ----------
-export function BeforeAfterSlider({ rows }) {
+// ---------- BeforeAfterSlider: the before/after comparison ----------
+// Real table markup, because a screen reader and an answer engine both need to know
+// that a "without" cell and a "with" cell are two halves of one row.
+//
+// Each <tr> is its own two-column grid. An earlier version put `display: contents` on
+// the rows so every cell became an item of one big grid, which laid out correctly but
+// Chromium then refused to paint the z-indexed "with" cells at all. Per-row grids keep
+// real boxes in the tree, so the three paint layers below behave.
+//
+// The two backdrops are decorative and sit outside the table, since a positioned div
+// cannot live inside one. Paint order is deliberate and load-bearing:
+//   without cell (1) < the white "with" card (2) < with cell (3)
+// so a row rule drawn full width disappears under the card instead of crossing it.
+export function BeforeAfterSlider({ rows, caption = "Working without Revly compared with working with Revly" }) {
   return (
-    <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-      <div className="ba2-grid">
-        <div className="ba2-backdrop ba2-backdrop-without" aria-hidden="true"></div>
-        <div className="ba2-backdrop ba2-backdrop-with" aria-hidden="true"></div>
+    <div className="ba2-wrap">
+      <div className="ba2-backdrop ba2-backdrop-without" aria-hidden="true"></div>
+      <div className="ba2-backdrop ba2-backdrop-with" aria-hidden="true"></div>
 
-        <div className="ba2-h without" style={{ gridColumn: 1, gridRow: 1 }}>Without Revly</div>
-        <div className="ba2-h with" style={{ gridColumn: 2, gridRow: 1 }}><span>With Revly</span></div>
-
-        {rows.map((r, i) =>
-        <React.Fragment key={i}>
-            <div className="ba2-cell without" style={{ gridColumn: "1 / -1", gridRow: i + 2 }}><span>{r.without}</span></div>
-            <div className="ba2-cell with" style={{ gridColumn: 2, gridRow: i + 2 }}><span>{r.with}</span></div>
-          </React.Fragment>
-        )}
-      </div>
+      <table className="ba2-grid">
+        <caption className="sr-only">{caption}</caption>
+        <thead>
+          <tr>
+            <th scope="col" className="ba2-h without">Without Revly</th>
+            <th scope="col" className="ba2-h with"><span>With Revly</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((r, i) =>
+          <tr key={i}>
+              <td className="ba2-cell without"><span>{r.without}</span></td>
+              <td className="ba2-cell with"><span>{r.with}</span></td>
+            </tr>
+          )}
+        </tbody>
+      </table>
     </div>);
 
 }
