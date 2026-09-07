@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-label="Hand-drawn illustration of an award rosette with a price tag hanging from it.">
+  <rect width="640" height="360" fill="#f1057a"/>
+  <g fill="none" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- Ribbon tails -->
+    <path d="M256 196 C250 230 246 262 242 296 C252 288 259 283 267 278 C271 248 273 220 275 198"/>
+    <path d="M296 196 C302 230 306 262 310 296 C300 288 293 283 285 278 C281 248 279 220 277 198"/>
+
+    <!-- The rosette -->
+    <path d="M275 82 C312 81 341 111 341 148 C341 185 312 214 275 214 C238 214 209 185 209 148 C209 111 238 82 275 82 Z"/>
+    <path d="M275 100 C302 99 324 121 324 148 C324 175 302 197 275 197 C248 197 226 175 226 148 C226 121 248 100 275 100 Z"/>
+    <g transform="translate(275 148) scale(0.44)" stroke-width="10">
+      <path d="M0 -68 C7 -43 14 -24 20 -22 C28 -19 48 -18 68 -20 C52 -6 39 7 38 15 C36 23 42 43 49 63 C31 50 13 39 5 40 C-4 41 -22 52 -40 65 C-34 44 -30 24 -32 16 C-35 8 -50 -6 -67 -20 C-46 -18 -26 -18 -19 -21 C-12 -24 -6 -43 0 -68 Z"/>
+    </g>
+
+    <!-- String across to the price tag -->
+    <path d="M337 160 C372 165 408 180 441 197" stroke-width="3.6"/>
+
+    <!-- The price tag -->
+    <g transform="translate(392 168) rotate(9)">
+      <path d="M14 4 C46 -1 82 0 108 5 C114 41 113 79 108 113 C76 119 44 118 14 113 C8 79 9 41 14 4 Z"/>
+      <path d="M61 15 C67 15 69 19 69 23 C69 27 66 30 61 30 C56 30 53 27 53 23 C53 19 56 15 61 15 Z" stroke-width="3.6"/>
+      <path d="M79 51 C69 45 54 47 54 56 C55 65 77 66 78 76 C79 86 63 90 51 84"/>
+      <path d="M65 41 C65 52 65 82 65 93"/>
+    </g>
+  </g>
+</svg>

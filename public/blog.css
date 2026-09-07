@@ -275,10 +275,13 @@
    to resolve against, and so the threshold line lands exactly on the 10 mark. */
 .fig-bars { position: relative; display: flex; align-items: flex-end; justify-content: center; gap: 1.1rem; margin: 2.2rem 0 .4rem; }
 .fig-bar { width: 46px; display: flex; flex-direction: column; align-items: center; }
-.fig-bar .track { width: 100%; height: 110px; display: flex; align-items: flex-end; }
-.fig-bar .col { width: 100%; border-radius: .4rem .4rem 0 0; background: hsl(var(--foreground)/0.16); }
+/* Column layout so the value label rides on top of its own bar. With the label
+   outside the track every bar labelled at the same height, which made a 4 read as
+   though it reached the threshold line. */
+.fig-bar .track { width: 100%; height: 110px; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; }
+.fig-bar .col { flex: none; width: 100%; border-radius: .4rem .4rem 0 0; background: hsl(var(--foreground)/0.16); }
 .fig-bar.hit .col { background: linear-gradient(hsl(330 100% 64%), hsl(var(--primary))); }
-.fig-bar .v { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: .92rem; margin-bottom: .3rem; color: hsl(var(--foreground)/0.6); }
+.fig-bar .v { flex: none; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: .92rem; line-height: 1; margin-bottom: .3rem; color: hsl(var(--foreground)/0.6); }
 .fig-bar.hit .v { color: hsl(var(--primary)); }
 .fig-bar .k { height: 2.2rem; padding-top: .5rem; font-size: .72rem; color: hsl(var(--foreground)/0.45); text-align: center; line-height: 1.3; }
 .fig-threshold { position: absolute; left: 0; right: 0; bottom: calc(2.2rem + 110px); border-top: 2px dashed hsl(var(--primary)/0.4); }
@@ -317,5 +320,60 @@
 .bl-faq { background: #f6f6f4; }
 .bl-faq-inner { max-width: 760px; }
 
-/* Keep reading */
+/* Keep learning */
 .bl-next { background: hsl(var(--card)); }
+
+/* ---------- Figures added for the G2 alternatives and G2 badges posts ---------- */
+
+/* Ranked list: a number, a name, a qualifier and what the tier wins you */
+.fig-ranked { list-style: none; margin: 0; padding: 0; }
+.fig-ranked li { display: flex; gap: 1.1rem; padding: 1.4rem 1.6rem; border-bottom: 1px solid hsl(var(--border)); }
+.fig-ranked li:last-child { border-bottom: 0; }
+.fig-ranked .n {
+  flex: none; width: 2rem; height: 2rem; border-radius: 999px; background: hsl(var(--primary)); color: #fff;
+  display: grid; place-items: center; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: .95rem;
+}
+.fig-ranked .nm { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 1.05rem; line-height: 1.3; }
+.fig-ranked .sub { margin-top: .25rem; font-size: .8rem; line-height: 1.45; color: hsl(var(--foreground)/0.5); }
+.fig-ranked .win { margin-top: .7rem; font-size: .95rem; line-height: 1.6; color: hsl(var(--foreground)/0.82); }
+
+/* Three marketplace minimums, side by side */
+.fig-gates { display: grid; grid-template-columns: 1fr; }
+@media (min-width: 720px) { .fig-gates { grid-template-columns: repeat(3, 1fr); } }
+.fig-gate { padding: 1.6rem 1.5rem 1.75rem; }
+@media (min-width: 720px) { .fig-gate + .fig-gate { border-left: 1px solid hsl(var(--border)); } }
+@media (max-width: 719px) { .fig-gate + .fig-gate { border-top: 1px solid hsl(var(--border)); } }
+.fig-gate .plat {
+  font-family: "DM Sans", sans-serif; font-weight: 700; font-size: .72rem; letter-spacing: .11em;
+  text-transform: uppercase; color: hsl(var(--foreground)/0.45); margin-bottom: .9rem;
+}
+.fig-gate .rule { margin: 0; font-size: .92rem; line-height: 1.6; color: hsl(var(--foreground)/0.78); }
+
+/* A syndication destination the review never actually reaches */
+.fig-dest.out {
+  background: transparent; color: hsl(var(--foreground)/0.55); border: 1px dashed hsl(var(--foreground)/0.3);
+}
+
+/* Wide tables carry more columns than the 760px text column holds. Fixed layout plus a
+   colgroup keeps every column inside the figure on a desktop; below 900px they fall back
+   to a fixed width and scroll horizontally inside .fig-scroll. */
+.fig-table-wide { width: 100%; table-layout: fixed; }
+.fig-table-wide th, .fig-table-wide td { padding: .85rem .9rem; font-size: .88rem; line-height: 1.5; vertical-align: top; }
+.fig-table-wide thead th { vertical-align: bottom; }
+.fig-rowname { display: block; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: .93rem; line-height: 1.3; }
+.fig-rownote { display: block; margin-top: .3rem; font-weight: 400; font-size: .77rem; line-height: 1.4; color: hsl(var(--foreground)/0.5); }
+@media (max-width: 900px) { .fig-table-wide { min-width: 880px; } }
+
+/* Five bars in half a figure need a narrower track than three do. The padding keeps the
+   fifth bar's value clear of the "10 needed" label, which sits at the right of the line. */
+.fig-bars.tight { gap: .55rem; padding-right: 5.5rem; }
+.fig-bars.tight .fig-bar { width: 52px; }
+.fig-bars.tight .fig-bar .k { font-size: .68rem; }
+@media (max-width: 480px) {
+  .fig-bars.tight { gap: .3rem; padding-right: 4.5rem; }
+  .fig-bars.tight .fig-bar { width: 40px; }
+}
+
+/* A destination the review never actually reaches. The cross is in the markup, not in
+   CSS content, so the meaning survives with styles off. */
+.fig-dest.out .x { font-weight: 800; margin-right: .35rem; }

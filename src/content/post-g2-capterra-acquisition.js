@@ -17,6 +17,9 @@ export const meta = {
   description:
     'G2 now owns Capterra, Software Advice and GetApp. Capterra reviews still do not syndicate to G2, the incentive rules are still different, and you still run two separate campaigns. What actually changed for review collection, monitoring and display.',
   author: 'Revly team',
+  // Closest topics: where else to collect once Capterra and G2 stay separate, then
+  // the thresholds those two platforms set.
+  related: ['g2-alternatives', 'how-many-g2-reviews-do-you-need'],
   category: 'Review platforms',
   datePublished: '2026-08-28',
   dateModified: '2026-08-28',

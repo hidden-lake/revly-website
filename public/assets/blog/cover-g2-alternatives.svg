@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-label="Hand-drawn illustration of a signpost with three arms pointing in different directions.">
+  <rect width="640" height="360" fill="#f4c243"/>
+  <g fill="none" stroke="#131313" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- The post -->
+    <path d="M322 74 C319 130 321 200 320 262 C320 286 321 300 320 312"/>
+    <path d="M282 314 C302 310 340 311 360 313"/>
+
+    <!-- Top arm, pointing right -->
+    <path d="M326 106 C362 102 418 104 452 105 C462 113 470 121 478 130 C469 140 461 148 452 157 C418 158 362 159 326 155 C323 139 324 122 326 106 Z"/>
+
+    <!-- Middle arm, pointing left -->
+    <path d="M314 180 C278 176 222 178 190 179 C180 187 172 195 164 204 C173 214 181 222 190 231 C222 232 278 233 314 229 C317 213 316 196 314 180 Z"/>
+
+    <!-- Bottom arm, pointing right -->
+    <path d="M324 250 C352 246 396 248 422 249 C431 257 438 264 445 272 C437 280 430 287 422 295 C396 296 352 297 324 293 C321 279 322 264 324 250 Z"/>
+  </g>
+</svg>

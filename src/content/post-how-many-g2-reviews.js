@@ -15,6 +15,8 @@ export const meta = {
   description:
     'Ten reviews in a category to appear in a G2 Grid Report, and 20 reviews at a 4.0 star average for the Users Love Us badge. Plus how G2 review decay works and why incentivised reviews score lower.',
   author: 'Revly team',
+  // Closest topics: the badges those thresholds buy, then where else the counts apply.
+  related: ['g2-badges-explained', 'g2-alternatives'],
   category: 'Review platforms',
   datePublished: '2026-08-28',
   dateModified: '2026-08-28',

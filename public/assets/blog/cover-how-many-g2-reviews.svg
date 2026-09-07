@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-label="Hand-drawn illustration of a star above ten tally marks.">
-  <rect width="640" height="360" fill="#f4c243"/>
-  <g fill="none" stroke="#131313" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
+  <rect width="640" height="360" fill="#f1057a"/>
+  <g fill="none" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
 
     <!-- The badge -->
     <g transform="translate(320 130) rotate(-3)">
