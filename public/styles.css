@@ -81,16 +81,37 @@ button { font-family: inherit; cursor: pointer; }
 .btn-outline-light:hover { background:#fff; color: hsl(var(--foreground)); transform: translateY(-2px); }
 
 /* Before / After comparison table — with-column reads as an elevated card */
+/* Semantic <table>, laid out row by row. Each <tr> is its own two-column grid, so the
+   cells stay real boxes: `display: contents` on the rows laid out correctly but stopped
+   Chromium painting the z-indexed "with" cells. */
+.ba2-wrap { position: relative; max-width: 1100px; margin: 0 auto; isolation: isolate; }
+/* One z-index, on the table itself, so the whole thing sits above both backdrops.
+   Chromium will not reliably paint a z-indexed <td>, so no cell carries one. */
 .ba2-grid {
   position: relative;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+.ba2-grid thead, .ba2-grid tbody { display: block; }
+.ba2-grid tr {
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 22px;
   align-items: stretch;
 }
+.ba2-grid td.without, .ba2-grid th.without { grid-column: 1; grid-row: 1; }
+.ba2-grid td.with, .ba2-grid th.with { grid-column: 2; grid-row: 1; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
 .ba2-backdrop { position: absolute; top: 0; bottom: 0; z-index: 0; pointer-events: none; }
 .ba2-backdrop-without {
   left: 0; right: 0; width: auto;
+  z-index: 0;
   background: hsl(var(--card));
   border: 1px solid hsl(var(--border));
   border-right: none;
@@ -99,7 +120,7 @@ button { font-family: inherit; cursor: pointer; }
 .ba2-backdrop-with {
   right: 0; width: calc(50% - 11px);
   top: -14px; bottom: -14px;
-  z-index: 2;
+  z-index: 1;
   background: #fff;
   border: 1px solid hsl(var(--secondary) / 0.45);
   border-radius: 20px;
@@ -107,8 +128,10 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 .ba2-h {
-  position: relative; z-index: 1;
+  position: relative;
   font-family: "DM Sans"; text-transform: uppercase;
+  font-weight: 400;
+  text-align: left;
 }
 .ba2-h.without {
   padding: 0.7rem 1.6rem;
@@ -118,7 +141,6 @@ button { font-family: inherit; cursor: pointer; }
 }
 .ba2-h.with {
   margin-top: -14px;
-  z-index: 3;
   display: flex; align-items: center;
   padding: 0.8rem 1.6rem 0.7rem;
   background: hsl(var(--primary));
@@ -130,22 +152,23 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 .ba2-cell {
-  position: relative; z-index: 1;
+  position: relative;
   padding: 1.2rem 1.6rem;
   display: flex; align-items: center; gap: .8rem;
   font-size: 0.97rem;
 }
 .ba2-cell.without { color: hsl(var(--foreground) / 0.55); border-top: 1px solid hsl(var(--border)); }
-.ba2-cell.without > span { max-width: calc(50% - 4rem); }
-.ba2-cell.with { z-index: 3; color: hsl(var(--foreground)); font-weight: 500; border-top: 1px solid hsl(var(--primary) / 0.14); }
+
+.ba2-cell.with { color: hsl(var(--foreground)); font-weight: 500; border-top: 1px solid hsl(var(--primary) / 0.14); }
 .ba2-cell.with::before { content: ""; width: 9px; height: 9px; border-radius: 999px; background: hsl(var(--primary)); flex: none; }
 .ba2-cell.without::before { content: "\2715"; color: hsl(var(--foreground) / 0.3); font-weight: 700; flex: none; width: 1rem; }
 
 @media (max-width: 720px) {
-  .ba2-grid { display: flex !important; flex-direction: column; gap: 0; }
+  .ba2-grid tr { display: flex !important; flex-direction: column; gap: 0; }
   .ba2-backdrop { display: none !important; }
   .ba2-h { display: none !important; }
-  .ba2-cell { grid-column: auto !important; grid-row: auto !important; padding: 0.5rem 0; font-size: 0.95rem; border: 0 !important; }
+  .ba2-grid td, .ba2-grid th { grid-column: auto !important; grid-row: auto !important; }
+  .ba2-cell { padding: 0.5rem 0; font-size: 0.95rem; border: 0 !important; }
   .ba2-cell.without { color: hsl(var(--foreground) / 0.5); }
   .ba2-cell.without > span { max-width: none !important; }
   .ba2-cell.with { color: hsl(var(--foreground)); font-weight: 600; padding-bottom: 1.25rem; margin-bottom: 1.1rem; border-bottom: 1px solid hsl(var(--border)) !important; }

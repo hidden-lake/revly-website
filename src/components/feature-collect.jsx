@@ -24,6 +24,7 @@ export function CQScrolly() {
       const textEl = mock.querySelector('[data-text]');
       const aiEl = mock.querySelector('[data-ai]');
       const routeEl = mock.querySelector('[data-route]');
+      const helpEl = mock.querySelector('[data-help]');
       const chips = [...mock.querySelectorAll('[data-chip]')];
       const ctaEl = mock.querySelector('[data-cta]');
       const progs = [...root.querySelectorAll('[data-prog]')];
@@ -43,15 +44,19 @@ export function CQScrolly() {
         if (forward) {textEl.classList.remove('empty');const st = { n: 0 };typeTween = gsap.to(st, { n: FC_TYPED.length, duration: 0.7, ease: 'none', onUpdate() {textEl.innerHTML = FC_TYPED.slice(0, Math.round(st.n)) + '<span class="caret"></span>';}, onComplete() {textEl.innerHTML = FC_TYPED;} });} else
         {textEl.classList.add('empty');textEl.textContent = textEl.dataset.empty;}
       }
+      // Step 3 is the branch for a customer who flags a problem, so the mock shows the
+      // support path on its own and the writing flow only starts again at step 4.
       function goToStep(i) {
         if (i === lastStep) return;const prev = lastStep;lastStep = i;
         setStars(i >= 1 ? 5 : 0);
-        if (i >= 1 && prev < 1) typeText(true);
-        if (i < 1 && prev >= 1) typeText(false);
-        reveal(aiEl, i >= 2);
-        reveal(routeEl, i >= 3);
-        chips.forEach((c, ci) => c.classList.toggle('sel', i >= 3 && ci === 0));
-        gsap.to(ctaEl, { opacity: i >= 3 ? 1 : 0.4, duration: 0.4 });
+        const writing = i >= 3;
+        if (writing && prev < 3) typeText(true);
+        if (!writing && prev >= 3) typeText(false);
+        reveal(helpEl, i === 2);
+        reveal(aiEl, i >= 3);
+        reveal(routeEl, i >= 4);
+        chips.forEach((c, ci) => c.classList.toggle('sel', i >= 4 && ci === 0));
+        gsap.to(ctaEl, { opacity: i >= 4 ? 1 : 0.4, duration: 0.4 });
         progs.forEach((p, pi) => {p.style.width = pi <= i ? '100%' : '0';});
       }
       const stepEls = [...root.querySelectorAll('.stepA')];
@@ -73,7 +78,7 @@ export function CQScrolly() {
       <div className="container-x">
         <div className="head">
           <span className="eyebrow">How it works</span>
-          <h2 className="h2">One link.&nbsp;<br /><span className="mag">A review worth reading.</span></h2>
+          <h2 className="h2">From one link to a review<br /><span className="mag">that helps someone decide.</span></h2>
         </div>
         <div className="scrollyA-grid">
           <div className="mediaA">
@@ -91,26 +96,33 @@ export function CQScrolly() {
                     </div>
                   </div>
                 </div>
+                <div className="cmp-help" data-help>
+                  <div className="cmp-help-inner">
+                    <div className="cmp-help-label">Needs a hand</div>
+                    <p className="cmp-help-text">Routed to your team, and your team is notified.</p>
+                  </div>
+                </div>
                 <div className="cmp-route" data-route>
                   <div className="cmp-route-inner">
                     <div className="cmp-route-label">Routed to the platform that needs it</div>
                     <div className="cmp-chips">
                       <span className="cmp-chip" data-chip><span className="dot"></span>G2</span>
                       <span className="cmp-chip" data-chip><span className="dot"></span>Capterra</span>
-                      <span className="cmp-chip" data-chip><span className="dot"></span>TrustRadius</span>
+                      <span className="cmp-chip" data-chip><span className="dot"></span>Trustpilot</span>
                     </div>
                   </div>
                 </div>
                 <div className="cmp-cta" data-cta>Post review →</div>
               </div>
             </Mock>
-            <div className="progress"><span><b data-prog="0"></b></span><span><b data-prog="1"></b></span><span><b data-prog="2"></b></span><span><b data-prog="3"></b></span></div>
+            <div className="progress"><span><b data-prog="0"></b></span><span><b data-prog="1"></b></span><span><b data-prog="2"></b></span><span><b data-prog="3"></b></span><span><b data-prog="4"></b></span></div>
           </div>
           <div className="stepsA">
-            <div className="stepA" data-step="0"><span className="n">1</span><h3>Share one smart link</h3><p>No list of platforms, no login instructions. One link per product that handles everything from here.</p></div>
-            <div className="stepA" data-step="1"><span className="n">2</span><h3>The customer rates and writes</h3><p>They share their experience in their own words, however much or little they want. No blank-page pressure.</p></div>
-            <div className="stepA" data-step="2"><span className="n">3</span><h3>AI helps them say more</h3><p>If they want help, Revly expands their note into something specific: structure and detail added, their voice kept. They can edit it, ignore it, or post as-is.</p></div>
-            <div className="stepA" data-step="3"><span className="n">4</span><h3>Routed to the right platform</h3><p>Based on where you need reviews most, Revly sends each customer to the one place their review will do the most good.</p></div>
+            <div className="stepA" data-step="0"><span className="n">1</span><h3>Share one link</h3><p>No list of platforms, no login instructions. One link per product that handles the rest.</p></div>
+            <div className="stepA" data-step="1"><span className="n">2</span><h3>Ask how it is going</h3><p>Before anything else, the customer tells you how they are finding the product. If something is wrong, you hear about it while you can still do something about it.</p></div>
+            <div className="stepA" data-step="2"><span className="n">3</span><h3>A hand for anyone who needs one</h3><p>A customer who flags a problem gets a route straight to your team, and your team gets notified. You find out someone is stuck before you ask them for praise, not after.</p></div>
+            <div className="stepA" data-step="3"><span className="n">4</span><h3>Help saying more</h3><p>Most people mean more than they type. Revly takes their note and expands it into something specific, keeping their words and their point. They can edit it, rewrite it, or ignore the suggestion entirely.</p></div>
+            <div className="stepA" data-step="4"><span className="n">5</span><h3>The right platform</h3><p>Set which platform needs reviews most, or let Revly balance across them. Either way the customer sees one destination and no decision to make.</p></div>
           </div>
         </div>
       </div>
@@ -247,7 +259,7 @@ export function CQSmartRouting() {
           <div className="sr-dests">
             <div className="sr-dest public" id="destPublic">
               <div className="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15 9 22 9 16.5 14 18.5 21 12 17 5.5 21 7.5 14 2 9 9 9" /></svg></div>
-              <div><div className="lbl">Ready to share</div><div className="big">Review platform</div><div className="sm">G2, Capterra, TrustRadius, etc.</div></div>
+              <div><div className="lbl">Ready to share</div><div className="big">Review platform</div><div className="sm">G2, Capterra, Trustpilot, etc.</div></div>
             </div>
             <div className="sr-dest support" id="destSupport">
               <div className="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6" /><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" /></svg></div>
@@ -329,7 +341,7 @@ export function CQGallery() {
             <h3>They land where you need them.</h3>
             <p>Set the routing priority, or let Revly balance across platforms automatically. Either way, you stay in control.</p>
           </div>
-          <Mock className="vizC"><div className="chips"><span className="chip2 sel">G2 ✓</span><span className="chip2">Capterra</span><span className="chip2">TrustRadius</span></div></Mock>
+          <Mock className="vizC"><div className="chips"><span className="chip2 sel">G2 ✓</span><span className="chip2">Capterra</span><span className="chip2">Trustpilot</span></div></Mock>
         </article>
       </div>
     </section>);

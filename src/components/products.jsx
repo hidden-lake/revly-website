@@ -1,13 +1,12 @@
-// Revly — Product pages (Collect, Monitor, Smart, Manage)
+// Revly - Product pages (Collect, Monitor, Manage)
 import React from 'react';
 import { Navbar, Footer, BeforeAfterSlider, FAQ, CrossLinks } from './components.jsx';
 import { KineticReveal, StackReveal, HorizontalReveal } from './reveals.jsx';
 import { FeatureHeroC } from './feature-hero.jsx';
 import { FeatureMotion, CQScrolly, CQSmartRouting, CQGallery } from './feature-collect.jsx';
 import { MonScrolly, MonGallery } from './feature-monitor.jsx';
-import { SmartScrolly, SmartGallery } from './feature-smart.jsx';
 import { RespScrolly, RespGallery } from './feature-respond.jsx';
-import { COLLECT_FAQ, MONITOR_FAQ, SMART_FAQ, RESPOND_FAQ } from '../lib/faqs.js';
+import { COLLECT_FAQ, MONITOR_FAQ, RESPOND_FAQ } from '../lib/faqs.js';
 
 export function ProductBeforeAfter({ heading, rows }) {
   return (
@@ -61,6 +60,39 @@ function NarrativeSection({ title, paragraphs = [], emphasized, bg = "card", var
   return <KineticReveal title={title} lines={paragraphs} emphasized={emphasized} bg={bg} />;
 }
 
+// Slack's own mark, inline so it stays crisp and costs no extra request. Decorative:
+// the sentence beside it already says Slack, so it carries no alt text of its own.
+const SlackMark = () => (
+  <svg className="slack-mark" viewBox="0 0 122.8 122.8" aria-hidden="true" focusable="false">
+    <path d="M25.8 77.6a12.9 12.9 0 1 1-12.9-12.9h12.9v12.9z" fill="#e01e5a" />
+    <path d="M32.3 77.6a12.9 12.9 0 0 1 25.8 0v32.3a12.9 12.9 0 0 1-25.8 0V77.6z" fill="#e01e5a" />
+    <path d="M45.2 25.8a12.9 12.9 0 1 1 12.9-12.9v12.9H45.2z" fill="#36c5f0" />
+    <path d="M45.2 32.3a12.9 12.9 0 0 1 0 25.8H12.9a12.9 12.9 0 0 1 0-25.8h32.3z" fill="#36c5f0" />
+    <path d="M97 45.2a12.9 12.9 0 1 1 12.9 12.9H97V45.2z" fill="#2eb67d" />
+    <path d="M90.5 45.2a12.9 12.9 0 0 1-25.8 0V12.9a12.9 12.9 0 0 1 25.8 0v32.3z" fill="#2eb67d" />
+    <path d="M77.6 97a12.9 12.9 0 1 1-12.9 12.9V97h12.9z" fill="#ecb22e" />
+    <path d="M77.6 90.5a12.9 12.9 0 0 1 0-25.8h32.3a12.9 12.9 0 0 1 0 25.8H77.6z" fill="#ecb22e" />
+  </svg>
+);
+
+// Slack is the headline of the Monitor page, so it gets a section of its own rather
+// than a bullet inside the benefits grid.
+function SlackSection() {
+  return (
+    <section className="section" style={{ background: "hsl(var(--card))" }}>
+      <div className="container-x" style={{ maxWidth: "860px" }}>
+        <h2 className="h2" style={{ textAlign: "center", marginBottom: "2rem" }}>The review <span className="text-primary">finds you.</span></h2>
+        <p className="lead" style={{ marginBottom: "1.25rem" }}>A dashboard only works if someone opens it. Most weeks, nobody does.</p>
+        <p className="lead" style={{ marginBottom: "1.25rem" }}>So Revly posts every new review into Slack: the rating, the platform, the product, and what the customer wrote, with buttons to respond in Revly or open the review on the source platform. Your team sees the one-star review while it is still news, not when a prospect raises it on a call.</p>
+        <p className="lead" style={{ marginBottom: "2.25rem" }}>Pick the Slack channel and the rest is automatic.</p>
+        <div className="slack-pull">
+          <SlackMark />
+          <blockquote>Reviews stop being something you check and start being something you know about.</blockquote>
+        </div>
+      </div>
+    </section>);
+}
+
 // ========== Collect Quality Reviews ==========
 export function CollectBetterReviews() {
   const FAQS = COLLECT_FAQ;
@@ -78,11 +110,13 @@ export function CollectBetterReviews() {
       <CQGallery />
 
       <ProductBeforeAfter
-        heading={<>Before and after <span className="text-primary">a review collection system.</span></>} rows={[
-        { without: "Customers stare at a blank text box and give up", with: "AI writing assistance helps them say what they actually mean" },
-        { without: "\"Great tool.\" reviews that don't help anyone decide", with: "Detailed, specific reviews that convert prospects" },
-        { without: "Customers get a list of platform links and pick randomly", with: "One smart link routes each customer to the right platform" },
-        { without: "Reviews skewed to whichever platform customers recognise", with: "Review distribution balanced automatically or set by you" }]
+        heading={<>Before and after <span className="text-primary">one link.</span></>} rows={[
+        { without: "Review requests go out blind to everyone", with: "A check-in first, so you get the chance to help" },
+        { without: "A customer with an open problem gets asked to praise you", with: "A struggling customer reaches your team" },
+        { without: "Customers stare at a blank text box and give up", with: "Writing help that keeps their voice and adds the detail" },
+        { without: "\"Great tool.\" reviews that help nobody decide", with: "Reviews that name the problem, the feature, and the alternative" },
+        { without: "A list of platform links and a customer picking at random", with: "One link, routed to the platform you need" },
+        { without: "Reviews pile up on whichever platform customers recognise", with: "Distribution balanced automatically, or set by you" }]
         } />
 
       <FAQ items={FAQS} />
@@ -90,10 +124,10 @@ export function CollectBetterReviews() {
       <section className="section">
         <div className="container-x">
           <div className="ctaA">
-            <h2 className="h2">Your customers want to review you.<br /><span style={{ color: "#f1057a" }}>Make it easy for them.</span></h2>
-            <p className="lead" style={{ color: "rgba(255,255,255,0.75)", margin: "1rem auto 0", maxWidth: "46ch" }}>One smart link, AI writing assistance that keeps their voice intact, and automatic routing to the platform that needs it most.</p>
+            <h2 className="h2">Ask better,<br /><span style={{ color: "#f1057a" }}>get better reviews.</span></h2>
+            <p className="lead" style={{ color: "rgba(255,255,255,0.75)", margin: "1rem auto 0", maxWidth: "50ch" }}>One link. A question that tells you whether this is the right moment, writing help that keeps the customer's voice, and routing to the platform that needs it.</p>
             <div style={{ display: "flex", justifyContent: "center", gap: ".75rem", marginTop: "2rem", flexWrap: "wrap" }}>
-              <a className="btn btn-default btn-lg" href="/pricing">Start collecting quality reviews</a>
+              <a className="btn btn-default btn-lg" href="/pricing">Start collecting better reviews</a>
               <a className="btn btn-yellow btn-lg" href="/pricing">Book a demo</a>
             </div>
           </div>
@@ -101,9 +135,9 @@ export function CollectBetterReviews() {
       </section>
 
       <CrossLinks items={[
-      { chip: "Smart Requests", title: "Send Smart Review Requests", body: "Revly checks in with customers before sending them anywhere. Those who need support reach your team. Those who are ready get guided to the right review platform.", to: "/smart-review-requests" },
-      { chip: "Monitor", title: "Monitor Multiple Review Platforms", body: "All your reviews from every platform in a single dashboard, updated every five minutes.", to: "/monitor-platforms" },
-      { chip: "Display", title: "Display Reviews On Your Site", body: "Turn your reviews into styled, self-updating widgets you can drop onto any page.", to: "/review-widgets" }]
+      { chip: "Monitor", title: "Monitor multiple review platforms", body: "Every review from every platform in one dashboard, with Slack alerts for new reviews.", to: "/monitor-platforms" },
+      { chip: "Respond", title: "Manage review responses", body: "Revly flags what needs a reply and drafts one in your voice.", to: "/manage-review-responses" },
+      { chip: "Display", title: "Display reviews on your site", body: "Styled widgets that keep themselves current as new reviews come in.", to: "/review-widgets" }]
       } />
     </main>
     <Footer />
@@ -122,14 +156,17 @@ export function MonitorPlatforms() {
 
       <MonScrolly />
 
+      <SlackSection />
+
       <MonGallery />
 
       <ProductBeforeAfter
-        heading={<>Before and after <span className="text-primary">unified review monitoring.</span></>} rows={[
-        { without: "Logging into G2, Capterra, TrustRadius separately", with: "Every platform synced to one dashboard" },
-        { without: "Reviews going unread for days or weeks", with: "New reviews surface within five minutes" },
-        { without: "No way to spot trends across platforms", with: "Rating trends and sentiment tracked over time" },
-        { without: "Customer quotes buried across five platforms", with: "Search your entire review library in one place" }]
+        heading={<>Before and after <span className="text-primary">one dashboard.</span></>} rows={[
+        { without: "Five logins, and only when someone remembers", with: "One feed, and a Slack message when something new lands" },
+        { without: "A bad review sits public for two weeks", with: "Your team sees it the day it posts" },
+        { without: "Nobody knows whose job it is to check", with: "The Slack channel is the job" },
+        { without: "Rating trends invisible until a quarterly review", with: "Shifts tracked across every platform over time" },
+        { without: "Hunting for the right customer quote before a campaign", with: "Search your whole review library in seconds" }]
         } />
 
       <FAQ items={FAQS} />
@@ -137,8 +174,8 @@ export function MonitorPlatforms() {
       <section className="section">
         <div className="container-x">
           <div className="ctaA">
-            <h2 className="h2">Your entire review presence,<br /><span style={{ color: "#f1057a" }}>finally in one place.</span></h2>
-            <p className="lead" style={{ color: "rgba(255,255,255,0.75)", margin: "1rem auto 0", maxWidth: "46ch" }}>One dashboard, every platform, updated every five minutes.</p>
+            <h2 className="h2">Your whole review presence,<br /><span style={{ color: "#f1057a" }}>in one place and in Slack.</span></h2>
+            <p className="lead" style={{ color: "rgba(255,255,255,0.75)", margin: "1rem auto 0", maxWidth: "50ch" }}>Every platform in one dashboard, every new review in the channel your team already has open.</p>
             <div style={{ display: "flex", justifyContent: "center", gap: ".75rem", marginTop: "2rem", flexWrap: "wrap" }}>
               <a className="btn btn-default btn-lg" href="/pricing">Start monitoring your reviews</a>
               <a className="btn btn-yellow btn-lg" href="/pricing">Book a demo</a>
@@ -148,58 +185,8 @@ export function MonitorPlatforms() {
       </section>
 
       <CrossLinks items={[
-      { chip: "Collect", title: "Collect Quality Reviews", body: "One smart link plus AI writing assistance turns willing customers into detailed, specific reviews on the platforms that matter.", to: "/collect-quality-reviews" },
-      { chip: "Smart Requests", title: "Send Smart Review Requests", body: "Revly checks in with customers before sending them anywhere. Those who need support reach your team. Those who are ready get guided to the right review platform.", to: "/smart-review-requests" },
-      { chip: "Claude connector", title: "Query your review data with AI", body: "Connect Revly to Claude or ChatGPT and ask questions about your review data in plain language.", to: "/claude-mcp" }]
-      } />
-    </main>
-    <Footer />
-  </>;
-}
-
-// ========== Smart Review Requests ==========
-export function SmartReviewRequests() {
-  const FAQS = SMART_FAQ;
-
-  return <>
-    <Navbar />
-    <main>
-      <FeatureMotion />
-      <FeatureHeroC variant="routing" />
-
-      <SmartScrolly />
-
-      <CQSmartRouting />
-
-      <SmartGallery />
-
-      <ProductBeforeAfter
-        heading={<>Before and after <span className="text-primary">smart review requests.</span></>}
-        rows={[
-        { without: "Public requests sent to all customers equally", with: "A feedback step checks in with customers first" },
-        { without: "Customer issues stay in the dark", with: "Customers who need support reach your team directly" },
-        { without: "No way to capture feedback from customers who need support", with: "Every customer's experience captured and acted on" },
-        { without: "Reactive damage control", with: "Proactive customer relationship management" }]
-        } />
-
-      <FAQ items={FAQS} />
-
-      <section className="section">
-        <div className="container-x">
-          <div className="ctaA">
-            <h2 className="h2">Every customer has something to say.<br /><span style={{ color: "#f1057a" }}>Make sure it's heard.</span></h2>
-            <p className="lead" style={{ color: "rgba(255,255,255,0.75)", margin: "1rem auto 0", maxWidth: "48ch" }}>One link, one feedback step. Those who are ready share their experience; those who need support reach your team.</p>
-            <div style={{ display: "flex", justifyContent: "center", gap: ".75rem", marginTop: "2rem", flexWrap: "wrap" }}>
-              <a className="btn btn-default btn-lg" href="/pricing">Send smarter review requests</a>
-              <a className="btn btn-yellow btn-lg" href="/pricing">Book a demo</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <CrossLinks items={[
-      { chip: "Collect", title: "Collect Quality Reviews", body: "One smart link plus AI writing assistance turns willing customers into detailed reviews on the platforms that matter.", to: "/collect-quality-reviews" },
-      { chip: "Display", title: "Display Reviews On Your Site", body: "Turn your reviews into styled, self-updating widgets you can drop onto any page.", to: "/review-widgets" },
+      { chip: "Collect", title: "Collect reviews worth reading", body: "One link checks in with the customer, routes anyone who needs help to your team, and helps everyone else write something detailed.", to: "/collect-quality-reviews" },
+      { chip: "Respond", title: "Manage review responses", body: "Revly flags what needs a reply and drafts one in your voice.", to: "/manage-review-responses" },
       { chip: "Claude connector", title: "Query your review data with AI", body: "Connect Revly to Claude or ChatGPT and ask questions about your review data in plain language.", to: "/claude-mcp" }]
       } />
     </main>

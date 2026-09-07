@@ -3,6 +3,10 @@
 
 export const SITE_URL = 'https://revly.io';
 export const SITE_NAME = 'Revly';
+// Node identifiers. Everything that points at the site or the product references
+// these rather than repeating a URL, so the graph stays connected.
+export const WEBSITE_ID = `${SITE_URL}#website`;
+export const SOFTWARE_ID = `${SITE_URL}#software`;
 // Also feeds the Organization and SoftwareApplication schemas, so keep it factual
 // and keep it matching how the site itself describes the routing step.
 export const SITE_DESCRIPTION =
@@ -17,10 +21,11 @@ export const organizationSchema = {
   '@type': 'Organization',
   '@id': `${SITE_URL}#organization`,
   name: SITE_NAME,
-  url: SITE_URL,
-  logo: `${SITE_URL}/assets/revly-logo.png`,
+  url: `${SITE_URL}/`,
+  logo: { '@type': 'ImageObject', url: `${SITE_URL}/assets/revly-logo.png` },
   image: `${SITE_URL}/og-image.png`,
   description: SITE_DESCRIPTION,
+  email: 'hello@revly.io',
   sameAs: [
     'https://www.linkedin.com/company/revlyhq/',
     'https://www.youtube.com/@revlyhq',
@@ -36,36 +41,76 @@ export function canonicalUrl(path) {
   return `${SITE_URL}${clean.endsWith('/') ? clean : `${clean}/`}`;
 }
 
+// No SearchAction here on purpose. Revly has no public site search, and declaring
+// one that does not exist is a false signal.
 export const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  '@id': `${SITE_URL}/`,
+  '@id': WEBSITE_ID,
   name: SITE_NAME,
   url: `${SITE_URL}/`,
+  publisher: { '@id': `${SITE_URL}#organization` },
+  inLanguage: 'en',
 };
 
-// The product itself — use on home and pricing. Optional offers array for pricing tiers.
-// Pass `description` to describe the specific capability a feature page covers;
-// omit it and the schema falls back to the site-wide description.
+// Published plan prices, taken from /pricing. These are the annual-billing rates the
+// pricing page shows as its headline figures. Agency is quote-only, so it sets no
+// highPrice: the highest number here is the highest one Revly actually publishes.
+// If /pricing changes, change these in the same commit.
+const PLAN_LOW_PRICE = '0';
+const PLAN_HIGH_PRICE = '84';
+
+// The product itself. Pass `description` to describe the specific capability a feature
+// page covers; omit it and the schema falls back to the site-wide description.
+//
+// No aggregateRating anywhere in here. Google requires it to reflect reviews collected
+// on our own property, and Revly does not display those. A review platform publishing
+// an unearned rating is the worst possible place to get this wrong.
 export function softwareApplicationSchema(offers, description) {
-  const schema = {
+  return {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
+    '@id': SOFTWARE_ID,
     name: SITE_NAME,
     applicationCategory: 'BusinessApplication',
-    operatingSystem: 'Web',
+    applicationSubCategory: 'Review Management Software',
+    operatingSystem: 'Web browser',
     description: description ?? SITE_DESCRIPTION,
-    url: SITE_URL,
+    url: `${SITE_URL}/`,
+    publisher: { '@id': `${SITE_URL}#organization` },
+    featureList: [
+      'Review collection with a pre-ask check-in',
+      'AI writing assistance for customer reviews',
+      'Smart routing to the right review platform',
+      'Unified review dashboard across every connected platform',
+      'Slack and email alerts for new reviews',
+      'AI-drafted review responses',
+      'Embeddable review widgets',
+      'Review analytics and rating trends',
+    ],
+    offers: offers ?? {
+      '@type': 'AggregateOffer',
+      priceCurrency: 'USD',
+      lowPrice: PLAN_LOW_PRICE,
+      highPrice: PLAN_HIGH_PRICE,
+      offerCount: 4,
+      url: canonicalUrl('/pricing'),
+    },
   };
-  schema.offers = offers ?? { '@type': 'Offer', price: '0', priceCurrency: 'USD' };
-  return schema;
 }
 
-// Build a FAQPage schema from a [{ q, a }] array (the same data the page renders).
-export function faqPageSchema(faqs) {
+// Build a FAQPage schema from a [{ q, a }] array (the same data the page renders), so
+// the visible answers and the markup cannot drift apart.
+//
+// Google restricted FAQ rich results to government and health sites in 2023, so the
+// Rich Results Test reports this as ineligible. That is expected, not a fault: answer
+// engines still parse it, and it is the cleanest statement of what a page answers.
+// Pass `path` to attach the block to that page's WebPage node.
+export function faqPageSchema(faqs, path) {
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
+    ...(path ? { '@id': `${canonicalUrl(path)}#faq`, isPartOf: { '@id': canonicalUrl(path) } } : {}),
     mainEntity: faqs.map((it) => ({
       '@type': 'Question',
       name: it.q,
@@ -95,7 +140,9 @@ export function webPageSchema({ name, description, path, breadcrumbName, parent 
         url,
         name,
         description,
-        isPartOf: { '@id': `${SITE_URL}/` },
+        isPartOf: { '@id': WEBSITE_ID },
+        about: { '@id': SOFTWARE_ID },
+        inLanguage: 'en',
         breadcrumb: { '@id': `${url}#breadcrumb` },
       },
       {
@@ -129,7 +176,7 @@ export function blogPostingSchema(post) {
       logo: { '@type': 'ImageObject', url: `${SITE_URL}/assets/revly-logo.png` },
     },
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
-    isPartOf: { '@id': `${SITE_URL}/` },
+    isPartOf: { '@id': WEBSITE_ID },
     inLanguage: 'en',
     articleSection: post.category,
     keywords: post.keywords,

@@ -16,7 +16,7 @@ function Stars({ n = 5, className = "rev-stars" }) {
 const HOME_INBOX = [
 { n: "Maria O.", av: "hsl(var(--primary))", plat: "G2", pc: "hsl(var(--muted))", pt: "hsl(var(--primary))", t: "“Acme's sync hasn't dropped an order since we switched.”", time: "2m" },
 { n: "Devon R.", av: "hsl(var(--secondary))", plat: "Capterra", pc: "#fdf0c8", pt: "#7a4f05", t: "“Setup took ten minutes and support replied the same day.”", time: "18m" },
-{ n: "Priya S.", av: "hsl(var(--foreground))", plat: "TrustRadius", pc: "#eaeaea", pt: "#444", t: "“The reporting saves our finance team about a day a month.”", time: "1h" },
+{ n: "Priya S.", av: "hsl(var(--foreground))", plat: "Trustpilot", pc: "#eaeaea", pt: "#444", t: "“The reporting saves our finance team about a day a month.”", time: "1h" },
 { n: "Alex T.", av: "hsl(var(--primary))", plat: "App Store", pc: "hsl(var(--muted))", pt: "hsl(var(--primary))", t: "“Acme handles our multi-currency orders without any fuss.”", time: "3h" }];
 
 function ReviewRow({ r }) {
@@ -144,10 +144,10 @@ function TrustMarquee() {
 
 function BeforeAfter() {
   const rows = [
-  { without: "Reviews scattered across 2–4 platforms", with: "Every review in one dashboard" },
-  { without: "Requests sent without knowing how customers feel", with: "Sentiment screening before every ask" },
+  { without: "Reviews scattered across 2 to 4 platforms", with: "Every review in one dashboard" },
+  { without: "Requests sent without knowing how the customer is doing", with: "A check-in first, so you know before you ask" },
   { without: "“Great tool.” reviews that convert no one", with: "Detailed reviews that actually help buyers" },
-  { without: "Negative reviews posted before you can help", with: "Negative feedback routed to your inbox first" },
+  { without: "A customer's problem surfaces in public before you hear about it", with: "You hear it directly, while you can still fix it" },
   { without: "No idea which reviews need a response", with: "A response queue surfaced automatically" },
   { without: "Hunting across platforms for the right quote for a campaign", with: "Search your entire review library for any quote in seconds" }];
 
@@ -261,28 +261,6 @@ function DashMock() {
       </div>
     </Mock>);
 }
-function RouteMock() {
-  const col = { display: "flex", flexDirection: "column", alignItems: "center", gap: "1.1rem", padding: "1.8rem 0.75rem", textAlign: "center" };
-  const pillBase = { display: "inline-flex", alignItems: "center", fontFamily: "DM Sans", fontWeight: 700, fontSize: "0.9rem", padding: "0.55rem 1.1rem", borderRadius: "999px" };
-  return (
-    <Mock className="mock" minHeight="16rem">
-      <div className="mock-bar"><i></i><i></i><i></i><span className="lbl">Smart routing</span></div>
-      <div className="mock-pad">
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.1rem" }}>
-          <div style={col}>
-            <StarRow filled={2} size={24} />
-            <DownArrow color="hsl(var(--foreground)/0.35)" />
-            <span style={{ ...pillBase, background: "hsl(var(--secondary))", color: "rgb(51, 50, 48)" }}>Support team</span>
-          </div>
-          <div style={col}>
-            <StarRow filled={5} size={24} />
-            <DownArrow color="hsl(var(--foreground)/0.35)" />
-            <span style={{ ...pillBase, background: "hsl(var(--muted))", backgroundColor: "rgb(241, 5, 122)", color: "rgb(255, 255, 255)" }}>Public review</span>
-          </div>
-        </div>
-      </div>
-    </Mock>);
-}
 function RespMock() {
   return (
     <Mock className="mock" minHeight="17rem">
@@ -332,13 +310,13 @@ function McpHomeMock() {
 }
 
 function Features() {
+// Alternation is positional: even blocks put the mock left, odd blocks put it right.
   const rows = [
-  { chip: "Collect", chipClass: "chip-amber", heading: "Collect better reviews", body: "Share a single link. Customers share a quick thought, and Revly's AI turns it into a polished, authentic review in their words, approved by them, ready to post on the right platform.", to: "/collect-quality-reviews", Mock: CollectMock, flip: false },
-  { chip: "Monitor", chipClass: "chip-magenta", heading: "Every platform, one dashboard", body: "Stop checking a dozen tabs. Revly syncs reviews from all your listings, organised by product. Track rating trends, surface quotes for campaigns, and manage the entire review process in a single dashboard.", to: "/monitor-platforms", Mock: DashMock, flip: true },
-  { chip: "Smart requests", chipClass: "chip-amber", heading: "Send smart review requests", body: "Revly checks in with customers before sending them anywhere. Those who need support reach your team first. Those who are ready get guided to the right review platform.", to: "/smart-review-requests", Mock: RouteMock, flip: false },
-  { chip: "Respond", chipClass: "chip-magenta", heading: "Stay on top of every reply", body: "Leaving reviews unanswered is a missed opportunity: savvy buyers sort by lowest rating first to see if you showed up. Revly flags what needs a response and helps you write one in your voice, across every platform.", to: "/manage-review-responses", Mock: RespMock, flip: true },
-  { chip: "Display", chipClass: "chip-amber", heading: "Put your reviews on your own site", body: "Your best feedback lives on platforms your visitors never open. Turn it into grid, carousel, or wall widgets that match your brand, paste one line of code, and they keep themselves current as new reviews land.", to: "/review-widgets", Mock: EmbedHomeMock, flip: false },
-  { chip: "Claude connector", chipClass: "chip-magenta", heading: "Ask your review data anything", body: "Connect Revly to Claude or ChatGPT and query your reviews in plain language: the quote you need for a campaign, where collection breaks down, how customers describe your product in their own words.", to: "/claude-mcp", Mock: McpHomeMock, flip: true }];
+  { chip: "Collect", chipClass: "chip-amber", heading: "Collect reviews worth reading", body: "One link per product. It asks how things are going, offers a hand to anyone who needs one, and helps everyone else turn a quick thought into a review with actual detail in it, in their own words, approved by them before it posts.", to: "/collect-quality-reviews", Mock: CollectMock },
+  { chip: "Monitor", chipClass: "chip-magenta", heading: "Every platform in one dashboard, and in Slack", body: "Revly pulls reviews from all your listings into one feed, sorted by product, with trends tracked over time. A new review also lands in the Slack channel you choose, so the first person to see it is someone on your team rather than a prospect.", to: "/monitor-platforms", Mock: DashMock },
+  { chip: "Respond", chipClass: "chip-magenta", heading: "Stay on top of every reply", body: "Leaving reviews unanswered is a missed opportunity: savvy buyers sort by lowest rating first to see if you showed up. Revly flags what needs a response and helps you write one in your voice, across every platform.", to: "/manage-review-responses", Mock: RespMock },
+  { chip: "Display", chipClass: "chip-amber", heading: "Put your reviews on your own site", body: "Your best feedback lives on platforms your visitors never open. Turn it into grid, carousel, or wall widgets that match your brand, paste one line of code, and they keep themselves current as new reviews land.", to: "/review-widgets", Mock: EmbedHomeMock },
+  { chip: "Claude connector", chipClass: "chip-magenta", heading: "Ask your review data anything", body: "Connect Revly to Claude or ChatGPT and query your reviews in plain language: the quote you need for a campaign, where collection breaks down, how customers describe your product in their own words.", to: "/claude-mcp", Mock: McpHomeMock }];
 
   return (
     <section className="section" style={{ background: "hsl(var(--card))" }}>
@@ -359,7 +337,7 @@ function Features() {
             const mock = <r.Mock />;
             return (
               <div key={i} className="grid-2">
-                {r.flip ? <>{copy}{mock}</> : <>{mock}{copy}</>}
+                {i % 2 ? <>{copy}{mock}</> : <>{mock}{copy}</>}
               </div>);
           })}
         </div>
@@ -369,7 +347,7 @@ function Features() {
 
 function HowItWorks() {
   const steps = [
-  { t: "Connect your platforms", b: "Add your G2, Capterra, TrustRadius and app-store listings. Revly starts syncing reviews instantly." },
+  { t: "Connect your platforms", b: "Add your G2, Capterra, Trustpilot and app-store listings. Revly starts syncing, and posts each new review to Slack." },
   { t: "Share your smart link", b: "One link per product checks in with customers, routes those who need help to your team, and guides the rest to the right platform." },
   { t: "Watch reviews improve", b: "AI turns brief feedback into detailed, authentic reviews, approved by customers and tracked in one dashboard." }];
 
@@ -405,7 +383,7 @@ function WhoItsFor() {
         <div>
           <span className="eyebrow">Who it's for</span>
           <h2 className="h2" style={{ margin: "0.9rem 0 1rem" }}>Built for software companies.<br /><span className="mag">Not everyone else.</span></h2>
-          <p className="lead">Most review tools were built for local businesses. Revly is built for G2, Capterra and TrustRadius, the platforms that decide software purchases.</p>
+          <p className="lead">Most review tools were built for local businesses. Revly is built for G2, Capterra and the software app stores, the platforms that decide software purchases.</p>
         </div>
         <div className="fit-card">
           <span className="chip chip-magenta">Revly is a good fit if you're</span>
