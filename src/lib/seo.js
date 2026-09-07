@@ -124,7 +124,9 @@ export function faqPageSchema(faqs, path) {
 // site, and pointing a breadcrumb at a URL that 404s is worse than a shorter trail.
 // Blog posts are the exception, so `parent` inserts one real intermediate crumb
 // ({ name, path }). Only pass a page that exists and returns 200.
-export function webPageSchema({ name, description, path, breadcrumbName, parent }) {
+// `image` is a site-root path to the page's social card. Only pass one that exists:
+// pointing primaryImageOfPage at a 404 is worse than omitting it.
+export function webPageSchema({ name, description, path, breadcrumbName, parent, image }) {
   const url = canonicalUrl(path);
   const trail = [{ '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` }];
   if (parent) {
@@ -143,6 +145,7 @@ export function webPageSchema({ name, description, path, breadcrumbName, parent 
         isPartOf: { '@id': WEBSITE_ID },
         about: { '@id': SOFTWARE_ID },
         inLanguage: 'en',
+        ...(image ? { primaryImageOfPage: { '@type': 'ImageObject', url: `${SITE_URL}${image}`, width: 1200, height: 630 } } : {}),
         breadcrumb: { '@id': `${url}#breadcrumb` },
       },
       {

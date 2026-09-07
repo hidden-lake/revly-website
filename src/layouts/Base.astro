@@ -1,16 +1,19 @@
 ---
-import { organizationSchema, websiteSchema, canonicalUrl } from '../lib/seo.js';
+import { organizationSchema, websiteSchema, canonicalUrl, SITE_URL } from '../lib/seo.js';
 
 export interface Props {
   title: string;
   description: string;
   canonicalPath?: string;
   jsonLd?: object[];
+  /** Page-specific social card, as a site-root path. Falls back to the site-wide one. */
+  ogImage?: string;
 }
-const { title, description, canonicalPath, jsonLd = [] } = Astro.props;
+const { title, description, canonicalPath, jsonLd = [], ogImage } = Astro.props;
 const pathname = canonicalPath ?? Astro.url.pathname;
 // Always the trailing-slash form, which is the URL that actually serves a 200.
 const canonical = canonicalUrl(pathname);
+const socialImage = `${SITE_URL}${ogImage ?? '/og-image.png'}`;
 // Site-wide schemas on every page, plus any page-specific schemas passed in.
 const schemas = [organizationSchema, websiteSchema, ...jsonLd];
 // Escape sequences that could break out of the script element. Schema content
@@ -40,7 +43,7 @@ const serializeJsonLd = (value) =>
   <meta name="description" content={description}/>
   <meta property="og:title" content={title}/>
   <meta property="og:description" content={description}/>
-  <meta property="og:image" content="https://revly.io/og-image.png"/>
+  <meta property="og:image" content={socialImage}/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
   <meta property="og:url" content={canonical}/>
@@ -49,7 +52,7 @@ const serializeJsonLd = (value) =>
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="twitter:title" content={title}/>
   <meta name="twitter:description" content={description}/>
-  <meta name="twitter:image" content="https://revly.io/og-image.png"/>
+  <meta name="twitter:image" content={socialImage}/>
   <link rel="canonical" href={canonical}/>
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
