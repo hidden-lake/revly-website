@@ -5,6 +5,7 @@ import { faqPageSchema, webPageSchema, softwareApplicationSchema } from '../lib/
 import { COLLECT_FAQ } from '../lib/faqs.js';
 
 const path = '/collect-quality-reviews';
+const ogImage = '/assets/og-collect-quality-reviews.png';
 const description =
   'One link checks in with your customer, routes anyone who needs help to your team, and helps the rest write a detailed review on the right platform.';
 
@@ -14,6 +15,7 @@ const jsonLd = [
     name: 'Turn "great tool" into a review that converts.',
     description,
     path,
+    image: ogImage,
     breadcrumbName: 'Collect quality reviews',
   }),
   faqPageSchema(COLLECT_FAQ, path),
@@ -24,6 +26,7 @@ const jsonLd = [
   description={description}
   canonicalPath={path}
   jsonLd={jsonLd}
+  ogImage={ogImage}
 >
   <CollectBetterReviews client:load />
 </Base>
