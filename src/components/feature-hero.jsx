@@ -93,31 +93,31 @@ const HERO_CONFIGS = {
     chip: "GET HIGH QUALITY REVIEWS", chipClass: "chip-amber",
     headline: <>Turn <span className="kw">"great tool"</span> into a<br />review that <span className="pay">converts.</span></>,
     lead: "Revly checks in with your customer, points anyone who needs help to your team, then helps everyone else expand a quick thought into a detailed review in their own words, on the platform where it does the most good.",
-    ctas: <><a className="btn btn-yellow btn-lg" href="/pricing">Start collecting better reviews</a><a className="btn btn-outline btn-lg" href="/pricing">Book a demo</a></>
+    ctas: <><a className="btn btn-yellow btn-lg" href="/pricing/">Start collecting better reviews</a><a className="btn btn-outline btn-lg" href="/pricing/">Book a demo</a></>
   },
   monitor: {
     chip: "SEE EVERY REVIEW", chipClass: "chip-amber",
     headline: <>Turn <span className="kw">five open tabs</span><br />into <span className="pay">one dashboard.</span></>,
     lead: <>Reviews land across G2, Capterra, and the app stores. Revly pulls every one into a single feed and <strong>posts each new review to Slack</strong>, so nobody has to remember to check.</>,
-    ctas: <><a className="btn btn-yellow btn-lg" href="/pricing">See all your reviews in one place</a><a className="btn btn-outline btn-lg" href="/pricing">Book a demo</a></>
+    ctas: <><a className="btn btn-yellow btn-lg" href="/pricing/">See all your reviews in one place</a><a className="btn btn-outline btn-lg" href="/pricing/">Book a demo</a></>
   },
   embed: {
     chip: "SHOW YOUR REVIEWS OFF", chipClass: "chip-amber",
     headline: <>Turn <span className="kw" style={{ color: "#12121252" }}>review quotes</span><br />into <span className="pay">proof on your site.</span></>,
     lead: "Your best feedback lives on external platforms. Revly turns it into automatically updated widgets that match your brand.",
-    ctas: <a className="btn btn-yellow btn-lg" href="/pricing">Start showing your reviews</a>
+    ctas: <a className="btn btn-yellow btn-lg" href="/pricing/">Start showing your reviews</a>
   },
   mcp: {
     chip: "REVLY MCP FOR CLAUDE AND CHATGPT", chipClass: "chip-pink",
     headline: <>Turn <span className="kw">your review data</span><br />into <span className="pay">answers in Claude.</span></>,
     lead: "Connect Revly to Claude or ChatGPT and ask about your reviews in plain language. Instantly find the perfect quote for a campaign, find out where collection breaks down, surface how customers describe your product in their own words.",
-    ctas: <a className="btn btn-yellow btn-lg" href="/pricing">Get your review data in Claude</a>
+    ctas: <a className="btn btn-yellow btn-lg" href="/pricing/">Get your review data in Claude</a>
   },
   manage: {
     chip: "REPLY TO ALL REVIEWS", chipClass: "chip-amber",
     headline: <>Turn <span className="kw">a blank reply box</span> into an<br />on-brand response in <span className="pay">seconds.</span></>,
     lead: "Every review deserves a reply, but the blank box eats your day. Revly drafts a tailored, on-brand response you can review and send in one click.",
-    ctas: <a className="btn btn-yellow btn-lg" href="/pricing">Reply to every review faster</a>
+    ctas: <a className="btn btn-yellow btn-lg" href="/pricing/">Reply to every review faster</a>
   }
 };
 

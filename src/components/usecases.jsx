@@ -5,6 +5,7 @@ import { FeatureMotion } from './feature-collect.jsx';
 import { WifHero, wifSaasScene, wifAgencyScene } from './usecase-hero.jsx';
 import { UCConsoleScrolly, UCClientGallery, UCCapabilityIndex, UCProblemSplit, UCOutcome } from './usecase-sections.jsx';
 import { SAAS_FAQ, AGENCY_FAQ } from '../lib/faqs.js';
+import { SAAS_READING, AGENCY_READING } from '../lib/further-reading.js';
 
 // ========== SaaS Teams ==========
 export function UseCaseSaaS() {
@@ -58,18 +59,20 @@ export function UseCaseSaaS() {
             <h2 className="h2">Stop managing reviews<br /><span style={{ color: "#f1057a" }}>across a dozen tabs.</span></h2>
             <p className="lead" style={{ color: "rgba(255,255,255,0.75)", margin: "1rem auto 0", maxWidth: "46ch" }}>One tab for every platform, a clear reply queue, and a check-in before every request. Set up in under 30 minutes.</p>
             <div style={{ display: "flex", justifyContent: "center", gap: ".75rem", marginTop: "2rem", flexWrap: "wrap" }}>
-              <a className="btn btn-default btn-lg" href="/pricing">Start free with Revly</a>
-              <a className="btn btn-yellow btn-lg" href="/pricing">Book a demo</a>
+              <a className="btn btn-default btn-lg" href="/pricing/">Start free with Revly</a>
+              <a className="btn btn-yellow btn-lg" href="/pricing/">Book a demo</a>
             </div>
           </div>
         </div>
       </section>
 
       <CrossLinks items={[
-      { chip: "Collect", title: "Collect reviews worth reading", body: "One link checks in with the customer, routes anyone who needs help to your team, and helps everyone else write something detailed.", to: "/collect-quality-reviews" },
-      { chip: "Monitor", title: "Monitor multiple review platforms", body: "Every review from every platform in one dashboard, with Slack alerts for new reviews.", to: "/monitor-platforms" },
-      { chip: "Respond", title: "Manage review responses", body: "Revly flags what needs a reply and drafts one in your voice.", to: "/manage-review-responses" }]
+      { chip: "Collect", title: "Collect reviews worth reading", body: "One link checks in with the customer, routes anyone who needs help to your team, and helps everyone else write something detailed.", to: "/collect-quality-reviews/" },
+      { chip: "Monitor", title: "Monitor multiple review platforms", body: "Every review from every platform in one dashboard, with Slack alerts for new reviews.", to: "/monitor-platforms/" },
+      { chip: "Respond", title: "Manage review responses", body: "Revly flags what needs a reply and drafts one in your voice.", to: "/manage-review-responses/" }]
       } />
+
+      <CrossLinks eyebrow="Further reading" cta="Read the article →" bg="hsl(var(--card))" items={SAAS_READING} />
     </main>
     <Footer />
   </>;
@@ -128,18 +131,20 @@ export function UseCaseAgencies() {
             <h2 className="h2">Run every client's reviews<br /><span style={{ color: "#f1057a" }}>from one dashboard.</span></h2>
             <p className="lead" style={{ color: "rgba(255,255,255,0.75)", margin: "1rem auto 0", maxWidth: "48ch" }}>Every client, every platform, one login, with alerts the moment something needs a reply. Set up your first client in under 30 minutes.</p>
             <div style={{ display: "flex", justifyContent: "center", gap: ".75rem", marginTop: "2rem", flexWrap: "wrap" }}>
-              <a className="btn btn-default btn-lg" href="/pricing">Start free with Revly</a>
-              <a className="btn btn-yellow btn-lg" href="/pricing">Book a demo</a>
+              <a className="btn btn-default btn-lg" href="/pricing/">Start free with Revly</a>
+              <a className="btn btn-yellow btn-lg" href="/pricing/">Book a demo</a>
             </div>
           </div>
         </div>
       </section>
 
       <CrossLinks items={[
-      { chip: "For SaaS Teams", title: "Review Management for SaaS Teams", body: "One place to collect, monitor, and respond to reviews across every platform, with a check-in before every request.", to: "/use-cases/saas" },
-      { chip: "Monitor", title: "Monitor multiple review platforms", body: "Every review from every platform in one dashboard, with Slack alerts for new reviews.", to: "/monitor-platforms" },
-      { chip: "Respond", title: "Manage Review Responses", body: "Surface every review that needs a reply and draft a response in your voice, across every platform.", to: "/manage-review-responses" }]
+      { chip: "For SaaS Teams", title: "Review Management for SaaS Teams", body: "One place to collect, monitor, and respond to reviews across every platform, with a check-in before every request.", to: "/use-cases/saas/" },
+      { chip: "Monitor", title: "Monitor multiple review platforms", body: "Every review from every platform in one dashboard, with Slack alerts for new reviews.", to: "/monitor-platforms/" },
+      { chip: "Respond", title: "Manage Review Responses", body: "Surface every review that needs a reply and draft a response in your voice, across every platform.", to: "/manage-review-responses/" }]
       } />
+
+      <CrossLinks eyebrow="Further reading" cta="Read the article →" bg="hsl(var(--card))" items={AGENCY_READING} />
     </main>
     <Footer />
   </>;

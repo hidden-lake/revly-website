@@ -41,21 +41,21 @@ export function Navbar() {
     return () => document.removeEventListener("click", onClick);
   }, []);
   const productLinks = [
-  { to: "/collect-quality-reviews", label: "Collect Quality Reviews" },
-  { to: "/monitor-platforms", label: "Monitor Multiple Review Platforms" },
-  { to: "/manage-review-responses", label: "Manage Review Responses" },
-  { to: "/review-widgets", label: "Display Reviews On Your Site" },
-  { to: "/claude-mcp", label: "Query Your Review Data with AI" },
-  { to: "/slack", label: "Slack Notifications" }];
+  { to: "/collect-quality-reviews/", label: "Collect Quality Reviews" },
+  { to: "/monitor-platforms/", label: "Monitor Multiple Review Platforms" },
+  { to: "/manage-review-responses/", label: "Manage Review Responses" },
+  { to: "/review-widgets/", label: "Display Reviews On Your Site" },
+  { to: "/claude-mcp/", label: "Query Your Review Data with AI" },
+  { to: "/slack/", label: "Slack Notifications" }];
   const useCasesLinks = [
-  { to: "/use-cases/saas", label: "SaaS teams" },
-  { to: "/use-cases/agencies", label: "Agencies" }];
+  { to: "/use-cases/saas/", label: "SaaS teams" },
+  { to: "/use-cases/agencies/", label: "Agencies" }];
 
   return (
     <header className="nav">
       <div className="container-x" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: "100%" }}>
         <a href="/" style={{ display: "flex", alignItems: "center" }}>
-          <img src="/assets/revly-logo.png" alt="Revly" style={{ height: "2rem" }} />
+          <img src="/assets/revly-logo.png" alt="Revly" width="208" height="72" decoding="async" style={{ height: "2rem" }} />
         </a>
         <nav style={{ display: "flex", alignItems: "center", gap: "0.25rem" }} className="hide-md">
           <div ref={ref} style={{ position: "relative" }}>
@@ -82,7 +82,7 @@ export function Navbar() {
               </div>
             }
           </div>
-          <a className="nav-link" href="/pricing">pricing</a>
+          <a className="nav-link" href="/pricing/">pricing</a>
           <a className="nav-link" href="/blog/">blog</a>
           <a className="btn btn-ghost btn-sm" href="https://app.revly.io/login" style={{ marginLeft: ".5rem", color: "hsl(var(--foreground) / 0.45)" }}>Sign in</a>
           <a className="btn btn-default btn-sm" href="https://app.revly.io/signup">Start for free</a>
@@ -97,7 +97,7 @@ export function Navbar() {
             {productLinks.map((l) => <a key={l.to} href={l.to} onClick={() => setMobileOpen(false)} style={{ padding: ".5rem 0" }}>{l.label}</a>)}
             <div style={{ height: "1px", background: "hsl(var(--border))", margin: ".4rem 0" }} />
             {useCasesLinks.map((l) => <a key={l.to} href={l.to} onClick={() => setMobileOpen(false)} style={{ padding: ".5rem 0" }}>{l.label}</a>)}
-            <a href="/pricing" onClick={() => setMobileOpen(false)} style={{ padding: ".5rem 0" }}>Pricing</a>
+            <a href="/pricing/" onClick={() => setMobileOpen(false)} style={{ padding: ".5rem 0" }}>Pricing</a>
             <a href="/blog/" onClick={() => setMobileOpen(false)} style={{ padding: ".5rem 0" }}>Blog</a>
             <a className="btn btn-default" href="https://app.revly.io/signup" style={{ marginTop: ".5rem" }}>Start for free</a>
           </div>
@@ -118,7 +118,7 @@ export function Footer() {
       <div className="container-x">
         <div style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr 1fr 1fr 1fr", gap: "2.25rem" }} className="footer-grid">
           <div>
-            <img src="/assets/revly-logo-icon-white.png" alt="Revly" style={{ height: "1.85rem" }} />
+            <img src="/assets/revly-logo-icon-white.png" alt="Revly" width="197" height="68" loading="lazy" decoding="async" style={{ height: "1.85rem" }} />
             <p style={{ color: "rgba(255,255,255,0.6)", marginTop: ".75rem", fontSize: ".95rem", maxWidth: "24rem" }}>Review management for software companies.</p>
             <div style={{ display: "flex", gap: "0.9rem", alignItems: "center", marginTop: "1.25rem" }}>
               <a href="https://www.youtube.com/@revlyhq" target="_blank" rel="noopener" aria-label="Revly on YouTube" style={{ color: "#fff", display: "inline-flex" }}>
@@ -133,12 +133,15 @@ export function Footer() {
             </div>
           </div>
           <FooterCol title="Product" links={[
-          ["Collect Quality Reviews", "/collect-quality-reviews"],
-          ["Monitor Multiple Review Platforms", "/monitor-platforms"],
-          ["Manage Review Responses", "/manage-review-responses"],
-          ["Display Reviews On Your Site", "/review-widgets"],
-          ["Query Your Review Data with AI", "/claude-mcp"],
-          ["Slack Notifications", "/slack"]]
+          ["Collect Quality Reviews", "/collect-quality-reviews/"],
+          ["Monitor Multiple Review Platforms", "/monitor-platforms/"],
+          ["Manage Review Responses", "/manage-review-responses/"],
+          ["Display Reviews On Your Site", "/review-widgets/"],
+          ["Query Your Review Data with AI", "/claude-mcp/"],
+          ["Slack Notifications", "/slack/"],
+          // The free scan needs no account and is the one page on app.revly.io meant
+          // to be found in search. Nothing on this site linked to it until now.
+          ["Free review health check", "https://app.revly.io/scan"]]
           } />
           <FooterCol title="Platforms" items={[
           "G2",
@@ -151,10 +154,10 @@ export function Footer() {
           "Capterra, GetApp & Software Advice"]
           } />
           <FooterCol title="Who it's for" links={[
-          ["SaaS teams", "/use-cases/saas"],
-          ["Agencies", "/use-cases/agencies"]]
+          ["SaaS teams", "/use-cases/saas/"],
+          ["Agencies", "/use-cases/agencies/"]]
           } />
-          <FooterCol title="Company" links={[["Blog", "/blog/"], ["Contact", "mailto:hello@revly.io"], ["Privacy", "/privacy"], ["Terms", "/terms"]]} />
+          <FooterCol title="Company" links={[["Blog", "/blog/"], ["Contact", "mailto:hello@revly.io"], ["Privacy", "/privacy/"], ["Terms", "/terms/"]]} />
         </div>
         <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", marginTop: "3rem", paddingTop: "1.5rem", color: "rgba(255,255,255,0.4)", fontSize: ".85rem" }}>
           © 2026 Revly. Built for software companies.
@@ -250,18 +253,21 @@ export function FAQ({ items, title = "Common questions" }) {
 }
 
 // ---------- Cross-links ----------
-export function CrossLinks({ items }) {
+// Also used for the "Further reading" band that points from a commercial page into
+// the blog, which is why the eyebrow and the link label are props. The defaults keep
+// every existing call site rendering exactly as before.
+export function CrossLinks({ items, eyebrow = "Also in Revly", cta = "Learn more →", bg = "#f6f6f4" }) {
   return (
-    <section style={{ background: "#f6f6f4", padding: "4rem 0" }}>
+    <section style={{ background: bg, padding: "4rem 0" }}>
       <div className="container-x">
-        <div style={{ fontSize: ".8rem", textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: 700, color: "hsl(var(--foreground)/0.5)", textAlign: "center", marginBottom: "2rem" }}>Also in Revly</div>
+        <div style={{ fontSize: ".8rem", textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: 700, color: "hsl(var(--foreground)/0.5)", textAlign: "center", marginBottom: "2rem" }}>{eyebrow}</div>
         <div className="grid-3">
           {items.map((it, i) =>
           <a key={i} href={it.to} className="card" style={{ padding: "1.75rem", display: "flex", flexDirection: "column", height: "100%", transition: "all .2s" }}>
               <div className="chip chip-amber" style={{ marginBottom: "1rem", alignSelf: "flex-start" }}>{it.chip}</div>
               <h3 style={{ fontFamily: "Bricolage Grotesque", fontWeight: 800, fontSize: "1.35rem", marginBottom: ".5rem", minHeight: "2.6em" }}>{it.title}</h3>
               <p style={{ color: "hsl(var(--foreground)/0.6)", fontSize: ".95rem", margin: 0 }}>{it.body}</p>
-              <div style={{ color: "hsl(var(--primary))", fontWeight: 700, marginTop: "auto", paddingTop: "1.25rem", fontSize: ".9rem" }}>Learn more →</div>
+              <div style={{ color: "hsl(var(--primary-text))", fontWeight: 700, marginTop: "auto", paddingTop: "1.25rem", fontSize: ".9rem" }}>{cta}</div>
             </a>
           )}
         </div>

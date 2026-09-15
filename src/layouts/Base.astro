@@ -1,6 +1,22 @@
 ---
 import { organizationSchema, websiteSchema, canonicalUrl, SITE_URL } from '../lib/seo.js';
 
+// Stylesheets are imported rather than linked out of public/, so Astro bundles
+// the set into a single request. As eight separate <link> tags they were eight
+// render-blocking round trips — roughly 1.5s before first paint on a throttled
+// mobile connection, and the largest thing standing between a phone and the
+// homepage. Import order IS cascade order: fonts first, then styles.css, which
+// defines the custom properties every other file reads.
+import '../styles/fonts.css';
+import '../styles/styles.css';
+import '../styles/feature-collect.css';
+import '../styles/feature-hero.css';
+import '../styles/feature-extra.css';
+import '../styles/usecase-hero.css';
+import '../styles/usecase-sections.css';
+import '../styles/blog.css';
+import '../styles/slack.css';
+
 export interface Props {
   title: string;
   description: string;
@@ -57,17 +73,13 @@ const serializeJsonLd = (value) =>
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
   <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="/styles.css"/>
-  <link rel="stylesheet" href="/feature-collect.css"/>
-  <link rel="stylesheet" href="/feature-hero.css"/>
-  <link rel="stylesheet" href="/feature-extra.css"/>
-  <link rel="stylesheet" href="/usecase-hero.css"/>
-  <link rel="stylesheet" href="/usecase-sections.css"/>
-  <link rel="stylesheet" href="/blog.css"/>
-  <link rel="stylesheet" href="/slack.css"/>
+  {/* The two faces every page needs immediately. They are declared inside the
+      bundled CSS, so without a preload the browser cannot discover them until it
+      has parsed that stylesheet. The latin-ext and italic files are deliberately
+      left out — unicode-range fetches those only if a page uses them. crossorigin
+      is required on font preloads even same-origin, or the file is fetched twice. */}
+  <link rel="preload" href="/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin/>
+  <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin/>
   {schemas.map((schema) => (
     <script type="application/ld+json" set:html={serializeJsonLd(schema)} />
   ))}

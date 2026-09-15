@@ -57,7 +57,7 @@ export function WifHero({ chip, headline, lead, cta, scene, tall }) {
           <h1 className="h1">{headline}</h1>
           <p className="lead">{lead}</p>
           <div className="wif-cta">
-            <a className="btn btn-default btn-lg" href="/pricing">{cta}</a>
+            <a className="btn btn-default btn-lg" href="/pricing/">{cta}</a>
           </div>
         </div>
         <Mock className={"wif-scene" + (tall ? " tall" : "")} minHeight={tall ? "34rem" : "30rem"}>{scene}</Mock>

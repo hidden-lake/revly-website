@@ -1,5 +1,8 @@
 /* Revly Design Tokens — HSL CSS variables per handoff */
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap');
+/* The Google Fonts @import that used to sit here is gone. It was a SECOND request
+   for the same two families (the layout already linked them), and an @import inside
+   a stylesheet is the worst case: the browser cannot even start it until this file
+   has downloaded and parsed. Both faces are now self-hosted — see styles/fonts.css. */
 
 :root {
   --background: 0 0% 97%;
@@ -10,6 +13,13 @@
   --popover-foreground: 0 0% 7%;
   --primary: 330 97% 48%;
   --primary-foreground: 0 0% 100%;
+  /* The brand magenta, darkened just enough to carry small text. --primary at 48%
+     reaches only 4.17:1 on white and 3.52:1 on the muted pink, so every uppercase
+     micro-label set in it failed the 4.5:1 minimum for body text. At 41% it reaches
+     5.47:1 and 4.62:1. Same hue, same saturation — this is already the button hover
+     shade, so nothing new enters the palette. Use it for small text only; --primary
+     stays the brand colour for buttons, headings and graphics, which need just 3:1. */
+  --primary-text: 330 97% 41%;
   --secondary: 43 89% 61%;
   --secondary-foreground: 0 0% 7%;
   --muted: 330 100% 95%;
@@ -234,7 +244,7 @@ table.cmp { width:100%; border-collapse: collapse; background: hsl(var(--card));
 .cmp th, .cmp td { padding: 0.85rem 1rem; text-align: left; font-size: 0.9rem; border-bottom: 1px solid hsl(var(--border)); }
 .cmp th { font-family:"Bricolage Grotesque"; font-weight: 700; font-size: 0.95rem; }
 .cmp td:not(:first-child), .cmp th:not(:first-child) { text-align: center; }
-.cmp tr.section-row td { background: hsl(var(--muted) / 0.4); font-family: "Bricolage Grotesque"; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; color: hsl(var(--primary)); }
+.cmp tr.section-row td { background: hsl(var(--muted) / 0.4); font-family: "Bricolage Grotesque"; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; color: hsl(var(--primary-text)); }
 .cmp .check { color: hsl(var(--primary)); }
 .cmp .dash { color: hsl(var(--foreground) / 0.3); }
 
@@ -262,7 +272,7 @@ table.cmp { width:100%; border-collapse: collapse; background: hsl(var(--card));
 /* ============================================================
    DIRECTION A — editorial polish: type, hero, mocks, bands
    ============================================================ */
-.eyebrow { font-family:"DM Sans"; font-weight:700; font-size:0.78rem; letter-spacing:0.16em; text-transform:uppercase; color: hsl(var(--primary)); }
+.eyebrow { font-family:"DM Sans"; font-weight:700; font-size:0.78rem; letter-spacing:0.16em; text-transform:uppercase; color: hsl(var(--primary-text)); }
 .display { font-family:"Bricolage Grotesque"; font-weight:800; font-size: clamp(2.7rem, 6vw, 4.6rem); line-height: 0.98; letter-spacing: -0.035em; }
 
 /* ---- Editorial split hero ---- */
@@ -276,14 +286,14 @@ table.cmp { width:100%; border-collapse: collapse; background: hsl(var(--card));
 .hero-rating { display:inline-flex; align-items:center; gap:0.65rem; white-space:nowrap; padding:0.5rem 1rem 0.5rem 0.6rem; background:#fff; border:1px solid hsl(var(--border)); border-radius:999px; box-shadow:0 1px 2px rgba(19,19,19,.05); font-size:0.9rem; font-weight:600; }
 .hero-rating .avs { display:flex; }
 .hero-rating .avs i { width:26px; height:26px; border-radius:999px; border:2px solid #fff; margin-left:-8px; display:block; }
-.hero-note { margin-top:1.1rem; font-size:0.86rem; color: hsl(var(--foreground)/0.55); display:flex; align-items:center; gap:0.5rem; }
+.hero-note { margin-top:1.1rem; font-size:0.86rem; color: hsl(var(--foreground)/0.61); display:flex; align-items:center; gap:0.5rem; }
 .hero-cta { display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:2rem; }
 
 /* ---- Unified inbox mock ---- */
 .inbox { background:#fff; border:1px solid hsl(var(--border)); border-radius:1.5rem; box-shadow: 0 40px 90px -48px rgba(19,19,19,.4); overflow:hidden; }
 .inbox-top { display:flex; align-items:center; justify-content:space-between; padding:1rem 1.15rem; border-bottom:1px solid hsl(var(--border)); }
 .inbox-top .ttl { font-family:"Bricolage Grotesque"; font-weight:800; font-size:1rem; }
-.inbox-live { display:inline-flex; align-items:center; gap:0.4rem; font-size:0.72rem; font-weight:700; color: hsl(var(--primary)); background: hsl(var(--muted)); padding:0.32rem 0.65rem; border-radius:999px; }
+.inbox-live { display:inline-flex; align-items:center; gap:0.4rem; font-size:0.72rem; font-weight:700; color: hsl(var(--primary-text)); background: hsl(var(--muted)); padding:0.32rem 0.65rem; border-radius:999px; }
 .inbox-live .pulse { width:7px; height:7px; border-radius:999px; background: hsl(var(--primary)); animation: pulse 1.8s infinite; }
 @keyframes pulse { 0%{box-shadow:0 0 0 0 hsl(var(--primary)/.45);} 70%{box-shadow:0 0 0 7px hsl(var(--primary)/0);} 100%{box-shadow:0 0 0 0 hsl(var(--primary)/0);} }
 .inbox-filters { display:flex; gap:0.5rem; padding:0.9rem 1.15rem; border-bottom:1px solid hsl(var(--border)); overflow:hidden; }
@@ -297,7 +307,7 @@ table.cmp { width:100%; border-collapse: collapse; background: hsl(var(--card));
 .rev-row1 { display:flex; align-items:center; gap:0.5rem; margin-bottom:0.2rem; }
 .rev-name { font-weight:700; font-size:0.9rem; }
 .rev-plat { font-size:0.68rem; font-weight:700; letter-spacing:.04em; padding:2px 7px; border-radius:6px; }
-.rev-time { font-size:0.72rem; color: hsl(var(--foreground)/0.45); margin-left:auto; white-space:nowrap; }
+.rev-time { font-size:0.72rem; color: hsl(var(--foreground)/0.61); margin-left:auto; white-space:nowrap; }
 .rev-txt { font-size:0.85rem; color: hsl(var(--foreground)/0.62); line-height:1.45; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .rev-stars { display:inline-flex; gap:2px; color: hsl(var(--secondary)); margin:2px 0; }
 .rev-stars svg { width:13px; height:13px; }
@@ -324,7 +334,7 @@ table.cmp { width:100%; border-collapse: collapse; background: hsl(var(--card));
 .collect-stars svg { width:30px; height:30px; }
 .collect-input { background: hsl(var(--background)); border:1px solid hsl(var(--border)); border-radius:12px; padding:0.85rem; font-size:0.9rem; color: hsl(var(--foreground)/0.6); }
 .collect-ai { margin-top:0.75rem; background: hsl(var(--muted)/0.5); border:1px solid hsl(var(--primary)/0.15); border-radius:12px; padding:0.9rem; }
-.collect-ai .tag { font-size:0.7rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color: hsl(var(--primary)); display:flex; gap:0.4rem; align-items:center; margin-bottom:0.5rem; }
+.collect-ai .tag { font-size:0.7rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color: hsl(var(--primary-text)); display:flex; gap:0.4rem; align-items:center; margin-bottom:0.5rem; }
 .collect-ai p { font-size:0.9rem; line-height:1.5; color: hsl(var(--foreground)); }
 .dash-row { display:flex; gap:0.85rem; }
 .dash-stat { flex:1; background: hsl(var(--background)); border-radius:12px; padding:0.9rem; }
@@ -340,11 +350,11 @@ table.cmp { width:100%; border-collapse: collapse; background: hsl(var(--card));
 .route-split::before { content:""; position:absolute; top:-22px; left:25%; right:25%; height:2px; background: hsl(var(--border)); }
 .route-branch { display:flex; flex-direction:column; align-items:center; }
 .route-out { border-radius:12px; padding:0.75rem 1rem; font-weight:600; font-size:0.84rem; text-align:center; }
-.route-out.pos { background: hsl(var(--muted)); color: hsl(var(--primary)); }
+.route-out.pos { background: hsl(var(--muted)); color: hsl(var(--primary-text)); }
 .route-out.neg { background:#fdf0c8; color:#7a4f05; }
 .resp-orig { background: hsl(var(--background)); border-left:3px solid hsl(var(--secondary)); border-radius:0 10px 10px 0; padding:0.75rem 0.9rem; font-size:0.86rem; color: hsl(var(--foreground)/0.6); }
 .resp-reply { margin-top:0.85rem; border:1px solid hsl(var(--primary)/0.18); background: hsl(var(--muted)/0.5); border-radius:12px; padding:0.9rem; }
-.resp-reply .tag { font-size:0.7rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color: hsl(var(--primary)); margin-bottom:0.5rem; }
+.resp-reply .tag { font-size:0.7rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color: hsl(var(--primary-text)); margin-bottom:0.5rem; }
 .resp-reply p { font-size:0.88rem; line-height:1.5; }
 
 /* ---- Prominent "who it's for" fit card ---- */
@@ -360,7 +370,7 @@ table.cmp { width:100%; border-collapse: collapse; background: hsl(var(--card));
 /* ---- Direction A homepage helpers ---- */
 .mag { color: hsl(var(--primary)); }
 .h3 { font-family:"Bricolage Grotesque"; font-weight:800; font-size: clamp(1.35rem, 2.2vw, 1.85rem); letter-spacing:-0.02em; line-height:1.12; }
-.chip-magenta { background: hsl(var(--muted)); color: hsl(var(--primary)); }
+.chip-magenta { background: hsl(var(--muted)); color: hsl(var(--primary-text)); }
 
 /* Light trust marquee */
 .mq { overflow:hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
@@ -412,8 +422,8 @@ table.cmp { width:100%; border-collapse: collapse; background: hsl(var(--card));
 .how-dark .lead { color: rgba(255,255,255,0.72); }
 
 /* Hero inbox: AI draft + phase fade */
-.hero-draft { margin-top: 0.5rem; font-size: 0.8rem; line-height: 1.45; background: hsl(var(--muted)); border: 1px solid hsl(var(--primary)/0.2); border-radius: 10px; padding: 0.5rem 0.65rem; color: hsl(var(--foreground)/0.75); animation: heroFade .5s cubic-bezier(.22,.61,.36,1) both; }sl(var(--foreground)/0.78); }
-.hero-draft b { color: hsl(var(--primary)); font-weight: 800; }
+.hero-draft { margin-top: 0.5rem; font-size: 0.8rem; line-height: 1.45; background: hsl(var(--muted)); border: 1px solid hsl(var(--primary)/0.2); border-radius: 10px; padding: 0.5rem 0.65rem; color: hsl(var(--foreground)/0.75); animation: heroFade .5s cubic-bezier(.22,.61,.36,1) both; }
+.hero-draft b { color: hsl(var(--primary-text)); font-weight: 800; }
 @keyframes heroFade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 
 /* ===== Global mobile polish ===== */

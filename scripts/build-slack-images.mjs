@@ -5,7 +5,7 @@
 // The mocks reproduce the Block Kit payloads Revly actually posts — see
 // src/lib/integrations/slack.ts in the app repo (hidden-lake/revly) for the
 // builders and slack-notify.ts for what triggers each one. They share
-// public/slack.css with the landing page's own hero mock, so a styling change
+// src/styles/slack.css with the landing page's own hero mock, so a styling change
 // lands in both places. If the Block Kit builders change, update the mocks
 // below and re-run. The PNGs are committed, so this only runs on a change.
 //
@@ -21,7 +21,7 @@ import { execFileSync } from 'node:child_process';
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = path.join(REPO, 'public/assets/slack');
 const TMP = fs.mkdtempSync(path.join(os.tmpdir(), 'slack-shots-'));
-const CSS = `file://${path.join(REPO, 'public/slack.css')}`;
+const CSS = `file://${path.join(REPO, 'src/styles/slack.css')}`;
 
 // Prefer an explicit CHROME_BIN, then the newest Playwright browser in the
 // user's cache, then a system Chrome. Peter works across two Macs, so nothing
