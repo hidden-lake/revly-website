@@ -293,9 +293,9 @@ export function SlackApp() {
       </section>
 
       <CrossLinks items={[
-        { chip: 'Monitor', title: 'Monitor Multiple Review Platforms', body: 'All your reviews from every platform in one dashboard, so nothing is missed.', to: '/monitor-platforms' },
-        { chip: 'Respond', title: 'Manage Review Responses', body: 'Surface every review that needs a reply and draft one in your voice, across every platform.', to: '/manage-review-responses' },
-        { chip: 'Claude MCP', title: 'Query your review data with AI', body: 'Connect Revly to Claude or ChatGPT and ask questions about your review data in plain language.', to: '/claude-mcp' }]
+        { chip: 'Monitor', title: 'Monitor Multiple Review Platforms', body: 'All your reviews from every platform in one dashboard, so nothing is missed.', to: '/monitor-platforms/' },
+        { chip: 'Respond', title: 'Manage Review Responses', body: 'Surface every review that needs a reply and draft one in your voice, across every platform.', to: '/manage-review-responses/' },
+        { chip: 'Claude MCP', title: 'Query your review data with AI', body: 'Connect Revly to Claude or ChatGPT and ask questions about your review data in plain language.', to: '/claude-mcp/' }]
       } />
     </main>
     <Footer />
