@@ -55,7 +55,7 @@ export function Navbar() {
     <header className="nav">
       <div className="container-x" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: "100%" }}>
         <a href="/" style={{ display: "flex", alignItems: "center" }}>
-          <img src="/assets/revly-logo.png" alt="Revly" width="208" height="72" decoding="async" style={{ height: "2rem" }} />
+          <img src="/assets/revly-logo.png" alt="Revly" width="277" height="96" decoding="async" style={{ height: "2rem", width: "auto" }} />
         </a>
         <nav style={{ display: "flex", alignItems: "center", gap: "0.25rem" }} className="hide-md">
           <div ref={ref} style={{ position: "relative" }}>
@@ -118,7 +118,7 @@ export function Footer() {
       <div className="container-x">
         <div style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr 1fr 1fr 1fr", gap: "2.25rem" }} className="footer-grid">
           <div>
-            <img src="/assets/revly-logo-icon-white.png" alt="Revly" width="197" height="68" loading="lazy" decoding="async" style={{ height: "1.85rem" }} />
+            <img src="/assets/revly-logo-icon-white.png" alt="Revly" width="260" height="90" loading="lazy" decoding="async" style={{ height: "1.85rem", width: "auto" }} />
             <p style={{ color: "rgba(255,255,255,0.6)", marginTop: ".75rem", fontSize: ".95rem", maxWidth: "24rem" }}>Review management for software companies.</p>
             <div style={{ display: "flex", gap: "0.9rem", alignItems: "center", marginTop: "1.25rem" }}>
               <a href="https://www.youtube.com/@revlyhq" target="_blank" rel="noopener" aria-label="Revly on YouTube" style={{ color: "#fff", display: "inline-flex" }}>
