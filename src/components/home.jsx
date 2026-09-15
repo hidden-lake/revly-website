@@ -14,10 +14,10 @@ function Stars({ n = 5, className = "rev-stars" }) {
 // Sample data for the dashboard mockup. These are reviews of Acme, the fictional
 // product a Revly customer sells — never reviews of Revly itself.
 const HOME_INBOX = [
-{ n: "Maria O.", av: "hsl(var(--primary))", plat: "G2", pc: "hsl(var(--muted))", pt: "hsl(var(--primary))", t: "“Acme's sync hasn't dropped an order since we switched.”", time: "2m" },
+{ n: "Maria O.", av: "hsl(var(--primary))", plat: "G2", pc: "hsl(var(--muted))", pt: "hsl(var(--primary-text))", t: "“Acme's sync hasn't dropped an order since we switched.”", time: "2m" },
 { n: "Devon R.", av: "hsl(var(--secondary))", plat: "Capterra", pc: "#fdf0c8", pt: "#7a4f05", t: "“Setup took ten minutes and support replied the same day.”", time: "18m" },
 { n: "Priya S.", av: "hsl(var(--foreground))", plat: "Trustpilot", pc: "#eaeaea", pt: "#444", t: "“The reporting saves our finance team about a day a month.”", time: "1h" },
-{ n: "Alex T.", av: "hsl(var(--primary))", plat: "App Store", pc: "hsl(var(--muted))", pt: "hsl(var(--primary))", t: "“Acme handles our multi-currency orders without any fuss.”", time: "3h" }];
+{ n: "Alex T.", av: "hsl(var(--primary))", plat: "App Store", pc: "hsl(var(--muted))", pt: "hsl(var(--primary-text))", t: "“Acme handles our multi-currency orders without any fuss.”", time: "3h" }];
 
 function ReviewRow({ r }) {
   return (
@@ -69,7 +69,7 @@ function HeroInbox() {
   }, [phase, cycled, mounted]);
   const needs = [
     { n: "Devon R.", av: "hsl(var(--secondary))", plat: "Capterra", pc: "#fdf0c8", pt: "#7a4f05", t: "“Acme works well, but onboarding felt rushed and I missed a few features.”", time: "4m", stars: 3, draft: "“Thanks for the honest feedback. We've reworked onboarding with a guided setup.”" },
-    { n: "Priya S.", av: "hsl(var(--primary))", plat: "G2", pc: "hsl(var(--muted))", pt: "hsl(var(--primary))", t: "“Wanted more integrations on Acme's starter plan.”", time: "1h", stars: 2 }];
+    { n: "Priya S.", av: "hsl(var(--primary))", plat: "G2", pc: "hsl(var(--muted))", pt: "hsl(var(--primary-text))", t: "“Wanted more integrations on Acme's starter plan.”", time: "1h", stars: 2 }];
 
   const onAll = phase === 0;
   return (
@@ -105,7 +105,7 @@ function Hero() {
           <h1 className="display" style={{ marginTop: "1.4rem" }}>Every software review.<br /><span className="mag">One place.</span></h1>
           <p className="lead" style={{ marginTop: "1.4rem", maxWidth: "30ch" }}>Revly is the review management platform built for software companies. Collect better reviews with one smart link, monitor every platform from a single dashboard, and respond where buyers are looking.</p>
           <div className="hero-cta">
-            <a className="btn btn-default btn-lg" href="/pricing">Take control of your reviews</a>
+            <a className="btn btn-default btn-lg" href="/pricing/">Take control of your reviews</a>
             <a className="btn btn-outline btn-lg" href="#how" onClick={(e) => scrollToId(e, "how")}>See how it works</a>
           </div>
           <p className="hero-note">
@@ -121,22 +121,28 @@ function Hero() {
 }
 
 function TrustMarquee() {
+  // [src, alt, sizeClass, width, height]. The last two are each file's real pixel
+  // size, which the CSS then scales into a 30px-tall box. They are declared so the
+  // browser reserves the right width before a logo arrives; without them the ticker
+  // reflows as each one lands. Keep them in step with the files — these were cut to
+  // roughly twice their display size in September 2026 (QuickBooks alone had been
+  // 3840px wide and 170KB, for a slot about 120px across).
   const logos = [
-    ["/assets/logos/g2.svg", "G2"],
-    ["/assets/logos/capterra.png", "Capterra"],
-    ["/assets/logos/trustpilot.png", "Trustpilot"],
-    ["/assets/logos/shopify.png", "Shopify", "lg"],
-    ["/assets/logos/woo.png", "WooCommerce", "sm"],
-    ["/assets/logos/wordpress.png", "WordPress"],
-    ["/assets/logos/xero.png", "Xero"],
-    ["/assets/logos/quickbooks.png", "QuickBooks"]];
+    ["/assets/logos/g2.svg", "G2", "", 2454, 2500],
+    ["/assets/logos/capterra.png", "Capterra", "", 273, 96],
+    ["/assets/logos/trustpilot.png", "Trustpilot", "", 300, 74],
+    ["/assets/logos/shopify.png", "Shopify", "lg", 192, 96],
+    ["/assets/logos/woo.png", "WooCommerce", "sm", 300, 78],
+    ["/assets/logos/wordpress.png", "WordPress", "", 300, 68],
+    ["/assets/logos/xero.png", "Xero", "", 192, 96],
+    ["/assets/logos/quickbooks.png", "QuickBooks", "", 300, 77]];
 
   const triple = [...logos, ...logos, ...logos];
   return (
     <section className="mq-band">
       <div className="mq">
         <div className="mq-track">
-          {triple.map((l, i) => <img key={i} src={l[0]} alt={l[1]} className={"mq-logo" + (l[2] ? " " + l[2] : "")} />)}
+          {triple.map((l, i) => <img key={i} src={l[0]} alt={l[1]} className={"mq-logo" + (l[2] ? " " + l[2] : "")} width={l[3]} height={l[4]} decoding="async" />)}
         </div>
       </div>
     </section>);
@@ -198,11 +204,11 @@ function DownArrow({ color = "hsl(var(--primary))" }) {
 function DashStat({ label, value, sub, stars }) {
   return (
     <div style={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: "12px", padding: "0.8rem 0.85rem" }}>
-      <div style={{ fontSize: "0.7rem", color: "hsl(var(--foreground)/0.5)", marginBottom: "0.4rem" }}>{label}</div>
+      <div style={{ fontSize: "0.7rem", color: "hsl(var(--foreground)/0.61)", marginBottom: "0.4rem" }}>{label}</div>
       <div style={{ display: "flex", alignItems: "center", gap: "0.4rem", flexWrap: "wrap" }}>
         <span style={{ fontFamily: "Bricolage Grotesque", fontWeight: 800, fontSize: "1.35rem", lineHeight: 1 }}>{value}</span>
         {stars != null && <StarRow filled={stars} size={11} />}
-        {sub && <span style={{ fontSize: "0.7rem", color: "hsl(var(--foreground)/0.45)" }}>{sub}</span>}
+        {sub && <span style={{ fontSize: "0.7rem", color: "hsl(var(--foreground)/0.61)" }}>{sub}</span>}
       </div>
     </div>);
 }
@@ -240,7 +246,7 @@ function DashMock() {
               <path d="M0,72 C25,60 45,46 70,50 C95,54 112,66 135,64 C160,62 178,48 205,46 C232,44 252,30 275,34 C286,36 295,44 300,48 L300,110 L0,110 Z" fill="url(#revArea)" />
               <path d="M0,72 C25,60 45,46 70,50 C95,54 112,66 135,64 C160,62 178,48 205,46 C232,44 252,30 275,34 C286,36 295,44 300,48" fill="none" stroke="hsl(var(--primary))" strokeWidth="2.5" strokeLinejoin="round" />
             </svg>
-            <div style={{ display: "flex", justifyContent: "space-between", marginTop: "0.45rem", fontSize: "0.64rem", color: "hsl(var(--foreground)/0.4)" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", marginTop: "0.45rem", fontSize: "0.64rem", color: "hsl(var(--foreground)/0.61)" }}>
               {["Jan", "Feb", "Mar", "Apr", "May", "Jun"].map((m) => <span key={m}>{m}</span>)}
             </div>
           </div>
@@ -249,7 +255,7 @@ function DashMock() {
             <div style={{ display: "flex", flexDirection: "column", gap: "0.45rem" }}>
               {bars.map((b) =>
               <div key={b.n} style={{ display: "flex", alignItems: "center", gap: "0.55rem" }}>
-                  <span style={{ width: "68px", textAlign: "right", fontSize: "0.66rem", color: "hsl(var(--foreground)/0.5)", flex: "none" }}>{b.n}</span>
+                  <span style={{ width: "68px", textAlign: "right", fontSize: "0.66rem", color: "hsl(var(--foreground)/0.61)", flex: "none" }}>{b.n}</span>
                   <div style={{ flex: 1, height: "13px" }}>
                     <div style={{ width: b.w, height: "100%", background: b.c, borderRadius: "4px" }}></div>
                   </div>
@@ -296,9 +302,9 @@ function McpHomeMock() {
       <div className="mock-bar"><i></i><i></i><i></i><span className="lbl">Claude · Revly connector</span></div>
       <div className="mock-pad">
         <div className="mcp-conn">
-          <span className="mcp-logo"><img src="/assets/claude-icon.png" alt="Claude" style={{ height: "34px", borderRadius: "9px" }} /><img src="/assets/chatgpt-icon.png" alt="ChatGPT" style={{ height: "34px", marginLeft: ".45rem" }} /></span>
+          <span className="mcp-logo"><img src="/assets/claude-icon.png" alt="Claude" width="80" height="80" loading="lazy" decoding="async" style={{ height: "34px", borderRadius: "9px" }} /><img src="/assets/chatgpt-icon.png" alt="ChatGPT" width="80" height="80" loading="lazy" decoding="async" style={{ height: "34px", marginLeft: ".45rem" }} /></span>
           <span className="mcp-wire"><b style={{ width: "100%" }}></b></span>
-          <span className="mcp-logo"><img src="/assets/revly-wordmark.png" alt="Revly" style={{ height: "26px" }} /></span>
+          <span className="mcp-logo"><img src="/assets/revly-wordmark.png" alt="Revly" width="178" height="60" loading="lazy" decoding="async" style={{ height: "26px" }} /></span>
         </div>
         <div className="mc-chat">
           <div className="mc-you">Which features do five-star reviewers mention most this quarter?</div>
@@ -312,11 +318,11 @@ function McpHomeMock() {
 function Features() {
 // Alternation is positional: even blocks put the mock left, odd blocks put it right.
   const rows = [
-  { chip: "Collect", chipClass: "chip-amber", heading: "Collect reviews worth reading", body: "One link per product. It asks how things are going, offers a hand to anyone who needs one, and helps everyone else turn a quick thought into a review with actual detail in it, in their own words, approved by them before it posts.", to: "/collect-quality-reviews", Mock: CollectMock },
-  { chip: "Monitor", chipClass: "chip-magenta", heading: "Every platform in one dashboard, and in Slack", body: "Revly pulls reviews from all your listings into one feed, sorted by product, with trends tracked over time. A new review also lands in the Slack channel you choose, so the first person to see it is someone on your team rather than a prospect.", to: "/monitor-platforms", Mock: DashMock },
-  { chip: "Respond", chipClass: "chip-magenta", heading: "Stay on top of every reply", body: "Leaving reviews unanswered is a missed opportunity: savvy buyers sort by lowest rating first to see if you showed up. Revly flags what needs a response and helps you write one in your voice, across every platform.", to: "/manage-review-responses", Mock: RespMock },
-  { chip: "Display", chipClass: "chip-amber", heading: "Put your reviews on your own site", body: "Your best feedback lives on platforms your visitors never open. Turn it into grid, carousel, or wall widgets that match your brand, paste one line of code, and they keep themselves current as new reviews land.", to: "/review-widgets", Mock: EmbedHomeMock },
-  { chip: "Claude connector", chipClass: "chip-magenta", heading: "Ask your review data anything", body: "Connect Revly to Claude or ChatGPT and query your reviews in plain language: the quote you need for a campaign, where collection breaks down, how customers describe your product in their own words.", to: "/claude-mcp", Mock: McpHomeMock }];
+  { chip: "Collect", chipClass: "chip-amber", heading: "Collect reviews worth reading", body: "One link per product. It asks how things are going, offers a hand to anyone who needs one, and helps everyone else turn a quick thought into a review with actual detail in it, in their own words, approved by them before it posts.", to: "/collect-quality-reviews/", Mock: CollectMock },
+  { chip: "Monitor", chipClass: "chip-magenta", heading: "Every platform in one dashboard, and in Slack", body: "Revly pulls reviews from all your listings into one feed, sorted by product, with trends tracked over time. A new review also lands in the Slack channel you choose, so the first person to see it is someone on your team rather than a prospect.", to: "/monitor-platforms/", Mock: DashMock },
+  { chip: "Respond", chipClass: "chip-magenta", heading: "Stay on top of every reply", body: "Leaving reviews unanswered is a missed opportunity: savvy buyers sort by lowest rating first to see if you showed up. Revly flags what needs a response and helps you write one in your voice, across every platform.", to: "/manage-review-responses/", Mock: RespMock },
+  { chip: "Display", chipClass: "chip-amber", heading: "Put your reviews on your own site", body: "Your best feedback lives on platforms your visitors never open. Turn it into grid, carousel, or wall widgets that match your brand, paste one line of code, and they keep themselves current as new reviews land.", to: "/review-widgets/", Mock: EmbedHomeMock },
+  { chip: "Claude connector", chipClass: "chip-magenta", heading: "Ask your review data anything", body: "Connect Revly to Claude or ChatGPT and query your reviews in plain language: the quote you need for a campaign, where collection breaks down, how customers describe your product in their own words.", to: "/claude-mcp/", Mock: McpHomeMock }];
 
   return (
     <section className="section" style={{ background: "hsl(var(--card))" }}>
@@ -403,8 +409,8 @@ function HomeClosingCTA() {
           <h2 className="h2">Your review chaos? <span className="mag">Solved.</span></h2>
           <p className="lead" style={{ color: "rgba(255,255,255,0.75)", margin: "1rem auto 0", maxWidth: "46ch" }}>One smart link. Every platform. Up and running in minutes.</p>
           <div style={{ display: "flex", justifyContent: "center", gap: "0.75rem", marginTop: "2rem", flexWrap: "wrap" }}>
-            <a className="btn btn-default btn-lg" href="/pricing">Get started for free</a>
-            <a className="btn btn-yellow btn-lg" href="/pricing">Book a demo</a>
+            <a className="btn btn-default btn-lg" href="/pricing/">Get started for free</a>
+            <a className="btn btn-yellow btn-lg" href="/pricing/">Book a demo</a>
           </div>
         </div>
       </div>

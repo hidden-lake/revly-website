@@ -103,7 +103,7 @@ export function Pricing() {
                   <span style={{fontFamily:"Bricolage Grotesque", fontWeight:800, fontSize:"2.5rem", lineHeight:1}}>{p.price}</span>
                   {p.priceSub && <span style={{color:"hsl(var(--foreground)/0.6)", fontSize:"1rem"}}>{p.priceSub}</span>}
                 </div>
-                {p.sub && <div style={{color:"hsl(var(--foreground)/0.5)", fontSize:".85rem", marginTop:".25rem"}}>{p.sub}</div>}
+                {p.sub && <div style={{color:"hsl(var(--foreground)/0.61)", fontSize:".85rem", marginTop:".25rem"}}>{p.sub}</div>}
                 <ul style={{listStyle:"none", padding:0, margin:"1.5rem 0 1.75rem", display:"flex", flexDirection:"column", gap:".65rem"}}>
                   {p.bullets.map((b, i) => (
                     <li key={i} style={{display:"flex", alignItems:"flex-start", gap:".55rem", fontSize:".92rem"}}>

@@ -25,6 +25,10 @@ behalf or posts without their approval.
 - [Query your review data with AI](https://revly.io/claude-mcp/): Revly MCP server for Claude and ChatGPT
 - [Slack notifications](https://revly.io/slack/): the Revly Slack app, what it posts and the permissions it asks for
 
+## Free tools
+
+- [Review health check](https://app.revly.io/scan): scan any Shopify, Xero or WordPress listing with no account. Returns its rating, review volume, response rate and how it compares with the rest of that marketplace.
+
 ## Pricing
 
 - [Pricing page](https://revly.io/pricing/)

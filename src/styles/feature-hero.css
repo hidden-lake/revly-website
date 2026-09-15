@@ -13,7 +13,7 @@
 .hero-c2 .frame { border: 1px solid hsl(var(--border)); border-radius: 16px; background: #fff; box-shadow: 0 30px 60px -40px rgba(0,0,0,0.3); padding: 1.5rem 1.6rem; text-align: left; position: relative; }
 .hero-c2 .hd-state { position: absolute; left: 1.6rem; right: 1.6rem; top: 1.5rem; }
 .hero-c2 .mlbl { display: inline-flex; align-items: center; gap: 0.4rem; white-space: nowrap; font-family: "Bricolage Grotesque"; font-weight: 800; font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.3rem 0.7rem; border-radius: 999px; margin-bottom: 0.85rem; }
-.hero-c2 .lbl-weak { background: hsl(var(--muted)); color: hsl(var(--foreground)/0.5); }
+.hero-c2 .lbl-weak { background: hsl(var(--muted)); color: hsl(var(--foreground)/0.61); }
 .hero-c2 .lbl-strong { background: hsl(var(--primary)); color: #fff; }
 .hero-c2 .mlbl .met { font-weight: 700; opacity: 0.8; }
 
@@ -50,7 +50,7 @@
 .hero-c2 .bubble { border-radius: 12px; padding: 0.8rem 0.95rem; font-size: 0.92rem; line-height: 1.5; }
 .hero-c2 .bubble.weak { background: hsl(var(--background)); border: 1px dashed hsl(var(--border)); color: hsl(var(--foreground)/0.5); }
 .hero-c2 .bubble.strong { background: hsl(var(--muted)); border: 1px solid hsl(var(--primary)/0.18); color: hsl(var(--foreground)/0.82); }
-.hero-c2 .bubble .who { font-weight: 700; color: hsl(var(--primary)); }
+.hero-c2 .bubble .who { font-weight: 700; color: hsl(var(--primary-text)); }
 
 @media (max-width: 640px) {
   .hero-c2 .mess .t2, .hero-c2 .mess .t4 { left: auto; right: 0; }

@@ -106,7 +106,7 @@
 .panelC { flex: 0 0 auto; width: min(760px, 82vw); display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: center; }
 @media (min-width: 720px) { .panelC { grid-template-columns: 0.85fr 1.15fr; gap: 3.5rem; } }
 .panelC .num { font-family: "Bricolage Grotesque"; font-weight: 800; font-size: clamp(4rem, 9vw, 8rem); line-height: 0.9; color: transparent; -webkit-text-stroke: 2px hsl(var(--primary)/0.4); letter-spacing: -0.04em; }
-.panelC .lbl { font-family: "DM Sans"; font-weight: 700; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: hsl(var(--primary)); margin: 1.2rem 0 0.8rem; }
+.panelC .lbl { font-family: "DM Sans"; font-weight: 700; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: hsl(var(--primary-text)); margin: 1.2rem 0 0.8rem; }
 .panelC h3 { font-family: "Bricolage Grotesque"; font-weight: 800; font-size: clamp(1.7rem, 3vw, 2.6rem); line-height: 1.12; letter-spacing: -0.02em; color: hsl(var(--foreground)); margin: 0 0 0.9rem; }
 .panelC p { margin: 0; font-size: 1.1rem; line-height: 1.6; color: hsl(var(--foreground)/0.62); max-width: 32ch; }
 .panelC.lead-panel { grid-template-columns: 1fr; text-align: left; }

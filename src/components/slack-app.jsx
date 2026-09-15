@@ -253,7 +253,7 @@ export function SlackApp() {
             </table>
           </div>
           <div style={{ maxWidth: '860px', margin: '2.5rem auto 0' }}>
-            <p style={{ color: 'hsl(var(--foreground)/.75)', lineHeight: 1.7 }}>When you connect, Revly stores your Slack workspace ID and name, the bot token Slack issues (encrypted at rest with AES-256-GCM), the ID and name of the channel you select, and which Revly user made the connection. Revly never reads messages, member profiles, files or anything else in your workspace. Disconnecting revokes the token with Slack and deletes the record immediately; deleting your Revly account does the same. Full details are in our <a href="/privacy" style={{ color: 'hsl(var(--primary))', fontWeight: 700 }}>Privacy Policy</a> and <a href="/terms" style={{ color: 'hsl(var(--primary))', fontWeight: 700 }}>Terms of Service</a>.</p>
+            <p style={{ color: 'hsl(var(--foreground)/.75)', lineHeight: 1.7 }}>When you connect, Revly stores your Slack workspace ID and name, the bot token Slack issues (encrypted at rest with AES-256-GCM), the ID and name of the channel you select, and which Revly user made the connection. Revly never reads messages, member profiles, files or anything else in your workspace. Disconnecting revokes the token with Slack and deletes the record immediately; deleting your Revly account does the same. Full details are in our <a href="/privacy/" style={{ color: 'hsl(var(--primary))', fontWeight: 700 }}>Privacy Policy</a> and <a href="/terms/" style={{ color: 'hsl(var(--primary))', fontWeight: 700 }}>Terms of Service</a>.</p>
             <p id="support" style={{ color: 'hsl(var(--foreground)/.75)', lineHeight: 1.7 }}>Questions or support: email <a href="mailto:hello@revly.io" style={{ color: 'hsl(var(--primary))', fontWeight: 700 }}>hello@revly.io</a>. We reply within one business day.</p>
           </div>
         </div>
@@ -272,7 +272,7 @@ export function SlackApp() {
             <div className="sl-plan"><div className="nm">Agency</div><div className="pr">Custom</div><p>Ten or more managed clients, each with its own Slack connection, consolidated billing.</p></div>
           </div>
           <div style={{ textAlign: 'center', marginTop: '2rem' }}>
-            <a className="btn btn-outline" href="/pricing">Compare all plans</a>
+            <a className="btn btn-outline" href="/pricing/">Compare all plans</a>
           </div>
         </div>
       </section>
@@ -293,9 +293,9 @@ export function SlackApp() {
       </section>
 
       <CrossLinks items={[
-        { chip: 'Monitor', title: 'Monitor Multiple Review Platforms', body: 'All your reviews from every platform in one dashboard, so nothing is missed.', to: '/monitor-platforms' },
-        { chip: 'Respond', title: 'Manage Review Responses', body: 'Surface every review that needs a reply and draft one in your voice, across every platform.', to: '/manage-review-responses' },
-        { chip: 'Claude MCP', title: 'Query your review data with AI', body: 'Connect Revly to Claude or ChatGPT and ask questions about your review data in plain language.', to: '/claude-mcp' }]
+        { chip: 'Monitor', title: 'Monitor Multiple Review Platforms', body: 'All your reviews from every platform in one dashboard, so nothing is missed.', to: '/monitor-platforms/' },
+        { chip: 'Respond', title: 'Manage Review Responses', body: 'Surface every review that needs a reply and draft one in your voice, across every platform.', to: '/manage-review-responses/' },
+        { chip: 'Claude MCP', title: 'Query your review data with AI', body: 'Connect Revly to Claude or ChatGPT and ask questions about your review data in plain language.', to: '/claude-mcp/' }]
       } />
     </main>
     <Footer />

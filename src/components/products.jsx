@@ -7,6 +7,7 @@ import { FeatureMotion, CQScrolly, CQSmartRouting, CQGallery } from './feature-c
 import { MonScrolly, MonGallery } from './feature-monitor.jsx';
 import { RespScrolly, RespGallery } from './feature-respond.jsx';
 import { COLLECT_FAQ, MONITOR_FAQ, RESPOND_FAQ } from '../lib/faqs.js';
+import { COLLECT_READING, MONITOR_READING, RESPOND_READING } from '../lib/further-reading.js';
 
 export function ProductBeforeAfter({ heading, rows }) {
   return (
@@ -127,18 +128,20 @@ export function CollectBetterReviews() {
             <h2 className="h2">Ask better,<br /><span style={{ color: "#f1057a" }}>get better reviews.</span></h2>
             <p className="lead" style={{ color: "rgba(255,255,255,0.75)", margin: "1rem auto 0", maxWidth: "50ch" }}>One link. A question that tells you whether this is the right moment, writing help that keeps the customer's voice, and routing to the platform that needs it.</p>
             <div style={{ display: "flex", justifyContent: "center", gap: ".75rem", marginTop: "2rem", flexWrap: "wrap" }}>
-              <a className="btn btn-default btn-lg" href="/pricing">Start collecting better reviews</a>
-              <a className="btn btn-yellow btn-lg" href="/pricing">Book a demo</a>
+              <a className="btn btn-default btn-lg" href="/pricing/">Start collecting better reviews</a>
+              <a className="btn btn-yellow btn-lg" href="/pricing/">Book a demo</a>
             </div>
           </div>
         </div>
       </section>
 
       <CrossLinks items={[
-      { chip: "Monitor", title: "Monitor multiple review platforms", body: "Every review from every platform in one dashboard, with Slack alerts for new reviews.", to: "/monitor-platforms" },
-      { chip: "Respond", title: "Manage review responses", body: "Revly flags what needs a reply and drafts one in your voice.", to: "/manage-review-responses" },
-      { chip: "Display", title: "Display reviews on your site", body: "Styled widgets that keep themselves current as new reviews come in.", to: "/review-widgets" }]
+      { chip: "Monitor", title: "Monitor multiple review platforms", body: "Every review from every platform in one dashboard, with Slack alerts for new reviews.", to: "/monitor-platforms/" },
+      { chip: "Respond", title: "Manage review responses", body: "Revly flags what needs a reply and drafts one in your voice.", to: "/manage-review-responses/" },
+      { chip: "Display", title: "Display reviews on your site", body: "Styled widgets that keep themselves current as new reviews come in.", to: "/review-widgets/" }]
       } />
+
+      <CrossLinks eyebrow="Further reading" cta="Read the article →" bg="hsl(var(--card))" items={COLLECT_READING} />
     </main>
     <Footer />
   </>;
@@ -177,18 +180,20 @@ export function MonitorPlatforms() {
             <h2 className="h2">Your whole review presence,<br /><span style={{ color: "#f1057a" }}>in one place and in Slack.</span></h2>
             <p className="lead" style={{ color: "rgba(255,255,255,0.75)", margin: "1rem auto 0", maxWidth: "50ch" }}>Every platform in one dashboard, every new review in the channel your team already has open.</p>
             <div style={{ display: "flex", justifyContent: "center", gap: ".75rem", marginTop: "2rem", flexWrap: "wrap" }}>
-              <a className="btn btn-default btn-lg" href="/pricing">Start monitoring your reviews</a>
-              <a className="btn btn-yellow btn-lg" href="/pricing">Book a demo</a>
+              <a className="btn btn-default btn-lg" href="/pricing/">Start monitoring your reviews</a>
+              <a className="btn btn-yellow btn-lg" href="/pricing/">Book a demo</a>
             </div>
           </div>
         </div>
       </section>
 
       <CrossLinks items={[
-      { chip: "Collect", title: "Collect reviews worth reading", body: "One link checks in with the customer, routes anyone who needs help to your team, and helps everyone else write something detailed.", to: "/collect-quality-reviews" },
-      { chip: "Respond", title: "Manage review responses", body: "Revly flags what needs a reply and drafts one in your voice.", to: "/manage-review-responses" },
-      { chip: "Claude connector", title: "Query your review data with AI", body: "Connect Revly to Claude or ChatGPT and ask questions about your review data in plain language.", to: "/claude-mcp" }]
+      { chip: "Collect", title: "Collect reviews worth reading", body: "One link checks in with the customer, routes anyone who needs help to your team, and helps everyone else write something detailed.", to: "/collect-quality-reviews/" },
+      { chip: "Respond", title: "Manage review responses", body: "Revly flags what needs a reply and drafts one in your voice.", to: "/manage-review-responses/" },
+      { chip: "Claude connector", title: "Query your review data with AI", body: "Connect Revly to Claude or ChatGPT and ask questions about your review data in plain language.", to: "/claude-mcp/" }]
       } />
+
+      <CrossLinks eyebrow="Further reading" cta="Read the article →" bg="hsl(var(--card))" items={MONITOR_READING} />
     </main>
     <Footer />
   </>;
@@ -225,18 +230,20 @@ export function ManageReviewResponses() {
             <h2 className="h2">Your reviews are a conversation.<br /><span style={{ color: "#f1057a" }}>Start showing up to it.</span></h2>
             <p className="lead" style={{ color: "rgba(255,255,255,0.75)", margin: "1rem auto 0", maxWidth: "48ch" }}>One dashboard, every platform, AI-assisted replies matched to your brand voice, and one click to post.</p>
             <div style={{ display: "flex", justifyContent: "center", gap: ".75rem", marginTop: "2rem", flexWrap: "wrap" }}>
-              <a className="btn btn-default btn-lg" href="/pricing">Start replying to all reviews</a>
-              <a className="btn btn-yellow btn-lg" href="/pricing">Book a demo</a>
+              <a className="btn btn-default btn-lg" href="/pricing/">Start replying to all reviews</a>
+              <a className="btn btn-yellow btn-lg" href="/pricing/">Book a demo</a>
             </div>
           </div>
         </div>
       </section>
 
       <CrossLinks items={[
-      { chip: "Collect", title: "Collect Quality Reviews", body: "One smart link plus AI writing assistance turns willing customers into detailed reviews on the platforms that matter.", to: "/collect-quality-reviews" },
-      { chip: "Display", title: "Display Reviews On Your Site", body: "Turn your reviews into styled, self-updating widgets you can drop onto any page.", to: "/review-widgets" },
-      { chip: "Claude connector", title: "Query your review data with AI", body: "Connect Revly to Claude or ChatGPT and ask questions about your review data in plain language.", to: "/claude-mcp" }]
+      { chip: "Collect", title: "Collect Quality Reviews", body: "One smart link plus AI writing assistance turns willing customers into detailed reviews on the platforms that matter.", to: "/collect-quality-reviews/" },
+      { chip: "Display", title: "Display Reviews On Your Site", body: "Turn your reviews into styled, self-updating widgets you can drop onto any page.", to: "/review-widgets/" },
+      { chip: "Claude connector", title: "Query your review data with AI", body: "Connect Revly to Claude or ChatGPT and ask questions about your review data in plain language.", to: "/claude-mcp/" }]
       } />
+
+      <CrossLinks eyebrow="Further reading" cta="Read the article →" bg="hsl(var(--card))" items={RESPOND_READING} />
     </main>
     <Footer />
   </>;

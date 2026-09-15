@@ -180,7 +180,7 @@
 .fig-num.lg { font-size: clamp(2.5rem, 6vw, 3.4rem); }
 .fig-num.md { font-size: 2rem; }
 .fig-numline { display: flex; align-items: baseline; gap: .6rem; margin-bottom: .85rem; flex-wrap: wrap; }
-.fig-numline .lbl { font-size: .85rem; font-weight: 600; color: hsl(var(--foreground)/0.55); line-height: 1.35; }
+.fig-numline .lbl { font-size: .85rem; font-weight: 600; color: hsl(var(--foreground)/0.61); line-height: 1.35; }
 
 /* Rule list inside figures */
 .fig-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .7rem; }

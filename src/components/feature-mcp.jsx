@@ -71,9 +71,9 @@ export function McpScrolly() {
               <div className="mock-bar"><i></i><i></i><i></i><span className="lbl">Claude · Revly connector</span></div>
               <div className="mock-pad">
                 <div className="mcp-conn">
-                  <span className="mcp-logo" data-node><img src="/assets/claude-icon.png" alt="Claude" style={{ height: "34px", borderRadius: "9px" }} /><img src="/assets/chatgpt-icon.png" alt="ChatGPT" style={{ height: "34px", marginLeft: ".45rem" }} /></span>
+                  <span className="mcp-logo" data-node><img src="/assets/claude-icon.png" alt="Claude" width="80" height="80" loading="lazy" decoding="async" style={{ height: "34px", borderRadius: "9px" }} /><img src="/assets/chatgpt-icon.png" alt="ChatGPT" width="80" height="80" loading="lazy" decoding="async" style={{ height: "34px", marginLeft: ".45rem" }} /></span>
                   <span className="mcp-wire"><b data-wire></b></span>
-                  <span className="mcp-logo" data-node><img src="/assets/revly-wordmark.png" alt="Revly" style={{ height: "26px" }} /></span>
+                  <span className="mcp-logo" data-node><img src="/assets/revly-wordmark.png" alt="Revly" width="178" height="60" loading="lazy" decoding="async" style={{ height: "26px" }} /></span>
                 </div>
                 <div className="mcp-thread">
                   <div className="mcp-q" data-q>

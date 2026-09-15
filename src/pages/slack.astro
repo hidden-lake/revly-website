@@ -4,12 +4,17 @@ import { SlackApp } from '../components/slack-app.jsx';
 import { softwareApplicationSchema, faqPageSchema, webPageSchema } from '../lib/seo.js';
 import { SLACK_FAQ } from '../lib/faqs.js';
 
-const description = "Revly's Slack app posts every new, edited or removed review from G2, Capterra, Trustpilot, the Shopify App Store, WordPress.org, WooCommerce, Xero and QuickBooks to the Slack channel you choose, with a one-click path to respond.";
+// Two descriptions on purpose. Google truncates a meta description around 155
+// characters, and the old one ran to 228 — the whole platform list, which was the
+// point of it, fell off the end of the search result. Schema has no such limit, so
+// the full list stays where it is actually read.
+const metaDescription = "Every new, edited or removed review lands in the Slack channel you pick, from G2, Capterra, Trustpilot and the app marketplaces. Reply in one click.";
+const schemaDescription = "Revly's Slack app posts every new, edited or removed review from G2, Capterra, Trustpilot, the Shopify App Store, WordPress.org, WooCommerce, Xero and QuickBooks to the Slack channel you choose, with a one-click path to respond.";
 const jsonLd = [
-  softwareApplicationSchema(undefined, description),
+  softwareApplicationSchema(undefined, schemaDescription),
   webPageSchema({
     name: "Revly for Slack: Review Notifications in Slack",
-    description,
+    description: schemaDescription,
     path: '/slack',
     breadcrumbName: "Slack Notifications",
   }),
@@ -18,7 +23,7 @@ const jsonLd = [
 ---
 <Base
   title="Revly for Slack: Review Notifications in Slack | Revly"
-  description={description}
+  description={metaDescription}
   canonicalPath="/slack"
   jsonLd={jsonLd}
 >
