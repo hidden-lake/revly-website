@@ -204,11 +204,11 @@ function DownArrow({ color = "hsl(var(--primary))" }) {
 function DashStat({ label, value, sub, stars }) {
   return (
     <div style={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: "12px", padding: "0.8rem 0.85rem" }}>
-      <div style={{ fontSize: "0.7rem", color: "hsl(var(--foreground)/0.5)", marginBottom: "0.4rem" }}>{label}</div>
+      <div style={{ fontSize: "0.7rem", color: "hsl(var(--foreground)/0.61)", marginBottom: "0.4rem" }}>{label}</div>
       <div style={{ display: "flex", alignItems: "center", gap: "0.4rem", flexWrap: "wrap" }}>
         <span style={{ fontFamily: "Bricolage Grotesque", fontWeight: 800, fontSize: "1.35rem", lineHeight: 1 }}>{value}</span>
         {stars != null && <StarRow filled={stars} size={11} />}
-        {sub && <span style={{ fontSize: "0.7rem", color: "hsl(var(--foreground)/0.45)" }}>{sub}</span>}
+        {sub && <span style={{ fontSize: "0.7rem", color: "hsl(var(--foreground)/0.61)" }}>{sub}</span>}
       </div>
     </div>);
 }
@@ -246,7 +246,7 @@ function DashMock() {
               <path d="M0,72 C25,60 45,46 70,50 C95,54 112,66 135,64 C160,62 178,48 205,46 C232,44 252,30 275,34 C286,36 295,44 300,48 L300,110 L0,110 Z" fill="url(#revArea)" />
               <path d="M0,72 C25,60 45,46 70,50 C95,54 112,66 135,64 C160,62 178,48 205,46 C232,44 252,30 275,34 C286,36 295,44 300,48" fill="none" stroke="hsl(var(--primary))" strokeWidth="2.5" strokeLinejoin="round" />
             </svg>
-            <div style={{ display: "flex", justifyContent: "space-between", marginTop: "0.45rem", fontSize: "0.64rem", color: "hsl(var(--foreground)/0.4)" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", marginTop: "0.45rem", fontSize: "0.64rem", color: "hsl(var(--foreground)/0.61)" }}>
               {["Jan", "Feb", "Mar", "Apr", "May", "Jun"].map((m) => <span key={m}>{m}</span>)}
             </div>
           </div>
@@ -255,7 +255,7 @@ function DashMock() {
             <div style={{ display: "flex", flexDirection: "column", gap: "0.45rem" }}>
               {bars.map((b) =>
               <div key={b.n} style={{ display: "flex", alignItems: "center", gap: "0.55rem" }}>
-                  <span style={{ width: "68px", textAlign: "right", fontSize: "0.66rem", color: "hsl(var(--foreground)/0.5)", flex: "none" }}>{b.n}</span>
+                  <span style={{ width: "68px", textAlign: "right", fontSize: "0.66rem", color: "hsl(var(--foreground)/0.61)", flex: "none" }}>{b.n}</span>
                   <div style={{ flex: 1, height: "13px" }}>
                     <div style={{ width: b.w, height: "100%", background: b.c, borderRadius: "4px" }}></div>
                   </div>

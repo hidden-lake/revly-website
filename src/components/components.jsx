@@ -84,7 +84,7 @@ export function Navbar() {
           </div>
           <a className="nav-link" href="/pricing/">pricing</a>
           <a className="nav-link" href="/blog/">blog</a>
-          <a className="btn btn-ghost btn-sm" href="https://app.revly.io/login" style={{ marginLeft: ".5rem", color: "hsl(var(--foreground) / 0.45)" }}>Sign in</a>
+          <a className="btn btn-ghost btn-sm" href="https://app.revly.io/login" style={{ marginLeft: ".5rem", color: "hsl(var(--foreground) / 0.61)" }}>Sign in</a>
           <a className="btn btn-default btn-sm" href="https://app.revly.io/signup">Start for free</a>
         </nav>
         <button className="show-md" onClick={() => setMobileOpen((v) => !v)} aria-label="Menu" style={{ border: 0, background: "transparent", display: "none" }}>
@@ -159,7 +159,7 @@ export function Footer() {
           } />
           <FooterCol title="Company" links={[["Blog", "/blog/"], ["Contact", "mailto:hello@revly.io"], ["Privacy", "/privacy/"], ["Terms", "/terms/"]]} />
         </div>
-        <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", marginTop: "3rem", paddingTop: "1.5rem", color: "rgba(255,255,255,0.4)", fontSize: ".85rem" }}>
+        <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", marginTop: "3rem", paddingTop: "1.5rem", color: "rgba(255,255,255,0.55)", fontSize: ".85rem" }}>
           © 2026 Revly. Built for software companies.
         </div>
       </div>

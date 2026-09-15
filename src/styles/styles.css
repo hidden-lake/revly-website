@@ -167,7 +167,7 @@ button { font-family: inherit; cursor: pointer; }
   display: flex; align-items: center; gap: .8rem;
   font-size: 0.97rem;
 }
-.ba2-cell.without { color: hsl(var(--foreground) / 0.55); border-top: 1px solid hsl(var(--border)); }
+.ba2-cell.without { color: hsl(var(--foreground) / 0.61); border-top: 1px solid hsl(var(--border)); }
 
 .ba2-cell.with { color: hsl(var(--foreground)); font-weight: 500; border-top: 1px solid hsl(var(--primary) / 0.14); }
 .ba2-cell.with::before { content: ""; width: 9px; height: 9px; border-radius: 999px; background: hsl(var(--primary)); flex: none; }
@@ -179,7 +179,7 @@ button { font-family: inherit; cursor: pointer; }
   .ba2-h { display: none !important; }
   .ba2-grid td, .ba2-grid th { grid-column: auto !important; grid-row: auto !important; }
   .ba2-cell { padding: 0.5rem 0; font-size: 0.95rem; border: 0 !important; }
-  .ba2-cell.without { color: hsl(var(--foreground) / 0.5); }
+  .ba2-cell.without { color: hsl(var(--foreground) / 0.61); }
   .ba2-cell.without > span { max-width: none !important; }
   .ba2-cell.with { color: hsl(var(--foreground)); font-weight: 600; padding-bottom: 1.25rem; margin-bottom: 1.1rem; border-bottom: 1px solid hsl(var(--border)) !important; }
 }
@@ -328,7 +328,7 @@ table.cmp { width:100%; border-collapse: collapse; background: hsl(var(--card));
 .feat-band.ink .mock { border-color: rgba(255,255,255,0.1); }
 .mock-bar { display:flex; align-items:center; gap:0.45rem; padding:0.85rem 1rem; border-bottom:1px solid hsl(var(--border)); }
 .mock-bar i { width:11px; height:11px; border-radius:999px; background: hsl(var(--border)); display:block; }
-.mock-bar .lbl { margin-left:0.5rem; font-size:0.78rem; font-weight:600; color: hsl(var(--foreground)/0.45); }
+.mock-bar .lbl { margin-left:0.5rem; font-size:0.78rem; font-weight:600; color: hsl(var(--foreground)/0.61); }
 .mock-pad { padding:1.4rem; }
 .collect-stars { display:flex; gap:0.5rem; justify-content:center; margin:0.4rem 0 1.1rem; color: hsl(var(--secondary)); }
 .collect-stars svg { width:30px; height:30px; }
