@@ -125,17 +125,17 @@ function TrustMarquee() {
   // size, which the CSS then scales into a 30px-tall box. They are declared so the
   // browser reserves the right width before a logo arrives; without them the ticker
   // reflows as each one lands. Keep them in step with the files — these were cut to
-  // roughly twice their display size in September 2026 (QuickBooks alone had been
+  // three times their display size in September 2026 (QuickBooks alone had been
   // 3840px wide and 170KB, for a slot about 120px across).
   const logos = [
     ["/assets/logos/g2.svg", "G2", "", 2454, 2500],
-    ["/assets/logos/capterra.png", "Capterra", "", 273, 96],
-    ["/assets/logos/trustpilot.png", "Trustpilot", "", 300, 74],
-    ["/assets/logos/shopify.png", "Shopify", "lg", 192, 96],
-    ["/assets/logos/woo.png", "WooCommerce", "sm", 300, 78],
-    ["/assets/logos/wordpress.png", "WordPress", "", 300, 68],
-    ["/assets/logos/xero.png", "Xero", "", 192, 96],
-    ["/assets/logos/quickbooks.png", "QuickBooks", "", 300, 77]];
+    ["/assets/logos/capterra.png", "Capterra", "", 361, 127],
+    ["/assets/logos/trustpilot.png", "Trustpilot", "", 450, 111],
+    ["/assets/logos/shopify.png", "Shopify", "lg", 276, 138],
+    ["/assets/logos/woo.png", "WooCommerce", "sm", 450, 117],
+    ["/assets/logos/wordpress.png", "WordPress", "", 450, 102],
+    ["/assets/logos/xero.png", "Xero", "", 276, 138],
+    ["/assets/logos/quickbooks.png", "QuickBooks", "", 450, 115]];
 
   const triple = [...logos, ...logos, ...logos];
   return (
@@ -302,9 +302,9 @@ function McpHomeMock() {
       <div className="mock-bar"><i></i><i></i><i></i><span className="lbl">Claude · Revly connector</span></div>
       <div className="mock-pad">
         <div className="mcp-conn">
-          <span className="mcp-logo"><img src="/assets/claude-icon.png" alt="Claude" width="80" height="80" loading="lazy" decoding="async" style={{ height: "34px", borderRadius: "9px" }} /><img src="/assets/chatgpt-icon.png" alt="ChatGPT" width="80" height="80" loading="lazy" decoding="async" style={{ height: "34px", marginLeft: ".45rem" }} /></span>
+          <span className="mcp-logo"><img src="/assets/claude-icon.png" alt="Claude" width="104" height="104" loading="lazy" decoding="async" style={{ height: "34px", width: "auto", borderRadius: "9px" }} /><img src="/assets/chatgpt-icon.png" alt="ChatGPT" width="104" height="104" loading="lazy" decoding="async" style={{ height: "34px", width: "auto", marginLeft: ".45rem" }} /></span>
           <span className="mcp-wire"><b style={{ width: "100%" }}></b></span>
-          <span className="mcp-logo"><img src="/assets/revly-wordmark.png" alt="Revly" width="178" height="60" loading="lazy" decoding="async" style={{ height: "26px" }} /></span>
+          <span className="mcp-logo"><img src="/assets/revly-wordmark.png" alt="Revly" width="232" height="78" loading="lazy" decoding="async" style={{ height: "26px", width: "auto" }} /></span>
         </div>
         <div className="mc-chat">
           <div className="mc-you">Which features do five-star reviewers mention most this quarter?</div>
