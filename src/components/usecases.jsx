@@ -18,7 +18,7 @@ export function UseCaseSaaS() {
       <WifHero
         chip="For SaaS Teams"
         headline={<>Your software gets reviewed everywhere. <span className="pay">Manage it all from one place.</span></>}
-        lead="G2, Capterra, the app stores. Your software is being reviewed in a dozen places, and you're the whole review team. Revly pulls every platform into one tab, and shows you exactly what needs a reply."
+        lead="G2, Capterra, the app marketplaces. Your software is being reviewed in a dozen places, and you're the whole review team. Revly pulls every platform into one tab, and shows you exactly what needs a reply."
         cta="Start free with Revly"
         scene={wifSaasScene} />
 
@@ -27,7 +27,7 @@ export function UseCaseSaaS() {
         flip
         eyebrow="The manual way"
         title={<>Managing reviews across platforms <span className="text-primary">is a second job.</span></>}
-        lead="G2 in one tab, Capterra in another, the app stores in a third, and you're the whole review team, hoping nothing slipped through while you were in a meeting."
+        lead="G2 in one tab, Capterra in another, the app marketplaces in a third, and you're the whole review team, hoping nothing slipped through while you were in a meeting."
         emphasized="The data is everywhere. No one has time to manage it properly."
         visual="saas-chaos" />
 
@@ -46,7 +46,7 @@ export function UseCaseSaaS() {
         title={<>Less time managing reviews. <span className="text-primary">More confidence in what gets posted.</span></>}
         lead="Revly replaces the manual scramble with one system: collect thoughtfully, manage from one place, and respond without losing time."
         tiles={[
-        { icon: "dash", title: "One tab, every platform", body: "G2, Capterra, and the app stores in a single queue. No more checking five logins to know where you stand." },
+        { icon: "dash", title: "One tab, every platform", body: "G2, Capterra, and the app marketplaces in a single queue. No more checking five logins to know where you stand." },
         { icon: "eye", title: "A clear reply queue", body: "Every new review surfaces with a 'needs reply' flag, so a 2★ never sits unseen while you're in a meeting." },
         { icon: "shield", title: "A check-in before every ask", body: "Customers are routed to the right next step first, so you collect with confidence in what gets posted." }]
         } />

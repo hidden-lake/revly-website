@@ -65,6 +65,5 @@ Last updated: 2026-08-22
 
 ## Monitored platforms
 
-G2, Capterra, GetApp, Software Advice, Trustpilot, Apple App Store, Google Play Store,
-Shopify App Store, WooCommerce Marketplace, QuickBooks Marketplace, WordPress Plugin
-Marketplace, Xero Marketplace.
+G2, Capterra, Trustpilot, Shopify App Marketplace, WordPress Plugin Marketplace,
+WooCommerce Marketplace, Xero Marketplace, QuickBooks Marketplace.

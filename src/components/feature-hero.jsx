@@ -66,7 +66,7 @@ const HERO_MORPHS = {
           <div className="mlist">
             <div className="mrow on"><span className="mp">G2</span> Maria O. <span className="mst">★★★★★</span> <span className="mtime">just now</span></div>
             <div className="mrow on"><span className="mp">Capterra</span> Jonas P. <span className="mst">★★★★</span> <span className="mtime">4m</span></div>
-            <div className="mrow on"><span className="mp">App Store</span> Devon R. <span className="mst">★★★★★</span> <span className="mtime">12m</span></div>
+            <div className="mrow on"><span className="mp">Shopify</span> Devon R. <span className="mst">★★★★★</span> <span className="mtime">12m</span></div>
           </div>
         </div>
       </div>
@@ -98,7 +98,7 @@ const HERO_CONFIGS = {
   monitor: {
     chip: "SEE EVERY REVIEW", chipClass: "chip-amber",
     headline: <>Turn <span className="kw">five open tabs</span><br />into <span className="pay">one dashboard.</span></>,
-    lead: <>Reviews land across G2, Capterra, and the app stores. Revly pulls every one into a single feed and <strong>posts each new review to Slack</strong>, so nobody has to remember to check.</>,
+    lead: <>Reviews land across G2, Capterra, and the app marketplaces. Revly pulls every one into a single feed and <strong>posts each new review to Slack</strong>, so nobody has to remember to check.</>,
     ctas: <><a className="btn btn-yellow btn-lg" href="/pricing/">See all your reviews in one place</a><a className="btn btn-outline btn-lg" href="/pricing/">Book a demo</a></>
   },
   embed: {

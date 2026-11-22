@@ -45,7 +45,7 @@ export const meta = {
     // One line; headingAccent is the closing phrase, rendered in magenta.
     headingTop: 'See every review',
     headingAccent: 'in one place.',
-    body: 'Revly brings reviews from G2, Capterra and the app stores into a single dashboard, drafts your replies, and turns your best reviews into widgets for your own site.',
+    body: 'Revly brings reviews from G2, Capterra and the app marketplaces into a single dashboard, drafts your replies, and turns your best reviews into widgets for your own site.',
     primary: { label: 'Start free', href: '/pricing/' },
     secondary: { label: 'See how monitoring works', href: '/monitor-platforms/' },
   },
@@ -117,7 +117,7 @@ export const blocks = [
   },
   {
     type: 'p',
-    text: 'This is the specific problem [Revly\'s monitoring](/monitor-platforms/) exists for. Every review from G2, Capterra and the app stores lands in one feed, and in the Slack channel you choose, so you find out when it happens rather than when you next remember to look.',
+    text: 'This is the specific problem [Revly\'s monitoring](/monitor-platforms/) exists for. Every review from G2, Capterra and the app marketplaces lands in one feed, and in the Slack channel you choose, so you find out when it happens rather than when you next remember to look.',
   },
 
   { type: 'h2', text: 'Responding still means four logins' },

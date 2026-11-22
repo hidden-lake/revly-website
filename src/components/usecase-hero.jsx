@@ -171,7 +171,7 @@ export const wifAgencyScene = (
           <span className="db">2 public 1★, <span className="warn">no reply</span> 😬</span>
         </span>
         <span className="dcard" style={{ top: '244px', left: '0', transform: 'rotate(3deg)', zIndex: 4, width: '198px' }}>
-          <span className="dh">Nimbus <span className="src">App Store</span></span>
+          <span className="dh">Nimbus <span className="src">Shopify</span></span>
           <span className="db">5 new reviews, <span className="warn">nobody saw them</span> 😬</span>
         </span>
         <span className="dcard" style={{ top: '342px', left: '166px', transform: 'rotate(-5deg)', zIndex: 3, width: '176px' }}>
@@ -179,7 +179,7 @@ export const wifAgencyScene = (
           <span className="db">Client wants numbers, <span className="warn">data's a week stale</span></span>
         </span>
         <span className="dcard" style={{ top: '452px', left: '40px', transform: 'rotate(-7deg)', zIndex: 1, width: '196px' }}>
-          <span className="dh">Lumen <span className="src">Google Play</span></span>
+          <span className="dh">Lumen <span className="src">Xero</span></span>
           <span className="db"><span className="warn">14 unanswered</span> across 3 clients 😵‍💫</span>
         </span>
       </div>
@@ -190,7 +190,7 @@ export const wifAgencyScene = (
         revs={[
         { i: "A", n: "Acme", p: "G2", c: "#f0047f", s: 2 },
         { i: "B", n: "Bolt", p: "Capterra", c: "#f5b301", tc: "#5a3a00", s: 3 },
-        { i: "N", n: "Nimbus", p: "App Store", c: "#2bb673", s: 1 }]}
+        { i: "N", n: "Nimbus", p: "Shopify", c: "#2bb673", s: 1 }]}
         line={{ l: "M0,50 C30,46 50,40 76,40 C102,40 118,30 150,30 C184,30 204,40 232,38 C262,36 282,22 300,16", a: "M0,50 C30,46 50,40 76,40 C102,40 118,30 150,30 C184,30 204,40 232,38 C262,36 282,22 300,16 L300,70 L0,70 Z" }} />
     </div>
   </div>

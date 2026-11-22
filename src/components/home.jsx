@@ -17,7 +17,7 @@ const HOME_INBOX = [
 { n: "Maria O.", av: "hsl(var(--primary))", plat: "G2", pc: "hsl(var(--muted))", pt: "hsl(var(--primary-text))", t: "“Acme's sync hasn't dropped an order since we switched.”", time: "2m" },
 { n: "Devon R.", av: "hsl(var(--secondary))", plat: "Capterra", pc: "#fdf0c8", pt: "#7a4f05", t: "“Setup took ten minutes and support replied the same day.”", time: "18m" },
 { n: "Priya S.", av: "hsl(var(--foreground))", plat: "Trustpilot", pc: "#eaeaea", pt: "#444", t: "“The reporting saves our finance team about a day a month.”", time: "1h" },
-{ n: "Alex T.", av: "hsl(var(--primary))", plat: "App Store", pc: "hsl(var(--muted))", pt: "hsl(var(--primary-text))", t: "“Acme handles our multi-currency orders without any fuss.”", time: "3h" }];
+{ n: "Alex T.", av: "hsl(var(--primary))", plat: "Shopify", pc: "hsl(var(--muted))", pt: "hsl(var(--primary-text))", t: "“Acme handles our multi-currency orders without any fuss.”", time: "3h" }];
 
 function ReviewRow({ r }) {
   return (
@@ -389,7 +389,7 @@ function WhoItsFor() {
         <div>
           <span className="eyebrow">Who it's for</span>
           <h2 className="h2" style={{ margin: "0.9rem 0 1rem" }}>Built for software companies.<br /><span className="mag">Not everyone else.</span></h2>
-          <p className="lead">Most review tools were built for local businesses. Revly is built for G2, Capterra and the software app stores, the platforms that decide software purchases.</p>
+          <p className="lead">Most review tools were built for local businesses. Revly is built for G2, Capterra and the software app marketplaces, the platforms that decide software purchases.</p>
         </div>
         <div className="fit-card">
           <span className="chip chip-magenta">Revly is a good fit if you're</span>

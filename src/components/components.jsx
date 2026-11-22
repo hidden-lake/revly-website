@@ -151,7 +151,7 @@ export function Footer() {
           "WooCommerce Marketplace",
           "Xero Marketplace",
           "QuickBooks Marketplace",
-          "Capterra, GetApp & Software Advice"]
+          "Capterra"]
           } />
           <FooterCol title="Who it's for" links={[
           ["SaaS teams", "/use-cases/saas/"],

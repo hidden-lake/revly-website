@@ -2,7 +2,7 @@
 
 export const HOME_FAQ = [
 { q: "Is this just AI generating fake reviews?", a: "No. The customer writes their own review. They can use our AI to help draft it and add detail, but it doesn't replace what they said. The customer reads it, edits it if they want to, and posts it themselves. Their voice, their specific points, their approval." },
-{ q: "What platforms does Revly work with?", a: "Revly currently supports G2, Capterra, GetApp, Software Advice, Trustpilot, Apple App Store, Google PlayStore, Shopify App Store, WooCommerce Marketplace, QuickBooks Marketplace, WordPress Plugin Marketplace, Xero Marketplace. More platforms are being added. If a platform matters for software buying decisions, it's on the roadmap." },
+{ q: "What platforms does Revly work with?", a: "Revly works with G2, Capterra, Trustpilot, the Shopify App Marketplace, WordPress Plugin Marketplace, WooCommerce Marketplace, Xero Marketplace and QuickBooks Marketplace. More platforms are being added. If a platform matters for software buying decisions, it's on the roadmap." },
 { q: "How is this different from emailing customers and asking for a review?", a: "Emailing customers yourself means guessing who's happy, sending links to several platforms and hoping they pick the right one, then taking whatever they write. Revly replaces all three steps. A check-in shows who needs help before you ask, one smart link routes each customer to the right platform, and AI drafting helps them write a review a buyer can use." },
 { q: "What if a customer doesn't want to post the AI-drafted review?", a: "They can edit it, rewrite it entirely, or decline. Nothing goes live without their explicit approval. If they don't post, nothing happens. No chasing, no pressure." },
 { q: "How long does setup take?", a: "Under 30 minutes for most teams. Connect your review platforms, create your first smart review link, and send your first campaign. Most customers see their first reviews come in within a few days." },
@@ -11,14 +11,14 @@ export const HOME_FAQ = [
 export const PRICING_FAQ = [
   { q:"What happens when I hit my monthly review limit?", a:"Collected reviews reset each month. If you reach your plan's limit before the reset, your collection links pause and stop accepting new reviews until the new month starts. Review monitoring is unaffected and keeps running, so you still see every new review as it's posted." },
   { q:"Can I add extra channels beyond my plan's limit?", a:"Yes. Extra monitored channels are $5/month each on Pro, and $3/month each on Business and Agency. Plans include 2 channels on Free, 5 on Pro, 15 on Business, and 5 per client on Agency, so you only pay for the ones you add on top." },
-  { q:"Which review platforms does Revly monitor?", a:"Revly monitors G2, Capterra, GetApp, Software Advice, Trustpilot, the Apple App Store, Google Play Store, Shopify App Store, WooCommerce Marketplace, QuickBooks Marketplace, WordPress Plugin Marketplace, and Xero Marketplace. More are being added, and any platform that matters for software buying decisions is on the roadmap." },
+  { q:"Which review platforms does Revly monitor?", a:"Revly monitors G2, Capterra, Trustpilot, the Shopify App Marketplace, WordPress Plugin Marketplace, WooCommerce Marketplace, Xero Marketplace and QuickBooks Marketplace. More are being added, and any platform that matters for software buying decisions is on the roadmap." },
   { q:"How does AI review enhancement work?", a:"The customer gives a star rating and a few words of feedback. Revly's AI expands that into a complete review that keeps their sentiment, tone, and specific points. They read it, edit anything they want to change, and post it themselves. Revly never posts on their behalf." },
   { q:"Can I switch plans later?", a:"Yes. Upgrade or downgrade at any time. The change takes effect immediately rather than at your next billing date, and the difference is prorated, so you only pay for what you actually used on each plan." },
   { q:"Do you offer a free trial of the paid plans?", a:"There's no separate time-limited trial. The Free plan is the trial: it stays free, with 2 monitored channels, 1 collection link, 10 collected reviews a month, and daily review monitoring. Upgrade to Pro or Business when you need higher limits or the AI features." },
 ];
 
 export const COLLECT_FAQ = [
-  { q: 'How do you collect better reviews on G2, Capterra and the app stores?',
+  { q: 'How do you collect better reviews on G2, Capterra and the app marketplaces?',
     a: 'Customers do not know what to write, or where to write it. Revly handles both. One link routes each customer to the platform you need, and AI writing assistance helps them turn a brief thought into a review detailed enough to help the next buyer. A check-in comes first, so you know if it is a good moment to ask.' },
   { q: 'Why check in with customers before sending a review request?',
     a: 'Sending a review request without knowing how someone is doing is a coin flip. A four-second question turns one campaign into two useful outcomes: customers who are ready share their experience, and customers who are stuck reach a person who can help. You would rather find out either way.' },
@@ -42,13 +42,13 @@ export const MONITOR_FAQ = [
   { q: 'Does Revly notify me when a new review comes in?',
     a: 'Yes, in Slack and by email. Connect Slack once, choose a channel, and every new review posts there with the rating, the platform and the review text.' },
   { q: 'What is actually in the Slack message?',
-    a: 'The star rating, the platform, the product, the review itself, and buttons to respond in Revly or view on the app store. Enough to know whether it needs action now, without opening anything.' },
+    a: 'The star rating, the platform, the product, the review itself, and buttons to respond in Revly or view it on the platform. Enough to know whether it needs action now, without opening anything.' },
   { q: 'How quickly does Revly pick up new reviews?',
     a: 'It depends on the platform and your plan. Revly checks most listings every 6 hours on Pro and every 2 hours on Business and Agency. G2 and Trustpilot are checked once a day and Capterra every three days, because those checks are expensive to run. Anything new posts straight away, and Sync Now checks immediately on any plan.' },
   { q: 'How do you monitor across G2, Capterra and Trustpilot without logging into each?',
     a: 'Revly connects to each platform once during setup and syncs every new review into one dashboard automatically. Nobody on your team logs into a review platform again unless they want to.' },
   { q: 'Which platforms does Revly monitor?',
-    a: 'G2, Capterra, GetApp, Software Advice, Trustpilot, Apple App Store, Google Play Store, Shopify App Store, WooCommerce Marketplace, QuickBooks Marketplace, WordPress Plugin Marketplace and Xero Marketplace.' },
+    a: 'G2, Capterra, Trustpilot, the Shopify App Marketplace, WordPress Plugin Marketplace, WooCommerce Marketplace, Xero Marketplace and QuickBooks Marketplace. Each one syncs into the same dashboard and posts new reviews to Slack, so adding a platform never means another login to check.' },
   { q: 'How is this different from checking each platform manually?',
     a: 'Manual checking is reactive and it depends on someone remembering. Reviews go unread for weeks, trends stay invisible, and the two-star review surfaces when a prospect mentions it. Revly replaces that with one feed and a Slack message when something new arrives.' },
 ];
@@ -67,18 +67,18 @@ export const RESPOND_FAQ = [
 export const SAAS_FAQ = [
   { q: "Does Revly post reviews on my behalf?", a: "No. Revly helps customers write better reviews, but the customer always approves the final text before posting it themselves. You are never posting on someone else's behalf." },
   { q: "Why does Revly check in with customers before a review request?", a: "Revly runs a short check-in before directing any customer to a public review platform. Their response determines the next step: a guided path to the right platform, or a private form that reaches your team. Customers who get help when they need it are far more likely to become genuine advocates." },
-  { q: "Which platforms does Revly support?", a: "Revly currently supports G2, Capterra, Shopify App Store, QuickBooks App Store, Xero App Store, WooCommerce, and WordPress.org, with more platforms being added." },
+  { q: "Which platforms does Revly support?", a: "Revly supports G2, Capterra, Trustpilot, the Shopify App Marketplace, WordPress Plugin Marketplace, WooCommerce Marketplace, Xero Marketplace and QuickBooks Marketplace. Reviews from every connected listing land in one dashboard, and each new one posts to Slack, so nothing sits unread on a platform nobody checked this week." },
   { q: "Is this suitable for a solo marketer with no review operations process in place?", a: "Yes. Revly is built for exactly this situation. Setup takes under 30 minutes and the system handles the operational side so you do not need a dedicated process to get started." }];
 
 export const AGENCY_FAQ = [
   { q: "Can I manage multiple clients from a single Revly account?", a: "Yes. Revly's dashboard is designed to handle multiple products and client accounts from one login. You can switch between clients instantly and see aggregate performance across all of them." },
-  { q: "Does Revly offer white-label options for agencies?", a: "White-label functionality is on the Revly roadmap. Get in touch to discuss options and early access." },
-  { q: "Which review platforms does Revly support?", a: "Revly currently supports G2, Capterra, Shopify App Store, QuickBooks App Store, Xero App Store, WooCommerce, and WordPress.org, with more platforms being added." },
+  { q: "Does Revly offer white-label options for agencies?", a: "Yes. You can hide Revly branding, run collection links on your own domain (such as go.yourdomain.com) and restyle review widgets with custom CSS. The Agency plan adds per-client branding, so each client's customers see that client's brand, not Revly's." },
+  { q: "Which review platforms does Revly support?", a: "Revly supports G2, Capterra, Trustpilot, the Shopify App Marketplace, WordPress Plugin Marketplace, WooCommerce Marketplace, Xero Marketplace and QuickBooks Marketplace. Reviews from every connected listing land in one dashboard, and each new one posts to Slack, so nothing sits unread on a platform nobody checked this week." },
   { q: "How does the check-in work for client campaigns?", a: "Every Revly collection campaign includes a built-in check-in. Each customer's response determines where they go next: the platform where a review is needed most, or a private form that reaches your client's team. That early signal gives your client the chance to step in, help, and turn the experience around." }];
 
 
 export const EMBED_FAQ = [
-  { q: "How do I display my G2 and Capterra reviews on my own website?", a: "Build a widget in Revly, choose which reviews it shows, style it to match your site, then paste one line of code where you want it to appear. The widget pulls from your connected platforms, so reviews posted on G2, Capterra, the app stores and elsewhere all show up in one place on your own pages." },
+  { q: "How do I display my G2 and Capterra reviews on my own website?", a: "Build a widget in Revly, choose which reviews it shows, style it to match your site, then paste one line of code where you want it to appear. The widget pulls from your connected platforms, so reviews posted on G2, Capterra, Trustpilot and the app marketplaces all show up in one place on your own pages." },
   { q: "Can I control which reviews appear?", a: "Yes. Filter by star rating, platform, and minimum review length, so a widget can show, for example, only four-star-and-up G2 and Capterra reviews with enough detail to be worth reading." },
   { q: "How much can I customize the look?", a: "Choose a layout (grid, carousel, or wall) and set your brand color. Anything beyond that, including typeface and corner radius, is done with custom CSS. Revly branding can also be hidden, so the widget reads as part of your site rather than an embed." },
   { q: "Can I have more than one widget?", a: "Yes. Build as many as you need: a wall of reviews on the pricing page, a carousel on the home page, a separate set for a campaign landing page. Each widget has its own review selection and styling." },

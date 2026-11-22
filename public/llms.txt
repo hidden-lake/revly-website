@@ -6,7 +6,7 @@
 > Claude and ChatGPT over MCP.
 
 Revly is built for SaaS and software companies whose products get reviewed on G2,
-Capterra, the app stores and marketplace listings. It is used by marketing teams
+Capterra, Trustpilot and app marketplace listings. It is used by marketing teams
 running review programs, and by agencies managing reviews for multiple clients.
 
 What makes it different from sending review request emails by hand: Revly screens for
@@ -55,9 +55,8 @@ documentation and primary sources.
 
 ## Monitored platforms
 
-G2, Capterra, GetApp, Software Advice, Trustpilot, Apple App Store, Google Play Store,
-Shopify App Store, WooCommerce Marketplace, QuickBooks Marketplace, WordPress Plugin
-Marketplace, Xero Marketplace.
+G2, Capterra, Trustpilot, Shopify App Marketplace, WordPress Plugin Marketplace,
+WooCommerce Marketplace, Xero Marketplace, QuickBooks Marketplace.
 
 ## Company
 
