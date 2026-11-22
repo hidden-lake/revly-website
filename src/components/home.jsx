@@ -142,7 +142,7 @@ function TrustMarquee() {
     <section className="mq-band">
       <div className="mq">
         <div className="mq-track">
-          {triple.map((l, i) => <img key={i} src={l[0]} alt={l[1]} className={"mq-logo" + (l[2] ? " " + l[2] : "")} width={l[3]} height={l[4]} decoding="async" />)}
+          {triple.map((l, i) => <img key={i} src={l[0]} alt={l[1]} className={"mq-logo" + (l[2] ? " " + l[2] : "")} width={l[3]} height={l[4]} loading="lazy" decoding="async" />)}
         </div>
       </div>
     </section>);

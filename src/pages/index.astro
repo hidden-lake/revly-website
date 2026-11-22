@@ -32,8 +32,18 @@ const jsonLd = [
         source_site: 'marketing',
       };
     </script>
+    <!-- Intercom's official snippet, except the ~230 KB widget loads on the visitor's
+         first interaction instead of on page load. Loading it up front cost about
+         130ms of main-thread blocking on mobile and delayed the hero's paint (Lighthouse,
+         Nov 2026). The Intercom() queue stub is still created immediately, so any
+         call made before the widget arrives is replayed once it does. -->
     <script is:inline>
-      (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/nihx4xym';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(d.readyState==='complete'){l();}else if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
+      (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);return;}
+      var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;
+      var done=false;var ev=['pointerdown','keydown','touchstart','scroll','mousemove'];
+      var l=function(){if(done)return;done=true;ev.forEach(function(e){w.removeEventListener(e,l,{passive:true});});
+        var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/nihx4xym';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};
+      ev.forEach(function(e){w.addEventListener(e,l,{passive:true});});})();
     </script>
   </Fragment>
   <Index client:load />
