@@ -1,10 +1,19 @@
 ---
 import Base from '../layouts/Base.astro';
 import { Index } from '../components/home.jsx';
-import { softwareApplicationSchema, faqPageSchema, SITE_DESCRIPTION } from '../lib/seo.js';
+import { softwareApplicationSchema, faqPageSchema, webPageSchema, SITE_DESCRIPTION } from '../lib/seo.js';
 import { HOME_FAQ } from '../lib/faqs.js';
 
-const jsonLd = [softwareApplicationSchema(), faqPageSchema(HOME_FAQ)];
+const jsonLd = [
+  softwareApplicationSchema(),
+  webPageSchema({
+    name: 'Revly | Review management for software companies',
+    description: SITE_DESCRIPTION,
+    path: '/',
+    image: '/og-image.png',
+  }),
+  faqPageSchema(HOME_FAQ),
+];
 ---
 <Base
   title="Revly | Review management for software companies"

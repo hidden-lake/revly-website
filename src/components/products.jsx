@@ -117,7 +117,7 @@ export function CollectBetterReviews() {
         { without: "Customers stare at a blank text box and give up", with: "Writing help that keeps their voice and adds the detail" },
         { without: "\"Great tool.\" reviews that help nobody decide", with: "Reviews that name the problem, the feature, and the alternative" },
         { without: "A list of platform links and a customer picking at random", with: "One link, routed to the platform you need" },
-        { without: "Reviews pile up on whichever platform customers recognise", with: "Distribution balanced automatically, or set by you" }]
+        { without: "Reviews pile up on whichever platform customers recognize", with: "Distribution balanced automatically, or set by you" }]
         } />
 
       <FAQ items={FAQS} />

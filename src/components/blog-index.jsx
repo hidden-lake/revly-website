@@ -46,7 +46,10 @@ export function BlogIndex({ posts }) {
             <div className="bl-hero-grid">
               <div className="bl-hero-card">
                 <span className="bl-mark" aria-hidden="true">R</span>
-                <h1>Blog</h1>
+                <h1>
+                  <span className="bl-h1-word">Blog</span><span className="sr-only">: </span>
+                  <span className="bl-h1-sub">How the review platforms actually work</span>
+                </h1>
                 <p>
                   What we find in the review platforms' own documentation, checked against the source
                   and written down before we forget it.

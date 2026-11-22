@@ -27,7 +27,7 @@ export function ReviewEmbeds() {
         { without: "Your best reviews only live on G2 and Capterra", with: "Top review quotes display on your website" },
         { without: "Testimonials that quietly go out of date", with: "Widgets that update as new reviews are posted" },
         { without: "No say in which reviews visitors see", with: "Filter by rating, platform, and review length" },
-        { without: "Generic embeds", with: "Layout and brand colours matched to your site" }]
+        { without: "Generic embeds", with: "Layout and brand colors matched to your site" }]
         } />
 
       <FAQ items={FAQS} />

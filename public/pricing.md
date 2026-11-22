@@ -1,4 +1,4 @@
-# Pricing — Revly
+# Revly pricing
 
 Revly is review management software for software companies. Collect reviews, monitor
 every platform, respond to reviews, embed review widgets, and query review data from
@@ -42,7 +42,7 @@ Last updated: 2026-08-22
 - Collected reviews: 1,000/month
 - Team members: unlimited
 - Review monitoring: every 2 hours
-- Included: everything in Pro, plus API access, integrations, MCP access for Claude and ChatGPT, automatic incentive fulfilment, custom domain, white-label
+- Included: everything in Pro, plus API access, integrations, MCP access for Claude and ChatGPT, automatic incentive fulfillment, custom domain, white-label
 
 ## Agency
 

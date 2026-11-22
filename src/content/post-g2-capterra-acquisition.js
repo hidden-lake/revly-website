@@ -1,4 +1,4 @@
-// Revly blog — "G2 acquired Capterra. What it changes for your review programme."
+// Revly blog — "G2 acquired Capterra. What it changes for your review program."
 //
 // Body copy is authored text: transcribe it, don't rewrite it. Paragraph strings accept
 // **bold** and [label](href) only. `graphic` blocks name a component in
@@ -7,7 +7,7 @@
 
 export const meta = {
   slug: 'g2-capterra-acquisition-review-management',
-  title: 'G2 acquired Capterra. What it changes for your review programme.',
+  title: 'G2 acquired Capterra. What it changes for your review program.',
   // Kept under 60 characters for the SERP.
   metaTitle: 'G2 Acquired Capterra: What Changed for Reviews | Revly',
   metaDescription:
@@ -54,7 +54,7 @@ export const meta = {
 export const blocks = [
   {
     type: 'lead',
-    text: 'The acquisition did not change much for anyone actually running a review programme. G2 bought Capterra, Software Advice and GetApp from Gartner earlier this year, and if you were expecting one merged platform, one login, or one set of rules, none of that happened. You still have four profiles to keep an eye on and two completely different campaigns to run.',
+    text: 'The acquisition did not change much for anyone actually running a review program. G2 bought Capterra, Software Advice and GetApp from Gartner earlier this year, and if you were expecting one merged platform, one login, or one set of rules, none of that happened. You still have four profiles to keep an eye on and two completely different campaigns to run.',
   },
   {
     type: 'p',
