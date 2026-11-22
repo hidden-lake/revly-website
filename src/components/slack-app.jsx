@@ -320,7 +320,7 @@ export function SlackApp() {
           <h2 className="h2" style={{ textAlign: 'center', marginBottom: '3rem', maxWidth: '780px', marginLeft: 'auto', marginRight: 'auto' }}>Before and after <span className="text-primary">Revly in Slack.</span></h2>
           <BeforeAfterSlider rows={[
             { without: 'Someone checks five marketplaces, when they remember', with: 'Every new review posts to Slack' },
-            { without: 'A two-star review sits unseen for a week', with: 'Your team sees new reviews instantly' },
+            { without: 'A two-star review sits unseen for a week', with: 'Your team sees new reviews without checking' },
             { without: 'A reviewer quietly changes their rating', with: 'Slack notifications for updated or removed reviews' },
             { without: 'Reviews disappear from a listing without a trace', with: 'Revly tells you when a review is deleted' }]
           } />
