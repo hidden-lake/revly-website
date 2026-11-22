@@ -1,6 +1,7 @@
 // Revly — Product pages (Review embeds, Claude MCP)
 import React from 'react';
-import { Navbar, Footer, FAQ, CrossLinks } from './components.jsx';
+import { Navbar, Footer, FAQ, CrossLinks, LearnSection } from './components.jsx';
+import { LEARN } from '../lib/learn-posts.js';
 import { ProductBeforeAfter } from './products.jsx';
 import { FeatureHeroC } from './feature-hero.jsx';
 import { FeatureMotion } from './feature-collect.jsx';
@@ -31,6 +32,8 @@ export function ReviewEmbeds() {
         } />
 
       <FAQ items={FAQS} />
+
+      <LearnSection posts={LEARN.embed} />
 
       <section className="section">
         <div className="container-x">
@@ -78,6 +81,8 @@ export function ClaudeMCP() {
         } />
 
       <FAQ items={FAQS} />
+
+      <LearnSection posts={LEARN.mcp} />
 
       <section className="section">
         <div className="container-x">

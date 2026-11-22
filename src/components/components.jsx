@@ -252,6 +252,32 @@ export function FAQ({ items, title = "Common questions" }) {
 
 }
 
+// ---------- Learn (blog cards under the FAQ) ----------
+// Same card styling as the blog index (bl-card, bl-cover in blog.css), so a reader
+// recognises the posts when they land on the blog. Data comes from lib/learn-posts.js.
+export function LearnSection({ posts }) {
+  return (
+    <section className="section" style={{ background: "hsl(var(--card))", paddingTop: "1rem" }}>
+      <div className="container-x">
+        <h2 className="h2" style={{ textAlign: "center", marginBottom: "2.5rem" }}>Learn</h2>
+        <div className="learn-grid">
+          {posts.map((p) =>
+          <a key={p.slug} href={`/blog/${p.slug}/`} className="card bl-card">
+              <div className="bl-cover">
+                <img src={p.cover} alt={p.coverAlt} loading="lazy" decoding="async" width="640" height="360" />
+              </div>
+              <div className="bl-card-body">
+                <h3>{p.title}</h3>
+                <p>{p.teaser}</p>
+                <div className="bl-meta"><span>{p.readTime}</span><span className="learn-cta">Read the article →</span></div>
+              </div>
+            </a>
+          )}
+        </div>
+      </div>
+    </section>);
+}
+
 // ---------- Cross-links ----------
 // The eyebrow and the link label are props so other bands can reuse the layout.
 // (Product and use-case pages no longer carry a "Further reading" band; blog

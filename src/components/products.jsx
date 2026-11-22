@@ -1,6 +1,7 @@
 // Revly - Product pages (Collect, Monitor, Manage)
 import React from 'react';
-import { Navbar, Footer, BeforeAfterSlider, FAQ, CrossLinks } from './components.jsx';
+import { Navbar, Footer, BeforeAfterSlider, FAQ, CrossLinks, LearnSection } from './components.jsx';
+import { LEARN } from '../lib/learn-posts.js';
 import { KineticReveal, StackReveal, HorizontalReveal } from './reveals.jsx';
 import { FeatureHeroC } from './feature-hero.jsx';
 import { FeatureMotion, CQScrolly, CQSmartRouting, CQGallery } from './feature-collect.jsx';
@@ -121,6 +122,8 @@ export function CollectBetterReviews() {
 
       <FAQ items={FAQS} />
 
+      <LearnSection posts={LEARN.collect} />
+
       <section className="section">
         <div className="container-x">
           <div className="ctaA">
@@ -170,6 +173,8 @@ export function MonitorPlatforms() {
 
       <FAQ items={FAQS} />
 
+      <LearnSection posts={LEARN.monitor} />
+
       <section className="section">
         <div className="container-x">
           <div className="ctaA">
@@ -216,6 +221,8 @@ export function ManageReviewResponses() {
         } />
 
       <FAQ items={FAQS} />
+
+      <LearnSection posts={LEARN.respond} />
 
       <section className="section">
         <div className="container-x">

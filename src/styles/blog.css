@@ -382,3 +382,10 @@
 /* A destination the review never actually reaches. The cross is in the markup, not in
    CSS content, so the meaning survives with styles off. */
 .fig-dest.out .x { font-weight: 800; margin-right: .35rem; }
+
+/* "Learn" band under the FAQ on product and use-case pages */
+.learn-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+@media (min-width: 760px) { .learn-grid { grid-template-columns: repeat(3, 1fr); } }
+.learn-grid .bl-card h3 { font-size: 1.15rem; }
+.learn-cta { margin-left: auto; color: hsl(var(--primary-text)); font-weight: 700; }
+.learn-grid .bl-meta span::after { content: ""; }

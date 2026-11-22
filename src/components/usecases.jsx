@@ -1,6 +1,7 @@
 // Revly — Use Case pages (SaaS Teams, Agencies)
 import React from 'react';
-import { Navbar, Footer, Icon, FAQ, CrossLinks } from './components.jsx';
+import { Navbar, Footer, Icon, FAQ, CrossLinks, LearnSection } from './components.jsx';
+import { LEARN } from '../lib/learn-posts.js';
 import { FeatureMotion } from './feature-collect.jsx';
 import { WifHero, wifSaasScene, wifAgencyScene } from './usecase-hero.jsx';
 import { UCConsoleScrolly, UCClientGallery, UCCapabilityIndex, UCProblemSplit, UCOutcome } from './usecase-sections.jsx';
@@ -51,6 +52,8 @@ export function UseCaseSaaS() {
         } />
 
       <FAQ items={FAQS} />
+
+      <LearnSection posts={LEARN.saas} />
 
       <section className="section">
         <div className="container-x">
@@ -120,6 +123,8 @@ export function UseCaseAgencies() {
         } />
 
       <FAQ items={FAQS} />
+
+      <LearnSection posts={LEARN.agency} />
 
       <section className="section">
         <div className="container-x">

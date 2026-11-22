@@ -17,7 +17,8 @@
 import React from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Navbar, Footer, FAQ, CrossLinks, BeforeAfterSlider } from './components.jsx';
+import { Navbar, Footer, FAQ, CrossLinks, BeforeAfterSlider, LearnSection } from './components.jsx';
+import { LEARN } from '../lib/learn-posts.js';
 import { Mock, useMounted } from './decorative.jsx';
 import { FeatureHeroC } from './feature-hero.jsx';
 import { FeatureMotion } from './feature-collect.jsx';
@@ -52,7 +53,7 @@ function AddToSlack({ large }) {
 // ============ Hero ============
 const HERO = {
   chip: 'REVLY FOR SLACK', chipClass: 'chip-pink',
-  headline: <>See every new review{' '}<br /><span className="pay">in Slack, instantly.</span></>,
+  headline: <>See every new review{' '}<br /><span className="pay">in Slack, automatically.</span></>,
   lead: "Revly watches your listings on G2, Capterra, Trustpilot, the Shopify App Store, WordPress.org, WooCommerce, Xero and QuickBooks. When a review appears, changes or disappears, Revly posts it to the Slack channel you choose, with the rating, the reviewer's words and a one-click path to respond.",
   ctas: <a className="btn btn-yellow btn-lg" href="/pricing/">Get Slack notifications for reviews</a>,
 };
@@ -93,7 +94,7 @@ const HERO_MORPH = (
 // ============ How to install (scrolly) ============
 const STEPS = [
   { t: 'Sign in to Revly', b: <>Go to <a href="https://app.revly.io/login">app.revly.io</a> and sign in, or <a href="https://app.revly.io/signup">create an account</a>. Slack notifications are included on the Core plan and above; you can upgrade any time from <span className="path">Settings → Plan &amp; Billing</span>.</> },
-  { t: 'Open Settings → Integrations', b: <>Choose <span className="path">Settings</span> in the left sidebar, scroll to <span className="path">Integrations</span>, and press <span className="path">Add to Slack</span> on the Slack Notifications card. Only workspace owners and admins see the button.</> },
+  { t: 'Open Settings → Integrations', b: <>Choose <span className="path">Settings</span> in the left sidebar, scroll to <span className="path">Integrations</span>, and press <span className="path">Add to Slack</span>.</> },
   { t: 'Approve in Slack', b: <>Slack asks which workspace to add Revly to and shows the three permissions it needs (listed below). Press <span className="path">Allow</span>.</> },
   { t: 'Confirm and choose a channel', b: <>You are returned to Revly Settings with a <em>Slack connected!</em> confirmation. Pick the channel Revly should post to. Public channels are always listed; private channels appear once Revly has been invited to them.</> },
   { t: 'Invite Revly to the channel', b: <>Revly can only post to channels it is a member of. In Slack, open the channel you picked and run <code>/invite @Revly</code>. If you chose a private channel, do this first and press <span className="path">refresh the list</span> in Revly.</> },
@@ -226,22 +227,15 @@ const MESSAGE_TYPES = [
     img: '/assets/slack/01-new-review.png',
     alt: 'A Revly message in Slack announcing a new five-star G2 review, with Respond in Revly and View Review on G2 buttons',
     when: 'New reviews',
-    title: 'See every new review first.',
+    title: 'Be the first one to see new reviews.',
     body: 'The rating, the reviewer and what they wrote land in Slack, with a button to reply.',
   },
   {
     img: '/assets/slack/02-needs-response.png',
     alt: 'A Revly message in Slack with two new Trustpilot reviews, one two-star and one four-star, and the team discussing who replies',
     when: 'Low ratings',
-    title: 'Answer bad reviews while they are fresh.',
+    title: 'Tackle negative feedback fast.',
     body: 'One click opens the review in Revly with an AI-drafted reply ready to edit.',
-  },
-  {
-    img: '/assets/slack/03-digest.png',
-    alt: 'A Revly digest message in Slack summarising six new Shopify App Store reviews with the average rating and the best and lowest review',
-    when: 'Digests',
-    title: 'A busy day stays one message.',
-    body: 'Four or more new reviews on one listing arrive as a single summary, not a flood.',
   },
   {
     img: '/assets/slack/04-updated-removed.png',
@@ -249,13 +243,6 @@ const MESSAGE_TYPES = [
     when: 'Changes',
     title: 'Know when a review changes or disappears.',
     body: 'See the before and after of every edit, and keep the text of removed reviews so you can appeal.',
-  },
-  {
-    img: '/assets/slack/05-incentive-due.png',
-    alt: 'A Revly message in Slack saying an incentive is due because a collected review went live on G2, with a Mark as sent in Revly button',
-    when: 'Rewards',
-    title: 'Never forget a promised reward.',
-    body: 'Revly tells you when a collected review goes live and who to send the reward to.',
   },
 ];
 
@@ -292,7 +279,7 @@ function SlackGallery() {
       <div className="galC-track" data-track>
         <article className="panelC lead-panel">
           <div>
-            <h2>Know about every review<br /><span style={{ color: 'hsl(var(--primary))' }}>before your buyers do.</span></h2>
+            <h2>Get notified for<br /><span style={{ color: 'hsl(var(--primary))' }}>every review.</span></h2>
             <p className="slk-lead">Revly posts to one channel and never reads your messages.</p>
             <div className="hint">What you get
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
@@ -312,20 +299,6 @@ function SlackGallery() {
             </a>
           </article>
         )}
-        <article className="panelC">
-          <div>
-            <div className="num">06</div>
-            <div className="lbl">Test</div>
-            <h3>Know it works before the first review.</h3>
-            <p>Press Send Test and a <em>Revly is connected!</em> message confirms the channel.</p>
-          </div>
-          <div className="sl-settings">
-            <div className="crumb">Revly · Settings → Integrations</div>
-            <div className="t"><SlackLogo /> Slack Notifications</div>
-            <div className="d">Get notified in Slack when new reviews are detected across your monitored channels.</div>
-            <span className="b"><SlackLogo /> Add to Slack</span>
-          </div>
-        </article>
       </div>
     </section>
   );
@@ -348,13 +321,15 @@ export function SlackApp() {
           <BeforeAfterSlider rows={[
             { without: 'Someone checks five marketplaces, when they remember', with: 'Every new review posts to Slack' },
             { without: 'A two-star review sits unseen for a week', with: 'Your team sees new reviews instantly' },
-            { without: 'A reviewer quietly changes their rating', with: 'Slack notifications for review updates' },
+            { without: 'A reviewer quietly changes their rating', with: 'Slack notifications for updated or removed reviews' },
             { without: 'Reviews disappear from a listing without a trace', with: 'Revly tells you when a review is deleted' }]
           } />
         </div>
       </section>
 
       <FAQ items={SLACK_FAQ} />
+
+      <LearnSection posts={LEARN.slack} />
 
       <section className="section">
         <div className="container-x">
