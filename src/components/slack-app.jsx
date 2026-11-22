@@ -98,7 +98,7 @@ const MESSAGE_TYPES = [
 ];
 
 const STEPS = [
-  { t: 'Sign in to Revly', b: <>Go to <a href="https://app.revly.io/login">app.revly.io</a> and sign in, or <a href="https://app.revly.io/signup">create an account</a>. Slack notifications are included on the Pro plan and above; you can upgrade any time from <span className="path">Settings → Plan &amp; Billing</span>.</> },
+  { t: 'Sign in to Revly', b: <>Go to <a href="https://app.revly.io/login">app.revly.io</a> and sign in, or <a href="https://app.revly.io/signup">create an account</a>. Slack notifications are included on the Core plan and above; you can upgrade any time from <span className="path">Settings → Plan &amp; Billing</span>.</> },
   { t: 'Open Settings → Integrations', b: <>Choose <span className="path">Settings</span> in the left sidebar, scroll to <span className="path">Integrations</span>, and press <span className="path">Add to Slack</span> on the Slack Notifications card. Only workspace owners and admins see the button.</> },
   { t: 'Approve in Slack', b: <>Slack asks which workspace to add Revly to and shows the three permissions it needs (listed below). Press <span className="path">Allow</span>.</> },
   { t: 'Confirm and choose a channel', b: <>You are returned to Revly Settings with a <em>Slack connected!</em> confirmation. Pick the channel Revly should post to. Public channels are always listed; private channels appear once Revly has been invited to them.</> },
@@ -121,7 +121,7 @@ export function SlackApp() {
                 <AddToSlack large />
                 <a className="btn btn-outline btn-lg" href="#install">How to install</a>
               </div>
-              <p className="sl-note">The Add to Slack button is inside the Revly dashboard (Settings → Integrations), so it needs a Revly account on the Pro plan or above. <a href="#install">Step-by-step instructions</a> are below.</p>
+              <p className="sl-note">The Add to Slack button is inside the Revly dashboard (Settings → Integrations), so it needs a Revly account on the Core plan or above. <a href="#install">Step-by-step instructions</a> are below.</p>
             </div>
             <HeroMessage />
           </div>
@@ -229,7 +229,7 @@ export function SlackApp() {
             <div><h3>Who can manage it</h3><p>Owners and admins of the Revly workspace. Members see a note asking them to contact an admin.</p></div>
             <div><h3>One channel per workspace</h3><p>Each Revly workspace connects to one Slack workspace and one channel. Agencies connect each client workspace separately from the company switcher.</p></div>
             <div><h3>What counts as new</h3><p>A review is announced when Revly first sees it and it was posted within the last 30 days. Older reviews picked up on a first sync or a historical sweep are stored quietly as backfill.</p></div>
-            <div><h3>How often Revly checks</h3><p>Every 6 hours on Pro and every 2 hours on Business and Agency, for most platforms. A few are deliberately slower because each check is expensive to run: G2 and Trustpilot once a day, Capterra every three days. Sync Now in the dashboard checks immediately, on any plan.</p></div>
+            <div><h3>How often Revly checks</h3><p>Every 6 hours on Core and every 2 hours on Team and Agency, for most platforms. A few are deliberately slower because each check is expensive to run: G2 and Trustpilot once a day, Capterra every three days. Sync Now in the dashboard checks immediately, on any plan.</p></div>
             <div><h3>If messages stop</h3><p>Usually one of three things: Revly is no longer a member of the channel (re-invite it), the app was removed from Slack (reconnect from Settings), or the plan no longer includes Slack.</p></div>
           </div>
         </div>
@@ -263,12 +263,12 @@ export function SlackApp() {
         <div className="container-x">
           <div className="sl-section-head">
             <span className="eyebrow">Pricing</span>
-            <h2 className="h2" style={{ marginTop: '.75rem' }}>Included with Pro and above. <span className="mag">No extra charge.</span></h2>
+            <h2 className="h2" style={{ marginTop: '.75rem' }}>Included with Core and above. <span className="mag">No extra charge.</span></h2>
             <p className="lead">The Slack app costs nothing on its own. It is part of every paid Revly plan; the Free plan does not include Slack notifications.</p>
           </div>
           <div className="sl-plans">
-            <div className="sl-plan"><div className="nm">Pro</div><div className="pr">$49<small>/mo</small></div><p>$41/mo billed annually. 5 channels, checks every 6 hours, Slack notifications, AI responses.</p></div>
-            <div className="sl-plan"><div className="nm">Business</div><div className="pr">$99<small>/mo</small></div><p>$84/mo billed annually. 15 channels, checks every 2 hours, unlimited team members, webhooks and API.</p></div>
+            <div className="sl-plan"><div className="nm">Core</div><div className="pr">$49<small>/mo</small></div><p>$41/mo billed annually. 5 channels, checks every 6 hours, Slack notifications, AI responses.</p></div>
+            <div className="sl-plan"><div className="nm">Team</div><div className="pr">$99<small>/mo</small></div><p>$84/mo billed annually. 15 channels, checks every 2 hours, unlimited team members, webhooks and API.</p></div>
             <div className="sl-plan"><div className="nm">Agency</div><div className="pr">Custom</div><p>Ten or more managed clients, each with its own Slack connection, consolidated billing.</p></div>
           </div>
           <div style={{ textAlign: 'center', marginTop: '2rem' }}>

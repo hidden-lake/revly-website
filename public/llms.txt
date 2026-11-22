@@ -34,7 +34,7 @@ behalf or posts without their approval.
 - [Pricing page](https://revly.io/pricing/)
 - [Machine-readable pricing](https://revly.io/pricing.md): plans, limits and prices as structured text
 
-Free plan $0/month. Pro from $41/month. Business from $84/month. Agency is custom
+Free plan $0/month. Core from $41/month. Team from $84/month. Agency is custom
 priced. No card required to start.
 
 ## Who it is for

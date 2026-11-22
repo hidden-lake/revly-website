@@ -172,7 +172,7 @@ export const blocks = [
   },
   {
     type: 'p',
-    text: 'The practical consequence is that a single campaign cannot be run the same way twice. What passes on one platform gets an app pulled from another, so the routing matters more than the copy. Revly handles that from [a single collection link](/collect-quality-reviews/), applying each platform\'s own rules per campaign, then sends everything that lands back to one place: [drafted replies](/manage-review-responses/) for reviews sitting unanswered, and [embeddable widgets](/review-widgets/) that refresh themselves, so a Shopify App Store review and a G2 review can sit side by side on your own pages.',
+    text: 'The practical consequence is that a single campaign cannot be run the same way twice. What passes on one platform gets an app pulled from another, so the routing matters more than the copy. Revly handles that for G2, Capterra, Trustpilot and the app marketplaces from [a single collection link](/collect-quality-reviews/), then sends everything that lands back to one place: [drafted replies](/manage-review-responses/) for reviews sitting unanswered, and [embeddable widgets](/review-widgets/) that refresh themselves, so a Shopify App Store review and a G2 review can sit side by side on your own pages.',
   },
 
   { type: 'h2', text: 'Platforms we would not spend time on' },

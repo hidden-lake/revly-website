@@ -8,7 +8,7 @@ Currency: USD. Monthly prices shown are the annual-billing rate; the monthly-bil
 rate is listed where it differs. Start free, no card required.
 
 Pricing page: https://revly.io/pricing/
-Last updated: 2026-08-22
+Last updated: 2026-11-22
 
 ## Free
 
@@ -22,7 +22,7 @@ Last updated: 2026-08-22
 - Included: basic branded collection, email support
 - Not included: AI enhancement, AI response suggestions, sentiment analysis, custom branding, incentives
 
-## Pro
+## Core
 
 - Price: $41/month billed annually, $49/month billed monthly
 - For: growing businesses
@@ -33,7 +33,7 @@ Last updated: 2026-08-22
 - Review monitoring: every 6 hours
 - Included: AI review enhancement, AI response suggestions, AI sentiment analysis, custom branding, incentives, reports, review widget, notifications
 
-## Business
+## Team
 
 - Price: $84/month billed annually, $99/month billed monthly
 - For: teams at scale
@@ -42,7 +42,7 @@ Last updated: 2026-08-22
 - Collected reviews: 1,000/month
 - Team members: unlimited
 - Review monitoring: every 2 hours
-- Included: everything in Pro, plus API access, integrations, MCP access for Claude and ChatGPT, automatic incentive fulfillment, custom domain, white-label
+- Included: everything in Core, plus API access, integrations, MCP access for Claude and ChatGPT, automatic incentive fulfillment, custom domain, white-label
 
 ## Agency
 
@@ -53,7 +53,7 @@ Last updated: 2026-08-22
 - Collected reviews: 500/month per client
 - Team members: unlimited
 - Review monitoring: every 2 hours
-- Included: everything in Business, plus multi-client dashboard and billing, per-client branding, dedicated support
+- Included: everything in Team, plus multi-client dashboard and billing, per-client branding, dedicated support
 
 ## Notes
 
