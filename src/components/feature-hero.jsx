@@ -56,7 +56,7 @@ const HERO_MORPHS = {
           <div className="mess">
             <span className="tab t1"><b>G2</b> 3 unread <i className="badge">3</i></span>
             <span className="tab t2"><b>Capterra</b> 1 missed <i className="badge">1</i></span>
-            <span className="tab t3"><b>App&nbsp;Store</b> ? <i className="badge">!</i></span>
+            <span className="tab t3"><b>Xero</b> ? <i className="badge">!</i></span>
             <span className="tab t4"><b>Trustpilot</b> 2 new <i className="badge">2</i></span>
             <span className="tab t5"><b>WordPress</b> ?</span>
           </div>
@@ -66,7 +66,7 @@ const HERO_MORPHS = {
           <div className="mlist">
             <div className="mrow on"><span className="mp">G2</span> Maria O. <span className="mst">★★★★★</span> <span className="mtime">just now</span></div>
             <div className="mrow on"><span className="mp">Capterra</span> Jonas P. <span className="mst">★★★★</span> <span className="mtime">4m</span></div>
-            <div className="mrow on"><span className="mp">App Store</span> Devon R. <span className="mst">★★★★★</span> <span className="mtime">12m</span></div>
+            <div className="mrow on"><span className="mp">Shopify</span> Devon R. <span className="mst">★★★★★</span> <span className="mtime">12m</span></div>
           </div>
         </div>
       </div>
@@ -93,13 +93,13 @@ const HERO_CONFIGS = {
     chip: "GET HIGH QUALITY REVIEWS", chipClass: "chip-amber",
     headline: <>Turn <span className="kw">"great tool"</span> into a<br />review that <span className="pay">converts.</span></>,
     lead: "Revly checks in with your customer, points anyone who needs help to your team, then helps everyone else expand a quick thought into a detailed review in their own words, on the platform where it does the most good.",
-    ctas: <><a className="btn btn-yellow btn-lg" href="/pricing/">Start collecting better reviews</a><a className="btn btn-outline btn-lg" href="/pricing/">Book a demo</a></>
+    ctas: <><a className="btn btn-yellow btn-lg" href="/pricing/">Start collecting better reviews</a></>
   },
   monitor: {
     chip: "SEE EVERY REVIEW", chipClass: "chip-amber",
     headline: <>Turn <span className="kw">five open tabs</span><br />into <span className="pay">one dashboard.</span></>,
-    lead: <>Reviews land across G2, Capterra, and the app stores. Revly pulls every one into a single feed and <strong>posts each new review to Slack</strong>, so nobody has to remember to check.</>,
-    ctas: <><a className="btn btn-yellow btn-lg" href="/pricing/">See all your reviews in one place</a><a className="btn btn-outline btn-lg" href="/pricing/">Book a demo</a></>
+    lead: <>Reviews land across G2, Capterra, and the app marketplaces. Revly pulls every one into a single feed and <strong>posts each new review to Slack</strong>, so nobody has to remember to check.</>,
+    ctas: <><a className="btn btn-yellow btn-lg" href="/pricing/">See all your reviews in one place</a></>
   },
   embed: {
     chip: "SHOW YOUR REVIEWS OFF", chipClass: "chip-amber",
@@ -121,22 +121,26 @@ const HERO_CONFIGS = {
   }
 };
 
-export function FeatureHeroC({ variant }) {
-  const cfg = HERO_CONFIGS[variant];
+// `config` and `morph` let a page bring its own copy and animation (the Slack page
+// does, so its Add to Slack button and message mock stay out of this shared file).
+// `config.note` renders a small line under the buttons.
+export function FeatureHeroC({ variant, config, morph, id }) {
+  const cfg = config ?? HERO_CONFIGS[variant];
   const ref = React.useRef(null);
   const mounted = useMounted();
   useHeroMorphLoop(ref, mounted);
   if (!cfg) return null;
   return (
-    <section className="hero-c2" ref={ref}>
+    <section className="hero-c2" ref={ref} id={id}>
       <div className="hc2-inner">
         <div className="hc2-copy">
           <div className={"chip " + cfg.chipClass} style={{ display: "inline-flex" }}>{cfg.chip}</div>
           <h1 className="h1">{cfg.headline}</h1>
           <p className="lead">{cfg.lead}</p>
           <div className="hc2-cta">{cfg.ctas}</div>
+          {cfg.note && <p className="hc2-note">{cfg.note}</p>}
         </div>
-        {HERO_MORPHS[variant]}
+        {morph ?? HERO_MORPHS[variant]}
       </div>
     </section>
   );

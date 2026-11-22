@@ -128,6 +128,8 @@ export function faqPageSchema(faqs, path) {
 // pointing primaryImageOfPage at a 404 is worse than omitting it.
 export function webPageSchema({ name, description, path, breadcrumbName, parent, image }) {
   const url = canonicalUrl(path);
+  // The home page is the root of every trail, so it gets the WebPage node only.
+  const isHome = url === `${SITE_URL}/`;
   const trail = [{ '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` }];
   if (parent) {
     trail.push({ '@type': 'ListItem', position: 2, name: parent.name, item: canonicalUrl(parent.path) });
@@ -146,13 +148,13 @@ export function webPageSchema({ name, description, path, breadcrumbName, parent,
         about: { '@id': SOFTWARE_ID },
         inLanguage: 'en',
         ...(image ? { primaryImageOfPage: { '@type': 'ImageObject', url: `${SITE_URL}${image}`, width: 1200, height: 630 } } : {}),
-        breadcrumb: { '@id': `${url}#breadcrumb` },
+        ...(isHome ? {} : { breadcrumb: { '@id': `${url}#breadcrumb` } }),
       },
-      {
+      ...(isHome ? [] : [{
         '@type': 'BreadcrumbList',
         '@id': `${url}#breadcrumb`,
         itemListElement: trail,
-      },
+      }]),
     ],
   };
 }

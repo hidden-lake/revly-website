@@ -1,13 +1,13 @@
 // Revly - Product pages (Collect, Monitor, Manage)
 import React from 'react';
-import { Navbar, Footer, BeforeAfterSlider, FAQ, CrossLinks } from './components.jsx';
+import { Navbar, Footer, BeforeAfterSlider, FAQ, CrossLinks, LearnSection } from './components.jsx';
+import { LEARN } from '../lib/learn-posts.js';
 import { KineticReveal, StackReveal, HorizontalReveal } from './reveals.jsx';
 import { FeatureHeroC } from './feature-hero.jsx';
 import { FeatureMotion, CQScrolly, CQSmartRouting, CQGallery } from './feature-collect.jsx';
 import { MonScrolly, MonGallery } from './feature-monitor.jsx';
 import { RespScrolly, RespGallery } from './feature-respond.jsx';
 import { COLLECT_FAQ, MONITOR_FAQ, RESPOND_FAQ } from '../lib/faqs.js';
-import { COLLECT_READING, MONITOR_READING, RESPOND_READING } from '../lib/further-reading.js';
 
 export function ProductBeforeAfter({ heading, rows }) {
   return (
@@ -117,7 +117,7 @@ export function CollectBetterReviews() {
         { without: "Customers stare at a blank text box and give up", with: "Writing help that keeps their voice and adds the detail" },
         { without: "\"Great tool.\" reviews that help nobody decide", with: "Reviews that name the problem, the feature, and the alternative" },
         { without: "A list of platform links and a customer picking at random", with: "One link, routed to the platform you need" },
-        { without: "Reviews pile up on whichever platform customers recognise", with: "Distribution balanced automatically, or set by you" }]
+        { without: "Reviews pile up on whichever platform customers recognize", with: "Distribution balanced automatically, or set by you" }]
         } />
 
       <FAQ items={FAQS} />
@@ -129,7 +129,6 @@ export function CollectBetterReviews() {
             <p className="lead" style={{ color: "rgba(255,255,255,0.75)", margin: "1rem auto 0", maxWidth: "50ch" }}>One link. A question that tells you whether this is the right moment, writing help that keeps the customer's voice, and routing to the platform that needs it.</p>
             <div style={{ display: "flex", justifyContent: "center", gap: ".75rem", marginTop: "2rem", flexWrap: "wrap" }}>
               <a className="btn btn-default btn-lg" href="/pricing/">Start collecting better reviews</a>
-              <a className="btn btn-yellow btn-lg" href="/pricing/">Book a demo</a>
             </div>
           </div>
         </div>
@@ -141,7 +140,7 @@ export function CollectBetterReviews() {
       { chip: "Display", title: "Display reviews on your site", body: "Styled widgets that keep themselves current as new reviews come in.", to: "/review-widgets/" }]
       } />
 
-      <CrossLinks eyebrow="Further reading" cta="Read the article →" bg="hsl(var(--card))" items={COLLECT_READING} />
+      <LearnSection posts={LEARN.collect} />
     </main>
     <Footer />
   </>;
@@ -181,7 +180,6 @@ export function MonitorPlatforms() {
             <p className="lead" style={{ color: "rgba(255,255,255,0.75)", margin: "1rem auto 0", maxWidth: "50ch" }}>Every platform in one dashboard, every new review in the channel your team already has open.</p>
             <div style={{ display: "flex", justifyContent: "center", gap: ".75rem", marginTop: "2rem", flexWrap: "wrap" }}>
               <a className="btn btn-default btn-lg" href="/pricing/">Start monitoring your reviews</a>
-              <a className="btn btn-yellow btn-lg" href="/pricing/">Book a demo</a>
             </div>
           </div>
         </div>
@@ -193,7 +191,7 @@ export function MonitorPlatforms() {
       { chip: "Claude connector", title: "Query your review data with AI", body: "Connect Revly to Claude or ChatGPT and ask questions about your review data in plain language.", to: "/claude-mcp/" }]
       } />
 
-      <CrossLinks eyebrow="Further reading" cta="Read the article →" bg="hsl(var(--card))" items={MONITOR_READING} />
+      <LearnSection posts={LEARN.monitor} />
     </main>
     <Footer />
   </>;
@@ -231,7 +229,6 @@ export function ManageReviewResponses() {
             <p className="lead" style={{ color: "rgba(255,255,255,0.75)", margin: "1rem auto 0", maxWidth: "48ch" }}>One dashboard, every platform, AI-assisted replies matched to your brand voice, and one click to post.</p>
             <div style={{ display: "flex", justifyContent: "center", gap: ".75rem", marginTop: "2rem", flexWrap: "wrap" }}>
               <a className="btn btn-default btn-lg" href="/pricing/">Start replying to all reviews</a>
-              <a className="btn btn-yellow btn-lg" href="/pricing/">Book a demo</a>
             </div>
           </div>
         </div>
@@ -243,7 +240,7 @@ export function ManageReviewResponses() {
       { chip: "Claude connector", title: "Query your review data with AI", body: "Connect Revly to Claude or ChatGPT and ask questions about your review data in plain language.", to: "/claude-mcp/" }]
       } />
 
-      <CrossLinks eyebrow="Further reading" cta="Read the article →" bg="hsl(var(--card))" items={RESPOND_READING} />
+      <LearnSection posts={LEARN.respond} />
     </main>
     <Footer />
   </>;

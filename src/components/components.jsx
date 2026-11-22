@@ -26,6 +26,9 @@ export const Icon = ({ name, size = 24, className = "" }) => {
 };
 
 // ---------- Navbar ----------
+// Product menu label: [before, bold, after].
+const ProductLabel = ({ label: [pre, bold, post] }) => <>{pre}<strong>{bold}</strong>{post}</>;
+
 export function Navbar() {
   const [productOpen, setProductOpen] = useState(false);
   const [useCasesOpen, setUseCasesOpen] = useState(false);
@@ -41,12 +44,13 @@ export function Navbar() {
     return () => document.removeEventListener("click", onClick);
   }, []);
   const productLinks = [
-  { to: "/collect-quality-reviews/", label: "Collect Quality Reviews" },
-  { to: "/monitor-platforms/", label: "Monitor Multiple Review Platforms" },
-  { to: "/manage-review-responses/", label: "Manage Review Responses" },
-  { to: "/review-widgets/", label: "Display Reviews On Your Site" },
-  { to: "/claude-mcp/", label: "Query Your Review Data with AI" },
-  { to: "/slack/", label: "Slack Notifications" }];
+  // label = [before, bold, after]: the bold part is the word a scanning eye looks for.
+  { to: "/collect-quality-reviews/", label: ["", "Collect", " Quality Reviews"] },
+  { to: "/monitor-platforms/", label: ["", "Monitor", " Multiple Review Platforms"] },
+  { to: "/manage-review-responses/", label: ["", "Manage", " Review Responses"] },
+  { to: "/review-widgets/", label: ["", "Display", " Reviews On Your Site"] },
+  { to: "/claude-mcp/", label: ["", "Connect", " to Claude or ChatGPT"] },
+  { to: "/slack/", label: ["Get ", "Slack Notifications", " for Reviews"] }];
   const useCasesLinks = [
   { to: "/use-cases/saas/", label: "SaaS teams" },
   { to: "/use-cases/agencies/", label: "Agencies" }];
@@ -65,7 +69,7 @@ export function Navbar() {
             {productOpen &&
             <div className="dropdown">
                 {productLinks.map((l) =>
-              <a key={l.to} href={l.to} onClick={() => setProductOpen(false)}>{l.label}</a>
+              <a key={l.to} href={l.to} onClick={() => setProductOpen(false)}><ProductLabel label={l.label} /></a>
               )}
               </div>
             }
@@ -94,7 +98,7 @@ export function Navbar() {
       {mobileOpen &&
       <div className="show-md" style={{ borderTop: "1px solid hsl(var(--border))", background: "hsl(var(--card))", padding: "1rem 1.5rem" }}>
           <div style={{ display: "flex", flexDirection: "column", gap: ".25rem" }}>
-            {productLinks.map((l) => <a key={l.to} href={l.to} onClick={() => setMobileOpen(false)} style={{ padding: ".5rem 0" }}>{l.label}</a>)}
+            {productLinks.map((l) => <a key={l.to} href={l.to} onClick={() => setMobileOpen(false)} style={{ padding: ".5rem 0" }}><ProductLabel label={l.label} /></a>)}
             <div style={{ height: "1px", background: "hsl(var(--border))", margin: ".4rem 0" }} />
             {useCasesLinks.map((l) => <a key={l.to} href={l.to} onClick={() => setMobileOpen(false)} style={{ padding: ".5rem 0" }}>{l.label}</a>)}
             <a href="/pricing/" onClick={() => setMobileOpen(false)} style={{ padding: ".5rem 0" }}>Pricing</a>
@@ -125,7 +129,7 @@ export function Footer() {
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.51A3.02 3.02 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3.02 3.02 0 0 0 2.12 2.14c1.88.51 9.38.51 9.38.51s7.5 0 9.38-.51a3.02 3.02 0 0 0 2.12-2.14A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z" /></svg>
               </a>
               <a href="https://www.linkedin.com/company/revlyhq/" target="_blank" rel="noopener" aria-label="Revly on LinkedIn" style={{ color: "#fff", display: "inline-flex" }}>
-                <svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.8 0 .78 0 1.74v20.52C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.74V1.74C24 .78 23.2 0 22.22 0z" /></svg>
+                <svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.74v20.52C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.74V1.74C24 .78 23.2 0 22.22 0z" /></svg>
               </a>
               <a href="https://open.spotify.com/playlist/4nJO121CkVgAQI9mOyTSc6" target="_blank" rel="noopener" aria-label="Revly on Spotify" style={{ color: "#fff", display: "inline-flex" }}>
                 <svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
@@ -137,8 +141,8 @@ export function Footer() {
           ["Monitor Multiple Review Platforms", "/monitor-platforms/"],
           ["Manage Review Responses", "/manage-review-responses/"],
           ["Display Reviews On Your Site", "/review-widgets/"],
-          ["Query Your Review Data with AI", "/claude-mcp/"],
-          ["Slack Notifications", "/slack/"],
+          ["Connect to Claude or ChatGPT", "/claude-mcp/"],
+          ["Get Slack Notifications for Reviews", "/slack/"],
           // The free scan needs no account and is the one page on app.revly.io meant
           // to be found in search. Nothing on this site linked to it until now.
           ["Free review health check", "https://app.revly.io/scan"]]
@@ -151,7 +155,7 @@ export function Footer() {
           "WooCommerce Marketplace",
           "Xero Marketplace",
           "QuickBooks Marketplace",
-          "Capterra, GetApp & Software Advice"]
+          "Capterra"]
           } />
           <FooterCol title="Who it's for" links={[
           ["SaaS teams", "/use-cases/saas/"],
@@ -170,7 +174,7 @@ export function Footer() {
 export function FooterCol({ title, links, items }) {
   return (
     <div>
-      <h4 style={{ fontFamily: "Bricolage Grotesque", fontWeight: 700, fontSize: ".95rem", color: "white", marginBottom: ".9rem" }}>{title}</h4>
+      <h2 style={{ fontFamily: "Bricolage Grotesque", fontWeight: 700, fontSize: ".95rem", color: "white", marginBottom: ".9rem" }}>{title}</h2>
       <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: ".55rem" }}>
         {items ?
         items.map((label) =>
@@ -252,10 +256,36 @@ export function FAQ({ items, title = "Common questions" }) {
 
 }
 
+// ---------- Learn (blog cards, last section above the footer) ----------
+// Same card styling as the blog index (bl-card, bl-cover in blog.css), so a reader
+// recognises the posts when they land on the blog. Data comes from lib/learn-posts.js.
+export function LearnSection({ posts }) {
+  return (
+    <section className="section" style={{ background: "hsl(var(--card))" }}>
+      <div className="container-x">
+        <h2 className="h2" style={{ textAlign: "center", marginBottom: "2.5rem" }}>Learn</h2>
+        <div className="learn-grid">
+          {posts.map((p) =>
+          <a key={p.slug} href={`/blog/${p.slug}/`} className="card bl-card">
+              <div className="bl-cover">
+                <img src={p.cover} alt={p.coverAlt} loading="lazy" decoding="async" width="640" height="360" />
+              </div>
+              <div className="bl-card-body">
+                <h3>{p.title}</h3>
+                <p>{p.teaser}</p>
+                <div className="bl-meta"><span>{p.readTime}</span><span className="learn-cta">Read the article →</span></div>
+              </div>
+            </a>
+          )}
+        </div>
+      </div>
+    </section>);
+}
+
 // ---------- Cross-links ----------
-// Also used for the "Further reading" band that points from a commercial page into
-// the blog, which is why the eyebrow and the link label are props. The defaults keep
-// every existing call site rendering exactly as before.
+// The eyebrow and the link label are props so other bands can reuse the layout.
+// (Product and use-case pages no longer carry a "Further reading" band; blog
+// articles link to each other on their own. Nov 2026.)
 export function CrossLinks({ items, eyebrow = "Also in Revly", cta = "Learn more →", bg = "#f6f6f4" }) {
   return (
     <section style={{ background: bg, padding: "4rem 0" }}>

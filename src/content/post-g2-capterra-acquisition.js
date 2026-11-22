@@ -1,4 +1,4 @@
-// Revly blog — "G2 acquired Capterra. What it changes for your review programme."
+// Revly blog — "G2 acquired Capterra. What it changes for your review program."
 //
 // Body copy is authored text: transcribe it, don't rewrite it. Paragraph strings accept
 // **bold** and [label](href) only. `graphic` blocks name a component in
@@ -7,7 +7,7 @@
 
 export const meta = {
   slug: 'g2-capterra-acquisition-review-management',
-  title: 'G2 acquired Capterra. What it changes for your review programme.',
+  title: 'G2 acquired Capterra. What it changes for your review program.',
   // Kept under 60 characters for the SERP.
   metaTitle: 'G2 Acquired Capterra: What Changed for Reviews | Revly',
   metaDescription:
@@ -45,7 +45,7 @@ export const meta = {
     // One line; headingAccent is the closing phrase, rendered in magenta.
     headingTop: 'See every review',
     headingAccent: 'in one place.',
-    body: 'Revly brings reviews from G2, Capterra and the app stores into a single dashboard, drafts your replies, and turns your best reviews into widgets for your own site.',
+    body: 'Revly brings reviews from G2, Capterra and the app marketplaces into a single dashboard, drafts your replies, and turns your best reviews into widgets for your own site.',
     primary: { label: 'Start free', href: '/pricing/' },
     secondary: { label: 'See how monitoring works', href: '/monitor-platforms/' },
   },
@@ -54,7 +54,7 @@ export const meta = {
 export const blocks = [
   {
     type: 'lead',
-    text: 'The acquisition did not change much for anyone actually running a review programme. G2 bought Capterra, Software Advice and GetApp from Gartner earlier this year, and if you were expecting one merged platform, one login, or one set of rules, none of that happened. You still have four profiles to keep an eye on and two completely different campaigns to run.',
+    text: 'The acquisition did not change much for anyone actually running a review program. G2 bought Capterra, Software Advice and GetApp from Gartner earlier this year, and if you were expecting one merged platform, one login, or one set of rules, none of that happened. You still have four profiles to keep an eye on and two completely different campaigns to run.',
   },
   {
     type: 'p',
@@ -117,7 +117,7 @@ export const blocks = [
   },
   {
     type: 'p',
-    text: 'This is the specific problem [Revly\'s monitoring](/monitor-platforms/) exists for. Every review from G2, Capterra and the app stores lands in one feed, and in the Slack channel you choose, so you find out when it happens rather than when you next remember to look.',
+    text: 'This is the specific problem [Revly\'s monitoring](/monitor-platforms/) exists for. Every review from G2, Capterra and the app marketplaces lands in one feed, and in the Slack channel you choose, so you find out when it happens rather than when you next remember to look.',
   },
 
   { type: 'h2', text: 'Responding still means four logins' },

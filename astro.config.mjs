@@ -37,6 +37,10 @@ export default defineConfig({
     }),
   ],
   site: 'https://revly.io',
+  // Inline the bundled CSS into each page instead of a separate render-blocking
+  // request. GitHub Pages caches it for only 10 minutes anyway, so a repeat visitor
+  // gained little from it being a separate file (Lighthouse, Nov 2026).
+  build: { inlineStylesheets: 'always' },
   redirects: {
     '/collect-better-reviews': '/collect-quality-reviews/',
     // Merged into /collect-quality-reviews in September 2026.

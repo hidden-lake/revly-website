@@ -1,11 +1,11 @@
 // Revly — Use Case pages (SaaS Teams, Agencies)
 import React from 'react';
-import { Navbar, Footer, Icon, FAQ, CrossLinks } from './components.jsx';
+import { Navbar, Footer, Icon, FAQ, CrossLinks, LearnSection } from './components.jsx';
+import { LEARN } from '../lib/learn-posts.js';
 import { FeatureMotion } from './feature-collect.jsx';
 import { WifHero, wifSaasScene, wifAgencyScene } from './usecase-hero.jsx';
 import { UCConsoleScrolly, UCClientGallery, UCCapabilityIndex, UCProblemSplit, UCOutcome } from './usecase-sections.jsx';
 import { SAAS_FAQ, AGENCY_FAQ } from '../lib/faqs.js';
-import { SAAS_READING, AGENCY_READING } from '../lib/further-reading.js';
 
 // ========== SaaS Teams ==========
 export function UseCaseSaaS() {
@@ -18,7 +18,7 @@ export function UseCaseSaaS() {
       <WifHero
         chip="For SaaS Teams"
         headline={<>Your software gets reviewed everywhere. <span className="pay">Manage it all from one place.</span></>}
-        lead="G2, Capterra, the app stores. Your software is being reviewed in a dozen places, and you're the whole review team. Revly pulls every platform into one tab, and shows you exactly what needs a reply."
+        lead="G2, Capterra, the app marketplaces. Your software is being reviewed in a dozen places, and you're the whole review team. Revly pulls every platform into one tab, and shows you exactly what needs a reply."
         cta="Start free with Revly"
         scene={wifSaasScene} />
 
@@ -27,7 +27,7 @@ export function UseCaseSaaS() {
         flip
         eyebrow="The manual way"
         title={<>Managing reviews across platforms <span className="text-primary">is a second job.</span></>}
-        lead="G2 in one tab, Capterra in another, the app stores in a third, and you're the whole review team, hoping nothing slipped through while you were in a meeting."
+        lead="G2 in one tab, Capterra in another, the app marketplaces in a third, and you're the whole review team, hoping nothing slipped through while you were in a meeting."
         emphasized="The data is everywhere. No one has time to manage it properly."
         visual="saas-chaos" />
 
@@ -46,7 +46,7 @@ export function UseCaseSaaS() {
         title={<>Less time managing reviews. <span className="text-primary">More confidence in what gets posted.</span></>}
         lead="Revly replaces the manual scramble with one system: collect thoughtfully, manage from one place, and respond without losing time."
         tiles={[
-        { icon: "dash", title: "One tab, every platform", body: "G2, Capterra, and the app stores in a single queue. No more checking five logins to know where you stand." },
+        { icon: "dash", title: "One tab, every platform", body: "G2, Capterra, and the app marketplaces in a single queue. No more checking five logins to know where you stand." },
         { icon: "eye", title: "A clear reply queue", body: "Every new review surfaces with a 'needs reply' flag, so a 2★ never sits unseen while you're in a meeting." },
         { icon: "shield", title: "A check-in before every ask", body: "Customers are routed to the right next step first, so you collect with confidence in what gets posted." }]
         } />
@@ -60,7 +60,6 @@ export function UseCaseSaaS() {
             <p className="lead" style={{ color: "rgba(255,255,255,0.75)", margin: "1rem auto 0", maxWidth: "46ch" }}>One tab for every platform, a clear reply queue, and a check-in before every request. Set up in under 30 minutes.</p>
             <div style={{ display: "flex", justifyContent: "center", gap: ".75rem", marginTop: "2rem", flexWrap: "wrap" }}>
               <a className="btn btn-default btn-lg" href="/pricing/">Start free with Revly</a>
-              <a className="btn btn-yellow btn-lg" href="/pricing/">Book a demo</a>
             </div>
           </div>
         </div>
@@ -72,7 +71,7 @@ export function UseCaseSaaS() {
       { chip: "Respond", title: "Manage review responses", body: "Revly flags what needs a reply and drafts one in your voice.", to: "/manage-review-responses/" }]
       } />
 
-      <CrossLinks eyebrow="Further reading" cta="Read the article →" bg="hsl(var(--card))" items={SAAS_READING} />
+      <LearnSection posts={LEARN.saas} />
     </main>
     <Footer />
   </>;
@@ -132,7 +131,6 @@ export function UseCaseAgencies() {
             <p className="lead" style={{ color: "rgba(255,255,255,0.75)", margin: "1rem auto 0", maxWidth: "48ch" }}>Every client, every platform, one login, with alerts the moment something needs a reply. Set up your first client in under 30 minutes.</p>
             <div style={{ display: "flex", justifyContent: "center", gap: ".75rem", marginTop: "2rem", flexWrap: "wrap" }}>
               <a className="btn btn-default btn-lg" href="/pricing/">Start free with Revly</a>
-              <a className="btn btn-yellow btn-lg" href="/pricing/">Book a demo</a>
             </div>
           </div>
         </div>
@@ -144,7 +142,7 @@ export function UseCaseAgencies() {
       { chip: "Respond", title: "Manage Review Responses", body: "Surface every review that needs a reply and draft a response in your voice, across every platform.", to: "/manage-review-responses/" }]
       } />
 
-      <CrossLinks eyebrow="Further reading" cta="Read the article →" bg="hsl(var(--card))" items={AGENCY_READING} />
+      <LearnSection posts={LEARN.agency} />
     </main>
     <Footer />
   </>;

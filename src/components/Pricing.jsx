@@ -10,21 +10,21 @@ const PLANS = [
     cta: { label: "Get started", href: "https://app.revly.io/signup" }, variant: "outline",
   },
   {
-    name: "Pro", price: "$41", priceSub: "/mo", desc: "For growing businesses",
+    name: "Core", price: "$41", priceSub: "/mo", desc: "For growing businesses",
     sub: "$49 billed monthly",
     bullets: ["5 channels, 3 collection links","200 collected reviews/month","AI enhancement, sentiment & responses","Custom branding & incentives","Reports, widget & notifications"],
     cta: { label: "Get started", href: "https://app.revly.io/signup?plan=pro" }, popular: true,
   },
   {
-    name: "Business", price: "$84", priceSub: "/mo", desc: "For teams at scale",
+    name: "Team", price: "$84", priceSub: "/mo", desc: "For teams at scale",
     sub: "$99 billed monthly",
-    bullets: ["15 channels, 10 collection links","1,000 collected reviews/month","Unlimited team members","Everything in Pro, plus API & integrations","Custom domain & white-label"],
+    bullets: ["15 channels, 10 collection links","1,000 collected reviews/month","Unlimited team members","Everything in Core, plus API & integrations","Custom domain & white-label"],
     cta: { label: "Get started", href: "https://app.revly.io/signup?plan=business" }, variant: "outline",
   },
   {
     name: "Agency", price: "Custom", priceSub: "", desc: "For agencies managing clients",
     sub: "Contact us for pricing",
-    bullets: ["10+ managed clients","Everything in Business","Multi-client dashboard & billing","Per-client branding & dedicated support"],
+    bullets: ["10+ managed clients","Everything in Team","Multi-client dashboard & billing","Per-client branding & dedicated support"],
     cta: { label: "Contact us", href: "mailto:hello@revly.io?subject=Agency%20Plan%20Inquiry" }, variant: "outline",
   },
 ];
@@ -128,8 +128,8 @@ export function Pricing() {
                 <tr>
                   <th></th>
                   <th>Free</th>
-                  <th>Pro</th>
-                  <th>Business</th>
+                  <th>Core</th>
+                  <th>Team</th>
                   <th>Agency</th>
                 </tr>
               </thead>
@@ -163,7 +163,6 @@ export function Pricing() {
             <p className="lead" style={{ color: "rgba(255,255,255,0.75)", margin: "1rem auto 0", maxWidth: "46ch" }}>One smart link. Every platform. Up and running in minutes.</p>
             <div style={{ display: "flex", justifyContent: "center", gap: "0.75rem", marginTop: "2rem", flexWrap: "wrap" }}>
               <a className="btn btn-default btn-lg" href="https://app.revly.io/signup">Get started for free</a>
-              <a className="btn btn-yellow btn-lg" href="mailto:hello@revly.io?subject=Book%20a%20demo">Book a demo</a>
             </div>
           </div>
         </div>

@@ -13,6 +13,11 @@
   display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden;
 }
 .bl-hero-card h1 { color: #fff; font-size: clamp(3rem, 7vw, 4.75rem); line-height: 1; letter-spacing: -0.035em; }
+.bl-hero-card h1 .bl-h1-word { display: block; }
+.bl-hero-card h1 .bl-h1-sub {
+  display: block; margin-top: 1rem; font-size: clamp(1.35rem, 2.4vw, 1.65rem);
+  line-height: 1.2; letter-spacing: -0.015em; font-weight: 600; max-width: 24rem;
+}
 .bl-hero-card p { margin-top: 1rem; color: rgba(255,255,255,0.88); font-size: 1.05rem; line-height: 1.55; max-width: 26rem; }
 .bl-hero-card .bl-mark {
   position: absolute; right: -3.5rem; top: -5rem; font-family: "Bricolage Grotesque", sans-serif;
@@ -377,3 +382,10 @@
 /* A destination the review never actually reaches. The cross is in the markup, not in
    CSS content, so the meaning survives with styles off. */
 .fig-dest.out .x { font-weight: 800; margin-right: .35rem; }
+
+/* "Learn" band under the FAQ on product and use-case pages */
+.learn-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+@media (min-width: 760px) { .learn-grid { grid-template-columns: repeat(3, 1fr); } }
+.learn-grid .bl-card h3 { font-size: 1.15rem; }
+.learn-cta { margin-left: auto; color: hsl(var(--primary-text)); font-weight: 700; }
+.learn-grid .bl-meta span::after { content: ""; }

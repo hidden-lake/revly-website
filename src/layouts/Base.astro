@@ -44,14 +44,20 @@ const serializeJsonLd = (value) =>
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-XP8XN3QKR7"></script>
+  <!-- Google tag (gtag.js). The config calls queue in dataLayer right away; only the
+       183 KB library waits until the page has loaded, so it no longer competes with
+       the hero for bandwidth on mobile (Lighthouse, Nov 2026). The page view is still
+       recorded: gtag.js replays the queue when it arrives. -->
   <script is:inline>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-XP8XN3QKR7');
+    (function(){
+      function load(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-XP8XN3QKR7';document.head.appendChild(s);}
+      function later(){('requestIdleCallback' in window)?requestIdleCallback(load,{timeout:2000}):setTimeout(load,1);}
+      if(document.readyState==='complete'){later();}else{window.addEventListener('load',later);}
+    })();
   </script>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>

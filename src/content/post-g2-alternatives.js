@@ -118,7 +118,7 @@ export const blocks = [
   },
   {
     type: 'p',
-    text: 'Running three tiers at once is where most programmes fall over, because each listing has its own login, its own rules and its own review count to track. Revly pulls every connected listing into [one dashboard](/monitor-platforms/) with rating trends and a per-platform breakdown, which is the difference between knowing your position and guessing at it.',
+    text: 'Running three tiers at once is where most programs fall over, because each listing has its own login, its own rules and its own review count to track. Revly pulls every connected listing into [one dashboard](/monitor-platforms/) with rating trends and a per-platform breakdown, which is the difference between knowing your position and guessing at it.',
   },
 
   { type: 'h2', text: 'Capterra, GetApp and Software Advice are one platform now, and not the one you think' },
@@ -163,16 +163,16 @@ export const blocks = [
   { type: 'h2', text: 'Where the rules actually conflict' },
   {
     type: 'p',
-    text: 'Every platform on this list writes its own rules on who may review, how they get verified, what you may offer in return and where the review ends up. Running one programme across several of them means running several rulebooks at once.',
+    text: 'Every platform on this list writes its own rules on who may review, how they get verified, what you may offer in return and where the review ends up. Running one program across several of them means running several rulebooks at once.',
   },
   {
     type: 'graphic',
     name: 'rules-conflict',
-    caption: 'Five rulebooks, one programme. The incentive row is where campaigns break first.',
+    caption: 'Five rulebooks, one program. The incentive row is where campaigns break first.',
   },
   {
     type: 'p',
-    text: 'The practical consequence is that a single campaign cannot be run the same way twice. What passes on one platform gets an app pulled from another, so the routing matters more than the copy. Revly handles that from [a single collection link](/collect-quality-reviews/), applying each platform\'s own rules per campaign, then sends everything that lands back to one place: [drafted replies](/manage-review-responses/) for reviews sitting unanswered, and [embeddable widgets](/review-widgets/) that refresh themselves, so a Shopify App Store review and a G2 review can sit side by side on your own pages.',
+    text: 'The practical consequence is that a single campaign cannot be run the same way twice. What passes on one platform gets an app pulled from another, so the routing matters more than the copy. Revly handles that for G2, Capterra, Trustpilot and the app marketplaces from [a single collection link](/collect-quality-reviews/), then sends everything that lands back to one place: [drafted replies](/manage-review-responses/) for reviews sitting unanswered, and [embeddable widgets](/review-widgets/) that refresh themselves, so a Shopify App Store review and a G2 review can sit side by side on your own pages.',
   },
 
   { type: 'h2', text: 'Platforms we would not spend time on' },
@@ -182,7 +182,7 @@ export const blocks = [
   },
   {
     type: 'p',
-    text: '**Product Hunt** is excellent for a launch, and the reviews stay up and get indexed afterwards. The audience skews toward builders, so it earns one good launch and rarely justifies a quarterly programme.',
+    text: '**Product Hunt** is excellent for a launch, and the reviews stay up and get indexed afterwards. The audience skews toward builders, so it earns one good launch and rarely justifies a quarterly program.',
   },
 
   { type: 'h2', text: 'How we would choose' },
@@ -201,7 +201,7 @@ export const blocks = [
   },
   {
     type: 'p',
-    text: 'Then stop adding platforms for a while. Ten reviews on two listings beats four reviews on five, because every site here sets a minimum before your product appears in anything, and a scattered programme clears none of them. [G2 wants 10 in a single category](/blog/how-many-g2-reviews-do-you-need/) before your product shows up in a Grid Report, and reviews in your other categories do not count toward it.',
+    text: 'Then stop adding platforms for a while. Ten reviews on two listings beats four reviews on five, because every site here sets a minimum before your product appears in anything, and a scattered program clears none of them. [G2 wants 10 in a single category](/blog/how-many-g2-reviews-do-you-need/) before your product shows up in a Grid Report, and reviews in your other categories do not count toward it.',
   },
   {
     type: 'graphic',

@@ -98,7 +98,7 @@ export function McpScrolly() {
             <div className="progress"><span><b data-prog="0"></b></span><span><b data-prog="1"></b></span><span><b data-prog="2"></b></span><span><b data-prog="3"></b></span></div>
           </div>
           <div className="stepsA">
-            <div className="stepA"><span className="n">1</span><h3>Connect Revly to Claude once</h3><p>Add the Revly connector in Claude or ChatGPT, authorise your account, and your review data is available. No exports, no scripts, no data pipeline to maintain.</p></div>
+            <div className="stepA"><span className="n">1</span><h3>Connect Revly to Claude once</h3><p>Add the Revly connector in Claude or ChatGPT, authorize your account, and your review data is available. No exports, no scripts, no data pipeline to maintain.</p></div>
             <div className="stepA"><span className="n">2</span><h3>Ask in plain language</h3><p>No query syntax or dashboard filters to learn. Ask the question the way you'd ask a colleague who had read every review.</p></div>
             <div className="stepA"><span className="n">3</span><h3>Claude answers from your real data</h3><p>Answers come from your actual reviews and collection data, with the quotes and sources attached, so you can check the claim and lift the line straight into your copy.</p></div>
             <div className="stepA"><span className="n">4</span><h3>Fold it into how you already work</h3><p>Build the analysis into your reporting flow, rerun it each quarter, or use it mid-draft while you're writing a landing page. Claude does the fetching; you keep the judgement.</p></div>

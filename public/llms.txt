@@ -6,7 +6,7 @@
 > Claude and ChatGPT over MCP.
 
 Revly is built for SaaS and software companies whose products get reviewed on G2,
-Capterra, the app stores and marketplace listings. It is used by marketing teams
+Capterra, Trustpilot and app marketplace listings. It is used by marketing teams
 running review programs, and by agencies managing reviews for multiple clients.
 
 What makes it different from sending review request emails by hand: Revly screens for
@@ -34,7 +34,7 @@ behalf or posts without their approval.
 - [Pricing page](https://revly.io/pricing/)
 - [Machine-readable pricing](https://revly.io/pricing.md): plans, limits and prices as structured text
 
-Free plan $0/month. Pro from $41/month. Business from $84/month. Agency is custom
+Free plan $0/month. Core from $41/month. Team from $84/month. Agency is custom
 priced. No card required to start.
 
 ## Who it is for
@@ -48,16 +48,15 @@ Research on how the review platforms actually work, checked against their own
 documentation and primary sources.
 
 - [Blog index](https://revly.io/blog/)
-- [G2 acquired Capterra. What it changes for your review programme.](https://revly.io/blog/g2-capterra-acquisition-review-management/): G2 now owns Capterra, Software Advice and GetApp. Capterra reviews still do not syndicate to G2, incentive rules still differ, and collection is still two separate campaigns.
+- [G2 acquired Capterra. What it changes for your review program.](https://revly.io/blog/g2-capterra-acquisition-review-management/): G2 now owns Capterra, Software Advice and GetApp. Capterra reviews still do not syndicate to G2, incentive rules still differ, and collection is still two separate campaigns.
 - [How many G2 reviews do you actually need?](https://revly.io/blog/how-many-g2-reviews-do-you-need/): 10 reviews in a category for a Grid Report, 20 at a 4.0 average for Users Love Us, plus how G2's review decay curve works.
 - [G2 alternatives: where B2B software buyers actually read reviews](https://revly.io/blog/g2-alternatives/): The marketplace that distributes your product comes first, G2 second, then Capterra, Gartner Peer Insights and TrustRadius, with the incentive and verification rules that conflict between them.
 - [G2 badges explained: which ones you can earn, and what they cost](https://revly.io/blog/g2-badges-explained/): Users Love Us at 20 reviews and a 4.0 average, AI Users Trust at 25 responses, and why displaying most other G2 badges has needed a paid plan since June 2025.
 
 ## Monitored platforms
 
-G2, Capterra, GetApp, Software Advice, Trustpilot, Apple App Store, Google Play Store,
-Shopify App Store, WooCommerce Marketplace, QuickBooks Marketplace, WordPress Plugin
-Marketplace, Xero Marketplace.
+G2, Capterra, Trustpilot, Shopify App Marketplace, WordPress Plugin Marketplace,
+WooCommerce Marketplace, Xero Marketplace, QuickBooks Marketplace.
 
 ## Company
 

@@ -35,7 +35,7 @@ export const meta = {
   cta: {
     headingTop: 'Stop managing reviews',
     headingAccent: 'manually.',
-    body: 'Revly shows your review counts across G2, Capterra and the app stores in one dashboard, sends customers to the right platform with a single link, and drafts your replies so reviews stop sitting unanswered.',
+    body: 'Revly shows your review counts across G2, Capterra and the app marketplaces in one dashboard, sends customers to the right platform with a single link, and drafts your replies so reviews stop sitting unanswered.',
     primary: { label: 'Start free', href: '/pricing/' },
     secondary: { label: 'See how collection works', href: '/collect-quality-reviews/' },
   },
@@ -82,7 +82,7 @@ export const blocks = [
   },
   {
     type: 'p',
-    text: 'If you are also collecting on Capterra, the app stores, or anywhere else, that count gets harder to hold in your head, which is the reason [Revly\'s dashboard](/monitor-platforms/) exists. It shows where your review counts stand across every platform you are on, so "how many do we have in this category" stops being a question you answer by hand once a quarter.',
+    text: 'If you are also collecting on Capterra, the app marketplaces, or anywhere else, that count gets harder to hold in your head, which is the reason [Revly\'s dashboard](/monitor-platforms/) exists. It shows where your review counts stand across every platform you are on, so "how many do we have in this category" stops being a question you answer by hand once a quarter.',
   },
 
   { type: 'h2', text: 'The badge most teams are actually chasing' },

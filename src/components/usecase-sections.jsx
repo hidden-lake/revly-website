@@ -110,7 +110,7 @@ export function UCConsoleScrolly() {
             <div className="progress"><span><b data-prog="0"></b></span><span><b data-prog="1"></b></span><span><b data-prog="2"></b></span><span><b data-prog="3"></b></span></div>
           </div>
           <div className="stepsA">
-            <div className="stepA" data-step="0"><span className="n">1</span><h3>Every platform, one dashboard</h3><p>G2, Capterra, and the app stores sync into a single view automatically. No more checking five logins to know where you stand.</p></div>
+            <div className="stepA" data-step="0"><span className="n">1</span><h3>Every platform, one dashboard</h3><p>G2, Capterra, and the app marketplaces sync into a single view automatically. No more checking five logins to know where you stand.</p></div>
             <div className="stepA" data-step="1"><span className="n">2</span><h3>See exactly what needs a reply</h3><p>Each new review lands with a clear flag, so a 2★ never sits unseen while you're in a meeting. Spot sentiment trends across platforms at a glance.</p></div>
             <div className="stepA" data-step="2"><span className="n">3</span><h3>Revly drafts the response</h3><p>When a review needs a reply, Revly writes one for you. Copy it, adjust if needed, and post. One less thing to think about.</p></div>
             <div className="stepA" data-step="3"><span className="n">4</span><h3>Find any quote in seconds</h3><p>Search every review from one place to pull the exact line you need for a campaign, a landing page, or a sales deck.</p></div>
@@ -274,8 +274,8 @@ export function UCProblemVisual({ kind }) {
           <div className="pv-tabbar">
             <span className="pv-tab live">G2 <span className="rd"></span></span>
             <span className="pv-tab">Capterra</span>
-            <span className="pv-tab">App Store</span>
-            <span className="pv-tab">Play</span>
+            <span className="pv-tab">Shopify</span>
+            <span className="pv-tab">Xero</span>
             <span className="pv-tab">Slack</span>
           </div>
           <div className="pv-winbody">

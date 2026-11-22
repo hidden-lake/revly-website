@@ -82,7 +82,7 @@ export function MonScrolly() {
                   <span className="mon-chip" data-plat><span className="d"></span>G2</span>
                   <span className="mon-chip" data-plat><span className="d"></span>Capterra</span>
                   <span className="mon-chip" data-plat><span className="d"></span>Trustpilot</span>
-                  <span className="mon-chip" data-plat><span className="d"></span>App Store</span>
+                  <span className="mon-chip" data-plat><span className="d"></span>Shopify</span>
                 </div>
                 <div className="mon-slack" data-slack>
                   <div className="mon-slack-inner">
@@ -123,7 +123,7 @@ export function MonScrolly() {
             <div className="progress"><span><b data-prog="0"></b></span><span><b data-prog="1"></b></span><span><b data-prog="2"></b></span><span><b data-prog="3"></b></span><span><b data-prog="4"></b></span></div>
           </div>
           <div className="stepsA">
-            <div className="stepA" data-step="0"><span className="n">1</span><h3>Connect your platforms</h3><p>Add your G2, Capterra and app store listings. Revly starts syncing.</p></div>
+            <div className="stepA" data-step="0"><span className="n">1</span><h3>Connect your platforms</h3><p>Add your G2, Capterra and app marketplace listings. Revly starts syncing.</p></div>
             <div className="stepA" data-step="1"><span className="n">2</span><h3>Connect Slack</h3><p>Pick the channel. Every new review posts there, with the rating, the platform and the review itself.</p></div>
             <div className="stepA" data-step="2"><span className="n">3</span><h3>Everything in one feed</h3><p>New reviews land in your dashboard daily, across every connected platform. On several platforms, more often.</p></div>
             <div className="stepA" data-step="3"><span className="n">4</span><h3>Track what is changing</h3><p>Rating trends and sentiment shifts over time, so you see the pattern before it turns into a quarter.</p></div>

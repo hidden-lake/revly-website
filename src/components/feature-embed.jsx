@@ -83,7 +83,7 @@ export function EmbedScrolly() {
                 </div>
                 <div className="eb-theme" data-theme>
                   <div className="eb-theme-inner">
-                    <span className="eb-lbl">Brand colour</span>
+                    <span className="eb-lbl">Brand color</span>
                     <span className="eb-sw on" style={{ background: "hsl(var(--primary))" }}></span>
                     <span className="eb-lbl" style={{ marginLeft: ".4rem" }}>Custom CSS</span>
                   </div>
@@ -100,7 +100,7 @@ export function EmbedScrolly() {
           </div>
           <div className="stepsA">
             <div className="stepA"><span className="n">1</span><h3>Choose which reviews show</h3><p>Filter by rating and platform.</p></div>
-            <div className="stepA"><span className="n">2</span><h3>Style it to match your site</h3><p>Pick a layout, style, and colours. Drop in your custom CSS and make it look like you built it yourself.</p></div>
+            <div className="stepA"><span className="n">2</span><h3>Style it to match your site</h3><p>Pick a layout, style, and colors. Drop in your custom CSS and make it look like you built it yourself.</p></div>
             <div className="stepA"><span className="n">3</span><h3>Paste one line of code</h3><p>One snippet, any site or CMS. Build as many widgets as you need: a wall of praise on the pricing page, a trust-building carousel on the home page.</p></div>
             <div className="stepA"><span className="n">4</span><h3>Automatically updated</h3><p>New reviews flow in as they're posted. No exports, no screenshots going stale, no testimonials from two years ago.</p></div>
           </div>
@@ -171,9 +171,9 @@ export function EmbedGallery() {
             <div className="num">03</div>
             <div className="lbl">On brand, not off the shelf</div>
             <h3>Seamless style fit.</h3>
-            <p>Pick grid, carousel, or wall, set your brand colour, and take it further with custom CSS.</p>
+            <p>Pick grid, carousel, or wall, set your brand color, and take it further with custom CSS.</p>
           </div>
-          <Mock className="vizC"><div className="field">Layout: carousel · brand colour · custom CSS</div></Mock>
+          <Mock className="vizC"><div className="field">Layout: carousel · brand color · custom CSS</div></Mock>
         </article>
         <article className="panelC">
           <div>
