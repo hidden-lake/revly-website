@@ -39,7 +39,6 @@ export function ReviewEmbeds() {
             <p className="lead" style={{ color: "rgba(255,255,255,0.75)", margin: "1rem auto 0", maxWidth: "46ch" }}>Pick the reviews, style the widget, paste one line of code. It keeps itself current from there.</p>
             <div style={{ display: "flex", justifyContent: "center", gap: ".75rem", marginTop: "2rem", flexWrap: "wrap" }}>
               <a className="btn btn-default btn-lg" href="/pricing/">Start showing your reviews</a>
-              <a className="btn btn-yellow btn-lg" href="/pricing/">Book a demo</a>
             </div>
           </div>
         </div>
@@ -87,7 +86,6 @@ export function ClaudeMCP() {
             <p className="lead" style={{ color: "rgba(255,255,255,0.75)", margin: "1rem auto 0", maxWidth: "48ch" }}>Connect Revly to Claude once, then query your review and collection data in plain language.</p>
             <div style={{ display: "flex", justifyContent: "center", gap: ".75rem", marginTop: "2rem", flexWrap: "wrap" }}>
               <a className="btn btn-default btn-lg" href="/pricing/">Get started for free</a>
-              <a className="btn btn-yellow btn-lg" href="/pricing/">Book a demo</a>
             </div>
           </div>
         </div>

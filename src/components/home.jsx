@@ -410,7 +410,6 @@ function HomeClosingCTA() {
           <p className="lead" style={{ color: "rgba(255,255,255,0.75)", margin: "1rem auto 0", maxWidth: "46ch" }}>One smart link. Every platform. Up and running in minutes.</p>
           <div style={{ display: "flex", justifyContent: "center", gap: "0.75rem", marginTop: "2rem", flexWrap: "wrap" }}>
             <a className="btn btn-default btn-lg" href="/pricing/">Get started for free</a>
-            <a className="btn btn-yellow btn-lg" href="/pricing/">Book a demo</a>
           </div>
         </div>
       </div>

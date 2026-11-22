@@ -253,9 +253,9 @@ export function FAQ({ items, title = "Common questions" }) {
 }
 
 // ---------- Cross-links ----------
-// Also used for the "Further reading" band that points from a commercial page into
-// the blog, which is why the eyebrow and the link label are props. The defaults keep
-// every existing call site rendering exactly as before.
+// The eyebrow and the link label are props so other bands can reuse the layout.
+// (Product and use-case pages no longer carry a "Further reading" band; blog
+// articles link to each other on their own. Nov 2026.)
 export function CrossLinks({ items, eyebrow = "Also in Revly", cta = "Learn more →", bg = "#f6f6f4" }) {
   return (
     <section style={{ background: bg, padding: "4rem 0" }}>

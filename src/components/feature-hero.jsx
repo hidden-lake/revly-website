@@ -93,13 +93,13 @@ const HERO_CONFIGS = {
     chip: "GET HIGH QUALITY REVIEWS", chipClass: "chip-amber",
     headline: <>Turn <span className="kw">"great tool"</span> into a<br />review that <span className="pay">converts.</span></>,
     lead: "Revly checks in with your customer, points anyone who needs help to your team, then helps everyone else expand a quick thought into a detailed review in their own words, on the platform where it does the most good.",
-    ctas: <><a className="btn btn-yellow btn-lg" href="/pricing/">Start collecting better reviews</a><a className="btn btn-outline btn-lg" href="/pricing/">Book a demo</a></>
+    ctas: <><a className="btn btn-yellow btn-lg" href="/pricing/">Start collecting better reviews</a></>
   },
   monitor: {
     chip: "SEE EVERY REVIEW", chipClass: "chip-amber",
     headline: <>Turn <span className="kw">five open tabs</span><br />into <span className="pay">one dashboard.</span></>,
     lead: <>Reviews land across G2, Capterra, and the app marketplaces. Revly pulls every one into a single feed and <strong>posts each new review to Slack</strong>, so nobody has to remember to check.</>,
-    ctas: <><a className="btn btn-yellow btn-lg" href="/pricing/">See all your reviews in one place</a><a className="btn btn-outline btn-lg" href="/pricing/">Book a demo</a></>
+    ctas: <><a className="btn btn-yellow btn-lg" href="/pricing/">See all your reviews in one place</a></>
   },
   embed: {
     chip: "SHOW YOUR REVIEWS OFF", chipClass: "chip-amber",

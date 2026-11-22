@@ -5,7 +5,6 @@ import { FeatureMotion } from './feature-collect.jsx';
 import { WifHero, wifSaasScene, wifAgencyScene } from './usecase-hero.jsx';
 import { UCConsoleScrolly, UCClientGallery, UCCapabilityIndex, UCProblemSplit, UCOutcome } from './usecase-sections.jsx';
 import { SAAS_FAQ, AGENCY_FAQ } from '../lib/faqs.js';
-import { SAAS_READING, AGENCY_READING } from '../lib/further-reading.js';
 
 // ========== SaaS Teams ==========
 export function UseCaseSaaS() {
@@ -60,7 +59,6 @@ export function UseCaseSaaS() {
             <p className="lead" style={{ color: "rgba(255,255,255,0.75)", margin: "1rem auto 0", maxWidth: "46ch" }}>One tab for every platform, a clear reply queue, and a check-in before every request. Set up in under 30 minutes.</p>
             <div style={{ display: "flex", justifyContent: "center", gap: ".75rem", marginTop: "2rem", flexWrap: "wrap" }}>
               <a className="btn btn-default btn-lg" href="/pricing/">Start free with Revly</a>
-              <a className="btn btn-yellow btn-lg" href="/pricing/">Book a demo</a>
             </div>
           </div>
         </div>
@@ -71,8 +69,6 @@ export function UseCaseSaaS() {
       { chip: "Monitor", title: "Monitor multiple review platforms", body: "Every review from every platform in one dashboard, with Slack alerts for new reviews.", to: "/monitor-platforms/" },
       { chip: "Respond", title: "Manage review responses", body: "Revly flags what needs a reply and drafts one in your voice.", to: "/manage-review-responses/" }]
       } />
-
-      <CrossLinks eyebrow="Further reading" cta="Read the article →" bg="hsl(var(--card))" items={SAAS_READING} />
     </main>
     <Footer />
   </>;
@@ -132,7 +128,6 @@ export function UseCaseAgencies() {
             <p className="lead" style={{ color: "rgba(255,255,255,0.75)", margin: "1rem auto 0", maxWidth: "48ch" }}>Every client, every platform, one login, with alerts the moment something needs a reply. Set up your first client in under 30 minutes.</p>
             <div style={{ display: "flex", justifyContent: "center", gap: ".75rem", marginTop: "2rem", flexWrap: "wrap" }}>
               <a className="btn btn-default btn-lg" href="/pricing/">Start free with Revly</a>
-              <a className="btn btn-yellow btn-lg" href="/pricing/">Book a demo</a>
             </div>
           </div>
         </div>
@@ -143,8 +138,6 @@ export function UseCaseAgencies() {
       { chip: "Monitor", title: "Monitor multiple review platforms", body: "Every review from every platform in one dashboard, with Slack alerts for new reviews.", to: "/monitor-platforms/" },
       { chip: "Respond", title: "Manage Review Responses", body: "Surface every review that needs a reply and draft a response in your voice, across every platform.", to: "/manage-review-responses/" }]
       } />
-
-      <CrossLinks eyebrow="Further reading" cta="Read the article →" bg="hsl(var(--card))" items={AGENCY_READING} />
     </main>
     <Footer />
   </>;
