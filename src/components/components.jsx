@@ -26,6 +26,9 @@ export const Icon = ({ name, size = 24, className = "" }) => {
 };
 
 // ---------- Navbar ----------
+// Product menu label: [before, bold, after].
+const ProductLabel = ({ label: [pre, bold, post] }) => <>{pre}<strong>{bold}</strong>{post}</>;
+
 export function Navbar() {
   const [productOpen, setProductOpen] = useState(false);
   const [useCasesOpen, setUseCasesOpen] = useState(false);
@@ -41,12 +44,13 @@ export function Navbar() {
     return () => document.removeEventListener("click", onClick);
   }, []);
   const productLinks = [
-  { to: "/collect-quality-reviews/", label: "Collect Quality Reviews" },
-  { to: "/monitor-platforms/", label: "Monitor Multiple Review Platforms" },
-  { to: "/manage-review-responses/", label: "Manage Review Responses" },
-  { to: "/review-widgets/", label: "Display Reviews On Your Site" },
-  { to: "/claude-mcp/", label: "Query Your Review Data with AI" },
-  { to: "/slack/", label: "Slack Notifications" }];
+  // label = [before, bold, after]: the bold part is the word a scanning eye looks for.
+  { to: "/collect-quality-reviews/", label: ["", "Collect", " Quality Reviews"] },
+  { to: "/monitor-platforms/", label: ["", "Monitor", " Multiple Review Platforms"] },
+  { to: "/manage-review-responses/", label: ["", "Manage", " Review Responses"] },
+  { to: "/review-widgets/", label: ["", "Display", " Reviews On Your Site"] },
+  { to: "/claude-mcp/", label: ["", "Connect", " to Claude or ChatGPT"] },
+  { to: "/slack/", label: ["Get ", "Slack Notifications", " for Reviews"] }];
   const useCasesLinks = [
   { to: "/use-cases/saas/", label: "SaaS teams" },
   { to: "/use-cases/agencies/", label: "Agencies" }];
@@ -65,7 +69,7 @@ export function Navbar() {
             {productOpen &&
             <div className="dropdown">
                 {productLinks.map((l) =>
-              <a key={l.to} href={l.to} onClick={() => setProductOpen(false)}>{l.label}</a>
+              <a key={l.to} href={l.to} onClick={() => setProductOpen(false)}><ProductLabel label={l.label} /></a>
               )}
               </div>
             }
@@ -94,7 +98,7 @@ export function Navbar() {
       {mobileOpen &&
       <div className="show-md" style={{ borderTop: "1px solid hsl(var(--border))", background: "hsl(var(--card))", padding: "1rem 1.5rem" }}>
           <div style={{ display: "flex", flexDirection: "column", gap: ".25rem" }}>
-            {productLinks.map((l) => <a key={l.to} href={l.to} onClick={() => setMobileOpen(false)} style={{ padding: ".5rem 0" }}>{l.label}</a>)}
+            {productLinks.map((l) => <a key={l.to} href={l.to} onClick={() => setMobileOpen(false)} style={{ padding: ".5rem 0" }}><ProductLabel label={l.label} /></a>)}
             <div style={{ height: "1px", background: "hsl(var(--border))", margin: ".4rem 0" }} />
             {useCasesLinks.map((l) => <a key={l.to} href={l.to} onClick={() => setMobileOpen(false)} style={{ padding: ".5rem 0" }}>{l.label}</a>)}
             <a href="/pricing/" onClick={() => setMobileOpen(false)} style={{ padding: ".5rem 0" }}>Pricing</a>
@@ -137,8 +141,8 @@ export function Footer() {
           ["Monitor Multiple Review Platforms", "/monitor-platforms/"],
           ["Manage Review Responses", "/manage-review-responses/"],
           ["Display Reviews On Your Site", "/review-widgets/"],
-          ["Query Your Review Data with AI", "/claude-mcp/"],
-          ["Slack Notifications", "/slack/"],
+          ["Connect to Claude or ChatGPT", "/claude-mcp/"],
+          ["Get Slack Notifications for Reviews", "/slack/"],
           // The free scan needs no account and is the one page on app.revly.io meant
           // to be found in search. Nothing on this site linked to it until now.
           ["Free review health check", "https://app.revly.io/scan"]]
@@ -252,12 +256,12 @@ export function FAQ({ items, title = "Common questions" }) {
 
 }
 
-// ---------- Learn (blog cards under the FAQ) ----------
+// ---------- Learn (blog cards, last section above the footer) ----------
 // Same card styling as the blog index (bl-card, bl-cover in blog.css), so a reader
 // recognises the posts when they land on the blog. Data comes from lib/learn-posts.js.
 export function LearnSection({ posts }) {
   return (
-    <section className="section" style={{ background: "hsl(var(--card))", paddingTop: "1rem" }}>
+    <section className="section" style={{ background: "hsl(var(--card))" }}>
       <div className="container-x">
         <h2 className="h2" style={{ textAlign: "center", marginBottom: "2.5rem" }}>Learn</h2>
         <div className="learn-grid">

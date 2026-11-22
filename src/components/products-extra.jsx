@@ -33,8 +33,6 @@ export function ReviewEmbeds() {
 
       <FAQ items={FAQS} />
 
-      <LearnSection posts={LEARN.embed} />
-
       <section className="section">
         <div className="container-x">
           <div className="ctaA">
@@ -52,6 +50,8 @@ export function ReviewEmbeds() {
       { chip: "Monitor", title: "Monitor multiple review platforms", body: "Every review from every platform in one dashboard, with Slack alerts for new reviews.", to: "/monitor-platforms/" },
       { chip: "Claude MCP", title: "Query your review data with AI", body: "Connect Revly to Claude or ChatGPT and ask questions about your review data in plain language.", to: "/claude-mcp/" }]
       } />
+
+      <LearnSection posts={LEARN.embed} />
     </main>
     <Footer />
   </>;
@@ -82,8 +82,6 @@ export function ClaudeMCP() {
 
       <FAQ items={FAQS} />
 
-      <LearnSection posts={LEARN.mcp} />
-
       <section className="section">
         <div className="container-x">
           <div className="ctaA">
@@ -101,6 +99,8 @@ export function ClaudeMCP() {
       { chip: "Embeds", title: "Display Reviews On Your Site", body: "Turn your reviews into styled, self-updating widgets you can drop onto any page.", to: "/review-widgets/" },
       { chip: "Respond", title: "Manage Review Responses", body: "Surface every review that needs a reply and draft one in your voice, across every platform.", to: "/manage-review-responses/" }]
       } />
+
+      <LearnSection posts={LEARN.mcp} />
     </main>
     <Footer />
   </>;

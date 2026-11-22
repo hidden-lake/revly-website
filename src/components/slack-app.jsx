@@ -329,8 +329,6 @@ export function SlackApp() {
 
       <FAQ items={SLACK_FAQ} />
 
-      <LearnSection posts={LEARN.slack} />
-
       <section className="section">
         <div className="container-x">
           <div className="ctaA">
@@ -349,6 +347,8 @@ export function SlackApp() {
         { chip: 'Respond', title: 'Manage review responses', body: 'Revly flags what needs a reply and drafts one in your voice.', to: '/manage-review-responses/' },
         { chip: 'Claude connector', title: 'Query your review data with AI', body: 'Connect Revly to Claude or ChatGPT and ask questions about your review data in plain language.', to: '/claude-mcp/' }]
       } />
+
+      <LearnSection posts={LEARN.slack} />
     </main>
     <Footer />
   </>;

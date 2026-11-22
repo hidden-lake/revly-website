@@ -53,8 +53,6 @@ export function UseCaseSaaS() {
 
       <FAQ items={FAQS} />
 
-      <LearnSection posts={LEARN.saas} />
-
       <section className="section">
         <div className="container-x">
           <div className="ctaA">
@@ -72,6 +70,8 @@ export function UseCaseSaaS() {
       { chip: "Monitor", title: "Monitor multiple review platforms", body: "Every review from every platform in one dashboard, with Slack alerts for new reviews.", to: "/monitor-platforms/" },
       { chip: "Respond", title: "Manage review responses", body: "Revly flags what needs a reply and drafts one in your voice.", to: "/manage-review-responses/" }]
       } />
+
+      <LearnSection posts={LEARN.saas} />
     </main>
     <Footer />
   </>;
@@ -124,8 +124,6 @@ export function UseCaseAgencies() {
 
       <FAQ items={FAQS} />
 
-      <LearnSection posts={LEARN.agency} />
-
       <section className="section">
         <div className="container-x">
           <div className="ctaA">
@@ -143,6 +141,8 @@ export function UseCaseAgencies() {
       { chip: "Monitor", title: "Monitor multiple review platforms", body: "Every review from every platform in one dashboard, with Slack alerts for new reviews.", to: "/monitor-platforms/" },
       { chip: "Respond", title: "Manage Review Responses", body: "Surface every review that needs a reply and draft a response in your voice, across every platform.", to: "/manage-review-responses/" }]
       } />
+
+      <LearnSection posts={LEARN.agency} />
     </main>
     <Footer />
   </>;

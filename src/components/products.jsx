@@ -122,8 +122,6 @@ export function CollectBetterReviews() {
 
       <FAQ items={FAQS} />
 
-      <LearnSection posts={LEARN.collect} />
-
       <section className="section">
         <div className="container-x">
           <div className="ctaA">
@@ -141,6 +139,8 @@ export function CollectBetterReviews() {
       { chip: "Respond", title: "Manage review responses", body: "Revly flags what needs a reply and drafts one in your voice.", to: "/manage-review-responses/" },
       { chip: "Display", title: "Display reviews on your site", body: "Styled widgets that keep themselves current as new reviews come in.", to: "/review-widgets/" }]
       } />
+
+      <LearnSection posts={LEARN.collect} />
     </main>
     <Footer />
   </>;
@@ -173,8 +173,6 @@ export function MonitorPlatforms() {
 
       <FAQ items={FAQS} />
 
-      <LearnSection posts={LEARN.monitor} />
-
       <section className="section">
         <div className="container-x">
           <div className="ctaA">
@@ -192,6 +190,8 @@ export function MonitorPlatforms() {
       { chip: "Respond", title: "Manage review responses", body: "Revly flags what needs a reply and drafts one in your voice.", to: "/manage-review-responses/" },
       { chip: "Claude connector", title: "Query your review data with AI", body: "Connect Revly to Claude or ChatGPT and ask questions about your review data in plain language.", to: "/claude-mcp/" }]
       } />
+
+      <LearnSection posts={LEARN.monitor} />
     </main>
     <Footer />
   </>;
@@ -222,8 +222,6 @@ export function ManageReviewResponses() {
 
       <FAQ items={FAQS} />
 
-      <LearnSection posts={LEARN.respond} />
-
       <section className="section">
         <div className="container-x">
           <div className="ctaA">
@@ -241,6 +239,8 @@ export function ManageReviewResponses() {
       { chip: "Display", title: "Display Reviews On Your Site", body: "Turn your reviews into styled, self-updating widgets you can drop onto any page.", to: "/review-widgets/" },
       { chip: "Claude connector", title: "Query your review data with AI", body: "Connect Revly to Claude or ChatGPT and ask questions about your review data in plain language.", to: "/claude-mcp/" }]
       } />
+
+      <LearnSection posts={LEARN.respond} />
     </main>
     <Footer />
   </>;
