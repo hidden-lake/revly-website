@@ -4,6 +4,8 @@
 .hero-c2 .chip { margin-bottom: 0; }
 .hero-c2 h1 { margin: 1.3rem 0 0; }
 .hero-c2 .lead { margin: 1.3rem auto 0; max-width: 52ch; }
+.hero-c2 .hc2-note { margin: 1rem auto 0; max-width: 52ch; font-size: 0.9rem; line-height: 1.55; color: hsl(var(--foreground)/0.62); }
+.hero-c2 .hc2-note a { color: hsl(var(--primary-text)); font-weight: 600; }
 .hero-c2 .hc2-cta { margin-top: 2rem; display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; }
 .hero-c2 .kw { color: hsl(var(--foreground)/0.32); }
 .hero-c2 .pay { color: hsl(var(--primary)); }
@@ -14,7 +16,8 @@
 .hero-c2 .hd-state { position: absolute; left: 1.6rem; right: 1.6rem; top: 1.5rem; }
 .hero-c2 .mlbl { display: inline-flex; align-items: center; gap: 0.4rem; white-space: nowrap; font-family: "Bricolage Grotesque"; font-weight: 800; font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.3rem 0.7rem; border-radius: 999px; margin-bottom: 0.85rem; }
 .hero-c2 .lbl-weak { background: hsl(var(--muted)); color: hsl(var(--foreground)/0.61); }
-.hero-c2 .lbl-strong { background: hsl(var(--primary)); color: #fff; }
+.hero-c2 .lbl-strong { background: hsl(330 97% 45%); color: #fff; } /* 45%, not 48%: white text needs 4.5:1 */
+.hero-c2 .lbl-strong .met { opacity: 1; }
 .hero-c2 .mlbl .met { font-weight: 700; opacity: 0.8; }
 
 .hero-c2 .hd-q-weak { font-family: "Bricolage Grotesque"; font-weight: 800; font-size: 1.5rem; color: hsl(var(--foreground)/0.4); margin: 0; }

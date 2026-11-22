@@ -56,7 +56,7 @@ const HERO_MORPHS = {
           <div className="mess">
             <span className="tab t1"><b>G2</b> 3 unread <i className="badge">3</i></span>
             <span className="tab t2"><b>Capterra</b> 1 missed <i className="badge">1</i></span>
-            <span className="tab t3"><b>App&nbsp;Store</b> ? <i className="badge">!</i></span>
+            <span className="tab t3"><b>Xero</b> ? <i className="badge">!</i></span>
             <span className="tab t4"><b>Trustpilot</b> 2 new <i className="badge">2</i></span>
             <span className="tab t5"><b>WordPress</b> ?</span>
           </div>
@@ -121,22 +121,26 @@ const HERO_CONFIGS = {
   }
 };
 
-export function FeatureHeroC({ variant }) {
-  const cfg = HERO_CONFIGS[variant];
+// `config` and `morph` let a page bring its own copy and animation (the Slack page
+// does, so its Add to Slack button and message mock stay out of this shared file).
+// `config.note` renders a small line under the buttons.
+export function FeatureHeroC({ variant, config, morph, id }) {
+  const cfg = config ?? HERO_CONFIGS[variant];
   const ref = React.useRef(null);
   const mounted = useMounted();
   useHeroMorphLoop(ref, mounted);
   if (!cfg) return null;
   return (
-    <section className="hero-c2" ref={ref}>
+    <section className="hero-c2" ref={ref} id={id}>
       <div className="hc2-inner">
         <div className="hc2-copy">
           <div className={"chip " + cfg.chipClass} style={{ display: "inline-flex" }}>{cfg.chip}</div>
           <h1 className="h1">{cfg.headline}</h1>
           <p className="lead">{cfg.lead}</p>
           <div className="hc2-cta">{cfg.ctas}</div>
+          {cfg.note && <p className="hc2-note">{cfg.note}</p>}
         </div>
-        {HERO_MORPHS[variant]}
+        {morph ?? HERO_MORPHS[variant]}
       </div>
     </section>
   );
