@@ -11,6 +11,7 @@
 // be quoted back by an answer engine as though a customer wrote it.
 import React from 'react';
 import { Inline } from './blog-inline.jsx';
+import { CLAUDE_STEPS, CHATGPT_STEPS } from '../content/post-connect-review-data-ai.js';
 
 // ---------------------------------------------------------------- shared bits
 function Fig({ children, wide = true, className = '' }) {
@@ -868,7 +869,59 @@ function ChaseOrder() {
 }
 
 // ---------------------------------------------------------------- registry
+
+// =============================================================================
+// Post 5: How to connect your review data to Claude or ChatGPT
+// =============================================================================
+
+// Plan availability for custom MCP servers, from each vendor's help centre (23 Nov 2026).
+const MCP_PLAN_ROWS = [
+  { label: 'Plans that can add a custom MCP server', claude: 'Free (one connector), Pro, Max, Ultra, Team, Enterprise', chatgpt: 'Business, Enterprise, Edu. Pro has read access only, per the same help page' },
+  { label: 'Who adds it on a company plan', claude: 'Owners and Primary Owners on Team. Owners, Primary Owners or a custom role with access to Libraries on Enterprise', chatgpt: 'Admins and owners. On Enterprise and Edu, admins can grant other members permission' },
+  { label: 'Where you set it up', claude: 'Web and desktop. Mobile setup is in beta', chatgpt: 'Web only' },
+  { label: 'Where you can use it once connected', claude: 'Web, desktop and the mobile apps', chatgpt: 'Web. OpenAI does not say whether it works in the mobile apps' },
+  { label: 'Each person signs in separately', claude: 'Yes', chatgpt: 'Yes' },
+];
+
+function McpPlans() {
+  return (
+    <Fig>
+      <div className="fig-scroll">
+        <table className="fig-table">
+          <thead>
+            <tr>
+              <th scope="col">&nbsp;</th>
+              <th scope="col">Claude</th>
+              <th scope="col">ChatGPT</th>
+            </tr>
+          </thead>
+          <tbody>
+            {MCP_PLAN_ROWS.map((r) => (
+              <tr key={r.label}>
+                <th scope="row" style={{ fontWeight: 500, textAlign: 'left' }}>{r.label}</th>
+                <td className="val">{r.claude}</td>
+                <td className="val">{r.chatgpt}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </Fig>
+  );
+}
+
+function ClaudeConnectorSteps() {
+  return <NumberedSteps steps={CLAUDE_STEPS} />;
+}
+
+function ChatgptConnectorSteps() {
+  return <NumberedSteps steps={CHATGPT_STEPS} />;
+}
+
 const GRAPHICS = {
+  'mcp-plans': McpPlans,
+  'claude-connector-steps': ClaudeConnectorSteps,
+  'chatgpt-connector-steps': ChatgptConnectorSteps,
   'change-table': ChangeTable,
   syndication: Syndication,
   'four-properties': FourProperties,

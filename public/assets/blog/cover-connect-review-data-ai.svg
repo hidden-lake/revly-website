@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-label="Hand-drawn illustration of a chat bubble plugged into a star by a cable.">
+  <rect width="640" height="360" fill="#f4c243"/>
+  <g fill="none" stroke="#131313" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- Chat bubble -->
+    <path d="M150 110 C196 104 262 105 300 110 C306 140 305 176 300 204 C272 208 236 208 206 206 C192 222 178 234 160 244 C166 228 170 216 171 205 C162 204 156 204 150 203 C145 174 145 140 150 110 Z"/>
+    <path d="M184 146 C206 145 238 145 266 146"/>
+    <path d="M184 170 C202 169 222 169 240 170"/>
+
+    <!-- Cable from the bubble to the plug -->
+    <path d="M302 160 C336 158 352 182 372 200 C384 211 394 214 404 212"/>
+
+    <!-- Plug -->
+    <path d="M404 196 C414 195 426 195 434 197 C436 208 436 218 434 228 C426 230 414 230 404 229 C402 218 402 207 404 196 Z"/>
+    <path d="M436 203 C442 203 448 203 452 204"/>
+    <path d="M436 221 C442 221 448 221 452 222"/>
+
+    <!-- Star -->
+    <path d="M508 136 L520 173 L559 173 L529 197 L538 231 L508 213 L478 232 L485 197 L458 174 L496 173 Z"/>
+  </g>
+</svg>

@@ -10,6 +10,7 @@
 import { meta as g2CapterraMeta, blocks as g2CapterraBlocks, faqs as g2CapterraFaqs } from '../content/post-g2-capterra-acquisition.js';
 import { meta as howManyMeta, blocks as howManyBlocks, faqs as howManyFaqs } from '../content/post-how-many-g2-reviews.js';
 import { meta as alternativesMeta, blocks as alternativesBlocks, faqs as alternativesFaqs } from '../content/post-g2-alternatives.js';
+import { meta as mcpMeta, blocks as mcpBlocks, faqs as mcpFaqs } from '../content/post-connect-review-data-ai.js';
 import { meta as badgesMeta, blocks as badgesBlocks, faqs as badgesFaqs } from '../content/post-g2-badges-explained.js';
 
 export const POSTS = [
@@ -17,6 +18,7 @@ export const POSTS = [
   { ...howManyMeta, blocks: howManyBlocks, faqs: howManyFaqs },
   { ...alternativesMeta, blocks: alternativesBlocks, faqs: alternativesFaqs },
   { ...badgesMeta, blocks: badgesBlocks, faqs: badgesFaqs },
+  { ...mcpMeta, blocks: mcpBlocks, faqs: mcpFaqs },
 ];
 
 // Newest first on the index. Sorting on the ISO date rather than the display string.
