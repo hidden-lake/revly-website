@@ -18,7 +18,7 @@ Last updated: 2026-11-23
 - Collection links: 1
 - Collected reviews: 10/month
 - Team members: 1
-- Review monitoring: same day on most platforms, Capterra every three days
+- Review monitoring: same day
 - Included: basic branded collection, email support
 - Not included: AI enhancement, AI response suggestions, sentiment analysis, custom branding, incentives
 
@@ -30,7 +30,7 @@ Last updated: 2026-11-23
 - Collection links: 3
 - Collected reviews: 200/month
 - Team members: 3
-- Review monitoring: same day on most platforms, Capterra every three days
+- Review monitoring: same day
 - Included: AI review enhancement, AI response suggestions, AI sentiment analysis, custom branding, incentives, reports, review widget, notifications
 
 ## Team
@@ -41,7 +41,7 @@ Last updated: 2026-11-23
 - Collection links: 10
 - Collected reviews: 1,000/month
 - Team members: unlimited
-- Review monitoring: same day on most platforms, Capterra every three days
+- Review monitoring: same day
 - Included: everything in Core, plus API access, integrations, MCP access for Claude and ChatGPT, automatic incentive fulfillment, custom domain, white-label
 
 ## Agency
@@ -52,7 +52,7 @@ Last updated: 2026-11-23
 - Collection links: 5 per client
 - Collected reviews: 500/month per client
 - Team members: unlimited
-- Review monitoring: same day on most platforms, Capterra every three days
+- Review monitoring: same day
 - Included: everything in Team, plus multi-client dashboard and billing, per-client branding, dedicated support
 
 ## Notes

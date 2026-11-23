@@ -125,7 +125,7 @@ export function MonScrolly() {
           <div className="stepsA">
             <div className="stepA" data-step="0"><span className="n">1</span><h3>Connect your platforms</h3><p>Add your G2, Capterra and app marketplace listings. Revly starts syncing.</p></div>
             <div className="stepA" data-step="1"><span className="n">2</span><h3>Connect Slack</h3><p>Pick the channel. Every new review posts there, with the rating, the platform and the review itself.</p></div>
-            <div className="stepA" data-step="2"><span className="n">3</span><h3>Everything in one feed</h3><p>New reviews from most platforms land in your dashboard the same day they're posted.</p></div>
+            <div className="stepA" data-step="2"><span className="n">3</span><h3>Everything in one feed</h3><p>New reviews land in your dashboard the same day they're posted, across every connected platform.</p></div>
             <div className="stepA" data-step="3"><span className="n">4</span><h3>Track what is changing</h3><p>Rating trends and sentiment shifts over time, so you see the pattern before it turns into a quarter.</p></div>
             <div className="stepA" data-step="4"><span className="n">5</span><h3>Find anything</h3><p>Search your whole review library by keyword, feature or phrase. The quote you need for the deck is one search away.</p></div>
           </div>
