@@ -9,9 +9,8 @@ Revly is built for SaaS and software companies whose products get reviewed on G2
 Capterra, Trustpilot and app marketplace listings. It is used by marketing teams
 running review programs, and by agencies managing reviews for multiple clients.
 
-What makes it different from sending review request emails by hand: Revly screens for
-sentiment before asking, so unhappy customers reach support instead of a public review
-form; it routes each happy customer to the platform you need reviews on; and its AI
+What makes it different from sending review request emails by hand: Revly checks in with
+each customer before asking, so anyone with a problem reaches your team first; it routes each happy customer to the platform you need reviews on; and its AI
 helps the customer expand a short comment into a detailed review in their own words,
 which they read, edit and post themselves. Revly never writes reviews on a customer's
 behalf or posts without their approval.
