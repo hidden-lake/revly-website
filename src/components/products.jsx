@@ -165,7 +165,7 @@ export function MonitorPlatforms() {
       <ProductBeforeAfter
         heading={<>Before and after <span className="text-primary">one dashboard.</span></>} rows={[
         { without: "Five logins, and only when someone remembers", with: "One feed, and a Slack message when something new lands" },
-        { without: "A bad review sits public for two weeks", with: "Your team sees it the day it posts" },
+        { without: "A bad review sits public for two weeks", with: "Your team sees it the same day" },
         { without: "Nobody knows whose job it is to check", with: "The Slack channel is the job" },
         { without: "Rating trends invisible until a quarterly review", with: "Shifts tracked across every platform over time" },
         { without: "Hunting for the right customer quote before a campaign", with: "Search your whole review library in seconds" }]

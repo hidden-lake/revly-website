@@ -118,7 +118,7 @@ export function UseCaseAgencies() {
         lead="Revly replaces the individual logins, the spreadsheet reports, and the hand-written emails with one system that runs in the background, so you spend less time doing the work and more time proving its value."
         tiles={[
         { icon: "dash", title: "Every client, one login", body: "Switch between accounts instantly and see which clients need attention before they have to tell you." },
-        { icon: "eye", title: "Alerts the moment it matters", body: "Real-time Slack notifications when a review lands, across every client, so nothing sits unseen for days." },
+        { icon: "eye", title: "Same-day alerts", body: "Slack notifications the same day a review lands, across every client, so nobody has to check each platform by hand." },
         { icon: "trend", title: "Live numbers, never stale", body: "Performance across every client, always current. No more screenshots and spreadsheets out of date before you send them." }]
         } />
 
@@ -128,7 +128,7 @@ export function UseCaseAgencies() {
         <div className="container-x">
           <div className="ctaA">
             <h2 className="h2">Run every client's reviews<br /><span style={{ color: "#f1057a" }}>from one dashboard.</span></h2>
-            <p className="lead" style={{ color: "rgba(255,255,255,0.75)", margin: "1rem auto 0", maxWidth: "48ch" }}>Every client, every platform, one login, with alerts the moment something needs a reply. Set up your first client in under 30 minutes.</p>
+            <p className="lead" style={{ color: "rgba(255,255,255,0.75)", margin: "1rem auto 0", maxWidth: "48ch" }}>Every client, every platform, one login, with an alert when something needs a reply. Set up your first client in under 30 minutes.</p>
             <div style={{ display: "flex", justifyContent: "center", gap: ".75rem", marginTop: "2rem", flexWrap: "wrap" }}>
               <a className="btn btn-default btn-lg" href="/pricing/">Start free with Revly</a>
             </div>

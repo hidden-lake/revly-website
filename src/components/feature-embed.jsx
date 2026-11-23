@@ -102,7 +102,7 @@ export function EmbedScrolly() {
             <div className="stepA"><span className="n">1</span><h3>Choose which reviews show</h3><p>Filter by rating and platform.</p></div>
             <div className="stepA"><span className="n">2</span><h3>Style it to match your site</h3><p>Pick a layout, style, and colors. Drop in your custom CSS and make it look like you built it yourself.</p></div>
             <div className="stepA"><span className="n">3</span><h3>Paste one line of code</h3><p>One snippet, any site or CMS. Build as many widgets as you need: a wall of praise on the pricing page, a trust-building carousel on the home page.</p></div>
-            <div className="stepA"><span className="n">4</span><h3>Automatically updated</h3><p>New reviews flow in as they're posted. No exports, no screenshots going stale, no testimonials from two years ago.</p></div>
+            <div className="stepA"><span className="n">4</span><h3>Automatically updated</h3><p>New reviews flow in automatically. No exports, no screenshots going stale, no testimonials from two years ago.</p></div>
           </div>
         </div>
       </div>
@@ -180,7 +180,7 @@ export function EmbedGallery() {
             <div className="num">04</div>
             <div className="lbl">Never stale</div>
             <h3>Fresh reviews, automatically.</h3>
-            <p>New reviews appear as they're posted. The testimonial section stops being a thing someone has to remember to update.</p>
+            <p>New reviews appear automatically. The testimonial section stops being a thing someone has to remember to update.</p>
           </div>
           <Mock className="vizC"><div className="field">▲ 3 new reviews added this week, automatically</div></Mock>
         </article>

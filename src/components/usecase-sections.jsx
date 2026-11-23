@@ -180,9 +180,9 @@ export function UCClientGallery() {
         <article className="panelC">
           <div>
             <div className="num">02</div>
-            <div className="lbl">Real-time alerts</div>
+            <div className="lbl">Same-day alerts</div>
             <h3>Reply before the client notices.</h3>
-            <p>Real-time Slack notifications the moment a review lands, across every client account, so nothing sits unseen for days.</p>
+            <p>Slack notifications the same day a review lands, across every client account, so nobody has to check each platform by hand.</p>
           </div>
           <Mock className="vizC"><div className="cl-alert">
             <div className="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6 15a2 2 0 1 1 0-4h2v2a2 2 0 0 1-2 2zm3 0a2 2 0 0 1 4 0v5a2 2 0 0 1-4 0zm6-9a2 2 0 1 1 4 0 2 2 0 0 1-2 2h-2zm0 3a2 2 0 0 1 0 4h-5a2 2 0 0 1 0-4zM9 6a2 2 0 0 1 0-4 2 2 0 0 1 2 2v2zm0 3a2 2 0 0 1 0 4H4a2 2 0 0 1 0-4z" /></svg></div>
