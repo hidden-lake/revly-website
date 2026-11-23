@@ -8,18 +8,18 @@ export const meta = {
   title: "How to connect your review data to Claude or ChatGPT",
   metaTitle: 'How to Connect Review Data to Claude or ChatGPT | Revly',
   metaDescription:
-    'Connect review data to Claude from Customize, then Connectors, on any plan. ChatGPT limits custom MCP servers to Business, Enterprise and Edu. Steps inside.',
+    'No review platform connects all your reviews to Claude or ChatGPT at once. How to query G2, Capterra and app store reviews together with one connector.',
   excerpt:
-    'Claude lets every plan add a custom MCP connector, Free included. ChatGPT keeps custom MCP servers to Business, Enterprise and Edu on the web. The steps for both, what to ask once your reviews are connected, and what to check before you hand an AI assistant customer data.',
+    'G2 has its own connector for Claude and ChatGPT, Trustpilot has one in an Enterprise beta, and the app marketplaces have none. To ask one question across every platform and every product, your reviews need to sit behind one connector. Here is how that works, and how to set it up.',
   description:
-    'Claude allows a custom MCP connector on every plan, Free included; ChatGPT limits custom MCP servers to Business, Enterprise and Edu. Steps for both, what to ask, and what to check first.',
+    'No review platform offers one connector for all your reviews. How to query reviews from G2, Capterra, Trustpilot and the app marketplaces in Claude or ChatGPT through one connector, with setup steps for both.',
   author: 'Revly team',
   related: ['g2-alternatives', 'how-many-g2-reviews-do-you-need'],
   category: 'Review data',
   datePublished: '2026-11-24',
   dateModified: '2026-11-24',
   dateDisplay: '24 November 2026',
-  readTime: '8 min read',
+  readTime: '9 min read',
   cover: '/assets/blog/cover-connect-review-data-ai.svg',
   coverAlt: 'Hand-drawn illustration of a chat bubble plugged into a star by a cable.',
   featured: false,
@@ -29,52 +29,177 @@ export const meta = {
     { '@type': 'SoftwareApplication', name: 'Claude', url: 'https://claude.ai/' },
     { '@type': 'SoftwareApplication', name: 'ChatGPT', url: 'https://chatgpt.com/' },
     { '@type': 'Thing', name: 'Model Context Protocol', url: 'https://modelcontextprotocol.io/' },
+    { '@type': 'Organization', name: 'G2', url: 'https://www.g2.com/' },
   ],
   citation: [
     { '@type': 'CreativeWork', name: 'Get started with custom connectors using remote MCP', url: 'https://support.claude.com/en/articles/11175166-getting-started-with-custom-connectors-using-remote-mcp' },
     { '@type': 'CreativeWork', name: "Use connectors to extend Claude's capabilities", url: 'https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities' },
     { '@type': 'CreativeWork', name: 'Connecting custom MCP servers in ChatGPT', url: 'https://help.openai.com/en/articles/12584461-developer-mode-apps-and-full-mcp-connectors-in-chatgpt-beta' },
     { '@type': 'CreativeWork', name: 'Connecting and managing app accounts in ChatGPT', url: 'https://help.openai.com/en/articles/20001494' },
+    { '@type': 'CreativeWork', name: 'G2 MCP Server documentation', url: 'https://documentation.g2.com/docs/g2-mcp-server' },
+    { '@type': 'CreativeWork', name: 'Trustpilot API module overview', url: 'https://developers.trustpilot.com/api-module-overview/' },
+    { '@type': 'CreativeWork', name: 'Shopify: manage app reviews', url: 'https://shopify.dev/docs/apps/launch/marketing/manage-app-reviews' },
     { '@type': 'CreativeWork', name: 'Model Context Protocol introduction', url: 'https://modelcontextprotocol.io/introduction' },
     { '@type': 'CreativeWork', name: 'Introducing the Model Context Protocol', url: 'https://www.anthropic.com/news/model-context-protocol' },
   ],
   cta: {
     headingTop: 'Ask your review data',
     headingAccent: 'anything.',
-    body: 'Revly collects reviews across G2, Capterra and the app marketplaces from a single link, keeps them in one dashboard with Slack alerts and AI-drafted replies, puts the best ones on your site with widgets, and lets you query all of it from Claude or ChatGPT.',
+    body: 'Revly collects reviews across G2, Capterra and the app marketplaces from a single link, keeps them in one dashboard with Slack alerts and AI-drafted replies, puts the best ones on your site with widgets, and lets you query all of it from Claude or ChatGPT with one connector.',
     primary: { label: 'Start free', href: '/pricing/' },
-    secondary: { label: 'See how the Claude and ChatGPT connector works', href: '/claude-mcp/' },
+    secondary: { label: 'See what the Claude and ChatGPT connector can do', href: '/claude-mcp/' },
   },
 };
 
 export const blocks = [
   {
     "type": "lead",
-    "text": "If you have tried asking Claude or ChatGPT about your G2 reviews, you have probably ended up pasting them in by hand. You can connect the data directly instead, through a standard called MCP. In Claude, open Customize, then Connectors, add a custom connector and paste the server URL your review tool gives you. In ChatGPT, custom MCP servers are limited to Business, Enterprise and Edu workspaces on the web."
+    "text": "If your reviews live on G2, Capterra, Trustpilot and a couple of app marketplaces, you have probably wondered whether Claude or ChatGPT could read all of them and answer questions about your product. They can, but not through the review platforms themselves. Claude and ChatGPT connect to outside data through MCP connectors, and no review platform offers one connector that covers the others."
   },
   {
     "type": "p",
-    "text": "Once the connection is in place, the assistant reads your reviews when you ask a question and answers from them, with the quotes attached."
+    "text": "G2 has its own connector, Trustpilot has one in a limited beta for Enterprise customers, and we found no official connector from Capterra, the Shopify App Store, WordPress.org, WooCommerce, Xero or QuickBooks. To ask one question across every platform and every product, the reviews first need to sit in one place that runs its own connector. That is what Revly's connector for Claude and ChatGPT does."
   },
   {
     "type": "h2",
-    "text": "What is MCP?"
+    "text": "What is an MCP connector?"
   },
   {
     "type": "p",
-    "text": "MCP, the Model Context Protocol, is how AI assistants connect to outside data. The [project's own documentation](https://modelcontextprotocol.io/introduction) describes it as \"an open-source standard for connecting AI applications to external systems.\" Anthropic [open-sourced it on 25 November 2024](https://www.anthropic.com/news/model-context-protocol), and Claude and ChatGPT both support it today."
+    "text": "MCP, the Model Context Protocol, is how AI assistants connect to outside tools. The [project's own documentation](https://modelcontextprotocol.io/introduction) describes it as \"an open-source standard for connecting AI applications to external systems.\" Anthropic [open-sourced it on 25 November 2024](https://www.anthropic.com/news/model-context-protocol), and both Claude and ChatGPT support it today."
   },
   {
     "type": "p",
-    "text": "A review tool that runs an MCP server can be added to your assistant as a connector, the same way you would add Google Drive or Slack. You sign in once, and from then on the assistant can look things up in that tool while you chat. No CSV exports, no copying reviews into a prompt."
+    "text": "When a tool runs an MCP server, you add it to your assistant once and sign in. From then on the assistant can look things up in that tool while you chat, so you stop exporting CSVs and pasting reviews into a prompt."
   },
   {
     "type": "h2",
-    "text": "Which plans can connect a custom MCP server?"
+    "text": "Can you connect each review platform to Claude or ChatGPT?"
   },
   {
     "type": "p",
-    "text": "Claude is the easier of the two. Anthropic's [custom connector guide](https://support.claude.com/en/articles/11175166-getting-started-with-custom-connectors-using-remote-mcp) lists every plan, from Free to Enterprise, with one limit on Free: a single custom connector. ChatGPT reserves custom MCP servers for its workplace plans."
+    "text": "Only one of the platforms software companies collect reviews on has an official connector that is generally available, and it covers its own reviews only."
+  },
+  {
+    "type": "graphic",
+    "name": "platform-connectors",
+    "caption": "From each platform's own documentation and the Claude and ChatGPT connector directories, checked 23 November 2026: [G2 MCP Server](https://documentation.g2.com/docs/g2-mcp-server), [Trustpilot API module](https://developers.trustpilot.com/api-module-overview/), [Shopify app reviews](https://shopify.dev/docs/apps/launch/marketing/manage-app-reviews)."
+  },
+  {
+    "type": "p",
+    "text": "G2 runs the [G2 MCP Server](https://documentation.g2.com/docs/g2-mcp-server), which works in Claude, ChatGPT and Microsoft Copilot. G2's documentation, updated 29 October 2026, says you need a G2 account to sign in and that \"access to G2 data depends on your G2 subscription and entitlements.\" Some review data needs an Enterprise package. The connector returns G2 data, and its documentation does not mention Capterra, GetApp or Software Advice reviews, even though G2 now owns all three."
+  },
+  {
+    "type": "p",
+    "text": "Trustpilot sells API access as [an add-on for Trustpilot for Business users](https://developers.trustpilot.com/api-module-overview/), included on its Enterprise plan. In September 2026 it [announced an MCP service](https://www.prnewswire.com/it/comunicati-stampa/trustpilot-amplia-la-suite-ai-discovery-con-pagine-dedicate-alle-recensioni-di-prodotto-e-nuovi-strumenti-di-brand-intelligence-302888153.html) as part of a limited beta for Enterprise customers."
+  },
+  {
+    "type": "p",
+    "text": "For Capterra, the Shopify App Store, WooCommerce, Xero and QuickBooks, we found no official connector and no published API for reading your own reviews. On the Shopify App Store, for example, [you read and reply to reviews in the Partner Dashboard](https://shopify.dev/docs/apps/launch/marketing/manage-app-reviews). WordPress.org publishes plugin reviews openly, but offers no connector."
+  },
+  {
+    "type": "p",
+    "text": "We checked each platform's own documentation and the Claude and ChatGPT connector directories on 23 November 2026. The directories list hundreds of connectors and change weekly, so check again before you rely on this."
+  },
+  {
+    "type": "h2",
+    "text": "Why connecting platforms one at a time falls short"
+  },
+  {
+    "type": "p",
+    "text": "Say you could connect every platform separately. The questions worth asking still cross platforms. \"Which feature do five-star reviewers mention most?\" has a different answer on G2 than on the Shopify App Store, and the useful answer is the combined one. With separate connectors, you ask the same question several times, get several partial answers, and stitch them together yourself, which is the spreadsheet you were trying to avoid."
+  },
+  {
+    "type": "p",
+    "text": "The gaps make it worse. With no connector for most marketplaces, an assistant connected only to G2 answers confidently about G2 and stays silent about everything else. A summary that leaves out your Shopify listing reads exactly like a summary that includes it."
+  },
+  {
+    "type": "p",
+    "text": "Product teams with more than one product hit a third problem. Each platform organises reviews by its own listing, so \"how do customers describe product A compared with product B\" turns into another round of manual matching."
+  },
+  {
+    "type": "h2",
+    "text": "One connector for every platform, through Revly"
+  },
+  {
+    "type": "p",
+    "text": "Revly already pulls your reviews from [G2, Capterra, Trustpilot and the app marketplaces](/monitor-platforms/) into one dashboard, sorted by product. Its MCP server puts that whole library behind a single connector in Claude or ChatGPT, together with the analytics from your [Revly collection links](/collect-quality-reviews/)."
+  },
+  {
+    "type": "graphic",
+    "name": "one-connector"
+  },
+  {
+    "type": "p",
+    "text": "That changes the size of the question you can ask."
+  },
+  {
+    "type": "p",
+    "text": "Start with the quote you need while you write: \"Find the strongest line about onboarding from any five-star review this year, on any platform.\" The answer comes back with the reviewer, the platform and the date, so you can check it before it goes on a landing page, into an ad or onto a slide."
+  },
+  {
+    "type": "p",
+    "text": "Then ask how customers describe you: \"How do customers describe the reporting feature, in their own words?\" Reviews are a record of how buyers explain your product to each other, and that phrasing usually lands better in copy than anything written in a positioning workshop."
+  },
+  {
+    "type": "p",
+    "text": "Reporting no longer needs an export: \"Compare our average rating on each platform this quarter with last quarter, and list unanswered reviews under four stars.\" Save the prompt and ask it again next quarter. The data is current each time, so the report rebuilds itself."
+  },
+  {
+    "type": "p",
+    "text": "And you can find where collection breaks down: \"Which collection links brought in the most detailed reviews, and where do customers drop out?\" This is the part no review platform can tell you, because the record of who you asked and who finished sits in Revly."
+  },
+  {
+    "type": "p",
+    "text": "Whatever you ask, have the assistant cite the review behind each claim, and open a few of them yourself. Assistants summarise confidently, and a summary of 400 reviews is still a summary."
+  },
+  {
+    "type": "h2",
+    "text": "How do you add the Revly connector?"
+  },
+  {
+    "type": "p",
+    "text": "The setup has three parts: connect your review platforms in Revly, add Revly to your assistant once, and ask."
+  },
+  {
+    "type": "graphic",
+    "name": "setup-flow"
+  },
+  {
+    "type": "p",
+    "text": "Revly's MCP server address is https://app.revly.io/api/mcp, and the connector is included on the Team plan and above. The steps are the same as for any custom connector."
+  },
+  {
+    "type": "h3",
+    "text": "In Claude"
+  },
+  {
+    "type": "graphic",
+    "name": "claude-connector-steps"
+  },
+  {
+    "type": "p",
+    "text": "On Claude Team and Enterprise, an owner adds the connector first under Organization settings, then Connectors. Everyone else then finds it in their own Connectors list with a \"Custom\" label and clicks Connect. To use it in a chat, click the \"+\" in the lower left, go to Connectors and switch Revly on."
+  },
+  {
+    "type": "h3",
+    "text": "In ChatGPT"
+  },
+  {
+    "type": "graphic",
+    "name": "chatgpt-connector-steps"
+  },
+  {
+    "type": "p",
+    "text": "In a chat, type @ and pick Revly. The selection applies to one message at a time, so pick it again whenever you want your review data in the answer. Older guides send you through Developer mode, and [OpenAI's current help page](https://help.openai.com/en/articles/12584461-developer-mode-apps-and-full-mcp-connectors-in-chatgpt-beta) says you no longer need it."
+  },
+  {
+    "type": "h2",
+    "text": "Which Claude and ChatGPT plans support custom connectors?"
+  },
+  {
+    "type": "p",
+    "text": "Claude is the easier of the two. Anthropic's [custom connector guide](https://support.claude.com/en/articles/11175166-getting-started-with-custom-connectors-using-remote-mcp) lists every plan from Free to Enterprise, with one limit on Free: a single custom connector. ChatGPT keeps custom MCP servers to its workplace plans."
   },
   {
     "type": "graphic",
@@ -83,79 +208,7 @@ export const blocks = [
   },
   {
     "type": "p",
-    "text": "Plan names and limits are from Anthropic's and OpenAI's help centres as of 23 November 2026, and both change often."
-  },
-  {
-    "type": "p",
-    "text": "Before you buy a plan for this, know that OpenAI's [custom MCP help page](https://help.openai.com/en/articles/12584461-developer-mode-apps-and-full-mcp-connectors-in-chatgpt-beta) contradicts itself. It lists Business, Enterprise and Edu under Availability, then says in its FAQ that Pro users \"can connect custom MCP servers with read/fetch permissions.\" Reading reviews only needs read access, so a Pro account may well work. We would test it on your own account before counting on it."
-  },
-  {
-    "type": "h2",
-    "text": "How do you add a connector in Claude?"
-  },
-  {
-    "type": "p",
-    "text": "On a personal plan (Free, Pro or Max), the steps from Anthropic's guide are:"
-  },
-  {
-    "type": "graphic",
-    "name": "claude-connector-steps"
-  },
-  {
-    "type": "p",
-    "text": "On Team and Enterprise, an owner adds the connector first under Organization settings, then Connectors. After that, everyone else finds it in their own Connectors list with a \"Custom\" label and clicks Connect, which signs them in individually."
-  },
-  {
-    "type": "p",
-    "text": "To use it, open a chat, click the \"+\" in the lower left, go to Connectors and switch it on for that conversation. Anthropic also notes that editing a custom connector means removing it and adding it again with the new details, so get the URL right the first time."
-  },
-  {
-    "type": "h2",
-    "text": "How do you add one in ChatGPT?"
-  },
-  {
-    "type": "p",
-    "text": "Older guides send you through Developer mode. OpenAI's current page says you no longer need to turn it on, and the option now lives under Plugins. The steps on a Business, Enterprise or Edu workspace are:"
-  },
-  {
-    "type": "graphic",
-    "name": "chatgpt-connector-steps"
-  },
-  {
-    "type": "p",
-    "text": "In a chat, type @ and pick the connector, or choose it from the \"+\" menu. The selection applies to that one message, not the whole conversation, so you pick it again each time you want your review data in the answer."
-  },
-  {
-    "type": "p",
-    "text": "On Business, only admins and owners can create and publish these, so if the option is missing, that is usually why."
-  },
-  {
-    "type": "h2",
-    "text": "What should you ask once it is connected?"
-  },
-  {
-    "type": "p",
-    "text": "The connector is only as useful as the questions you put to it, and the best ones are the questions you would otherwise answer with an afternoon of exports and a spreadsheet."
-  },
-  {
-    "type": "p",
-    "text": "Start with the quote you need while you write: \"Find the three strongest quotes about onboarding from five-star G2 reviews this year.\" The answer comes back with the reviewer and the platform attached, so you can check the source before the line goes on a landing page."
-  },
-  {
-    "type": "p",
-    "text": "For customer language, \"How do customers describe the reporting feature in their own words?\" is the use we would start with. Reviews are a record of how buyers explain your product to each other, and that phrasing tends to land better in an ad or on a pricing page than anything written in a positioning workshop."
-  },
-  {
-    "type": "p",
-    "text": "For reporting, try \"Compare our average rating by platform this quarter with last quarter, and list unanswered reviews below four stars.\" Save the prompt and ask it again next quarter. The data is live each time, so the report updates itself."
-  },
-  {
-    "type": "p",
-    "text": "If your review tool also records collection, you can ask where customers drop out of the flow or which campaigns convert. That turns a vague sense that \"people are not finishing\" into the specific step to fix."
-  },
-  {
-    "type": "p",
-    "text": "Whatever you ask, have the assistant cite the review behind every claim, and open a few of them yourself. Assistants summarise confidently, and a summary of 400 reviews is still a summary."
+    "text": "OpenAI's help page contradicts itself on Pro. It lists Business, Enterprise and Edu under Availability, then says in its FAQ that Pro users \"can connect custom MCP servers with read/fetch permissions.\" Reading reviews only needs read access, so a Pro account may work, but we would test it on your own account first."
   },
   {
     "type": "h2",
@@ -163,34 +216,22 @@ export const blocks = [
   },
   {
     "type": "p",
-    "text": "Both assistants connect through OAuth, the same sign-in you use to connect Slack or Google Drive to another app. You approve access in the review tool's own login window, the assistant never sees your password, and you can revoke access whenever you like. In Claude, remove or disconnect the connector under Customize, then Connectors. In ChatGPT, disconnect it under Settings, then Plugins."
+    "text": "Both assistants connect through OAuth, the same sign-in you use when you connect Slack or Google Drive to another app. You approve access in Revly's own login window, the assistant never sees your password, and you can revoke access at any time: in Claude under Customize, then Connectors, and in ChatGPT under Settings, then Plugins."
   },
   {
     "type": "p",
-    "text": "Both vendors leave the judgment about which servers to trust with you. Anthropic's guide says custom connectors \"connect Claude to services that haven't been verified by Anthropic.\" OpenAI's page warns that \"connecting to unsafe or untrusted MCP servers may increase exposure to security risks (including prompt injection).\" In practice that means connecting servers run by the companies whose tools you already use, from the URL they publish, and treating any MCP server you found on a forum with the suspicion it deserves."
-  },
-  {
-    "type": "p",
-    "text": "Reviews are already public, so the exposure is smaller than connecting a CRM or a shared drive. The parts that are not public, like reviewer email addresses, collection data and incentive records, are worth a look in your review tool's documentation before you connect."
-  },
-  {
-    "type": "h2",
-    "text": "Connecting Revly to Claude or ChatGPT"
-  },
-  {
-    "type": "p",
-    "text": "Revly runs its own MCP server at https://app.revly.io/api/mcp, and it is included on the Team plan and above. Add it with the steps above, sign in with your Revly account, and the assistant can query every review Revly holds for you, across [G2, Capterra, Trustpilot and the app marketplaces your products are listed on](/monitor-platforms/), plus the analytics from your [Revly collection links](/collect-quality-reviews/)."
-  },
-  {
-    "type": "p",
-    "text": "The review platforms each hold their own slice of feedback, and the record of who you asked, who finished and where people dropped out sits in Revly. With both behind one connector, \"which campaign brought in our most detailed reviews last quarter\" is a single question. [More on what the Revly connector can do](/claude-mcp/)."
+    "text": "Both vendors leave the judgment about which servers to trust with you. Anthropic's guide says custom connectors \"connect Claude to services that haven't been verified by Anthropic.\" OpenAI warns that \"connecting to unsafe or untrusted MCP servers may increase exposure to security risks (including prompt injection).\" Connect servers run by the companies whose tools you already use, from the address they publish, and treat any review connector you found on a forum with the suspicion it deserves."
   }
 ];
 
 export const faqs = [
   {
-    "q": "What is an MCP connector?",
-    "a": "An MCP connector links an AI assistant like Claude or ChatGPT to an outside tool through the Model Context Protocol, an open standard Anthropic released in November 2024. Once connected, the assistant can look up data in that tool while you chat."
+    "q": "Can I connect all my review platforms to Claude or ChatGPT at once?",
+    "a": "Not through the platforms themselves. As of November 2026, G2 is the only one of G2, Capterra, Trustpilot and the main app marketplaces with a generally available official connector, and it covers G2 data. Connecting a tool that already holds reviews from every platform, like Revly, gives the assistant all of them through one connector."
+  },
+  {
+    "q": "Does G2 have a connector for Claude and ChatGPT?",
+    "a": "Yes. The G2 MCP Server works in Claude, ChatGPT and Microsoft Copilot. G2 says you need a G2 account to sign in, and that access to its data depends on your G2 subscription and entitlements."
   },
   {
     "q": "Can I connect review data to Claude on the free plan?",
@@ -201,16 +242,12 @@ export const faqs = [
     "a": "ChatGPT Business, Enterprise and Edu support custom MCP servers on the web, according to OpenAI's help centre as of November 2026. The same page says Pro users can connect them with read access only."
   },
   {
-    "q": "Do I need developer mode to add an MCP server in ChatGPT?",
-    "a": "No. OpenAI's current help page says you do not need to turn on Developer Mode first. You add the server from Plugins on chatgpt.com, using \"Add custom MCP server\"."
+    "q": "What can I ask once my reviews are connected?",
+    "a": "Anything you would ask someone who had read every review: the strongest quote on a topic, how customers describe a feature, rating changes by platform, unanswered low ratings, or which collection links bring in the most detailed reviews."
   },
   {
-    "q": "Can I set up a custom connector on my phone?",
-    "a": "In ChatGPT, no: custom MCP servers are web only. In Claude, mobile setup is in beta and Anthropic recommends the web or desktop app, but a connector added there works in the Claude mobile apps."
-  },
-  {
-    "q": "Can Claude or ChatGPT post replies to reviews through a connector?",
-    "a": "Only if the connector offers a tool for posting, and Revly's does not. Revly's connector reads review and collection data, and a person on your team still posts each reply on the review platform."
+    "q": "Can Claude or ChatGPT post replies to reviews through the Revly connector?",
+    "a": "No. Revly's connector reads review and collection data, and a person on your team still posts each reply on the review platform."
   },
   {
     "q": "How do I disconnect a review tool from Claude or ChatGPT?",
@@ -222,16 +259,16 @@ export const faqs = [
 export const CLAUDE_STEPS = [
   "Open [Customize, then Connectors](https://claude.ai/customize/connectors).",
   "Click \"+ Add\", then \"Add custom connector\". Some versions of the menu put this under \"Add\", then \"Custom\", then \"Web\".",
-  "Give it a name. This is what you will see in the connector list.",
-  "Paste the server URL exactly as your provider documents it, including the path at the end, and click Continue.",
-  "Keep the authentication settings Claude detects, unless your provider tells you otherwise, and click Add.",
-  "Sign in to the review tool when the window opens, and approve access."
+  "Name it Revly.",
+  "Paste https://app.revly.io/api/mcp and click Continue.",
+  "Keep the authentication settings Claude detects and click Add.",
+  "Sign in with your Revly account when the window opens, and approve access."
 ];
 export const CHATGPT_STEPS = [
   "Go to [Plugins](https://chatgpt.com/plugins) on chatgpt.com.",
   "Click the plus button, then \"Add custom MCP server\".",
-  "Enter a name, and a description if you want one.",
-  "Under Connection, paste the server URL.",
-  "Choose OAuth for authentication, tick \"I understand and want to continue\" under the risk warning, and select \"Create as a plugin\".",
-  "Review the tools ChatGPT found, install the plugin, and sign in to the review tool."
+  "Name it Revly.",
+  "Under Connection, paste https://app.revly.io/api/mcp.",
+  "Choose OAuth, tick \"I understand and want to continue\" under the risk warning, and select \"Create as a plugin\".",
+  "Install the plugin and sign in with your Revly account."
 ];

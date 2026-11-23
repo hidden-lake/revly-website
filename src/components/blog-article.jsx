@@ -98,6 +98,8 @@ function Block({ block }) {
       return <p className="bl-lead"><Inline text={block.text} /></p>;
     case 'h2':
       return <h2>{block.text}</h2>;
+    case 'h3':
+      return <h3>{block.text}</h3>;
     case 'quote':
       return (
         <blockquote className="bl-quote">

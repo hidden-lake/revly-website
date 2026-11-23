@@ -910,6 +910,97 @@ function McpPlans() {
   );
 }
 
+
+// Which platforms offer their own connector to Claude or ChatGPT (23 Nov 2026).
+const PLATFORM_CONNECTORS = [
+  { name: 'G2', status: 'Official connector', kind: 'on' },
+  { name: 'Trustpilot', status: 'Enterprise beta', kind: 'beta' },
+  { name: 'Capterra', status: 'None found', kind: 'off' },
+  { name: 'Shopify App Store', status: 'None found', kind: 'off' },
+  { name: 'WordPress.org', status: 'Public reviews, no connector', kind: 'off' },
+  { name: 'WooCommerce', status: 'None found', kind: 'off' },
+  { name: 'Xero App Store', status: 'None found', kind: 'off' },
+  { name: 'QuickBooks App Store', status: 'None found', kind: 'off' },
+];
+
+function PlatformConnectors() {
+  return (
+    <Fig>
+      <div className="fig-flow">
+        <div className="fig-tiles">
+          {PLATFORM_CONNECTORS.map((p) => (
+            <div key={p.name} className={`fig-tile fig-conn-${p.kind}`}>
+              <div className="n">{p.name}</div>
+              <div className="s">{p.status}</div>
+            </div>
+          ))}
+        </div>
+        <div className="fig-divider-note">Each official connector covers only its own platform's data</div>
+      </div>
+    </Fig>
+  );
+}
+
+const CONNECT_PLATFORMS = ['G2', 'Capterra', 'Trustpilot', 'Shopify', 'WordPress.org', 'WooCommerce', 'Xero', 'QuickBooks'];
+
+// Platform by platform versus one connector through Revly.
+function OneConnector() {
+  return (
+    <Fig>
+      <div className="fig-flow">
+        <div className="fig-flow-pair">
+          <div className="fig-branch">
+            <div className="fig-title">Platform by platform</div>
+            <div className="fig-source">Claude or ChatGPT</div>
+            <div className="fig-stem" aria-hidden="true" />
+            <div className="fig-fan">
+              {CONNECT_PLATFORMS.map((p) => (
+                <span key={p} className={p === 'G2' ? 'fig-dest' : 'fig-dest out'}>{p}</span>
+              ))}
+            </div>
+            <div className="fig-count">1 of 8 has a connector</div>
+          </div>
+          <div className="fig-branch">
+            <div className="fig-title">Through Revly</div>
+            <div className="fig-fan">
+              {CONNECT_PLATFORMS.map((p) => <span key={p} className="fig-dest">{p}</span>)}
+            </div>
+            <div className="fig-stem" aria-hidden="true" />
+            <div className="fig-source fig-source-accent">Revly</div>
+            <div className="fig-stem" aria-hidden="true" />
+            <div className="fig-source">Claude or ChatGPT</div>
+            <div className="fig-count">All 8, one connector</div>
+          </div>
+        </div>
+      </div>
+    </Fig>
+  );
+}
+
+const SETUP_FLOW = [
+  { n: '1', t: 'Connect your platforms in Revly', s: 'G2, Capterra, Trustpilot and the app marketplaces' },
+  { n: '2', t: 'Add the Revly connector once', s: 'In Claude or ChatGPT, then sign in with Revly' },
+  { n: '3', t: 'Ask across every review', s: 'All platforms and all products in one answer' },
+];
+
+function SetupFlow() {
+  return (
+    <Fig>
+      <div className="fig-flow">
+        <ol className="fig-setup">
+          {SETUP_FLOW.map((s) => (
+            <li key={s.n}>
+              <span className="n" aria-hidden="true">{s.n}</span>
+              <div className="t">{s.t}</div>
+              <div className="s">{s.s}</div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </Fig>
+  );
+}
+
 function ClaudeConnectorSteps() {
   return <NumberedSteps steps={CLAUDE_STEPS} />;
 }
@@ -920,6 +1011,9 @@ function ChatgptConnectorSteps() {
 
 const GRAPHICS = {
   'mcp-plans': McpPlans,
+  'platform-connectors': PlatformConnectors,
+  'one-connector': OneConnector,
+  'setup-flow': SetupFlow,
   'claude-connector-steps': ClaudeConnectorSteps,
   'chatgpt-connector-steps': ChatgptConnectorSteps,
   'change-table': ChangeTable,
