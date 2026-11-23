@@ -6,7 +6,7 @@ import { PRICING_FAQ } from '../lib/faqs.js';
 const PLANS = [
   {
     name: "Free", price: "$0", priceSub: "/mo", desc: "For getting started",
-    bullets: ["2 channels, 1 collection link","10 collected reviews/month","Same-day review monitoring","Email support"],
+    bullets: ["2 channels, 1 collection link","10 collected reviews/month","Daily review monitoring","Email support"],
     cta: { label: "Get started", href: "https://app.revly.io/signup" }, variant: "outline",
   },
   {
@@ -38,7 +38,7 @@ const COMPARE = [
     ["Managed clients", "—", "—", "—", "10+"],
   ]},
   { section: "Review Monitoring", rows: [
-    ["Review monitoring", "Same day", "Same day", "Same day", "Same day"],
+    ["Review monitoring", "Every day", "Every 6 hours", "Every 2 hours", "Every 2 hours"],
     ["AI response suggestions", "—", "✓", "✓", "✓"],
     ["AI sentiment analysis", "—", "✓", "✓", "✓"],
   ]},

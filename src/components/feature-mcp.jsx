@@ -84,7 +84,7 @@ export function McpScrolly() {
                       <span className="mcp-tool">✦ revly · search_reviews</span>
                       <div className="mcp-ans">
                         <p>Across 84 five-star reviews this quarter: onboarding speed (31), the unified dashboard (24), Slack alerts (11).</p>
-                        <div className="mcp-quote">"I stopped checking five tabs every morning. Everything shows up in one feed the same day."</div>
+                        <div className="mcp-quote">"I stopped checking five tabs every morning. Everything shows up in one feed within minutes."</div>
                         <div className="mcp-cite">Devon R. · G2 · 12 Mar</div>
                       </div>
                     </div>
