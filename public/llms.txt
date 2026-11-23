@@ -51,7 +51,7 @@ documentation and primary sources.
 - [How many G2 reviews do you actually need?](https://revly.io/blog/how-many-g2-reviews-do-you-need/): 10 reviews in a category for a Grid Report, 20 at a 4.0 average for Users Love Us, plus how G2's review decay curve works.
 - [G2 alternatives: where B2B software buyers actually read reviews](https://revly.io/blog/g2-alternatives/): The marketplace that distributes your product comes first, G2 second, then Capterra, Gartner Peer Insights and TrustRadius, with the incentive and verification rules that conflict between them.
 - [G2 badges explained: which ones you can earn, and what they cost](https://revly.io/blog/g2-badges-explained/): Users Love Us at 20 reviews and a 4.0 average, AI Users Trust at 25 responses, and why displaying most other G2 badges has needed a paid plan since June 2025.
-- [How to connect your review data to Claude or ChatGPT](https://revly.io/blog/connect-review-data-to-claude-chatgpt/): No review platform connects all your reviews to an AI assistant at once. G2 has its own connector, Trustpilot's is an Enterprise beta, the app marketplaces have none. How to query every platform through one connector, with setup steps for Claude and ChatGPT.
+- [How to connect your review data to Claude or ChatGPT](https://revly.io/blog/connect-review-data-to-claude-chatgpt/): No review platform connects all your reviews to an AI assistant at once. G2's connector covers G2 only and depends on your G2 plan, and most others have none. How to query every platform and product through Revly's one connector, with setup steps for Claude and ChatGPT.
 
 ## Monitored platforms
 

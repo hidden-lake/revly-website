@@ -874,12 +874,12 @@ function ChaseOrder() {
 // Post 5: How to connect your review data to Claude or ChatGPT
 // =============================================================================
 
-// Plan availability for custom MCP servers, from each vendor's help centre (23 Nov 2026).
+// Plan availability for custom MCP servers, from each vendor's help centre.
 const MCP_PLAN_ROWS = [
-  { label: 'Plans that can add a custom MCP server', claude: 'Free (one connector), Pro, Max, Ultra, Team, Enterprise', chatgpt: 'Business, Enterprise, Edu. Pro has read access only, per the same help page' },
+  { label: 'Plans that can add a custom connector', claude: 'Free (one connector), Pro, Max, Ultra, Team, Enterprise', chatgpt: 'Business, Enterprise, Edu. Pro with read access only' },
   { label: 'Who adds it on a company plan', claude: 'Owners and Primary Owners on Team. Owners, Primary Owners or a custom role with access to Libraries on Enterprise', chatgpt: 'Admins and owners. On Enterprise and Edu, admins can grant other members permission' },
-  { label: 'Where you set it up', claude: 'Web and desktop. Mobile setup is in beta', chatgpt: 'Web only' },
-  { label: 'Where you can use it once connected', claude: 'Web, desktop and the mobile apps', chatgpt: 'Web. OpenAI does not say whether it works in the mobile apps' },
+  { label: 'Where you set it up', claude: 'Web and desktop', chatgpt: 'Web only' },
+  { label: 'Where you can use it once connected', claude: 'Web, desktop and the mobile apps', chatgpt: 'Web' },
   { label: 'Each person signs in separately', claude: 'Yes', chatgpt: 'Yes' },
 ];
 
@@ -964,12 +964,13 @@ function OneConnector() {
             <div className="fig-title">Through Revly</div>
             <div className="fig-fan">
               {CONNECT_PLATFORMS.map((p) => <span key={p} className="fig-dest">{p}</span>)}
+              <span className="fig-dest out">+ more coming</span>
             </div>
             <div className="fig-stem" aria-hidden="true" />
             <div className="fig-source fig-source-accent">Revly</div>
             <div className="fig-stem" aria-hidden="true" />
             <div className="fig-source">Claude or ChatGPT</div>
-            <div className="fig-count">All 8, one connector</div>
+            <div className="fig-count">Every platform, one connector</div>
           </div>
         </div>
       </div>
