@@ -11,6 +11,7 @@
 // be quoted back by an answer engine as though a customer wrote it.
 import React from 'react';
 import { Inline } from './blog-inline.jsx';
+import { CLAUDE_STEPS, CHATGPT_STEPS } from '../content/post-connect-review-data-ai.js';
 
 // ---------------------------------------------------------------- shared bits
 function Fig({ children, wide = true, className = '' }) {
@@ -868,7 +869,154 @@ function ChaseOrder() {
 }
 
 // ---------------------------------------------------------------- registry
+
+// =============================================================================
+// Post 5: How to connect your review data to Claude or ChatGPT
+// =============================================================================
+
+// Plan availability for custom MCP servers, from each vendor's help centre.
+const MCP_PLAN_ROWS = [
+  { label: 'Plans that can add a custom connector', claude: 'Free (one connector), Pro, Max, Ultra, Team, Enterprise', chatgpt: 'Business, Enterprise, Edu. Pro with read access only' },
+  { label: 'Who adds it on a company plan', claude: 'Owners and Primary Owners on Team. Owners, Primary Owners or a custom role with access to Libraries on Enterprise', chatgpt: 'Admins and owners. On Enterprise and Edu, admins can grant other members permission' },
+  { label: 'Where you set it up', claude: 'Web and desktop', chatgpt: 'Web only' },
+  { label: 'Where you can use it once connected', claude: 'Web, desktop and the mobile apps', chatgpt: 'Web' },
+  { label: 'Each person signs in separately', claude: 'Yes', chatgpt: 'Yes' },
+];
+
+function McpPlans() {
+  return (
+    <Fig>
+      <div className="fig-scroll">
+        <table className="fig-table">
+          <thead>
+            <tr>
+              <th scope="col">&nbsp;</th>
+              <th scope="col">Claude</th>
+              <th scope="col">ChatGPT</th>
+            </tr>
+          </thead>
+          <tbody>
+            {MCP_PLAN_ROWS.map((r) => (
+              <tr key={r.label}>
+                <th scope="row" style={{ fontWeight: 500, textAlign: 'left' }}>{r.label}</th>
+                <td className="val">{r.claude}</td>
+                <td className="val">{r.chatgpt}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </Fig>
+  );
+}
+
+
+// Which platforms offer their own connector to Claude or ChatGPT (23 Nov 2026).
+const PLATFORM_CONNECTORS = [
+  { name: 'G2', status: 'Official connector', kind: 'on' },
+  { name: 'Trustpilot', status: 'Enterprise beta', kind: 'beta' },
+  { name: 'Capterra', status: 'None found', kind: 'off' },
+  { name: 'Shopify App Store', status: 'None found', kind: 'off' },
+  { name: 'WordPress.org', status: 'Public reviews, no connector', kind: 'off' },
+  { name: 'WooCommerce', status: 'None found', kind: 'off' },
+  { name: 'Xero App Store', status: 'None found', kind: 'off' },
+  { name: 'QuickBooks App Store', status: 'None found', kind: 'off' },
+];
+
+function PlatformConnectors() {
+  return (
+    <Fig>
+      <div className="fig-flow">
+        <div className="fig-tiles">
+          {PLATFORM_CONNECTORS.map((p) => (
+            <div key={p.name} className={`fig-tile fig-conn-${p.kind}`}>
+              <div className="n">{p.name}</div>
+              <div className="s">{p.status}</div>
+            </div>
+          ))}
+        </div>
+        <div className="fig-divider-note">Each official connector covers only its own platform's data</div>
+      </div>
+    </Fig>
+  );
+}
+
+const CONNECT_PLATFORMS = ['G2', 'Capterra', 'Trustpilot', 'Shopify', 'WordPress.org', 'WooCommerce', 'Xero', 'QuickBooks'];
+
+// Platform by platform versus one connector through Revly.
+function OneConnector() {
+  return (
+    <Fig>
+      <div className="fig-flow">
+        <div className="fig-flow-pair">
+          <div className="fig-branch">
+            <div className="fig-title">Platform by platform</div>
+            <div className="fig-source">Claude or ChatGPT</div>
+            <div className="fig-stem" aria-hidden="true" />
+            <div className="fig-fan">
+              {CONNECT_PLATFORMS.map((p) => (
+                <span key={p} className={p === 'G2' ? 'fig-dest' : 'fig-dest out'}>{p}</span>
+              ))}
+            </div>
+            <div className="fig-count">1 of 8 has a connector</div>
+          </div>
+          <div className="fig-branch">
+            <div className="fig-title">Through Revly</div>
+            <div className="fig-fan">
+              {CONNECT_PLATFORMS.map((p) => <span key={p} className="fig-dest">{p}</span>)}
+              <span className="fig-dest out">+ more coming</span>
+            </div>
+            <div className="fig-stem" aria-hidden="true" />
+            <div className="fig-source fig-source-accent">Revly</div>
+            <div className="fig-stem" aria-hidden="true" />
+            <div className="fig-source">Claude or ChatGPT</div>
+            <div className="fig-count">Every platform, one connector</div>
+          </div>
+        </div>
+      </div>
+    </Fig>
+  );
+}
+
+const SETUP_FLOW = [
+  { n: '1', t: 'Connect your platforms in Revly', s: 'G2, Capterra, Trustpilot and the app marketplaces' },
+  { n: '2', t: 'Turn on Revly AI + MCP', s: 'In Settings, under Integrations, then add it to Claude or ChatGPT once' },
+  { n: '3', t: 'Ask across every review', s: 'All platforms and all products in one answer' },
+];
+
+function SetupFlow() {
+  return (
+    <Fig>
+      <div className="fig-flow">
+        <ol className="fig-setup">
+          {SETUP_FLOW.map((s) => (
+            <li key={s.n}>
+              <span className="n" aria-hidden="true">{s.n}</span>
+              <div className="t">{s.t}</div>
+              <div className="s">{s.s}</div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </Fig>
+  );
+}
+
+function ClaudeConnectorSteps() {
+  return <NumberedSteps steps={CLAUDE_STEPS} />;
+}
+
+function ChatgptConnectorSteps() {
+  return <NumberedSteps steps={CHATGPT_STEPS} />;
+}
+
 const GRAPHICS = {
+  'mcp-plans': McpPlans,
+  'platform-connectors': PlatformConnectors,
+  'one-connector': OneConnector,
+  'setup-flow': SetupFlow,
+  'claude-connector-steps': ClaudeConnectorSteps,
+  'chatgpt-connector-steps': ChatgptConnectorSteps,
   'change-table': ChangeTable,
   syndication: Syndication,
   'four-properties': FourProperties,

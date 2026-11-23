@@ -389,3 +389,22 @@
 .learn-grid .bl-card h3 { font-size: 1.15rem; }
 .learn-cta { margin-left: auto; color: hsl(var(--primary-text)); font-weight: 700; }
 .learn-grid .bl-meta span::after { content: ""; }
+
+/* Post 5: connecting review data to Claude or ChatGPT */
+.fig-tile.fig-conn-on { border-color: hsl(var(--primary)); background: hsl(var(--muted)); }
+.fig-tile.fig-conn-on .s { color: hsl(var(--primary-text)); font-weight: 700; }
+.fig-tile.fig-conn-beta { border-style: dashed; border-color: hsl(var(--secondary)/0.7); }
+.fig-tile.fig-conn-off { border-style: dashed; }
+.fig-tile.fig-conn-off .n { color: hsl(var(--foreground)/0.6); }
+.fig-branch .fig-title { margin-bottom: 1rem; }
+.fig-source-accent { background: hsl(var(--primary)); }
+.fig-setup { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: .85rem; counter-reset: none; }
+@media (min-width: 720px) { .fig-setup { grid-template-columns: repeat(3, 1fr); } }
+.fig-setup li { position: relative; background: hsl(var(--background)); border: 1px solid hsl(var(--border)); border-radius: .85rem; padding: 1.1rem 1rem 1.15rem; text-align: center; }
+.fig-setup .n { display: inline-flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; border-radius: 999px; background: hsl(var(--primary)); color: #fff; font-weight: 800; margin-bottom: .6rem; }
+.fig-setup .t { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: .98rem; margin-bottom: .3rem; }
+.fig-setup .s { font-size: .82rem; color: hsl(var(--foreground)/0.55); line-height: 1.45; }
+@media (min-width: 720px) {
+  .fig-setup li + li::before { content: ""; position: absolute; left: -.85rem; top: 2rem; width: .85rem; height: 2px; background: hsl(var(--border)); }
+}
+.bl-body h3 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 1.2rem; margin: 2rem 0 .75rem; }
