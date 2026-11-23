@@ -979,7 +979,7 @@ function OneConnector() {
 
 const SETUP_FLOW = [
   { n: '1', t: 'Connect your platforms in Revly', s: 'G2, Capterra, Trustpilot and the app marketplaces' },
-  { n: '2', t: 'Add the Revly connector once', s: 'In Claude or ChatGPT, then sign in with Revly' },
+  { n: '2', t: 'Turn on Revly AI + MCP', s: 'In Settings, under Integrations, then add it to Claude or ChatGPT once' },
   { n: '3', t: 'Ask across every review', s: 'All platforms and all products in one answer' },
 ];
 

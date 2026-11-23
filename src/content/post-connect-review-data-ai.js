@@ -159,7 +159,7 @@ export const blocks = [
   },
   {
     "type": "p",
-    "text": "The setup has three parts: connect your review platforms in Revly, add Revly to your assistant once, and ask."
+    "text": "The setup has three parts: connect your review platforms in Revly, turn on the connector and add it to your assistant once, then ask."
   },
   {
     "type": "graphic",
@@ -167,7 +167,7 @@ export const blocks = [
   },
   {
     "type": "p",
-    "text": "Revly's MCP server address is https://app.revly.io/api/mcp, and the connector is included on the Team plan and above. The steps are the same as for any custom connector."
+    "text": "The connector is included on the Team plan and above. In Revly, open Settings, scroll down to Integrations and find Revly AI + MCP. Turn it on there and copy the connector address it gives you. The steps in Claude and ChatGPT are then the same as for any custom connector."
   },
   {
     "type": "h3",
@@ -260,7 +260,7 @@ export const CLAUDE_STEPS = [
   "Open [Customize, then Connectors](https://claude.ai/customize/connectors).",
   "Click \"+ Add\", then \"Add custom connector\". Some versions of the menu put this under \"Add\", then \"Custom\", then \"Web\".",
   "Name it Revly.",
-  "Paste https://app.revly.io/api/mcp and click Continue.",
+  "Paste the connector address from Revly AI + MCP and click Continue.",
   "Keep the authentication settings Claude detects and click Add.",
   "Sign in with your Revly account when the window opens, and approve access."
 ];
@@ -268,7 +268,7 @@ export const CHATGPT_STEPS = [
   "Go to [Plugins](https://chatgpt.com/plugins) on chatgpt.com.",
   "Click the plus button, then \"Add custom MCP server\".",
   "Name it Revly.",
-  "Under Connection, paste https://app.revly.io/api/mcp.",
+  "Under Connection, paste the connector address from Revly AI + MCP.",
   "Choose OAuth, tick \"I understand and want to continue\" under the risk warning, and select \"Create as a plugin\".",
   "Install the plugin and sign in with your Revly account."
 ];
