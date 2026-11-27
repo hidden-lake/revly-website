@@ -12,6 +12,7 @@
 import React from 'react';
 import { Inline } from './blog-inline.jsx';
 import { CLAUDE_STEPS, CHATGPT_STEPS } from '../content/post-connect-review-data-ai.js';
+import { G2_RULES, G2_ADVICE, NEGATIVE_REVIEW_PATHS, REPLY_ANATOMY } from '../content/post-respond-to-negative-g2-review.js';
 
 // ---------------------------------------------------------------- shared bits
 function Fig({ children, wide = true, className = '' }) {
@@ -1010,6 +1011,88 @@ function ChatgptConnectorSteps() {
   return <NumberedSteps steps={CHATGPT_STEPS} />;
 }
 
+
+// =============================================================================
+// Post 6: How to respond to a negative G2 review
+// =============================================================================
+
+// What G2 enforces on the left, what it only suggests on the right. Each line links
+// to the G2 page it comes from.
+function RuleLines({ items, dim }) {
+  return (
+    <ul className={`fig-list ${dim ? 'dim' : ''}`}>
+      {items.map((r) => (
+        <li key={r.text}>
+          <span>
+            {r.text}{' '}
+            <a className="fig-src" href={r.href} target="_blank" rel="noopener">Source</a>
+          </span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function G2RulesVsAdvice() {
+  return (
+    <Fig>
+      <div className="fig-split">
+        <div className="fig-col">
+          <h4>What G2 requires</h4>
+          <div className="fig-sub">Guidelines and documentation. Enforced.</div>
+          <RuleLines items={G2_RULES} />
+        </div>
+        <div className="fig-col">
+          <h4>What G2 suggests</h4>
+          <div className="fig-sub">G2's own guides. Good advice, not enforced.</div>
+          <RuleLines items={G2_ADVICE} dim />
+        </div>
+      </div>
+    </Fig>
+  );
+}
+
+// Reply or report: each kind of negative review on the left, the action it gets on
+// the right. The arrow is decorative; the row reads in order without it.
+function NegativeReviewPaths() {
+  return (
+    <Fig>
+      <ol className="fig-paths">
+        {NEGATIVE_REVIEW_PATHS.map((p) => (
+          <li key={p.review}>
+            <div className="fig-path-review">{p.review}</div>
+            <span className="fig-path-arrow" aria-hidden="true">&rarr;</span>
+            <div className="fig-path-action">
+              <span className={`fig-path-pill ${p.kind}`}>{p.action}</span>
+              <div className="fig-path-detail">{p.detail}</div>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </Fig>
+  );
+}
+
+// The four parts of a reply, in order.
+function ReplyAnatomy() {
+  return (
+    <Fig>
+      <div className="fig-flow">
+        <ol className="fig-setup fig-setup-4">
+          {REPLY_ANATOMY.map((s, i) => (
+            <li key={s.step}>
+              <span className="n" aria-hidden="true">{i + 1}</span>
+              <div className="t">{s.step}</div>
+              <div className="s">{s.line}</div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </Fig>
+  );
+}
+
+
 const GRAPHICS = {
   'mcp-plans': McpPlans,
   'platform-connectors': PlatformConnectors,
@@ -1040,6 +1123,9 @@ const GRAPHICS = {
   'ai-trust-tiers': AiTrustTiers,
   'release-dates': ReleaseDates,
   'chase-order': ChaseOrder,
+  'g2-rules-vs-advice': G2RulesVsAdvice,
+  'negative-review-paths': NegativeReviewPaths,
+  'reply-anatomy': ReplyAnatomy,
 };
 
 // An unknown name renders nothing rather than crashing the build, but it is a
