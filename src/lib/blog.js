@@ -12,6 +12,7 @@ import { meta as howManyMeta, blocks as howManyBlocks, faqs as howManyFaqs } fro
 import { meta as alternativesMeta, blocks as alternativesBlocks, faqs as alternativesFaqs } from '../content/post-g2-alternatives.js';
 import { meta as mcpMeta, blocks as mcpBlocks, faqs as mcpFaqs } from '../content/post-connect-review-data-ai.js';
 import { meta as badgesMeta, blocks as badgesBlocks, faqs as badgesFaqs } from '../content/post-g2-badges-explained.js';
+import { meta as respondToNegativeG2ReviewMeta, blocks as respondToNegativeG2ReviewBlocks, faqs as respondToNegativeG2ReviewFaqs } from '../content/post-respond-to-negative-g2-review.js';
 
 export const POSTS = [
   { ...g2CapterraMeta, blocks: g2CapterraBlocks, faqs: g2CapterraFaqs },
@@ -19,6 +20,7 @@ export const POSTS = [
   { ...alternativesMeta, blocks: alternativesBlocks, faqs: alternativesFaqs },
   { ...badgesMeta, blocks: badgesBlocks, faqs: badgesFaqs },
   { ...mcpMeta, blocks: mcpBlocks, faqs: mcpFaqs },
+  { ...respondToNegativeG2ReviewMeta, blocks: respondToNegativeG2ReviewBlocks, faqs: respondToNegativeG2ReviewFaqs },
 ];
 
 // Newest first on the index. Sorting on the ISO date rather than the display string.
